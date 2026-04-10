@@ -3,12 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "#" },
+  { label: "Portfolio", href: "/portfolio" },
 ];
 
 export default function Header() {
@@ -65,16 +66,18 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Link
-            href="#"
-            className={`inline-flex min-h-[42px] items-center justify-center rounded-full px-5 text-[14px] font-medium transition-transform duration-200 hover:scale-[1.02] lg:min-h-[50px] lg:min-w-[180px] lg:px-8 lg:text-[15px] ${
+          <Button
+            href="/contact"
+            size="md"
+            variant={isScrolled ? "primary" : "secondary"}
+            className={`transition-transform duration-200 hover:scale-[1.02] lg:min-h-[50px] lg:min-w-[180px] lg:px-8 lg:text-[15px] ${
               isScrolled
-                ? "bg-[#1b325d] text-white"
+                ? ""
                 : "bg-white text-[#1b325d]"
             }`}
           >
             Contact us
-          </Link>
+          </Button>
         </div>
 
         <button
@@ -111,13 +114,15 @@ export default function Header() {
             ))}
           </nav>
 
-          <Link
-            href="#"
+          <Button
+            href="/contact"
+            variant="secondary"
+            fullWidth
             onClick={() => setIsOpen(false)}
-            className="mt-5 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-white px-6 text-[15px] font-medium text-[#1b325d]"
+            className="mt-5 text-[15px] text-[#1b325d]"
           >
             Contact us
-          </Link>
+          </Button>
         </div>
       ) : null}
     </header>

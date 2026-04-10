@@ -19,8 +19,8 @@ export default function Hero() {
 
       <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1568px] items-center px-5 pb-10 pt-24 sm:px-8 sm:pb-10 sm:pt-30 lg:px-10 lg:pb-8 lg:pt-[102px] xl:px-16 xl:pt-[134px]">
         <div className="w-full max-w-[545px]">
-          <h1 className="pt-12 text-[2.95rem] font-bold leading-[0.98] tracking-[-0.04em] text-white sm:pt-14 sm:text-[3.7rem] md:text-[4.25rem] lg:pt-0 lg:text-[72px] xl:text-[78px]">
-            Services
+          <h1 className="pt-12 text-[2.85rem] font-bold leading-[0.98] tracking-[-0.04em] text-white sm:pt-14 sm:text-[3.5rem] md:text-[4rem] lg:pt-0 lg:text-[72px] xl:text-[78px]">
+            Contact us
           </h1>
         </div>
       </div>

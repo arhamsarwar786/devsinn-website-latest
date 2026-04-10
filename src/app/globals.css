@@ -30,6 +30,10 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -39,4 +43,40 @@ h6,
 button,
 a {
   font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+:where(a, button, [role="button"], input, select, textarea):focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(10, 24, 54, 0.92),
+    0 0 0 5px rgba(126, 223, 255, 0.4);
+}
+
+.hero-dot {
+  animation: heroPulse 4.6s ease-in-out infinite;
+}
+
+
+@keyframes heroPulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 1;
+  }
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-12px, 8px, 0) rotate(6deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
 }

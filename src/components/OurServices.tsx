@@ -111,7 +111,7 @@ export default function OurServices() {
           {services.map((service) => (
             <article
               key={service.titleLines.join(" ")}
-              className="min-h-[240px] rounded-[24px] bg-white px-[24px] pb-[24px] pt-[18px] text-[#172D56] lg:h-[248px]"
+              className="group min-h-[240px] rounded-[24px] border border-transparent bg-white px-[24px] pb-[24px] pt-[18px] text-[#172D56] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(4,21,53,0.22)] lg:h-[248px]"
             >
               <div className="flex h-[42px] items-start overflow-visible">
                 <Image
@@ -119,7 +119,7 @@ export default function OurServices() {
                   alt={service.titleLines.join(" ")}
                   width={service.iconWidth}
                   height={service.iconHeight}
-                  className="h-auto w-auto origin-top-left object-contain"
+                  className="h-auto w-auto origin-top-left object-contain transition-transform duration-300 group-hover:scale-105"
                   style={{ transform: `scale(${service.iconScale})` }}
                 />
               </div>

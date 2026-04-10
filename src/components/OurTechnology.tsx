@@ -53,7 +53,7 @@ export default function OurTechnology() {
           {cards.map((card, index) => (
             <article
               key={card.image}
-              className={`overflow-hidden rounded-[20px] border border-[#EAECF0] bg-white ${
+              className={`overflow-hidden rounded-[20px] border border-[#EAECF0] bg-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.14)] ${
                 index === 2 ? "md:col-span-2 xl:col-span-1" : ""
               }`}
             >
@@ -63,7 +63,7 @@ export default function OurTechnology() {
                   alt={card.alt}
                   fill
                   sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             </article>

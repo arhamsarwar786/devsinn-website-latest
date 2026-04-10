@@ -63,7 +63,7 @@ export default function OurTeam() {
           {teamMembers.map((member, index) => (
             <article
               key={`${member.name}-${index}`}
-              className="relative mx-auto flex h-[395px] w-full max-w-[301px] items-end overflow-hidden rounded-[24px] sm:h-[410px] lg:h-[430px]"
+              className="relative mx-auto flex h-[395px] w-full max-w-[301px] items-end overflow-hidden rounded-[24px] border border-transparent transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.18)] sm:h-[410px] lg:h-[430px]"
               style={{ backgroundColor: member.background }}
             >
               <div
@@ -85,7 +85,7 @@ export default function OurTeam() {
                   alt={member.name}
                   fill
                   sizes="(max-width: 639px) 241px, (max-width: 1279px) 241px, 241px"
-                  className="object-contain object-bottom"
+                  className="object-contain object-bottom transition-transform duration-300 hover:scale-105"
                 />
               </div>
 

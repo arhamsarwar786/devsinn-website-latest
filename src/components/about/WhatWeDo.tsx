@@ -39,7 +39,7 @@ export default function WhatWeDo() {
           {items.map((item) => (
             <article
               key={item.eyebrow}
-              className="min-h-[320px] rounded-[18px] border border-[#d7dceb] bg-white px-7 py-8 text-[#2f2f34] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] sm:min-h-[340px] sm:px-8 sm:py-9 lg:min-h-[348px] lg:rounded-[16px] lg:px-[29px] lg:py-[30px]"
+              className="min-h-[320px] rounded-[18px] border border-[#d7dceb] bg-white px-7 py-8 text-[#2f2f34] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_24px_48px_rgba(13,35,78,0.2)] sm:min-h-[340px] sm:px-8 sm:py-9 lg:min-h-[348px] lg:rounded-[16px] lg:px-[29px] lg:py-[30px]"
             >
               <p className="text-[2rem] font-bold leading-none tracking-[-0.03em] text-[#203869] sm:text-[2.15rem] lg:text-[29px]">
                 {item.eyebrow}
