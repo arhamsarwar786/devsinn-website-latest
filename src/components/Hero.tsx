@@ -37,15 +37,17 @@ export default function Hero() {
         <div className="flex flex-1 items-center pt-12 sm:pt-16 lg:pt-0">
           <div className="w-full max-w-[545px] xl:max-w-[545px]">
             <h1
-              className="max-w-[545px] text-[2.35rem] font-bold uppercase leading-[0.98] tracking-[-0.04em] text-white sm:text-[3.5rem] md:text-[4rem] lg:text-[50px] xl:text-[60px] xl:leading-[1.231666667]"
+              className="max-w-[545px] text-[2.05rem] font-bold uppercase leading-[0.96] tracking-[-0.04em] text-white sm:text-[3.5rem] md:text-[4rem] lg:text-[50px] xl:text-[60px] xl:leading-[1.231666667]"
             >
-              <span className="block">WE BUILD &amp; REFINE</span>
+              <span className="block sm:hidden">WE BUILD &amp;</span>
+              <span className="block sm:hidden">REFINE</span>
+              <span className="hidden sm:block">WE BUILD &amp; REFINE</span>
               <span className="block">SMART WEB</span>
               <span className="block">SOLUTIONS</span>
             </h1>
 
             <p
-              className="mt-5 max-w-[545px] text-[1rem] leading-[1.35] font-medium text-white/95 sm:text-[1.125rem] lg:max-w-[545px] lg:text-[18px] lg:leading-[21px]"
+              className="mt-5 max-w-[545px] text-[0.95rem] leading-[1.32] font-medium text-white/95 sm:text-[1.125rem] lg:max-w-[545px] lg:text-[18px] lg:leading-[21px]"
             >
               Realise your vision securely, collaborating effortlessly with
               anyone, anywhere, on any device.
