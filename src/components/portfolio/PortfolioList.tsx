@@ -18,31 +18,31 @@ const portfolioItems = [
     alt: "Doky product website showcase",
   },
   {
-    src: "/portfolio/Bakery shopping application- case study - Ivelina Valkova-2.png",
+    src: "/portfolio/portfolio3.png",
     alt: "Bargain Ex marketplace showcase",
   },
   {
-    src: "/portfolio/Project Management Mobile Application UI Design-3.png",
+    src: "/portfolio/portfolio4.png",
     alt: "RubnQub ecommerce showcase",
   },
   {
-    src: "/portfolio/Fitness Mobile Application-UX_UI Design-3.png",
+    src: "/portfolio/portfolio5.png",
     alt: "WyzePay website showcase",
   },
   {
-    src: "/portfolio/Bakery shopping application- case study - Ivelina Valkova-3.png",
+    src: "/portfolio/portfolio6.png",
     alt: "Locksmith website showcase",
   },
   {
-    src: "/portfolio/Project Management Mobile Application UI Design-4.png",
+    src: "/portfolio/portfolio7.png",
     alt: "Jiffy services website showcase",
   },
   {
-    src: "/portfolio/Fitness Mobile Application-UX_UI Design-4.png",
+    src: "/portfolio/portfolio8.png",
     alt: "MeriRide website showcase",
   },
   {
-    src: "/portfolio/Bakery shopping application- case study - Ivelina Valkova-4.png",
+    src: "/portfolio/portfolio9.png",
     alt: "Imazing ecommerce website showcase",
   },
 ];
