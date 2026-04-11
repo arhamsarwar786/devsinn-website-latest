@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const services = [
   {
+    id: "Creative-Design",
     titleLines: ["Creative Design", "and animations"],
     description:
       "Unleash visual storytelling with stunning designs and animations. We craft sleek graphics and dynamic visuals to captivate audiences, enhance marketing, and elevate your brand's digital presence. Tailored for websites, social media, and campaigns, our work leaves lasting impressions.",
@@ -11,6 +12,7 @@ const services = [
     imageAlt: "Creative design and animations illustration",
   },
   {
+    id: "Web-Development-Solutions",
     titleLines: ["Web", "Development"],
     description:
       "Devs'inn provides tailored web solutions to boost your business. From corporate websites to ecommerce platforms, we deliver user-friendly, visually appealing, high-performance designs. With cutting-edge technology, we build strong online presences that align with your vision and goals.",
@@ -19,6 +21,7 @@ const services = [
     imageAlt: "Web development illustration",
   },
   {
+    id: "App-Development-Solutions",
     titleLines: ["App", "Development"],
     description:
       "Devs'inn delivers innovative app solutions to elevate your business. From corporate apps to feature-rich ecommerce platforms, we craft user-friendly, high-performance designs. Combining creativity and technology, we create seamless mobile experiences that engage audiences and drive business success.",
@@ -27,6 +30,7 @@ const services = [
     imageAlt: "App development illustration",
   },
   {
+    id: "Game-Development",
     titleLines: ["Game", "Development"],
     description:
       "Bring your ideas to life with our game development services. We create immersive games for mobile, PC, and consoles, blending creativity and technology. From concept to deployment, we deliver high-quality graphics, captivating stories, and seamless gameplay experiences players will love.",
@@ -35,6 +39,7 @@ const services = [
     imageAlt: "Game development illustration",
   },
   {
+    id: "Cloud-Computing-Services",
     titleLines: ["Cloud Computing", "Services"],
     description:
       "Unlock scalability and efficiency with our tailored cloud computing services. From migration to management, we ensure seamless data access, enhanced security, and cost-effective operations. Whether public, private, or hybrid, our reliable solutions support your growth and innovation.",
@@ -43,6 +48,7 @@ const services = [
     imageAlt: "Cloud computing services illustration",
   },
   {
+    id: "Digital-Marketing",
     titleLines: ["Digital Marketing"],
     description:
       "Maximize online visibility and grow your business with our digital marketing services. We specialize in SEO, social media, content, ads, and email campaigns. Our data-driven strategies boost brand awareness, traffic, and conversions, delivering personalized solutions for your success.",
@@ -89,7 +95,7 @@ export default function List() {
               </p>
 
               <Link
-                href="#"
+                href={`/services/${service.id}`}
                 className="mt-8 inline-flex min-h-[54px] min-w-[176px] items-center justify-center rounded-full bg-[#1f3769] px-7 text-[1rem] font-medium text-white transition-transform duration-200 hover:scale-[1.02] sm:min-h-[56px] sm:min-w-[200px] sm:text-[1.06rem]"
               >
                 {service.buttonLabel}
