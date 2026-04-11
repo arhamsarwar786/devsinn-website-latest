@@ -1,15 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const aboutLinks = ["Company", "Why Chose Us", "Contact Us"];
-const resourceLinks = ["Terms and Condition", "Support"];
-const socialLinks = [
-  "Creative Design",
-  "Web Development",
-  "App Development",
-  "Digital Marketing",
-  "Game Development",
-  "Cloud Computing Services",
+const aboutLinks = [
+  { label: "Company", href: "/about" },
+  { label: "Why Chose Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+const resourceLinks = [
+  { label: "Terms and Condition", href: "/contact" },
+  { label: "Support", href: "/contact" },
+];
+
+const serviceLinks = [
+  { label: "Creative Design", href: "/services/Creative-Design-and-Animations" },
+  { label: "Web Development", href: "/services/Web-Development-Solutions" },
+  { label: "App Development", href: "/services/App-Development-Solutions" },
+  { label: "Digital Marketing", href: "/services/Digital-Marketing-Solutions" },
+  { label: "Game Development", href: "/services/Game-Development-Solutions" },
+  { label: "Cloud Computing Services", href: "/services/Cloud-Computing-Services" },
 ];
 
 const footerIcons = [
@@ -23,7 +32,7 @@ export default function Footer() {
     <footer className="bg-white px-5 py-14 text-[#0E1D3C] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 lg:flex-row lg:gap-[96px]">
         <div className="w-full max-w-[413px] shrink-0">
-          <Link href="#" className="inline-flex">
+          <Link href="/" className="inline-flex">
             <Image
               src="/devsinnlogo.png"
               alt="Dev's Inn Technologies"
@@ -66,11 +75,11 @@ export default function Footer() {
             <div className="mt-5 flex flex-col gap-[12px]">
               {aboutLinks.map((item) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>
@@ -83,11 +92,11 @@ export default function Footer() {
             <div className="mt-5 flex flex-col gap-[12px]">
               {resourceLinks.map((item) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>
@@ -98,13 +107,13 @@ export default function Footer() {
               Social Media
             </h3>
             <div className="mt-5 flex flex-col gap-[10px]">
-              {socialLinks.map((item) => (
+              {serviceLinks.map((item) => (
                 <Link
-                  key={item}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </div>
