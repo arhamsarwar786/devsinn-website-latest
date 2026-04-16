@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 const navItems = [
@@ -31,7 +32,10 @@ export default function Header() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
       className={`fixed inset-x-0 top-0 z-50 [font-family:var(--font-poppins)] transition-colors duration-300 ${
         isScrolled
           ? "bg-white/70 shadow-sm backdrop-blur-xl"
@@ -100,32 +104,41 @@ export default function Header() {
         </button>
       </div>
 
-      {isOpen ? (
-        <div className="mx-5 rounded-[28px] border border-white/10 bg-[#0b1b3f]/95 p-5 text-white shadow-2xl backdrop-blur md:hidden">
-          <nav className="flex flex-col gap-4 text-[15px] font-medium">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="rounded-2xl px-3 py-2 transition-colors duration-200 hover:bg-white/10"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <Button
-            href="/contact"
-            variant="secondary"
-            fullWidth
-            onClick={() => setIsOpen(false)}
-            className="mt-5 text-[15px] text-[#1b325d]"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="mx-5 rounded-[28px] border border-white/10 bg-[#0b1b3f]/95 p-5 text-white shadow-2xl backdrop-blur md:hidden"
           >
-            Contact us
-          </Button>
-        </div>
-      ) : null}
-    </header>
+            <nav className="flex flex-col gap-4 text-[15px] font-medium">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="rounded-2xl px-3 py-2 transition-colors duration-200 hover:bg-white/10"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <Button
+              href="/contact"
+              variant="secondary"
+              fullWidth
+              onClick={() => setIsOpen(false)}
+              className="mt-5 text-[15px] text-[#1b325d]"
+            >
+              Contact us
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
+

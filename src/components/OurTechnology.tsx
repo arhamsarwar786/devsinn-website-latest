@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 const tabs = [
   { label: "Web Design", widthClass: "lg:w-[235px]" },
@@ -28,13 +30,25 @@ export default function OurTechnology() {
   const [activeTab, setActiveTab] = useState(tabs[0].label);
 
   return (
-    <section className="bg-white px-5 py-14 text-[#172D56] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[40px]">
+    <section className="bg-white px-5 py-14 text-[#172D56] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="mx-auto flex w-full max-w-[1280px] flex-col gap-[40px]"
+      >
         <div className="flex w-full justify-center">
-          <div className="flex w-full max-w-[824px] flex-col items-center justify-center gap-4 sm:gap-5 lg:flex-row lg:gap-0">
+          <motion.div 
+            variants={staggerContainer}
+            className="flex w-full max-w-[824px] flex-col items-center justify-center gap-4 sm:gap-5 lg:flex-row lg:gap-0"
+          >
             {tabs.map((tab) => (
-              <button
+              <motion.button
                 key={tab.label}
+                variants={fadeInUp}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={() => setActiveTab(tab.label)}
                 className={`flex h-[71px] w-full items-center justify-center rounded-[50px] px-8 text-center text-[18px] font-semibold leading-[1.2] whitespace-nowrap transition-colors duration-200 sm:max-w-[320px] lg:px-[65px] ${tab.widthClass} ${
@@ -44,16 +58,22 @@ export default function OurTechnology() {
                 }`}
               >
                 {tab.label}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <div className="grid w-full gap-[20px] md:grid-cols-2 xl:grid-cols-3">
+        <motion.div 
+          variants={staggerContainer}
+          className="grid w-full gap-[20px] md:grid-cols-2 xl:grid-cols-3"
+          style={{ perspective: "1000px" }}
+        >
           {cards.map((card, index) => (
-            <article
+            <motion.article
               key={card.image}
-              className={`overflow-hidden rounded-[20px] border border-[#EAECF0] bg-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.14)] ${
+              variants={card3D}
+              whileHover="hover"
+              className={`overflow-hidden rounded-[20px] border border-[#EAECF0] bg-white transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.14)] ${
                 index === 2 ? "md:col-span-2 xl:col-span-1" : ""
               }`}
             >
@@ -63,13 +83,14 @@ export default function OurTechnology() {
                   alt={card.alt}
                   fill
                   sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                  className="object-cover transition-transform duration-300 hover:scale-105"
+                  className="object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
+

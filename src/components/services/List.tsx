@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 const services = [
   {
@@ -60,11 +64,18 @@ const services = [
 
 export default function List() {
   return (
-    <section className="bg-white px-5 py-14 text-[#1f3769] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-12 xl:py-[92px]">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-12 lg:gap-[54px]">
+    <section className="bg-white px-5 py-14 text-[#1f3769] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-12 xl:py-[92px] overflow-hidden">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="mx-auto flex w-full max-w-[1400px] flex-col gap-12 lg:gap-[54px]"
+      >
         {services.map((service) => (
-          <article
+          <motion.article
             key={service.titleLines.join(" ")}
+            variants={fadeInUp}
             className="grid items-center gap-6 md:gap-8 lg:grid-cols-[320px_minmax(340px,410px)_minmax(300px,390px)] lg:gap-[32px] xl:grid-cols-[360px_434px_392px] xl:gap-[42px]"
           >
             <div className="order-1 max-w-[360px]">
@@ -78,15 +89,23 @@ export default function List() {
             </div>
 
             <div className="order-2">
-              <div className="relative mx-auto aspect-[434/382] w-full max-w-[434px] overflow-hidden rounded-[14px] bg-[#1f3769]">
+              <motion.div 
+                whileHover={{ 
+                  rotateX: 3, 
+                  rotateY: -3, 
+                  scale: 1.01,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+                className="relative mx-auto aspect-[434/382] w-full max-w-[434px] overflow-hidden rounded-[14px] bg-[#1f3769] shadow-[0_20px_40px_rgba(13,35,78,0.08)] transition-all duration-300 hover:shadow-[0_28px_56px_rgba(13,35,78,0.14)]"
+              >
                 <Image
                   src={service.image}
                   alt={service.imageAlt}
                   fill
                   sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 434px"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                 />
-              </div>
+              </motion.div>
             </div>
 
             <div className="order-3 max-w-[392px] justify-self-start pt-1">
@@ -101,9 +120,10 @@ export default function List() {
                 {service.buttonLabel}
               </Link>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
+

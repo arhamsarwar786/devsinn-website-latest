@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Divider from "@/components/ui/Divider";
+import { fadeInUp, fadeIn, staggerContainer } from "@/lib/motion";
 
 const offices = [
   {
@@ -54,7 +56,13 @@ export default function DevsinnOffice() {
 
   return (
     <section className="relative overflow-hidden bg-[#172D56] px-5 py-14 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
-      <div className="absolute inset-0">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeIn}
+        className="absolute inset-0"
+      >
         <Image
           src="/office/office1.png"
           alt=""
@@ -62,34 +70,52 @@ export default function DevsinnOffice() {
           sizes="100vw"
           className="object-cover object-[68%_center] lg:object-cover"
         />
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 bg-[#172D56]/44 lg:bg-[#172D56]/28" />
 
-      <div className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-[40px] lg:min-h-[618px]">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="relative mx-auto flex w-full max-w-[1280px] flex-col gap-[40px] lg:min-h-[618px]"
+      >
         <div className="grid gap-12 lg:grid-cols-[minmax(0,606px)_minmax(0,1fr)] lg:gap-[34px]">
           <div className="flex flex-col">
-            <h2 className="text-[32px] font-bold leading-[1.04] tracking-[-0.03em] text-white sm:text-[42px] lg:text-[52px]">
+            <motion.h2 
+              variants={fadeInUp}
+              className="text-[32px] font-bold leading-[1.04] tracking-[-0.03em] text-white sm:text-[42px] lg:text-[52px]"
+            >
               Devsinn Global Offices
-            </h2>
+            </motion.h2>
 
-            <p className="mt-5 max-w-[520px] text-[15px] font-normal leading-[1.55] text-white/92 sm:text-[16px] sm:leading-[1.45]">
+            <motion.p 
+              variants={fadeInUp}
+              className="mt-5 max-w-[520px] text-[15px] font-normal leading-[1.55] text-white/92 sm:text-[16px] sm:leading-[1.45]"
+            >
               Devsinn operates across the globe with offices in key locations.
               <span className="hidden sm:inline">
                 <br />
               </span>{" "}
               Click on a location to view it on the map.
-            </p>
+            </motion.p>
 
-            <Divider className="mt-10 sm:mt-12 lg:mt-14" />
+            <motion.div variants={fadeIn}>
+              <Divider className="mt-10 sm:mt-12 lg:mt-14" />
+            </motion.div>
 
-            <div className="mt-10 flex flex-col gap-0 sm:mt-12 lg:mt-14">
+            <motion.div 
+              variants={staggerContainer}
+              className="mt-10 flex flex-col gap-0 sm:mt-12 lg:mt-14"
+            >
               {offices.map((office, index) => {
                 const active = activeOffice === office.id;
 
                 return (
-                  <button
+                  <motion.button
                     key={office.id}
+                    variants={fadeInUp}
                     type="button"
                     onClick={() => setActiveOffice(office.id)}
                     className={`w-full text-left transition-opacity duration-200 hover:opacity-100 ${
@@ -101,20 +127,34 @@ export default function DevsinnOffice() {
                       <h3 className="text-[30px] font-bold leading-[1.04] tracking-[-0.03em] text-white sm:text-[42px] lg:text-[54px]">
                         {office.label}
                       </h3>
-                      <p className="mt-5 max-w-[605px] text-[16px] font-normal leading-[1.5] text-white sm:mt-6 sm:text-[18px] sm:leading-[1.45]">
-                        {office.address}
-                      </p>
-                      <p className="mt-3 text-[16px] font-normal leading-[1.45] text-white sm:text-[18px]">
-                        {office.phone}
-                      </p>
+                      <AnimatePresence mode="wait">
+                        {active && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <p className="mt-5 max-w-[605px] text-[16px] font-normal leading-[1.5] text-white sm:mt-6 sm:text-[18px] sm:leading-[1.45]">
+                              {office.address}
+                            </p>
+                            <p className="mt-3 text-[16px] font-normal leading-[1.45] text-white sm:text-[18px]">
+                              {office.phone}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  </button>
+                  </motion.button>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
 
-          <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[360px] lg:min-h-[618px] lg:overflow-visible lg:rounded-none">
+          <motion.div 
+            variants={fadeIn}
+            className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[360px] lg:min-h-[618px] lg:overflow-visible lg:rounded-none"
+          >
             <div className="absolute inset-0 opacity-100">
               <Image
                 src="/office/office2.png"
@@ -135,7 +175,10 @@ export default function DevsinnOffice() {
                   onClick={() => setActiveOffice(office.id)}
                   className={`absolute z-10 flex ${office.contentAlign} ${office.pinClassName}`}
                 >
-                  <div className={`flex flex-col items-center ${office.labelClassName}`}>
+                  <motion.div 
+                    animate={active ? { scale: 1.1 } : { scale: 1 }}
+                    className={`flex flex-col items-center ${office.labelClassName}`}
+                  >
                     <MapPin active={active} />
                     <span
                       className={`mt-2 whitespace-nowrap text-[16px] font-bold leading-[1.1] text-white transition-opacity duration-200 sm:mt-3 sm:text-[20px] lg:text-[25px] ${
@@ -144,13 +187,14 @@ export default function DevsinnOffice() {
                     >
                       {office.pinLabel}
                     </span>
-                  </div>
+                  </motion.div>
                 </button>
               );
             })}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+

@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function VisionMission() {
   return (
@@ -16,37 +20,55 @@ export default function VisionMission() {
 
           <div className="absolute inset-0 bg-black/58" />
 
-          <div className="relative grid gap-12 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-2 lg:gap-[84px] lg:px-[36px] lg:py-[66px] xl:px-[36px]">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="relative grid gap-12 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-2 lg:gap-[84px] lg:px-[36px] lg:py-[66px] xl:px-[36px]"
+          >
             <div className="max-w-[600px]">
-              <h2 className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]">
+              <motion.h2 
+                variants={fadeInUp}
+                className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]"
+              >
                 Vision
-              </h2>
+              </motion.h2>
 
-              <p className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[666px] lg:text-[20px] lg:leading-[1.43]">
+              <motion.p 
+                variants={fadeInUp}
+                className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[666px] lg:text-[20px] lg:leading-[1.43]"
+              >
                 Our vision at Dev&apos;s Inn Technologies is to become a leading
                 company that is recognized for our expertise, innovation, and
                 commitment to client success. We strive to empower business
                 with the tools and solutions they need to thrive in the digital
                 age, while also fostering a collaborative company that values
                 creativity, integrity, and excellence.
-              </p>
+              </motion.p>
             </div>
 
             <div className="max-w-[640px]">
-              <h2 className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]">
+              <motion.h2 
+                variants={fadeInUp}
+                className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]"
+              >
                 Mission
-              </h2>
+              </motion.h2>
 
-              <p className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[640px] lg:text-[20px] lg:leading-[1.43]">
+              <motion.p 
+                variants={fadeInUp}
+                className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[640px] lg:text-[20px] lg:leading-[1.43]"
+              >
                 At Dev&apos;s Inn Technologies, our mission is to help businesses
                 of all sizes establish a strong and effective online presence
                 through our innovative web development solutions. We aim to
                 deliver customized and high-quality digital products that meet
                 the specific needs of each client, while also providing
                 excellent customer service and support.
-              </p>
+              </motion.p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

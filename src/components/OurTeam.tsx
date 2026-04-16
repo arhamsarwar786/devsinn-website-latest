@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 const teamMembers = [
   {
@@ -34,36 +38,59 @@ const teamMembers = [
 
 export default function OurTeam() {
   return (
-    <section className="flex min-h-[100svh] items-center bg-white px-5 py-14 text-[#172D56] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-10 lg:gap-[40px]">
+    <section className="flex min-h-[100svh] items-center bg-white px-5 py-14 text-[#172D56] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="mx-auto flex w-full max-w-[1280px] flex-col items-center gap-10 lg:gap-[40px]"
+      >
         <div className="flex w-full max-w-[1212px] flex-col items-center text-center">
-          <p className="text-[18px] font-normal leading-[63px] tracking-[0.1em] text-[#172D56]">
+          <motion.p 
+            variants={fadeInUp}
+            className="text-[18px] font-normal leading-[63px] tracking-[0.1em] text-[#172D56]"
+          >
             Experts
-          </p>
-          <h2 className="-mt-3 text-[30px] font-bold uppercase leading-[1.1475] tracking-[-0.02em] text-[#172D56] sm:text-[34px] lg:text-[40px] lg:leading-[45.9px]">
+          </motion.p>
+          <motion.h2 
+            variants={fadeInUp}
+            className="-mt-3 text-[30px] font-bold uppercase leading-[1.1475] tracking-[-0.02em] text-[#172D56] sm:text-[34px] lg:text-[40px] lg:leading-[45.9px]"
+          >
             MEAT OUR TEAM
-          </h2>
-          <p className="mt-5 max-w-[1212px] text-[16px] font-normal leading-[24px] tracking-[0] text-[#172D56]">
+          </motion.h2>
+          <motion.p 
+            variants={fadeInUp}
+            className="mt-5 max-w-[1212px] text-[16px] font-normal leading-[24px] tracking-[0] text-[#172D56]"
+          >
             Dev&apos;s Inn Technologies, your gateway to cutting-edge IT services for
             businesses and brands. We are your strategic partner in navigating the
             ever-evolving digital landscape. With a relentless commitment to
             innovation and excellence, we provide tailored IT solutions that empower
             your organization to thrive in the modern world.
-          </p>
+          </motion.p>
 
-          <Link
-            href="#"
-            className="mt-10 inline-flex h-[53px] items-center justify-center rounded-[64px] bg-[#172D56] px-[42px] py-[20px] text-[16px] font-medium text-white transition-transform duration-200 hover:scale-[1.02] sm:min-w-[199px]"
-          >
-            Our Services
-          </Link>
+          <motion.div variants={fadeInUp}>
+            <Link
+              href="#"
+              className="mt-10 inline-flex h-[53px] items-center justify-center rounded-[64px] bg-[#172D56] px-[42px] py-[20px] text-[16px] font-medium text-white transition-transform duration-200 hover:scale-[1.02] sm:min-w-[199px]"
+            >
+              Our Services
+            </Link>
+          </motion.div>
         </div>
 
-        <div className="grid w-full justify-center gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5">
+        <motion.div 
+          variants={staggerContainer}
+          className="grid w-full justify-center gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-5"
+          style={{ perspective: "1500px" }}
+        >
           {teamMembers.map((member, index) => (
-            <article
+            <motion.article
               key={`${member.name}-${index}`}
-              className="relative mx-auto flex h-[395px] w-full max-w-[301px] items-end overflow-hidden rounded-[24px] border border-transparent transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.18)] sm:h-[410px] lg:h-[430px]"
+              variants={card3D}
+              whileHover="hover"
+              className="relative mx-auto flex h-[395px] w-full max-w-[301px] items-end overflow-hidden rounded-[24px] border border-transparent transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_22px_44px_rgba(18,45,86,0.18)] sm:h-[410px] lg:h-[430px]"
               style={{ backgroundColor: member.background }}
             >
               <div
@@ -97,11 +124,14 @@ export default function OurTeam() {
                   {member.role}
                 </p>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="flex items-center justify-center gap-[10px]">
+        <motion.div 
+          variants={fadeInUp}
+          className="flex items-center justify-center gap-[10px]"
+        >
           <button
             type="button"
             aria-label="Previous team member"
@@ -147,8 +177,9 @@ export default function OurTeam() {
               />
             </svg>
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
+

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
+import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 const contactDetails = [
   {
@@ -114,8 +116,14 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="bg-[linear-gradient(180deg,#eef5ff_0%,#f4f8ff_34%,#ffffff_100%)] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
-      <div className="mx-auto w-full max-w-[1350px] rounded-[36px] border border-[#d8e5f4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(246,250,255,0.96)_100%)] p-3 shadow-[0_30px_100px_rgba(16,38,79,0.1)] backdrop-blur-sm sm:p-5 lg:p-6">
+    <section className="bg-[linear-gradient(180deg,#eef5ff_0%,#f4f8ff_34%,#ffffff_100%)] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={staggerContainer}
+        className="mx-auto w-full max-w-[1350px] rounded-[36px] border border-[#d8e5f4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(246,250,255,0.96)_100%)] p-3 shadow-[0_30px_100px_rgba(16,38,79,0.1)] backdrop-blur-sm sm:p-5 lg:p-6"
+      >
         <div className="grid overflow-hidden rounded-[32px] bg-white lg:grid-cols-[440px_minmax(0,1fr)] xl:grid-cols-[500px_minmax(0,1fr)]">
           <aside className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(180deg,#0c2146_0%,#163561_40%,#102a4f_100%)] px-6 py-8 text-white sm:px-8 sm:py-10 lg:min-h-[820px] lg:px-10 lg:py-12">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(100,223,242,0.22),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(77,140,255,0.22),transparent_30%),linear-gradient(145deg,transparent_0%,transparent_58%,rgba(255,255,255,0.04)_58.4%,transparent_59%)]" />
@@ -128,28 +136,34 @@ export default function ContactUs() {
             <div className="absolute bottom-[18%] left-[22%] h-2.5 w-2.5 rounded-full bg-[#a4f7ff] shadow-[0_0_20px_rgba(164,247,255,0.55)]" />
 
             <div className="relative">
-              <p className="inline-flex rounded-full border border-[#7edfff]/22 bg-white/6 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8cecff]">
+              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#7edfff]/22 bg-white/6 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8cecff]">
                 Let&apos;s Build Something Great
-              </p>
-              <h2 className="mt-6 text-[2.2rem] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[2.7rem] lg:text-[54px]">
+              </motion.p>
+              <motion.h2 variants={fadeInUp} className="mt-6 text-[2.2rem] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[2.7rem] lg:text-[54px]">
                 Your next
                 <br />
                 standout digital
                 <br />
                 experience starts here.
-              </h2>
-              <p className="mt-5 max-w-[370px] text-[16px] leading-[1.7] text-white/78 sm:text-[18px]">
+              </motion.h2>
+              <motion.p variants={fadeInUp} className="mt-5 max-w-[370px] text-[16px] leading-[1.7] text-white/78 sm:text-[18px]">
                 Share your idea and we&apos;ll shape it into a polished, user-friendly,
                 high-converting digital experience that already feels premium
                 before the first launch.
-              </p>
+              </motion.p>
             </div>
 
-            <div className="relative mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4">
+            <motion.div 
+              variants={staggerContainer} 
+              className="relative mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4"
+              style={{ perspective: "1500px" }}
+            >
               {trustHighlights.map((item) => (
-                <div
+                <motion.div
                   key={item.label}
-                  className="rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))] px-4 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#8cecff]/35 hover:shadow-[0_20px_50px_rgba(5,17,40,0.18)]"
+                  variants={card3D}
+                  whileHover="hover"
+                  className="rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))] px-4 py-4 backdrop-blur-sm transition-all duration-300 hover:border-[#8cecff]/35 hover:shadow-[0_20px_50px_rgba(5,17,40,0.18)]"
                 >
                   <p className="text-[12px] uppercase tracking-[0.18em] text-white/48">
                     {item.label}
@@ -157,11 +171,11 @@ export default function ContactUs() {
                   <p className="mt-2 text-[18px] font-semibold leading-[1.3] text-white">
                     {item.value}
                   </p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <div className="relative mt-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] p-5 shadow-[0_24px_60px_rgba(5,17,40,0.2)] backdrop-blur-sm sm:mt-12 sm:p-6">
+            <motion.div variants={fadeInUp} className="relative mt-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] p-5 shadow-[0_24px_60px_rgba(5,17,40,0.2)] backdrop-blur-sm sm:mt-12 sm:p-6">
               <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8cecff]">
                 Why clients love this step
               </p>
@@ -175,16 +189,22 @@ export default function ContactUs() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="relative mt-8 space-y-5 sm:mt-10 sm:space-y-6">
+            <motion.div 
+              variants={staggerContainer} 
+              className="relative mt-8 space-y-5 sm:mt-10 sm:space-y-6"
+              style={{ perspective: "1500px" }}
+            >
               {contactDetails.map((item) => (
-                <a
+                <motion.a
                   key={item.title}
+                  variants={card3D}
+                  whileHover="hover"
                   href={item.href}
                   target={item.title === "Address" ? "_blank" : undefined}
                   rel={item.title === "Address" ? "noreferrer" : undefined}
-                  className="group flex items-start gap-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-4 py-4 text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_18px_40px_rgba(6,17,40,0.16)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:scale-[1.015] hover:border-[#8cecff]/35 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05))] hover:shadow-[0_24px_50px_rgba(7,18,45,0.22)] sm:px-5 sm:py-5"
+                  className="group flex items-start gap-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-4 py-4 text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_18px_40px_rgba(6,17,40,0.16)] backdrop-blur-sm transition-all duration-300 hover:border-[#8cecff]/35 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05))] hover:shadow-[0_24px_50px_rgba(7,18,45,0.22)] sm:px-5 sm:py-5"
                 >
                   <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#8cecff] transition-all duration-300 group-hover:bg-[#8cecff]/14 group-hover:text-white sm:h-14 sm:w-14">
                     {item.icon}
@@ -197,9 +217,9 @@ export default function ContactUs() {
                       {item.value}
                     </span>
                   </span>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </aside>
 
           <div className="relative bg-[radial-gradient(circle_at_top_right,rgba(77,140,255,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f4f8ff_100%)] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 xl:px-16">
@@ -208,21 +228,21 @@ export default function ContactUs() {
             <div className="absolute left-10 top-14 hidden h-px w-24 bg-[#dfe8f6] lg:block" />
 
             <div className="relative">
-              <p className="inline-flex rounded-full border border-[#cfe0f4] bg-white/75 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#1b325d]/70 shadow-[0_10px_24px_rgba(16,38,79,0.04)]">
+              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#cfe0f4] bg-white/75 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#1b325d]/70 shadow-[0_10px_24px_rgba(16,38,79,0.04)]">
                 Write To Us
-              </p>
-              <h3 className="mt-5 max-w-[620px] text-[2rem] font-bold leading-[1.02] tracking-[-0.045em] text-[#10264f] sm:text-[2.3rem] lg:text-[46px]">
+              </motion.p>
+              <motion.h3 variants={fadeInUp} className="mt-5 max-w-[620px] text-[2rem] font-bold leading-[1.02] tracking-[-0.045em] text-[#10264f] sm:text-[2.3rem] lg:text-[46px]">
                 Let&apos;s turn your idea into something people instantly trust.
-              </h3>
-              <p className="mt-4 max-w-[640px] text-[16px] leading-[1.72] text-[#40526e] sm:text-[17px]">
+              </motion.h3>
+              <motion.p variants={fadeInUp} className="mt-4 max-w-[640px] text-[16px] leading-[1.72] text-[#40526e] sm:text-[17px]">
                 Tell us what you&apos;re building, where you want help, and the
                 experience you want your users to feel. We&apos;ll guide you with a
                 thoughtful response that feels clear, helpful, and tailored to
                 your brand.
-              </p>
+              </motion.p>
             </div>
 
-            <form onSubmit={handleSubmit} className="relative mt-8 sm:mt-10">
+            <motion.form variants={fadeInUp} onSubmit={handleSubmit} className="relative mt-8 sm:mt-10">
               <div className="mb-6 rounded-[24px] border border-[#d9e4f2] bg-white/88 p-4 shadow-[0_18px_40px_rgba(16,38,79,0.06)] backdrop-blur-sm sm:p-5">
                 <div className="flex flex-col gap-3 text-[#3c5070] sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -241,7 +261,7 @@ export default function ContactUs() {
               </div>
 
               <div className="grid gap-5 md:grid-cols-2 lg:gap-7">
-                <label className="block">
+                <motion.label variants={fadeInUp} className="block">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     First Name
                   </span>
@@ -250,9 +270,9 @@ export default function ContactUs() {
                     placeholder="Enter first name"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
-                </label>
+                </motion.label>
 
-                <label className="block">
+                <motion.label variants={fadeInUp} className="block">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Last Name
                   </span>
@@ -261,9 +281,9 @@ export default function ContactUs() {
                     placeholder="Enter last name"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
-                </label>
+                </motion.label>
 
-                <label className="block">
+                <motion.label variants={fadeInUp} className="block">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Email
                   </span>
@@ -272,9 +292,9 @@ export default function ContactUs() {
                     placeholder="Enter your email"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
-                </label>
+                </motion.label>
 
-                <label className="block">
+                <motion.label variants={fadeInUp} className="block">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Phone Number
                   </span>
@@ -288,9 +308,9 @@ export default function ContactUs() {
                       className="h-full min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#10264f] outline-none placeholder:text-[#9aa8bc]"
                     />
                   </div>
-                </label>
+                </motion.label>
 
-                <label className="block md:col-span-2">
+                <motion.label variants={fadeInUp} className="block md:col-span-2">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Subject
                   </span>
@@ -301,9 +321,9 @@ export default function ContactUs() {
                     <option>Design Consultation</option>
                     <option>General Inquiry</option>
                   </select>
-                </label>
+                </motion.label>
 
-                <label className="block md:col-span-2">
+                <motion.label variants={fadeInUp} className="block md:col-span-2">
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Message
                   </span>
@@ -312,10 +332,10 @@ export default function ContactUs() {
                     placeholder="Tell us a little about your project, goals, or timeline."
                     className="w-full rounded-[26px] border border-[#d9e4f2] bg-white px-4 py-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
-                </label>
+                </motion.label>
               </div>
 
-              <div className="mt-8 flex justify-start md:mt-10 md:justify-end">
+              <motion.div variants={fadeInUp} className="mt-8 flex justify-start md:mt-10 md:justify-end">
                 <Button
                   type="submit"
                   variant="primary"
@@ -326,11 +346,12 @@ export default function ContactUs() {
                 >
                   Send message
                 </Button>
-              </div>
-            </form>
+              </motion.div>
+            </motion.form>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+
