@@ -6,14 +6,14 @@ import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 const aboutLinks = [
-  { label: "Company", href: "/about" },
-  { label: "Why Chose Us", href: "/about" },
+  { label: "Company", href: "/company" },
+  { label: "Why Choose Us", href: "/whychooseus" },
   { label: "Contact Us", href: "/contact" },
 ];
 
 const resourceLinks = [
-  { label: "Terms and Condition", href: "/contact" },
-  { label: "Support", href: "/contact" },
+  { label: "Terms and Condition", href: "/termsandconditions" },
+  { label: "Support", href: "/support" },
 ];
 
 const serviceLinks = [
@@ -103,6 +103,7 @@ export default function Footer() {
                 <motion.div key={item.label} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Link
                     href={item.href}
+                    scroll
                     className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                   >
                     {item.label}
@@ -121,6 +122,7 @@ export default function Footer() {
                 <motion.div key={item.label} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Link
                     href={item.href}
+                    scroll
                     className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                   >
                     {item.label}
@@ -155,5 +157,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-

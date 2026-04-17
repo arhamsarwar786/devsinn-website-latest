@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+import emailjs from "@emailjs/browser";
+import type { EmailJSResponseStatus } from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
+import {
+  EMAILJS_CONFIG,
+  EMAILJS_INVALID_ACCOUNT_MESSAGE,
+} from "@/lib/emailjs";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 const contactDetails = [
@@ -104,15 +110,108 @@ const experiencePillars = [
 ];
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
   const [isSending, setIsSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const handleInputChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = event.target;
+    setError(null);
+    setSuccessMessage(null);
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const validateForm = () => {
+    if (!formData.fname.trim()) return "First name is required.";
+    if (!formData.lname.trim()) return "Last name is required.";
+    if (!formData.email.trim()) return "Email is required.";
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      return "Enter a valid email address.";
+    }
+    if (!formData.phone.trim()) return "Phone number is required.";
+    if (!formData.subject.trim() || formData.subject === "Choose subject") {
+      return "Please select a subject.";
+    }
+    if (!formData.message.trim()) return "Message is required.";
+
+    return null;
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const validationError = validateForm();
+
+    if (validationError) {
+      setError(validationError);
+      setSuccessMessage(null);
+      return;
+    }
+
     setIsSending(true);
 
-    window.setTimeout(() => {
-      setIsSending(false);
-    }, 1200);
+    const templateParams = {
+      from_name: `${formData.fname} ${formData.lname}`,
+      from_email: formData.email,
+      from_number: `+92 ${formData.phone}`,
+      from_subject: formData.subject,
+      message: formData.message,
+      page_url: typeof window !== "undefined" ? window.location.href : "",
+    };
+
+    emailjs
+      .send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams,
+        EMAILJS_CONFIG.publicKey,
+      )
+      .then(() => {
+        setFormData({
+          fname: "",
+          lname: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setError(null);
+        setSuccessMessage("Your message has been sent successfully.");
+        setIsSending(false);
+      })
+      .catch((reason: EmailJSResponseStatus | Error | string) => {
+        let nextError = "Failed to send email. Please try again.";
+
+        if (
+          typeof reason === "object" &&
+          reason !== null &&
+          "text" in reason &&
+          typeof reason.text === "string"
+        ) {
+          if (reason.text.includes("Account not found")) {
+            nextError = EMAILJS_INVALID_ACCOUNT_MESSAGE;
+          } else {
+            nextError = reason.text;
+          }
+        } else if (reason instanceof Error && reason.message) {
+          nextError = reason.message;
+        } else if (typeof reason === "string" && reason) {
+          nextError = reason;
+        }
+
+        setError(nextError);
+        setSuccessMessage(null);
+        setIsSending(false);
+      });
   };
 
   return (
@@ -243,6 +342,18 @@ export default function ContactUs() {
             </div>
 
             <motion.form variants={fadeInUp} onSubmit={handleSubmit} className="relative mt-8 sm:mt-10">
+              {error ? (
+                <div className="mb-5 rounded-[20px] border border-[#f2b8b5] bg-[#fff1f0] px-4 py-3 text-[15px] text-[#8d1d18]">
+                  {error}
+                </div>
+              ) : null}
+
+              {successMessage ? (
+                <div className="mb-5 rounded-[20px] border border-[#bfe3c8] bg-[#edf9f0] px-4 py-3 text-[15px] text-[#1d6a34]">
+                  {successMessage}
+                </div>
+              ) : null}
+
               <div className="mb-6 rounded-[24px] border border-[#d9e4f2] bg-white/88 p-4 shadow-[0_18px_40px_rgba(16,38,79,0.06)] backdrop-blur-sm sm:p-5">
                 <div className="flex flex-col gap-3 text-[#3c5070] sm:flex-row sm:items-center sm:justify-between">
                   <div>
@@ -267,6 +378,9 @@ export default function ContactUs() {
                   </span>
                   <input
                     type="text"
+                    name="fname"
+                    value={formData.fname}
+                    onChange={handleInputChange}
                     placeholder="Enter first name"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
@@ -278,6 +392,9 @@ export default function ContactUs() {
                   </span>
                   <input
                     type="text"
+                    name="lname"
+                    value={formData.lname}
+                    onChange={handleInputChange}
                     placeholder="Enter last name"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
@@ -289,6 +406,9 @@ export default function ContactUs() {
                   </span>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Enter your email"
                     className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
@@ -304,6 +424,9 @@ export default function ContactUs() {
                     </span>
                     <input
                       type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="336 5918295"
                       className="h-full min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#10264f] outline-none placeholder:text-[#9aa8bc]"
                     />
@@ -314,8 +437,13 @@ export default function ContactUs() {
                   <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
                     Subject
                   </span>
-                  <select className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]">
-                    <option>Choose subject</option>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
+                  >
+                    <option value="">Choose subject</option>
                     <option>Web Development</option>
                     <option>App Development</option>
                     <option>Design Consultation</option>
@@ -329,6 +457,9 @@ export default function ContactUs() {
                   </span>
                   <textarea
                     rows={6}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell us a little about your project, goals, or timeline."
                     className="w-full rounded-[26px] border border-[#d9e4f2] bg-white px-4 py-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
                   />
@@ -354,4 +485,3 @@ export default function ContactUs() {
     </section>
   );
 }
-

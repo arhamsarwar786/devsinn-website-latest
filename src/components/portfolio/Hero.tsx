@@ -11,7 +11,7 @@ export default function Hero() {
     duration: 3,
     repeat: Infinity,
     repeatType: "reverse" as const,
-    ease: "easeInOut",
+    ease: "easeInOut" as const,
   };
 
   return (
@@ -95,14 +95,24 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeInUp}>
-            <Button
-              href="#"
-              variant="secondary"
-              fullWidth
-              className="mt-7 max-w-[248px] hover:scale-[1.02] sm:max-w-[260px] lg:mt-8 lg:h-[74px] lg:w-[269px] lg:max-w-[269px] lg:min-h-0 lg:rounded-[16px] lg:px-10 lg:text-[18px]"
-            >
-              Get in Touch
-            </Button>
+            <div className="mt-7 flex max-w-[560px] flex-col gap-3 sm:flex-row lg:mt-8">
+              <a
+                href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+                download="Devsinn-Technologies-Portfolio.pdf"
+                className="inline-flex min-h-[56px] items-center justify-center rounded-full bg-white px-8 text-[16px] font-medium text-[#17305f] transition-all duration-200 hover:scale-[1.02] hover:bg-white/90 lg:h-[74px] lg:w-[269px] lg:min-h-0 lg:rounded-[16px] lg:px-10 lg:text-[18px]"
+              >
+                Download Portfolio
+              </a>
+
+              <Button
+                href="/contact"
+                variant="outline"
+                fullWidth
+                className="max-w-[248px] hover:scale-[1.02] sm:max-w-[260px] lg:h-[74px] lg:w-[269px] lg:max-w-[269px] lg:min-h-0 lg:rounded-[16px] lg:px-10 lg:text-[18px]"
+              >
+                Get in Touch
+              </Button>
+            </div>
           </motion.div>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/ui/Button";
 
@@ -70,15 +71,27 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+            download="Devsinn-Technologies-Portfolio.pdf"
+            className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 text-[15px] font-medium transition-transform duration-200 hover:scale-[1.02] ${
+              isScrolled
+                ? "border border-[#1b325d]/14 bg-[#1b325d]/6 text-[#1b325d]"
+                : "border border-white/28 bg-white/10 text-white backdrop-blur-sm"
+            }`}
+            title="Download company portfolio"
+          >
+            <Download size={16} />
+            <span>Portfolio</span>
+          </a>
+
           <Button
             href="/contact"
             size="md"
             variant={isScrolled ? "primary" : "secondary"}
             className={`transition-transform duration-200 hover:scale-[1.02] lg:min-h-[50px] lg:min-w-[180px] lg:px-8 lg:text-[15px] ${
-              isScrolled
-                ? ""
-                : "bg-white text-[#1b325d]"
+              isScrolled ? "" : "bg-white text-[#1b325d]"
             }`}
           >
             Contact us
@@ -135,10 +148,19 @@ export default function Header() {
             >
               Contact us
             </Button>
+
+            <a
+              href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+              download="Devsinn-Technologies-Portfolio.pdf"
+              onClick={() => setIsOpen(false)}
+              className="mt-3 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-white/14"
+            >
+              <Download size={16} />
+              <span>Download Portfolio</span>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.header>
   );
 }
-

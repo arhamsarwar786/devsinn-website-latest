@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import HeroAmbient from "@/components/ui/HeroAmbient";
+import CalendlyModal from "@/components/ui/CalendlyModal";
 import { fadeInUp, fadeIn, staggerContainer } from "@/lib/motion";
 
 const stats = [
@@ -22,8 +24,16 @@ const stats = [
 ];
 
 export default function Hero() {
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+
   return (
     <section className="relative overflow-hidden bg-[#08142d] text-white">
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+        url="https://calendly.com/devsinntechnologies/30min?hide_gdpr_banner=1"
+      />
+
       <motion.div
         initial="hidden"
         animate="visible"
@@ -76,7 +86,13 @@ export default function Hero() {
               className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[10px] lg:mt-9"
             >
               <Button
-                href="#"
+                onClick={() =>
+                  window.open(
+                    "https://api.whatsapp.com/send?phone=923365918295",
+                    "_blank",
+                    "noopener,noreferrer",
+                  )
+                }
                 variant="secondary"
                 fullWidth
                 className="font-semibold hover:scale-[1.02] sm:w-[220px] lg:min-h-[63px] lg:w-[242px] lg:px-[62px]"
@@ -85,7 +101,7 @@ export default function Hero() {
               </Button>
 
               <Button
-                href="#"
+                onClick={() => setIsCalendlyOpen(true)}
                 variant="outline"
                 fullWidth
                 className="font-semibold hover:scale-[1.02] sm:w-[220px] lg:min-h-[63px] lg:w-[231px] lg:px-[62px]"
@@ -128,5 +144,4 @@ export default function Hero() {
     </section>
   );
 }
-
 
