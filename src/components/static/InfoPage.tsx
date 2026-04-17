@@ -94,19 +94,23 @@ export function InfoPage({
     <>
       <PageHero title={title} eyebrow={eyebrow} />
 
-      <section className="bg-[linear-gradient(180deg,#eef5ff_0%,#f7faff_32%,#ffffff_100%)] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
+      <section className="relative overflow-hidden bg-[#f4f7fb] px-5 py-16 sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16">
+        {/* Soft glowing orbs on a light background so the dark container pops */}
+        <div className="absolute left-[-10%] top-[0%] h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(77,140,255,0.1),transparent_50%)] blur-[80px]" />
+        <div className="absolute right-[-10%] top-[30%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(100,223,242,0.12),transparent_50%)] blur-[80px]" />
+        <div className="absolute bottom-[-10%] left-[20%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(26,68,120,0.06),transparent_50%)] blur-[80px]" />
+
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="mx-auto flex w-full max-w-[1280px] flex-col gap-8 rounded-[34px] border border-[#d7e4f3] bg-white/90 p-6 shadow-[0_30px_90px_rgba(16,38,79,0.08)] backdrop-blur-sm sm:p-8 lg:p-10"
+           initial="hidden"
+           animate="visible"
+           variants={staggerContainer}
+           className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-10 rounded-[48px] border border-[#2e3e5c]/70 bg-[linear-gradient(145deg,rgba(22,34,56,0.95)_0%,rgba(11,18,33,0.98)_100%)] p-8 shadow-[0_40px_100px_rgba(4,8,16,0.7),inset_0_2px_15px_rgba(100,223,242,0.08)] backdrop-blur-2xl sm:p-12 lg:gap-14 lg:p-16"
         >
           <motion.div variants={fadeInUp} className="max-w-[880px]">
-            <h2 className="text-[2rem] font-bold leading-[1.05] tracking-[-0.04em] text-[#10264f] sm:text-[2.35rem]">
+            <h2 className="text-[2.2rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-[linear-gradient(90deg,#8cecff_0%,#4d8cff_100%)] sm:text-[3rem]">
               {introTitle}
             </h2>
-            <div className="mt-5 space-y-4 text-[16px] leading-[1.8] text-[#445673] sm:text-[17px]">
+            <div className="mt-6 space-y-5 text-[16.5px] leading-[1.85] text-[#b4d0eb] sm:text-[17.5px]">
               {introParagraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -116,21 +120,22 @@ export function InfoPage({
           {cards.length > 0 ? (
             <motion.div
               variants={staggerContainer}
-              className="grid gap-5 lg:grid-cols-2"
+              className="grid gap-6 lg:grid-cols-2"
             >
               {cards.map((card) => (
                 <motion.article
                   key={card.title}
                   variants={fadeInUp}
-                  className="rounded-[28px] border border-[#d7e4f3] bg-[linear-gradient(180deg,#10264f_0%,#16335d_100%)] p-6 text-white shadow-[0_24px_60px_rgba(16,38,79,0.16)]"
+                  className="group relative overflow-hidden rounded-[32px] border border-[#3b4b6b]/60 bg-[linear-gradient(135deg,rgba(30,44,70,0.85)_0%,rgba(16,25,43,0.9)_100%)] p-8 shadow-[0_20px_50px_rgba(4,8,16,0.5)] transition-all duration-300 hover:-translate-y-2 hover:border-[#64dff2]/50 hover:shadow-[0_30px_80px_rgba(100,223,242,0.15)]"
                 >
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#7edfff]/18 text-[#8cecff]">
-                    ✓
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(100,223,242,0.06)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#445b82] bg-[linear-gradient(135deg,#233659_0%,#132038_100%)] text-[#8cecff] shadow-[inset_0_2px_10px_rgba(100,223,242,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-[#4d8cff] group-hover:text-white group-hover:shadow-[0_10px_30px_rgba(100,223,242,0.4)]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7" /></svg>
                   </div>
-                  <h3 className="mt-5 text-[1.35rem] font-semibold tracking-[-0.03em]">
+                  <h3 className="mt-8 text-[1.45rem] font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[#8cecff]">
                     {card.title}
                   </h3>
-                  <p className="mt-3 text-[15px] leading-[1.8] text-white/78 sm:text-[16px]">
+                  <p className="mt-4 text-[16.5px] leading-[1.8] text-[#9cbce0]">
                     {card.description}
                   </p>
                 </motion.article>
@@ -139,22 +144,26 @@ export function InfoPage({
           ) : null}
 
           {items.length > 0 ? (
-            <motion.ol variants={staggerContainer} className="grid gap-4">
+            <motion.ol variants={staggerContainer} className="grid gap-6">
               {items.map((item, index) => (
                 <motion.li
                   key={item.title}
                   variants={fadeInUp}
-                  className="rounded-[26px] border border-[#d7e4f3] bg-[linear-gradient(180deg,#ffffff_0%,#f6f9fe_100%)] p-6 shadow-[0_18px_44px_rgba(16,38,79,0.06)]"
+                  className="group relative flex flex-col items-start gap-6 rounded-[32px] border border-[#3b4b6b]/60 bg-[rgba(24,37,61,0.85)] p-8 shadow-[0_15px_40px_rgba(4,8,16,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-[#64dff2]/40 hover:bg-[rgba(30,46,76,0.9)] hover:shadow-[0_20px_60px_rgba(100,223,242,0.15)] sm:flex-row sm:gap-8"
                 >
-                  <p className="text-[13px] font-semibold uppercase tracking-[0.2em] text-[#6c86aa]">
-                    Clause {index + 1}
-                  </p>
-                  <h3 className="mt-3 text-[1.2rem] font-semibold text-[#10264f]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-[16px] leading-[1.8] text-[#445673]">
-                    {item.body}
-                  </p>
+                  <div className="flex shrink-0 basis-auto items-start">
+                    <div className="inline-flex h-12 flex-none items-center rounded-full border border-[#445b82] bg-[linear-gradient(180deg,#25395c_0%,#132038_100%)] px-5 text-[14px] font-bold uppercase tracking-[0.16em] text-[#8cecff] shadow-[inset_0_2px_8px_rgba(100,223,242,0.15)]">
+                      Clause {index + 1}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-[1.35rem] font-bold tracking-tight text-white group-hover:text-[#8cecff] transition-colors duration-300">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-[16.5px] leading-[1.85] text-[#b4d0eb]">
+                      {item.body}
+                    </p>
+                  </div>
                 </motion.li>
               ))}
             </motion.ol>
@@ -164,16 +173,19 @@ export function InfoPage({
             <motion.section
               key={section.title}
               variants={fadeInUp}
-              className="rounded-[28px] border border-[#d7e4f3] bg-[linear-gradient(180deg,#ffffff_0%,#f9fbff_100%)] p-6 shadow-[0_18px_48px_rgba(16,38,79,0.05)] sm:p-7"
+              className="relative overflow-hidden rounded-[36px] border border-[#3b4b6b]/60 bg-[rgba(26,40,66,0.85)] p-8 shadow-[0_15px_40px_rgba(4,8,16,0.4)] transition-all duration-300 hover:shadow-[0_25px_60px_rgba(100,223,242,0.1)] hover:border-[#4d8cff]/40 sm:p-10 lg:p-12"
             >
               {section.title ? (
-                <h3 className="text-[1.45rem] font-semibold tracking-[-0.03em] text-[#10264f]">
-                  {section.title}
-                </h3>
+                <div className="mb-8 flex items-center gap-4">
+                  <span className="h-10 w-2 rounded-full bg-[linear-gradient(180deg,#64dff2_0%,#8cecff_100%)] max-sm:h-8 shadow-[0_0_15px_rgba(100,223,242,0.4)]"></span>
+                  <h3 className="text-[1.8rem] font-bold tracking-tight text-white sm:text-[2rem]">
+                    {section.title}
+                  </h3>
+                </div>
               ) : null}
 
               {section.paragraphs?.length ? (
-                <div className="mt-4 space-y-4 text-[16px] leading-[1.8] text-[#445673]">
+                <div className="space-y-5 text-[16.5px] leading-[1.85] text-[#b4d0eb]">
                   {section.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
@@ -181,16 +193,16 @@ export function InfoPage({
               ) : null}
 
               {section.list?.length ? (
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {section.list.map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-3 rounded-[20px] border border-[#dce7f4] bg-white px-4 py-4 text-[#10264f] shadow-[0_12px_28px_rgba(16,38,79,0.04)]"
+                      className="group flex items-start gap-4 rounded-[24px] border border-[#2e3e5c]/60 bg-[rgba(18,28,48,0.9)] px-5 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#8cecff]/40 hover:shadow-[0_15px_35px_rgba(100,223,242,0.2)]"
                     >
-                      <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#10264f] text-white">
-                        ✓
-                      </span>
-                      <p className="text-[15px] leading-[1.7] text-[#445673]">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1b2b4a] text-[#64dff2] transition-colors duration-300 group-hover:bg-[#64dff2] group-hover:text-[#0b1221] shadow-[0_0_10px_rgba(100,223,242,0.1)] group-hover:shadow-[0_0_20px_rgba(100,223,242,0.5)]">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+                      </div>
+                      <p className="mt-0.5 text-[15.5px] font-medium leading-[1.6] text-[#c4dcf2] group-hover:text-white transition-colors">
                         {item}
                       </p>
                     </div>
@@ -203,7 +215,7 @@ export function InfoPage({
           {closing ? (
             <motion.p
               variants={fadeInUp}
-              className="max-w-[920px] text-[17px] leading-[1.85] text-[#10264f] sm:text-[18px]"
+              className="mt-4 max-w-[920px] text-[18px] font-semibold leading-[1.85] text-[#8cecff] sm:text-[20px]"
             >
               {closing}
             </motion.p>

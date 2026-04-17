@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import DevsinnOffice from "@/components/DevsinnOffice";
 import Footer from "@/components/Footer";
-import { InfoPage, infoPages } from "@/components/static/InfoPage";
+import { InfoPage } from "@/components/static/InfoPage";
+import { termsContent } from "@/data/company-pages";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function TermsAndConditionsPage() {
   return (
     <>
-      <InfoPage {...infoPages.terms} />
+      <InfoPage {...termsContent} />
       <DevsinnOffice />
       <Footer />
     </>

@@ -17,11 +17,11 @@ const resourceLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Creative Design", href: "/services/Creative-Design-and-Animations" },
+  { label: "Creative Design", href: "/services/Creative-Design" },
   { label: "Web Development", href: "/services/Web-Development-Solutions" },
   { label: "App Development", href: "/services/App-Development-Solutions" },
-  { label: "Digital Marketing", href: "/services/Digital-Marketing-Solutions" },
-  { label: "Game Development", href: "/services/Game-Development-Solutions" },
+  { label: "Digital Marketing", href: "/services/Digital-Marketing" },
+  { label: "Game Development", href: "/services/Game-Development" },
   { label: "Cloud Computing Services", href: "/services/Cloud-Computing-Services" },
 ];
 
@@ -137,13 +137,14 @@ export default function Footer() {
             className="sm:col-span-2 lg:col-span-1"
           >
             <h3 className="text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-[#0E1D3C]">
-              Social Media
+              Services
             </h3>
             <div className="mt-5 flex flex-col gap-[10px]">
               {serviceLinks.map((item) => (
                 <motion.div key={item.label} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Link
                     href={item.href}
+                    scroll
                     className="text-[18px] font-normal leading-[1.55] text-[#0E1D3C] transition-opacity duration-200 hover:opacity-75"
                   >
                     {item.label}

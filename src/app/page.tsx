@@ -5,7 +5,7 @@ import CoreTechnology from "@/components/CoreTechnology";
 import Hero from "@/components/Hero";
 import OurTechnology from "@/components/OurTechnology";
 import OurServices from "@/components/OurServices";
-import OurTeam from "@/components/OurTeam";
+
 import WhoWeAre from "@/components/WhoWeAre";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <WhoWeAre />
       <OurServices />
-      <OurTeam />
+
       <CoreTechnology />
       <OurTechnology />
       <ClientReviews />
@@ -23,4 +23,4 @@ export default function Home() {
     </>
   );
 }
- 
+

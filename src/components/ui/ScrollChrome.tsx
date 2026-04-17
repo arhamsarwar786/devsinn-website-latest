@@ -1,10 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollChrome() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState(0);
   const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    // Force scroll to top on path transitions
+    // Timeout added to ensure page layout completes drawing before scroll triggers
+    const timeout = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 50);
+
+    return () => clearTimeout(timeout);
+  }, [pathname]);
 
   useEffect(() => {
     const updateScroll = () => {

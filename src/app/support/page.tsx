@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import DevsinnOffice from "@/components/DevsinnOffice";
 import Footer from "@/components/Footer";
-import { InfoPage, infoPages } from "@/components/static/InfoPage";
+import { InfoPage } from "@/components/static/InfoPage";
+import { supportContent } from "@/data/company-pages";
 
 export const metadata: Metadata = {
   title: "Support",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default function SupportPage() {
   return (
     <>
-      <InfoPage {...infoPages.support} />
+      <InfoPage {...supportContent} />
       <DevsinnOffice />
       <Footer />
     </>

@@ -365,8 +365,17 @@ export default function ContactUs() {
                       share, the more focused and useful our first response will be.
                     </p>
                   </div>
-                  <div className="rounded-full bg-[linear-gradient(90deg,#10264f_0%,#1c467c_100%)] px-4 py-2 text-[14px] font-medium text-white shadow-[0_12px_24px_rgba(16,38,79,0.12)]">
-                    Friendly first reply
+                  <div className="group relative inline-flex shrink-0 items-center justify-center gap-2.5 overflow-hidden whitespace-nowrap rounded-full border border-[#4d8cff]/30 bg-[linear-gradient(90deg,#10264f_0%,#1c467c_100%)] px-5 py-2.5 font-medium text-white shadow-[0_8px_20px_rgba(16,38,79,0.12)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_28px_rgba(77,140,255,0.2)]">
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.1)_50%,transparent)] -translate-x-full transition-transform duration-1000 group-hover:translate-x-full" />
+                    <div className="relative z-10 flex items-center gap-2.5">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ade80] opacity-75"></span>
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]"></span>
+                      </span>
+                      <span className="text-[14px] text-[#f0f4ff] tracking-wide">
+                        Friendly first reply
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
