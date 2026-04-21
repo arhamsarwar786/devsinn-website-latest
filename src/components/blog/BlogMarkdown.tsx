@@ -97,7 +97,7 @@ function renderInline(text: string): ReactNode[] {
 
     if (strongMatch) {
       return (
-        <strong key={`${segment}-${index}`} className="font-semibold text-[#10264F]">
+        <strong key={`${segment}-${index}`} className="font-bold text-[#38bdf8]">
           {strongMatch[1]}
         </strong>
       );
@@ -111,14 +111,14 @@ export default function BlogMarkdown({ content }: { content: string }) {
   const blocks = parseMarkdown(content);
 
   return (
-    <div className="space-y-7 text-[17px] leading-[1.9] text-[#455774] sm:text-[18px]">
+    <div className="space-y-8 text-[1.1rem] leading-[1.8] text-white/70">
       {blocks.map((block, index) => {
         if (block.type === "heading") {
           if (block.level === 2) {
             return (
               <h2
                 key={`${block.content}-${index}`}
-                className="pt-5 text-[30px] font-semibold leading-[1.08] tracking-[-0.04em] text-[#10264F] sm:text-[36px] lg:text-[42px]"
+                className="pt-6 text-[2rem] font-bold leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.5rem]"
               >
                 {block.content}
               </h2>
@@ -128,7 +128,7 @@ export default function BlogMarkdown({ content }: { content: string }) {
           return (
             <h3
               key={`${block.content}-${index}`}
-              className="pt-2 text-[22px] font-semibold leading-[1.2] tracking-[-0.03em] text-[#163869] sm:text-[26px]"
+              className="pt-4 text-[1.5rem] font-bold leading-[1.2] tracking-[-0.02em] text-white/90 sm:text-[1.8rem]"
             >
               {block.content}
             </h3>
@@ -139,11 +139,11 @@ export default function BlogMarkdown({ content }: { content: string }) {
           return (
             <ul
               key={`list-${index}`}
-              className="space-y-3 rounded-[28px] border border-[#D7E7FB] bg-[#F7FBFF] px-6 py-6 text-[#36507D] shadow-[0_18px_40px_rgba(16,38,79,0.06)]"
+              className="space-y-4 rounded-[1.5rem] border border-white/10 bg-white/5 px-8 py-8 text-white/80 shadow-2xl"
             >
               {block.items.map((item, itemIndex) => (
-                <li key={`${item}-${itemIndex}`} className="flex gap-3">
-                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#2AAEFF]" />
+                <li key={`${item}-${itemIndex}`} className="flex gap-4">
+                  <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#38bdf8] shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
                   <span>{renderInline(item)}</span>
                 </li>
               ))}
@@ -155,7 +155,7 @@ export default function BlogMarkdown({ content }: { content: string }) {
           return (
             <div
               key={`${block.src}-${index}`}
-              className="overflow-hidden rounded-[30px] border border-[#D7E7FB] bg-white shadow-[0_28px_52px_rgba(23,45,86,0.12)]"
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#060C1A] shadow-2xl my-10"
             >
               <div className="relative aspect-[16/9] w-full">
                 <Image
@@ -163,7 +163,7 @@ export default function BlogMarkdown({ content }: { content: string }) {
                   alt={block.alt}
                   fill
                   sizes="(max-width: 1023px) 100vw, 900px"
-                  className="object-cover"
+                  className="object-cover opacity-90 mix-blend-screen"
                 />
               </div>
             </div>
@@ -171,11 +171,11 @@ export default function BlogMarkdown({ content }: { content: string }) {
         }
 
         if (block.type === "hr") {
-          return <div key={`hr-${index}`} className="h-px w-full bg-[#D7E7FB]" />;
+          return <div key={`hr-${index}`} className="h-px w-full bg-white/10 my-10" />;
         }
 
         return (
-          <p key={`${block.content.slice(0, 24)}-${index}`} className="text-[#455774]">
+          <p key={`${block.content.slice(0, 24)}-${index}`} className="text-white/70">
             {renderInline(block.content)}
           </p>
         );

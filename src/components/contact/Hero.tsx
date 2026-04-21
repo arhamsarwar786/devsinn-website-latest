@@ -2,45 +2,104 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import HeroAmbient from "@/components/ui/HeroAmbient";
 import { fadeInUp, fadeIn } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#08142d] text-white">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+      {/* Deep Space Background Glows */}
+      <div className="absolute inset-0 bg-[#060C1A]" />
+
+      {/* Animated Glowing Orbs */}
       <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-        className="absolute inset-0"
+        className="pointer-events-none absolute left-[50%] top-[30%] h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 60%)" }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="pointer-events-none absolute left-[60%] top-[40%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 60%)" }}
+        animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* The Globe Background - Premium Animation */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
       >
-        <Image
-          src="/global.png"
-          alt="Digital globe background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[64%_78%] sm:object-[68%_70%] lg:object-[center_center]"
+        {/* Glow exactly under the globe */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8] to-[#818cf8] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
         />
+        <motion.div
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/global.png"
+            alt="Digital globe background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[64%_78%] opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)] sm:object-[68%_70%] lg:object-[center_center]"
+          />
+        </motion.div>
       </motion.div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,12,29,0.88)_0%,rgba(8,22,52,0.42)_34%,rgba(7,20,48,0.3)_64%,rgba(4,12,29,0.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(4,12,29,0.96)_0%,rgba(12,31,76,0.68)_34%,rgba(18,49,118,0.22)_58%,rgba(5,16,41,0.18)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_64%_62%,rgba(78,132,255,0.36)_0%,rgba(9,23,52,0.16)_34%,rgba(4,11,26,0.1)_100%)] sm:bg-[radial-gradient(circle_at_center,_rgba(78,132,255,0.28)_0%,_rgba(9,23,52,0.12)_38%,_rgba(4,11,26,0.08)_100%)]" />
-      <HeroAmbient />
+      {/* Cinematic Vignette Overlays */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#060C1A] via-[#060C1A]/80 to-transparent lg:via-[#060C1A]/40" />
+      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[#060C1A] lg:via-[#060C1A] lg:to-transparent lg:w-[45%]" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A]/80" />
 
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1568px] items-center px-5 pb-10 pt-24 sm:px-8 sm:pb-10 sm:pt-30 lg:px-10 lg:pb-8 lg:pt-[102px] xl:px-16 xl:pt-[134px]">
-        <motion.div 
+      {/* Main Content */}
+      <div className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-center px-5 pt-28 pb-20 sm:px-8 lg:px-10 xl:px-16">
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeInUp}
-          className="w-full max-w-[545px]"
+          className="w-full max-w-[650px]"
         >
-          <h1 className="pt-12 text-[2.85rem] font-bold leading-[0.98] tracking-[-0.04em] text-white sm:pt-14 sm:text-[3.5rem] md:text-[4rem] lg:pt-0 lg:text-[72px] xl:text-[78px]">
-            Contact us
+          {/* Badge */}
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 px-5 py-2.5 backdrop-blur-md">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[#818cf8]">
+              Let's Connect
+            </span>
+          </motion.div>
+
+          <h1 className="text-[3.5rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[4.5rem] md:text-[5rem] lg:text-[72px] xl:text-[80px]">
+            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">Touch</span>
           </h1>
+          <p className="mt-8 max-w-[500px] text-[1.1rem] font-medium leading-[1.7] text-white/70 sm:text-[1.25rem]">
+            Get in touch with Devsinn Technologies to discuss your next breakthrough digital product.
+          </p>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 lg:bottom-12"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Scroll Down</span>
+          <motion.div
+            className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/20 p-1.5"
+          >
+            <motion.div
+              className="h-2 w-1.5 rounded-full bg-white/80"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 }
-

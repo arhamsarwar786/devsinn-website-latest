@@ -6,38 +6,46 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function VisionMission() {
   return (
-    <section className="bg-white px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16">
-      <div className="mx-auto w-full max-w-[1540px]">
-        <div className="relative overflow-hidden rounded-[26px] bg-[#1d1d1d] text-white lg:min-h-[359px]">
+    <section className="bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+      <div className="mx-auto w-full max-w-[1400px]">
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-[#0A0F1E] shadow-2xl lg:min-h-[450px]">
+          {/* Animated glowing background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#38bdf8]/10 via-transparent to-[#c084fc]/10 opacity-30" />
+          
           <Image
             src="/about/vision1.png"
             alt="Vision and mission background"
             fill
             sizes="(max-width: 1023px) 100vw, 1540px"
-            className="object-cover"
+            className="object-cover opacity-60 mix-blend-overlay"
             priority={false}
           />
 
-          <div className="absolute inset-0 bg-black/58" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#0A0F1E_0%,rgba(10,15,30,0.4)_100%)]" />
 
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="relative grid gap-12 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-2 lg:gap-[84px] lg:px-[36px] lg:py-[66px] xl:px-[36px]"
+            className="relative grid gap-16 px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-2 lg:gap-[100px] lg:px-[64px] lg:py-[80px]"
           >
-            <div className="max-w-[600px]">
+            {/* Vision */}
+            <div className="max-w-[600px] group">
+              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-transform duration-500 group-hover:scale-110">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+              </motion.div>
+
               <motion.h2 
                 variants={fadeInUp}
-                className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]"
+                className="text-[2.5rem] font-black leading-none tracking-[-0.03em] sm:text-[3rem]"
               >
-                Vision
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">Vision</span>
               </motion.h2>
 
               <motion.p 
                 variants={fadeInUp}
-                className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[666px] lg:text-[20px] lg:leading-[1.43]"
+                className="mt-6 text-[1.15rem] leading-[1.8] text-white/60 lg:text-[1.25rem]"
               >
                 Our vision at Dev&apos;s Inn Technologies is to become a leading
                 company that is recognized for our expertise, innovation, and
@@ -48,17 +56,22 @@ export default function VisionMission() {
               </motion.p>
             </div>
 
-            <div className="max-w-[640px]">
+            {/* Mission */}
+            <div className="max-w-[640px] group">
+              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#c084fc] to-[#f472b6] text-white shadow-[0_0_30px_rgba(192,132,252,0.3)] transition-transform duration-500 group-hover:scale-110">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="m4.93 10.93 14.14 14.14"/><path d="m2 22 20-20"/><path d="m4.93 19.07 14.14-14.14"/></svg>
+              </motion.div>
+
               <motion.h2 
                 variants={fadeInUp}
-                className="text-[2.1rem] font-bold leading-none tracking-[-0.03em] sm:text-[2.5rem] lg:text-[30px]"
+                className="text-[2.5rem] font-black leading-none tracking-[-0.03em] sm:text-[3rem]"
               >
-                Mission
+                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#f472b6]">Mission</span>
               </motion.h2>
 
               <motion.p 
                 variants={fadeInUp}
-                className="mt-6 text-[1.18rem] font-normal leading-[1.52] text-white/95 sm:text-[1.24rem] lg:max-w-[640px] lg:text-[20px] lg:leading-[1.43]"
+                className="mt-6 text-[1.15rem] leading-[1.8] text-white/60 lg:text-[1.25rem]"
               >
                 At Dev&apos;s Inn Technologies, our mission is to help businesses
                 of all sizes establish a strong and effective online presence

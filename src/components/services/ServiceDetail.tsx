@@ -26,8 +26,8 @@ type ServiceData = {
 
 export default function ServiceDetail({ service }: { service: ServiceData }) {
   return (
-    <main className="bg-white text-[#11284f] overflow-hidden">
-      <section className="relative overflow-hidden bg-[#08142d] text-white">
+    <main className="bg-[#060C1A] text-white overflow-hidden">
+      <section className="relative overflow-hidden bg-[#0A0F1E] text-white">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -40,11 +40,11 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[70%_center] lg:object-[center_center]"
+            className="object-cover object-[70%_center] lg:object-[center_center] opacity-30 mix-blend-screen"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,12,29,0.92)_0%,rgba(8,22,52,0.72)_36%,rgba(7,20,48,0.34)_100%)] sm:bg-[linear-gradient(90deg,rgba(4,12,29,0.97)_0%,rgba(9,22,52,0.9)_28%,rgba(18,49,118,0.36)_60%,rgba(8,20,48,0.22)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_64%_42%,rgba(78,132,255,0.32)_0%,rgba(9,23,52,0.12)_42%,rgba(4,11,26,0.04)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,12,26,0.95)_0%,rgba(6,12,26,0.7)_50%,rgba(6,12,26,0.95)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(56,189,248,0.15)_0%,transparent_60%)]" />
 
         <motion.div 
           initial="hidden"
@@ -53,106 +53,145 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
           className="relative mx-auto flex min-h-[100svh] w-full max-w-[1568px] items-center px-5 pb-10 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pt-[118px] xl:px-16 xl:pt-[138px]"
         >
           <div className="max-w-[760px]">
-            <motion.p variants={fadeInUp} className="text-[13px] font-semibold uppercase tracking-[0.24em] text-[#8cecff] sm:text-[14px]">
-              {service.heroEyebrow}
-            </motion.p>
-            <motion.h1 variants={fadeInUp} className="mt-5 text-[2.55rem] font-bold leading-[0.98] tracking-[-0.05em] text-white sm:text-[3.4rem] lg:text-[4.15rem] xl:text-[4.85rem]">
+            <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-2">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#38bdf8]">
+                {service.heroEyebrow}
+              </span>
+            </motion.div>
+            <motion.h1 variants={fadeInUp} className="text-[2.5rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem]">
               {service.heroTitle}
             </motion.h1>
-            <motion.p variants={fadeInUp} className="mt-5 max-w-[620px] text-[1rem] leading-[1.7] text-white/90 sm:text-[1.08rem] lg:text-[1.15rem]">
+            <motion.p variants={fadeInUp} className="mt-6 max-w-[620px] text-[1.1rem] leading-[1.7] text-white/60 sm:text-[1.2rem]">
               {service.heroDescription}
             </motion.p>
           </div>
         </motion.div>
       </section>
 
-      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      {/* Main Overview Section */}
+      <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
+        {/* Soft Background Glow */}
+        <div className="pointer-events-none absolute left-[10%] top-[50%] h-[600px] w-[600px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.08)_0%,transparent_70%)] blur-[100px]" />
+
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mx-auto grid w-full max-w-[1320px] gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,420px)] lg:gap-14"
+          className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,460px)] lg:gap-20"
         >
           <motion.div variants={fadeInUp}>
-            <p className="text-[13px] font-semibold uppercase tracking-[0.24em] text-[#5f7cab]">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#818cf8]">
               Service Overview
             </p>
-            <h2 className="mt-4 text-[2.15rem] font-bold leading-[1.02] tracking-[-0.04em] text-[#11284f] sm:text-[2.5rem] lg:text-[3.25rem]">
+            <h2 className="mt-6 text-[2.5rem] font-black leading-[1.1] tracking-[-0.04em] text-white sm:text-[3rem] lg:text-[4rem]">
               {service.mainTitle}
             </h2>
-            <p className="mt-5 max-w-[760px] text-[1rem] leading-[1.8] text-[#455774] sm:text-[1.06rem] lg:text-[1.12rem]">
+            <p className="mt-8 max-w-[760px] text-[1.15rem] leading-[1.8] text-white/70">
               {service.mainDescription}
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="rounded-[28px] border border-[#dbe5f3] bg-[linear-gradient(180deg,#f7fbff_0%,#eef5ff_100%)] p-6 shadow-[0_24px_60px_rgba(16,38,79,0.06)] sm:p-7">
-            <p className="text-[13px] font-semibold uppercase tracking-[0.22em] text-[#5f7cab]">
-              Technology Stack
-            </p>
-            <motion.div variants={staggerContainer} className="mt-5 flex flex-wrap gap-3">
-              {service.technologies.map((technology) => (
-                <motion.span
-                  key={technology}
-                  variants={fadeInUp}
-                  whileHover={{ y: -3 }}
-                  className="inline-flex rounded-full border border-[#cfe0f4] bg-white px-4 py-2 text-[0.94rem] font-medium text-[#17305f] shadow-[0_10px_24px_rgba(16,38,79,0.04)]"
-                >
-                  {technology}
-                </motion.span>
-              ))}
-            </motion.div>
+          <motion.div variants={fadeInUp} className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-10">
+            {/* Tech Stack Glow Container */}
+            <div 
+              className="absolute -inset-1 rounded-[2.2rem] opacity-30 blur-2xl transition duration-500 group-hover:opacity-60"
+              style={{ background: `radial-gradient(circle at 100% 0%, #818cf8 0%, transparent 60%)` }}
+            />
+            
+            <div className="relative z-10">
+              <p className="text-[12px] font-bold uppercase tracking-[0.22em] text-[#38bdf8]">
+                Technology Stack
+              </p>
+              <motion.div variants={staggerContainer} className="mt-8 flex flex-wrap gap-3">
+                {service.technologies.map((technology) => (
+                  <motion.span
+                    key={technology}
+                    variants={fadeInUp}
+                    whileHover={{ y: -3, scale: 1.05 }}
+                    className="inline-flex rounded-full border border-white/10 bg-[#060C1A] px-5 py-2.5 text-[0.95rem] font-semibold text-white/90 shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-colors hover:border-[#38bdf8]/50 hover:text-[#38bdf8]"
+                  >
+                    {technology}
+                  </motion.span>
+                ))}
+              </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
 
-      <section className="bg-[#f6faff] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      {/* Highlights Section */}
+      <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
+        {/* Soft Background Glow */}
+        <div className="pointer-events-none absolute right-[10%] top-[40%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[100px]" />
+
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mx-auto w-full max-w-[1320px]"
+          className="relative z-10 mx-auto w-full max-w-[1400px]"
         >
-          <motion.p variants={fadeInUp} className="text-[13px] font-semibold uppercase tracking-[0.24em] text-[#5f7cab]">
-            {service.highlightTitle}
-          </motion.p>
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            {service.highlights.map((item) => (
+          <motion.div variants={fadeInUp} className="text-center md:text-left mb-16">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#818cf8]">
+              {service.highlightTitle}
+            </p>
+            <h2 className="mt-3 text-[2.5rem] font-black leading-[1.1] text-white">
+              What <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">We Optimize</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {service.highlights.map((item, i) => (
               <motion.article
                 key={item.title}
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="rounded-[24px] border border-[#dbe5f3] bg-white p-6 shadow-[0_20px_48px_rgba(16,38,79,0.05)] transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_24px_52px_rgba(16,38,79,0.12)] sm:p-7"
+                className="group relative rounded-[2rem] border border-white/5 bg-[#0A0F1E] p-8 shadow-[0_20px_48px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/20 sm:p-10"
               >
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#1e467c_0%,#142c55_100%)] text-white shadow-[0_14px_28px_rgba(16,38,79,0.2)]">
-                  <span className="text-[1.2rem]">+</span>
+                {/* Internal Glow */}
+                <div 
+                  className="absolute inset-0 rounded-[2rem] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-10"
+                  style={{ background: `radial-gradient(circle at top right, #38bdf8 0%, transparent 60%)` }}
+                />
+
+                <div className="relative z-10">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-transform duration-500 group-hover:rotate-12">
+                     <span className="text-[1.5rem] font-bold leading-none">+</span>
+                  </div>
+                  <h3 className="mt-8 text-[1.8rem] font-bold leading-[1.3] tracking-[-0.03em] text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-5 text-[1.05rem] leading-[1.75] text-white/60">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="mt-5 text-[1.35rem] font-bold leading-[1.2] tracking-[-0.03em] text-[#11284f]">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-[1rem] leading-[1.75] text-[#4b5e7d]">
-                  {item.description}
-                </p>
               </motion.article>
             ))}
           </div>
         </motion.div>
       </section>
 
-      <section className="px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      {/* Selected Work */}
+      <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="mx-auto w-full max-w-[1320px]"
+          className="relative z-10 mx-auto w-full max-w-[1400px]"
         >
-          <motion.p variants={fadeInUp} className="text-[13px] font-semibold uppercase tracking-[0.24em] text-[#5f7cab]">
-            Selected Work
-          </motion.p>
+          <motion.div variants={fadeInUp} className="text-center mb-16">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#818cf8]">
+              Proof Of Excellence
+            </p>
+            <h2 className="mt-3 text-[2.5rem] font-black leading-[1.1] text-white">
+              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#f472b6]">Work</span>
+            </h2>
+          </motion.div>
+          
           <div 
-            className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+            className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
             style={{ perspective: "1200px" }}
           >
             {service.projects.map((project, index) => (
@@ -160,16 +199,28 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                 key={`${service.id}-${project}-${index}`}
                 variants={card3D}
                 whileHover="hover"
-                className="overflow-hidden rounded-[24px] border border-[#dbe5f3] bg-white shadow-[0_20px_48px_rgba(16,38,79,0.05)] transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_24px_52px_rgba(16,38,79,0.12)]"
+                className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-500 hover:border-white/30"
               >
-                <div className="relative aspect-[413/518] w-full">
+                {/* Glow layer behind image */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/40 to-[#c084fc]/40 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100" />
+                
+                <div className="relative aspect-[413/518] w-full overflow-hidden bg-[#060C1A]">
                   <Image
                     src={project}
                     alt={`${service.mainTitle} project ${index + 1}`}
                     fill
                     sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                    className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                    className="object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110 group-hover:opacity-100"
                   />
+                  {/* Floating View Project Button */}
+                  <div className="absolute bottom-6 left-1/2 z-20 flex w-full -translate-x-1/2 translate-y-12 justify-center opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="rounded-full overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8] to-[#818cf8] opacity-90" />
+                      <div className="relative px-6 py-3 text-[14px] font-bold text-[#060C1A] shadow-2xl backdrop-blur-md cursor-pointer">
+                        View Details
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -179,4 +230,3 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
     </main>
   );
 }
-

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, AnimatePresence, useInView, useAnimationFrame } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const services = [
   {
@@ -168,6 +168,13 @@ export default function OurServices() {
   // Refs for each node button — we update their position imperatively
   const nodeRefs = useRef<(HTMLButtonElement | null)[]>(Array(services.length).fill(null));
   const startTimeRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % services.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, []);
 
   // Smooth orbit via direct DOM style mutation — zero React re-renders
   useAnimationFrame((t) => {
@@ -347,7 +354,7 @@ export default function OurServices() {
             <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#64dff2]">Our Services</span>
           </div>
 
-          <h2 className="text-[2.6rem] font-extrabold leading-[1.05] tracking-[-0.04em] sm:text-[3.2rem]">
+          <h2 className="text-[2rem] font-extrabold leading-[1.05] tracking-[-0.04em] sm:text-[2.5rem]">
             Everything Your{" "}
             <span className="text-transparent bg-clip-text bg-[linear-gradient(90deg,#8cecff_0%,#4d8cff_60%,#a78bfa_100%)]">
               Business Needs

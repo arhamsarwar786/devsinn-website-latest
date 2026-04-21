@@ -3,116 +3,109 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import HeroAmbient from "@/components/ui/HeroAmbient";
-import { fadeInUp, fadeIn, staggerContainer } from "@/lib/motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
-  const dotTransition = {
-    duration: 3,
-    repeat: Infinity,
-    repeatType: "reverse" as const,
-    ease: "easeInOut" as const,
-  };
-
   return (
-    <section className="relative overflow-hidden bg-[#08142d] text-white">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+      {/* Deep Space Background Glows */}
+      <div className="absolute inset-0 bg-[#060C1A]" />
+
+      {/* Animated Glowing Orbs */}
       <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-        className="absolute inset-0"
+        className="pointer-events-none absolute left-[50%] top-[30%] h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 60%)" }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* The Globe Background - Premium Animation */}
+      <motion.div
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
       >
-        <Image
-          src="/global.png"
-          alt="Digital globe background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[65%_78%] sm:object-[68%_70%] lg:object-[center_center]"
+        {/* Glow exactly under the globe */}
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8] to-[#c084fc] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
         />
+        <motion.div
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/global.png"
+            alt="Digital globe background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[64%_78%] opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)] sm:object-[68%_70%] lg:object-[center_center]"
+          />
+        </motion.div>
       </motion.div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,12,29,0.9)_0%,rgba(8,22,52,0.56)_32%,rgba(9,23,52,0.34)_64%,rgba(4,12,29,0.72)_100%)] sm:bg-[linear-gradient(90deg,rgba(4,12,29,0.97)_0%,rgba(8,19,46,0.92)_24%,rgba(18,49,118,0.5)_55%,rgba(8,20,48,0.28)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_60%,rgba(78,132,255,0.38)_0%,rgba(15,37,84,0.18)_34%,rgba(4,11,26,0.1)_78%)] sm:bg-[radial-gradient(circle_at_center,_rgba(78,132,255,0.34)_0%,_rgba(15,37,84,0.16)_34%,_rgba(4,11,26,0.04)_72%)]" />
-      <HeroAmbient />
-      
-      <motion.span 
-        animate={{ y: [0, -10, 0], opacity: [0.85, 1, 0.85] }}
-        transition={{ ...dotTransition, delay: 0 }}
-        className="hero-dot pointer-events-none absolute left-[55%] top-[25%] z-20 h-3.5 w-3.5 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)] sm:h-4 sm:w-4" 
-      />
-      <motion.span 
-        animate={{ y: [0, 8, 0], opacity: [0.85, 1, 0.85] }}
-        transition={{ ...dotTransition, delay: 0.5 }}
-        className="hero-dot pointer-events-none absolute left-[68%] top-[18%] z-20 h-2.5 w-2.5 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)]" 
-      />
-      <motion.span 
-        animate={{ x: [0, 6, 0], y: [0, -6, 0], opacity: [0.85, 1, 0.85] }}
-        transition={{ ...dotTransition, delay: 1 }}
-        className="hero-dot pointer-events-none absolute right-[17%] top-[28%] z-20 h-3 w-3 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)]" 
-      />
-      <motion.span 
-        animate={{ x: [0, -4, 0], scale: [1, 1.1, 1] }}
-        transition={{ ...dotTransition, delay: 1.5 }}
-        className="hero-dot pointer-events-none absolute right-[6.5%] top-[37%] z-20 h-4 w-4 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)] sm:h-4.5 sm:w-4.5" 
-      />
-      <motion.span 
-        animate={{ y: [0, 12, 0] }}
-        transition={{ ...dotTransition, delay: 0.2 }}
-        className="hero-dot pointer-events-none absolute right-[11%] top-[60%] z-20 h-2.5 w-2.5 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)] sm:h-3 sm:w-3" 
-      />
-      <motion.span 
-        animate={{ scale: [1, 0.9, 1], opacity: [0.8, 1, 0.8] }}
-        transition={{ ...dotTransition, delay: 0.8 }}
-        className="hero-dot pointer-events-none absolute right-[21%] top-[72%] z-20 h-3.5 w-3.5 rounded-full bg-[#8ff6ff] shadow-[0_0_18px_rgba(126,223,255,0.85)] sm:h-4 sm:w-4" 
-      />
+      {/* Cinematic Vignette Overlays */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#060C1A] via-[#060C1A]/80 to-transparent lg:via-[#060C1A]/60" />
+      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[#060C1A] lg:via-[#060C1A] lg:to-transparent lg:w-[55%]" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A]/80" />
 
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1568px] items-center px-5 pb-10 pt-24 sm:px-8 sm:pb-12 sm:pt-30 lg:px-10 lg:pb-8 lg:pt-[106px] xl:px-16 xl:pt-[118px]">
-        <motion.div 
+      {/* Main Content */}
+      <div className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-center px-5 pt-28 pb-20 sm:px-8 lg:px-10 xl:px-16">
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
           className="max-w-[820px]"
         >
-          <motion.h1 
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-5 py-2.5 backdrop-blur-md">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[#38bdf8]">
+              Our Selected Work
+            </span>
+          </motion.div>
+
+          <motion.h1
             variants={fadeInUp}
-            className="max-w-[660px] pt-12 text-[3.45rem] font-bold leading-[0.98] tracking-[-0.06em] text-white sm:pt-14 sm:text-[4rem] md:text-[4.35rem] lg:max-w-[790px] lg:pt-0 lg:text-[68px] lg:leading-[1.05] xl:text-[74px]"
+            className="text-[3rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[4rem] lg:text-[5.5rem] xl:text-[6rem]"
           >
-            <span className="block">Showcasing</span>
-            <span className="mt-2 block whitespace-nowrap lg:mt-2.5">Excellence Through</span>
-            <span className="mt-2 block lg:mt-2.5">Our Work</span>
+            Showcasing <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
+              Excellence Through
+            </span> <br />
+            Our Work
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
-            className="mt-4 max-w-[760px] text-[1rem] leading-[1.22] text-white/95 sm:text-[1.2rem] lg:mt-5 lg:text-[22px] lg:leading-[1.12] xl:text-[23px]"
+            className="mt-8 max-w-[600px] text-[1.1rem] leading-[1.7] text-white/70 sm:text-[1.25rem]"
           >
-            <span className="block whitespace-nowrap">
-              We craft elegant, engaging, &amp; responsive web &amp; mobile
-            </span>
-            <span className="block">applications</span>
+            We craft elegant, engaging, and responsive web and mobile applications engineered for the modern digital era.
           </motion.p>
 
-          <motion.div variants={fadeInUp}>
-            <div className="mt-7 flex max-w-[560px] flex-col gap-3 sm:flex-row lg:mt-8">
-              <a
-                href="/pdf/Devsinn-Technologies-Portfolio.pdf"
-                download="Devsinn-Technologies-Portfolio.pdf"
-                className="inline-flex min-h-[56px] items-center justify-center rounded-full bg-white px-8 text-[16px] font-medium text-[#17305f] transition-all duration-200 hover:scale-[1.02] hover:bg-white/90 lg:h-[74px] lg:w-[269px] lg:min-h-0 lg:rounded-[16px] lg:px-10 lg:text-[18px]"
-              >
+          <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+              download="Devsinn-Technologies-Portfolio.pdf"
+              className="group relative cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/10 via-[#38bdf8]/30 to-[#38bdf8]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <span className="relative text-[15px] font-bold text-[#060C1A] transition-colors group-hover:text-[#060C1A]">
                 Download Portfolio
-              </a>
+              </span>
+            </a>
 
-              <Button
-                href="/contact"
-                variant="outline"
-                fullWidth
-                className="max-w-[248px] hover:scale-[1.02] sm:max-w-[260px] lg:h-[74px] lg:w-[269px] lg:max-w-[269px] lg:min-h-0 lg:rounded-[16px] lg:px-10 lg:text-[18px]"
-              >
-                Get in Touch
-              </Button>
-            </div>
+            <Button
+              href="/contact"
+              variant="outline"
+              fullWidth
+              className="max-w-[248px] hover:scale-[1.02] sm:max-w-[260px] lg:h-[56px] lg:rounded-full"
+            >
+              Get in Touch
+            </Button>
           </motion.div>
         </motion.div>
       </div>

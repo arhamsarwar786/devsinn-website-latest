@@ -17,21 +17,8 @@ const contactDetails = [
     value: "+92 336 5918295",
     href: "tel:+923365918295",
     icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M22 16.92V20A2 2 0 0 1 19.82 22C9.86 22 2 14.14 2 4.18A2 2 0 0 1 4 2h3.09a2 2 0 0 1 2 1.72l.34 2.74a2 2 0 0 1-.57 1.71L7 9.99a16 16 0 0 0 7.01 7.01l1.82-1.86a2 2 0 0 1 1.71-.57l2.74.34A2 2 0 0 1 22 16.92Z"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 16.92V20A2 2 0 0 1 19.82 22C9.86 22 2 14.14 2 4.18A2 2 0 0 1 4 2h3.09a2 2 0 0 1 2 1.72l.34 2.74a2 2 0 0 1-.57 1.71L7 9.99a16 16 0 0 0 7.01 7.01l1.82-1.86a2 2 0 0 1 1.71-.57l2.74.34A2 2 0 0 1 22 16.92Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -40,28 +27,9 @@ const contactDetails = [
     value: "info@devsinntechnologies.com",
     href: "mailto:info@devsinntechnologies.com",
     icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M4 6H20C21.1 6 22 6.9 22 8V16C22 17.1 21.1 18 20 18H4C2.9 18 2 17.1 2 16V8C2 6.9 2.9 6 4 6Z"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M22 8L12 14L2 8"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6H20C21.1 6 22 6.9 22 8V16C22 17.1 21.1 18 20 18H4C2.9 18 2 17.1 2 16V8C2 6.9 2.9 6 4 6Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M22 8L12 14L2 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -70,28 +38,9 @@ const contactDetails = [
     value: "H#14B-III, Butt Street, Rustam Park, Samnabad, Lahore",
     href: "https://maps.google.com/?q=H%2314B-III,+Butt+Street,+Rustam+Park,+Samnabad,+Lahore",
     icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M20 10C20 15.25 12 22 12 22C12 22 4 15.25 4 10A8 8 0 1 1 20 10Z"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M12 13A3 3 0 1 0 12 7A3 3 0 0 0 12 13Z"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 10C20 15.25 12 22 12 22C12 22 4 15.25 4 10A8 8 0 1 1 20 10Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 13A3 3 0 1 0 12 7A3 3 0 0 0 12 13Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -176,14 +125,7 @@ export default function ContactUs() {
         EMAILJS_CONFIG.publicKey,
       )
       .then(() => {
-        setFormData({
-          fname: "",
-          lname: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
+        setFormData({ fname: "", lname: "", email: "", phone: "", subject: "", message: "" });
         setError(null);
         setSuccessMessage("Your message has been sent successfully.");
         setIsSending(false);
@@ -191,12 +133,7 @@ export default function ContactUs() {
       .catch((reason: EmailJSResponseStatus | Error | string) => {
         let nextError = "Failed to send email. Please try again.";
 
-        if (
-          typeof reason === "object" &&
-          reason !== null &&
-          "text" in reason &&
-          typeof reason.text === "string"
-        ) {
+        if (typeof reason === "object" && reason !== null && "text" in reason && typeof reason.text === "string") {
           if (reason.text.includes("Account not found")) {
             nextError = EMAILJS_INVALID_ACCOUNT_MESSAGE;
           } else {
@@ -215,74 +152,56 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="bg-[linear-gradient(180deg,#eef5ff_0%,#f4f8ff_34%,#ffffff_100%)] px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+    <section className="bg-[#060C1A] px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="mx-auto w-full max-w-[1350px] rounded-[36px] border border-[#d8e5f4] bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(246,250,255,0.96)_100%)] p-3 shadow-[0_30px_100px_rgba(16,38,79,0.1)] backdrop-blur-sm sm:p-5 lg:p-6"
+        className="mx-auto w-full max-w-[1400px] rounded-[3rem] border border-white/10 bg-[#0A0F1E] p-4 lg:p-6 shadow-[0_0_50px_rgba(56,189,248,0.05)]"
       >
-        <div className="grid overflow-hidden rounded-[32px] bg-white lg:grid-cols-[440px_minmax(0,1fr)] xl:grid-cols-[500px_minmax(0,1fr)]">
-          <aside className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(180deg,#0c2146_0%,#163561_40%,#102a4f_100%)] px-6 py-8 text-white sm:px-8 sm:py-10 lg:min-h-[820px] lg:px-10 lg:py-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(100,223,242,0.22),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(77,140,255,0.22),transparent_30%),linear-gradient(145deg,transparent_0%,transparent_58%,rgba(255,255,255,0.04)_58.4%,transparent_59%)]" />
-            <div className="absolute right-6 top-6 h-24 w-24 rounded-full border border-white/12 sm:h-32 sm:w-32" />
-            <div className="absolute bottom-8 right-8 h-18 w-18 rounded-full bg-[#245ca0]/55 blur-[2px]" />
-            <div className="absolute bottom-20 left-10 h-px w-28 bg-white/12" />
-            <div className="absolute left-10 top-[48%] h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(126,223,255,0.24),rgba(126,223,255,0.02)_66%,transparent_72%)]" />
-            <div className="absolute left-[18%] top-[18%] h-2.5 w-2.5 rounded-full bg-[#8cecff] shadow-[0_0_20px_rgba(126,223,255,0.7)]" />
-            <div className="absolute right-[22%] top-[30%] h-3 w-3 rounded-full bg-[#73b1ff] shadow-[0_0_22px_rgba(115,177,255,0.55)]" />
-            <div className="absolute bottom-[18%] left-[22%] h-2.5 w-2.5 rounded-full bg-[#a4f7ff] shadow-[0_0_20px_rgba(164,247,255,0.55)]" />
-
-            <div className="relative">
-              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#7edfff]/22 bg-white/6 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8cecff]">
-                Let&apos;s Build Something Great
+        <div className="grid overflow-hidden rounded-[2.5rem] bg-[#060C1A] lg:grid-cols-[460px_minmax(0,1fr)] xl:grid-cols-[560px_minmax(0,1fr)]">
+          {/* LEFT SIDE (Brand Intro) */}
+          <aside className="relative overflow-hidden border-r border-white/10 bg-[#0A0F1E] px-6 py-10 text-white sm:px-10 sm:py-16 lg:px-12">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.15),transparent_40%)]" />
+            
+            <div className="relative z-10">
+              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">
+                Let's Build Something Great
               </motion.p>
-              <motion.h2 variants={fadeInUp} className="mt-6 text-[2.2rem] font-bold leading-[0.98] tracking-[-0.05em] sm:text-[2.7rem] lg:text-[54px]">
-                Your next
-                <br />
-                standout digital
-                <br />
-                experience starts here.
+              <motion.h2 variants={fadeInUp} className="mt-6 text-[2.5rem] font-black leading-[1.0] tracking-[-0.04em] sm:text-[3.5rem] lg:text-[4rem]">
+                Your next standout digital experience starts here.
               </motion.h2>
-              <motion.p variants={fadeInUp} className="mt-5 max-w-[370px] text-[16px] leading-[1.7] text-white/78 sm:text-[18px]">
-                Share your idea and we&apos;ll shape it into a polished, user-friendly,
-                high-converting digital experience that already feels premium
-                before the first launch.
+              <motion.p variants={fadeInUp} className="mt-6 text-[1.1rem] leading-[1.7] text-white/60">
+                Share your idea and we'll shape it into a polished, user-friendly, high-converting digital experience that feels premium.
               </motion.p>
             </div>
 
             <motion.div 
               variants={staggerContainer} 
-              className="relative mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4"
-              style={{ perspective: "1500px" }}
+              className="relative z-10 mt-12 grid gap-4 sm:grid-cols-3"
             >
               {trustHighlights.map((item) => (
-                <motion.div
-                  key={item.label}
-                  variants={card3D}
-                  whileHover="hover"
-                  className="rounded-[22px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.04))] px-4 py-4 backdrop-blur-sm transition-all duration-300 hover:border-[#8cecff]/35 hover:shadow-[0_20px_50px_rgba(5,17,40,0.18)]"
-                >
-                  <p className="text-[12px] uppercase tracking-[0.18em] text-white/48">
+                <motion.div key={item.label} variants={fadeInUp} className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#38bdf8] mb-1">
                     {item.label}
                   </p>
-                  <p className="mt-2 text-[18px] font-semibold leading-[1.3] text-white">
+                  <p className="text-[1rem] sm:text-[1.1rem] font-bold text-white">
                     {item.value}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="relative mt-10 rounded-[26px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] p-5 shadow-[0_24px_60px_rgba(5,17,40,0.2)] backdrop-blur-sm sm:mt-12 sm:p-6">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-[#8cecff]">
+            <motion.div variants={fadeInUp} className="relative z-10 mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:mt-12">
+              <p className="text-[12px] font-bold uppercase tracking-wider text-[#c084fc] mb-5">
                 Why clients love this step
               </p>
-              <div className="mt-4 flex flex-col gap-3">
+              <div className="flex flex-col gap-4">
                 {experiencePillars.map((item) => (
-                  <div key={item} className="flex items-center gap-3 text-[15px] text-white/88 sm:text-[16px]">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-[#8cecff]">
-                      ✓
+                  <div key={item} className="flex items-center gap-4 text-[1rem] text-white/80">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#c084fc]/20 text-[#c084fc]">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     </span>
                     <span>{item}</span>
                   </div>
@@ -290,203 +209,84 @@ export default function ContactUs() {
               </div>
             </motion.div>
 
-            <motion.div 
-              variants={staggerContainer} 
-              className="relative mt-8 space-y-5 sm:mt-10 sm:space-y-6"
-              style={{ perspective: "1500px" }}
-            >
+            <motion.div variants={staggerContainer} className="relative z-10 mt-12 space-y-4">
               {contactDetails.map((item) => (
-                <motion.a
-                  key={item.title}
-                  variants={card3D}
-                  whileHover="hover"
-                  href={item.href}
-                  target={item.title === "Address" ? "_blank" : undefined}
-                  rel={item.title === "Address" ? "noreferrer" : undefined}
-                  className="group flex items-start gap-4 rounded-[24px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] px-4 py-4 text-white/92 shadow-[inset_0_1px_0_rgba(255,255,255,0.03),0_18px_40px_rgba(6,17,40,0.16)] backdrop-blur-sm transition-all duration-300 hover:border-[#8cecff]/35 hover:bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05))] hover:shadow-[0_24px_50px_rgba(7,18,45,0.22)] sm:px-5 sm:py-5"
-                >
-                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#8cecff] transition-all duration-300 group-hover:bg-[#8cecff]/14 group-hover:text-white sm:h-14 sm:w-14">
+                <motion.a key={item.title} variants={fadeInUp} href={item.href} target={item.title === "Address" ? "_blank" : undefined} rel={item.title === "Address" ? "noreferrer" : undefined} className="group flex items-center gap-5 rounded-2xl border border-white/5 bg-transparent px-2 py-3 transition-colors hover:bg-white/5">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/5 text-[#38bdf8] transition-colors group-hover:bg-[#38bdf8] group-hover:text-[#060C1A]">
                     {item.icon}
                   </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-[14px] uppercase tracking-[0.18em] text-white/52">
-                      {item.title}
-                    </span>
-                    <span className="mt-1 block break-words [overflow-wrap:anywhere] text-[17px] leading-[1.5] text-white sm:text-[18px]">
-                      {item.value}
-                    </span>
-                  </span>
+                  <div>
+                    <span className="block text-[11px] font-bold uppercase tracking-wider text-white/50">{item.title}</span>
+                    <span className="mt-1 block text-[1.1rem] font-medium text-white">{item.value}</span>
+                  </div>
                 </motion.a>
               ))}
             </motion.div>
           </aside>
 
-          <div className="relative bg-[radial-gradient(circle_at_top_right,rgba(77,140,255,0.12),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f4f8ff_100%)] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12 xl:px-16">
-            <div className="absolute right-10 top-8 hidden h-32 w-32 rounded-full border border-[#dfe8f6] lg:block" />
-            <div className="absolute bottom-10 right-12 hidden h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(100,223,242,0.35),rgba(100,223,242,0.06)_65%,transparent_72%)] lg:block" />
-            <div className="absolute left-10 top-14 hidden h-px w-24 bg-[#dfe8f6] lg:block" />
+          {/* RIGHT SIDE (Form) */}
+          <div className="relative px-5 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.05),transparent_60%)]" />
 
-            <div className="relative">
-              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#cfe0f4] bg-white/75 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.18em] text-[#1b325d]/70 shadow-[0_10px_24px_rgba(16,38,79,0.04)]">
+            <div className="relative z-10">
+              <motion.p variants={fadeInUp} className="text-[12px] font-bold uppercase tracking-wider text-[#818cf8]">
                 Write To Us
               </motion.p>
-              <motion.h3 variants={fadeInUp} className="mt-5 max-w-[620px] text-[2rem] font-bold leading-[1.02] tracking-[-0.045em] text-[#10264f] sm:text-[2.3rem] lg:text-[46px]">
-                Let&apos;s turn your idea into something people instantly trust.
+              <motion.h3 variants={fadeInUp} className="mt-2 max-w-[620px] text-[2.5rem] font-bold leading-[1.1] tracking-[-0.03em] text-white">
+                Let's turn your idea into something people instantly trust.
               </motion.h3>
-              <motion.p variants={fadeInUp} className="mt-4 max-w-[640px] text-[16px] leading-[1.72] text-[#40526e] sm:text-[17px]">
-                Tell us what you&apos;re building, where you want help, and the
-                experience you want your users to feel. We&apos;ll guide you with a
-                thoughtful response that feels clear, helpful, and tailored to
-                your brand.
-              </motion.p>
             </div>
 
-            <motion.form variants={fadeInUp} onSubmit={handleSubmit} className="relative mt-8 sm:mt-10">
-              {error ? (
-                <div className="mb-5 rounded-[20px] border border-[#f2b8b5] bg-[#fff1f0] px-4 py-3 text-[15px] text-[#8d1d18]">
-                  {error}
-                </div>
-              ) : null}
+            <motion.form variants={fadeInUp} onSubmit={handleSubmit} className="relative z-10 mt-12">
+              {error && <div className="mb-6 rounded-xl border border-red-500/50 bg-red-500/10 px-5 py-4 text-[15px] text-red-200">{error}</div>}
+              {successMessage && <div className="mb-6 rounded-xl border border-green-500/50 bg-green-500/10 px-5 py-4 text-[15px] text-green-200">{successMessage}</div>}
 
-              {successMessage ? (
-                <div className="mb-5 rounded-[20px] border border-[#bfe3c8] bg-[#edf9f0] px-4 py-3 text-[15px] text-[#1d6a34]">
-                  {successMessage}
-                </div>
-              ) : null}
+              <div className="grid gap-6 md:grid-cols-2">
+                <label className="block">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">First Name</span>
+                  <input type="text" name="fname" value={formData.fname} onChange={handleInputChange} placeholder="John" className="h-14 w-full rounded-2xl border border-white/10 bg-[#0A0F1E] px-5 text-[1rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                </label>
 
-              <div className="mb-6 rounded-[24px] border border-[#d9e4f2] bg-white/88 p-4 shadow-[0_18px_40px_rgba(16,38,79,0.06)] backdrop-blur-sm sm:p-5">
-                <div className="flex flex-col gap-3 text-[#3c5070] sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-[13px] font-semibold uppercase tracking-[0.18em] text-[#6f86aa]">
-                      Premium Discovery
-                    </p>
-                    <p className="mt-1 text-[15px] leading-[1.6] sm:text-[16px]">
-                      Fill this out like a conversation, not a form. The more you
-                      share, the more focused and useful our first response will be.
-                    </p>
+                <label className="block">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Last Name</span>
+                  <input type="text" name="lname" value={formData.lname} onChange={handleInputChange} placeholder="Doe" className="h-14 w-full rounded-2xl border border-white/10 bg-[#0A0F1E] px-5 text-[1rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Email</span>
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="john@example.com" className="h-14 w-full rounded-2xl border border-white/10 bg-[#0A0F1E] px-5 text-[1rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                </label>
+
+                <label className="block">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Phone Number</span>
+                  <div className="flex h-14 overflow-hidden rounded-2xl border border-white/10 bg-[#0A0F1E] transition-all focus-within:border-[#38bdf8] focus-within:ring-1 focus-within:ring-[#38bdf8]">
+                    <span className="flex items-center justify-center border-r border-white/10 px-5 text-[1rem] text-white/50">+92</span>
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="336 5918295" className="h-full w-full bg-transparent px-4 text-[1rem] text-white outline-none placeholder:text-white/20" />
                   </div>
-                  <div className="group relative inline-flex shrink-0 items-center justify-center gap-2.5 overflow-hidden whitespace-nowrap rounded-full border border-[#4d8cff]/30 bg-[linear-gradient(90deg,#10264f_0%,#1c467c_100%)] px-5 py-2.5 font-medium text-white shadow-[0_8px_20px_rgba(16,38,79,0.12)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_28px_rgba(77,140,255,0.2)]">
-                    <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.1)_50%,transparent)] -translate-x-full transition-transform duration-1000 group-hover:translate-x-full" />
-                    <div className="relative z-10 flex items-center gap-2.5">
-                      <span className="relative flex h-2 w-2">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#4ade80] opacity-75"></span>
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22c55e]"></span>
-                      </span>
-                      <span className="text-[14px] text-[#f0f4ff] tracking-wide">
-                        Friendly first reply
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </label>
 
-              <div className="grid gap-5 md:grid-cols-2 lg:gap-7">
-                <motion.label variants={fadeInUp} className="block">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    First Name
-                  </span>
-                  <input
-                    type="text"
-                    name="fname"
-                    value={formData.fname}
-                    onChange={handleInputChange}
-                    placeholder="Enter first name"
-                    className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
-                  />
-                </motion.label>
-
-                <motion.label variants={fadeInUp} className="block">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    Last Name
-                  </span>
-                  <input
-                    type="text"
-                    name="lname"
-                    value={formData.lname}
-                    onChange={handleInputChange}
-                    placeholder="Enter last name"
-                    className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
-                  />
-                </motion.label>
-
-                <motion.label variants={fadeInUp} className="block">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    Email
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your email"
-                    className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
-                  />
-                </motion.label>
-
-                <motion.label variants={fadeInUp} className="block">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    Phone Number
-                  </span>
-                  <div className="flex h-14 items-center overflow-hidden rounded-2xl border border-[#d9e4f2] bg-white shadow-[0_10px_28px_rgba(16,38,79,0.05)] transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] focus-within:border-[#4d8cff] focus-within:shadow-[0_14px_36px_rgba(77,140,255,0.12)]">
-                    <span className="inline-flex h-full items-center border-r border-[#d9e4f2] px-4 text-[16px] font-semibold text-[#10264f]">
-                      +92
-                    </span>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="336 5918295"
-                      className="h-full min-w-0 flex-1 bg-transparent px-4 text-[16px] text-[#10264f] outline-none placeholder:text-[#9aa8bc]"
-                    />
-                  </div>
-                </motion.label>
-
-                <motion.label variants={fadeInUp} className="block md:col-span-2">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    Subject
-                  </span>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="h-14 w-full rounded-2xl border border-[#d9e4f2] bg-white px-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
-                  >
-                    <option value="">Choose subject</option>
-                    <option>Web Development</option>
-                    <option>App Development</option>
-                    <option>Design Consultation</option>
-                    <option>General Inquiry</option>
+                <label className="block md:col-span-2">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Subject</span>
+                  <select name="subject" value={formData.subject} onChange={handleInputChange} className="h-14 w-full rounded-2xl border border-white/10 bg-[#0A0F1E] px-5 text-[1rem] text-white outline-none transition-all focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8] appearance-none" style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}>
+                    <option value="" className="bg-[#0A0F1E]">Choose subject</option>
+                    <option className="bg-[#0A0F1E]">Web Development</option>
+                    <option className="bg-[#0A0F1E]">App Development</option>
+                    <option className="bg-[#0A0F1E]">Design Consultation</option>
+                    <option className="bg-[#0A0F1E]">General Inquiry</option>
                   </select>
-                </motion.label>
+                </label>
 
-                <motion.label variants={fadeInUp} className="block md:col-span-2">
-                  <span className="mb-3 block text-[15px] font-medium text-[#70819a]">
-                    Message
-                  </span>
-                  <textarea
-                    rows={6}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell us a little about your project, goals, or timeline."
-                    className="w-full rounded-[26px] border border-[#d9e4f2] bg-white px-4 py-4 text-[16px] text-[#10264f] shadow-[0_10px_28px_rgba(16,38,79,0.05)] outline-none transition-all duration-200 hover:border-[#91bee9] hover:shadow-[0_14px_34px_rgba(16,38,79,0.08)] placeholder:text-[#9aa8bc] focus:border-[#4d8cff] focus:shadow-[0_14px_36px_rgba(77,140,255,0.12)]"
-                  />
-                </motion.label>
+                <label className="block md:col-span-2">
+                  <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Message</span>
+                  <textarea rows={6} name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us a little about your project, goals, or timeline." className="w-full rounded-2xl border border-white/10 bg-[#0A0F1E] p-5 text-[1rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                </label>
               </div>
 
-              <motion.div variants={fadeInUp} className="mt-8 flex justify-start md:mt-10 md:justify-end">
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="xl"
-                  loading={isSending}
-                  loadingLabel="Sending..."
-                  className="w-full rounded-full bg-[linear-gradient(90deg,#10264f_0%,#1f4a82_100%)] px-8 text-[18px] font-semibold text-white shadow-[0_18px_40px_rgba(16,38,79,0.2)] hover:scale-[1.02] hover:bg-[linear-gradient(90deg,#10264f_0%,#1f4a82_100%)] hover:shadow-[0_22px_48px_rgba(16,38,79,0.24)] sm:max-w-[280px]"
-                >
-                  Send message
+              <div className="mt-10 flex justify-end">
+                <Button type="submit" loading={isSending} loadingLabel="Sending..." className="w-full sm:w-auto min-w-[200px] h-[56px] rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] text-[16px] font-bold border-none transition-transform hover:scale-105">
+                  Send Message
                 </Button>
-              </motion.div>
+              </div>
             </motion.form>
           </div>
         </div>

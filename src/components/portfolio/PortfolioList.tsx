@@ -17,47 +17,54 @@ export default function PortfolioList() {
   const activeProjects = projectsByCategory[activeTab];
 
   return (
-    <section className="bg-white px-5 py-[72px] sm:px-8 sm:py-[88px] lg:px-10 lg:py-[104px] xl:px-16 overflow-hidden">
+    <section className="relative bg-[#060C1A] px-5 py-[72px] sm:px-8 sm:py-[88px] lg:px-10 lg:py-[104px] xl:px-16 overflow-hidden">
+      {/* Dark Ambient Glows */}
+      <div className="pointer-events-none absolute left-[10%] top-[20%] h-[700px] w-[700px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] blur-[100px]" />
+      <div className="pointer-events-none absolute right-[10%] bottom-[30%] h-[700px] w-[700px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.06)_0%,transparent_70%)] blur-[100px]" />
+
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="mx-auto flex w-full max-w-[1280px] flex-col gap-[60px]"
+        className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-[60px]"
       >
         <div className="flex w-full justify-center">
           <motion.div 
-            variants={staggerContainer}
-            className="flex w-full max-w-[958px] flex-col items-center gap-4 sm:gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-0"
+            variants={fadeInUp}
+            className="flex flex-wrap items-center justify-center gap-2 rounded-[2rem] border border-white/10 bg-[#0A0F1E]/80 backdrop-blur-md p-2 shadow-2xl"
           >
-            {projectTabs.map((tab) => (
-              <motion.button
-                key={tab.key}
-                variants={fadeInUp}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="button"
-                onClick={() => setActiveTab(tab.key)}
-                className={`inline-flex h-[71px] items-center justify-center rounded-[50px] px-8 text-center text-[18px] font-semibold leading-[1.2] tracking-[0] text-[#172D56] ${
-                  activeTab === tab.key
-                    ? "w-full bg-[#172D56] text-white sm:max-w-[279px] lg:w-[279px]"
-                    : "w-full sm:max-w-[279px] lg:w-[279px]"
-                }`}
-              >
-                {tab.label}
-              </motion.button>
-            ))}
+            {projectTabs.map((tab) => {
+              const isActive = activeTab === tab.key;
+              return (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveTab(tab.key as ProjectCategoryKey)}
+                  className={`relative flex h-[50px] sm:h-[60px] items-center justify-center rounded-[1.5rem] px-5 sm:px-8 text-[14px] sm:text-[15px] font-bold transition-colors duration-300 ${
+                    isActive ? "text-[#060C1A]" : "text-white/60 hover:text-white"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTabPortfolio"
+                      className="absolute inset-0 rounded-[1.5rem] bg-gradient-to-r from-[#38bdf8] to-[#818cf8] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{tab.label}</span>
+                </button>
+              );
+            })}
           </motion.div>
         </div>
 
         <motion.div 
           layout
           variants={staggerContainer}
-          className="grid gap-[20px] md:grid-cols-2 xl:grid-cols-3"
-          style={{ perspective: "1500px" }}
+          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
-            {activeProjects.map((item) => (
+            {activeProjects.map((item, index) => (
               <motion.div
                 key={item.slug}
                 layout
@@ -68,40 +75,46 @@ export default function PortfolioList() {
               >
                 <Link
                   href={`/projects/${item.slug}`}
-                  className="group block"
+                  className="group block relative"
                 >
                   <motion.div 
                     variants={card3D}
                     whileHover="hover"
-                    className="relative aspect-[413/518] w-full overflow-hidden rounded-[20px] border border-black/20 bg-white transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_24px_48px_rgba(13,35,78,0.18)]"
+                    className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20"
                   >
-                    <Image
-                      src={item.mainImage}
-                      alt={`${item.title} showcase`}
-                      fill
-                      sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                      className="object-cover object-top transition-[object-position,transform] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:scale-[1.01]"
-                    />
+                    {/* Dark glow layer beneath image */}
+                    <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/20 to-[#c084fc]/20 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
+                    
+                    <div className="relative h-full w-full bg-[#060C1A]">
+                      <Image
+                        src={item.mainImage}
+                        alt={`${item.title} showcase`}
+                        fill
+                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
+                        className="object-cover object-top opacity-90 transition-[object-position,transform,opacity] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:scale-[1.03] group-hover:opacity-100"
+                      />
 
-                    <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                      <div className="flex items-center justify-between rounded-[20px] border border-white/18 bg-[#0B111B]/62 px-5 py-4 text-white shadow-[0_20px_40px_rgba(0,0,0,0.22)] backdrop-blur-md transition duration-300 group-hover:border-[#71D7FF]/50 group-hover:bg-[#0F1D34]/78">
-                        <div className="min-w-0 pr-4">
-                          <p className="truncate text-[24px] font-semibold leading-none tracking-[-0.03em]">
-                            {item.title}
-                          </p>
-                          <p className="mt-2 text-[13px] font-medium uppercase tracking-[0.22em] text-[#88D8FF]">
-                            {item.categoryLabel}
-                          </p>
+                      {/* Floating overlay card at bottom */}
+                      <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                        <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-[#060C1A]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300 group-hover:border-[#38bdf8]/40">
+                          <div className="min-w-0 pr-4">
+                            <p className="truncate text-[22px] font-black leading-none tracking-[-0.03em] text-white">
+                              {item.title}
+                            </p>
+                            <p className="mt-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">
+                              {item.categoryLabel}
+                            </p>
+                          </div>
+
+                          <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_15px_rgba(56,189,248,0.4)] transition duration-300 group-hover:scale-110">
+                            <Send
+                              aria-hidden="true"
+                              size={18}
+                              strokeWidth={2.5}
+                              className="rotate-[-45deg] ml-0.5 mt-0.5"
+                            />
+                          </span>
                         </div>
-
-                        <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white text-[#172D56] transition duration-300 group-hover:scale-105 group-hover:bg-[#77D7FF] group-hover:text-[#0B1E42]">
-                          <Send
-                            aria-hidden="true"
-                            size={18}
-                            strokeWidth={2.2}
-                            className="rotate-[-45deg]"
-                          />
-                        </span>
                       </div>
                     </div>
                   </motion.div>
@@ -114,4 +127,3 @@ export default function PortfolioList() {
     </section>
   );
 }
-

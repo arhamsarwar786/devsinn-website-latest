@@ -41,7 +41,7 @@ export default function Footer() {
         variants={staggerContainer}
         className="mx-auto flex w-full max-w-[1280px] flex-col gap-12 lg:flex-row lg:gap-[96px]"
       >
-        <div className="w-full max-w-[413px] shrink-0">
+        <div className="w-full lg:max-w-[413px] shrink-0">
           <motion.div variants={fadeInUp}>
             <Link href="/" className="inline-flex">
               <Image
@@ -92,7 +92,7 @@ export default function Footer() {
 
         <motion.div 
           variants={staggerContainer}
-          className="grid flex-1 gap-10 sm:grid-cols-2 lg:grid-cols-[181px_247px_236px] lg:gap-[107px]"
+          className="grid flex-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-[80px]"
         >
           <motion.div variants={fadeInUp}>
             <h3 className="text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-[#0E1D3C]">

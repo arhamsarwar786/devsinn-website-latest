@@ -8,43 +8,55 @@ const items = [
     eyebrow: "LEARN",
     title: "We Ask Questions About Your Business",
     description:
-      "Before we start any project, we take the time to get to know your business. We ask the right questions to gain a deep understanding of your business, target audience, and competition.",
+      "Before we start any project, we take the time to get to know your business. We ask the right questions.",
+    color: "#38bdf8",
   },
   {
     eyebrow: "PLAN",
     title: "Developing Customized Solutions",
     description:
-      "Once we have understanding of your business, we work alongside you to develop customized solutions that meet your specific needs.We deliver a solution that meets your expectations.",
+      "Work alongside you to develop customized solutions that meet specific needs, delivering beyond expectations.",
+    color: "#818cf8",
   },
   {
     eyebrow: "EXECUTE",
     title: "Launching Your Amazing Solutions",
     description:
-      "We don't just develop your solutions and leave you to it. We work alongside you to launch your solutions and provide maintenance ensure that they continue to meet your needs.",
+      "We launch your solutions and provide continuous maintenance to ensure they always perform perfectly.",
+    color: "#c084fc",
   },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-[#203869] px-5 py-14 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+    <section className="relative bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+      {/* Decorative Orbs & Soft Glow globally */}
+      <div className="pointer-events-none absolute left-[5%] top-[20%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.12)_0%,transparent_70%)] blur-[100px]" />
+      <div className="pointer-events-none absolute right-[5%] bottom-[10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.12)_0%,transparent_70%)] blur-[100px]" />
+      <div className="pointer-events-none absolute left-[40%] top-[60%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(52,211,153,0.08)_0%,transparent_70%)] blur-[100px]" />
+
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="mx-auto flex w-full max-w-[1500px] flex-col items-center"
+        className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center"
       >
-        <div className="max-w-[1120px] text-center">
+        <div className="max-w-[800px] text-center">
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#818cf8]/25 bg-[#818cf8]/10 px-4 py-2">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#818cf8]">Our Process</span>
+          </motion.div>
+
           <motion.h2 
             variants={fadeInUp}
-            className="text-[2.2rem] font-bold leading-none tracking-[-0.03em] sm:text-[3rem] lg:text-[64px]"
+            className="text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] sm:text-[3.5rem] lg:text-[4.5rem]"
           >
-            What We Do
+            How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">Do It</span>
           </motion.h2>
 
           <motion.p 
             variants={fadeInUp}
-            className="mx-auto mt-6 max-w-[1120px] text-[1.05rem] leading-[1.6] text-white/95 sm:text-[1.15rem] lg:mt-8 lg:text-[19px] lg:leading-[1.55]"
+            className="mx-auto mt-6 text-[1.15rem] leading-[1.8] text-white/60 lg:text-[1.25rem]"
           >
             Securing your digital world: your trusted partner in data
             protection with cutting-edge solutions for comprehensive data
@@ -54,37 +66,49 @@ export default function WhatWeDo() {
 
         <motion.div 
           variants={staggerContainer}
-          className="mt-12 grid w-full gap-6 md:grid-cols-2 xl:mt-14 xl:grid-cols-3 xl:gap-6"
+          className="mt-16 grid w-full max-w-[1280px] gap-8 md:grid-cols-2 xl:mt-24 xl:grid-cols-3 xl:gap-8"
         >
-          {items.map((item) => (
-            <motion.article
+          {items.map((item, index) => (
+            <motion.div
               key={item.eyebrow}
               variants={fadeInUp}
               whileHover={{ 
-                y: -8,
-                rotateX: 1,
-                rotateY: -1,
-                scale: 1.01,
+                y: -10,
+                scale: 1.02,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              className="min-h-[320px] rounded-[18px] border border-[#d7dceb] bg-white px-7 py-8 text-[#2f2f34] shadow-[0_0_0_1px_rgba(255,255,255,0.06)] transition-all duration-300 hover:border-[#8ecbff] hover:shadow-[0_24px_48px_rgba(13,35,78,0.2)] sm:min-h-[340px] sm:px-8 sm:py-9 lg:min-h-[348px] lg:rounded-[16px] lg:px-[29px] lg:py-[30px]"
+              className="relative group"
             >
-              <p className="text-[2rem] font-bold leading-none tracking-[-0.03em] text-[#203869] sm:text-[2.15rem] lg:text-[29px]">
-                {item.eyebrow}
-              </p>
+              {/* Card Outer Glow Glow */}
+              <div 
+                className="absolute -inset-1 rounded-[2rem] opacity-20 blur-xl transition duration-500 group-hover:opacity-50" 
+                style={{ background: item.color }}
+              />
 
-              <h3 className="mt-8 max-w-[360px] text-[1.8rem] font-bold leading-[1.35] tracking-[-0.03em] text-[#2f2f34] sm:text-[2rem] lg:mt-7 lg:text-[26px]">
-                {item.title}
-              </h3>
+              <div className="relative flex min-h-[300px] lg:min-h-[320px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-10 lg:p-10">
+                <div className="relative z-10 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-[1.1rem] font-bold tracking-widest uppercase" style={{ color: item.color }}>
+                      {item.eyebrow}
+                    </p>
+                    <span className="text-[3rem] font-black leading-none opacity-10 transition-opacity duration-500 group-hover:opacity-30" style={{ color: item.color }}>
+                      0{index + 1}
+                    </span>
+                  </div>
 
-              <p className="mt-6 max-w-[378px] text-[1.25rem] leading-[1.5] text-[#2f2f34] sm:text-[1.3rem] lg:mt-6 lg:text-[20px] lg:leading-[1.48]">
-                {item.description}
-              </p>
-            </motion.article>
+                  <h3 className="mt-2 text-[1.6rem] font-bold leading-[1.3] tracking-[-0.03em] text-white sm:text-[1.8rem]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-[1rem] leading-[1.6] text-white/60 lg:text-[1.05rem]">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>
     </section>
   );
 }
-

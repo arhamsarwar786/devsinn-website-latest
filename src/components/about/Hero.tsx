@@ -2,16 +2,18 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import HeroAmbient from "@/components/ui/HeroAmbient";
-import { fadeInUp, fadeIn } from "@/lib/motion";
+import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#08142d] text-white">
+    <section className="relative flex h-[100svh] overflow-hidden bg-[#060C1A] text-white">
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={fadeIn}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { duration: 1.5 } }
+        }}
         className="absolute inset-0"
       >
         <Image
@@ -20,27 +22,81 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[64%_78%] sm:object-[68%_70%] lg:object-[center_center]"
+          className="object-cover object-[64%_78%] sm:object-[68%_70%] lg:object-[center_center] opacity-30"
         />
       </motion.div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(4,12,29,0.88)_0%,rgba(8,22,52,0.42)_34%,rgba(7,20,48,0.3)_64%,rgba(4,12,29,0.68)_100%)] sm:bg-[linear-gradient(90deg,rgba(4,12,29,0.96)_0%,rgba(12,31,76,0.68)_34%,rgba(18,49,118,0.22)_58%,rgba(5,16,41,0.18)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_64%_62%,rgba(78,132,255,0.36)_0%,rgba(9,23,52,0.16)_34%,rgba(4,11,26,0.1)_100%)] sm:bg-[radial-gradient(circle_at_center,_rgba(78,132,255,0.28)_0%,_rgba(9,23,52,0.12)_38%,_rgba(4,11,26,0.08)_100%)]" />
-      <HeroAmbient />
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="pointer-events-none absolute -left-[20%] -top-[10%] h-[700px] w-[700px] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)" }}
+        animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="pointer-events-none absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full"
+        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)" }}
+        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
 
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-[1568px] items-center px-5 pb-10 pt-24 sm:px-8 sm:pb-10 sm:pt-30 lg:px-10 lg:pb-8 lg:pt-[102px] xl:px-16 xl:pt-[134px]">
+      {/* Grid pattern overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* Dark vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#060C1A_100%)]" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col justify-center px-5 sm:px-8 lg:px-10 xl:px-16">
         <motion.div 
           initial="hidden"
           animate="visible"
-          variants={fadeInUp}
-          className="w-full max-w-[545px]"
+          variants={staggerContainer}
+          className="w-full max-w-[800px]"
         >
-          <h1 className="pt-12 text-[2.85rem] font-bold leading-[0.98] tracking-[-0.04em] text-white sm:pt-14 sm:text-[3.5rem] md:text-[4rem] lg:pt-0 lg:text-[72px] xl:text-[78px]">
-            About us
-          </h1>
+          {/* Pill badge */}
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#818cf8]/25 bg-[#818cf8]/8 px-5 py-2.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[#818cf8]" />
+            <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#818cf8]">The Company</span>
+          </motion.div>
+
+          <motion.h1 variants={fadeInUp} className="text-[2.85rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem]">
+            Discover Who <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
+              We Are
+            </span>
+          </motion.h1>
+          
+          <motion.p variants={fadeInUp} className="mt-6 max-w-[600px] text-[1.1rem] leading-[1.7] text-white/70 sm:text-[1.25rem]">
+            We are innovators building the future of digital experiences for companies that refuse to settle for ordinary.
+          </motion.p>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-[40px] left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+      >
+        <span className="text-[11px] uppercase tracking-[0.25em] text-white/30">Scroll to explore</span>
+        <motion.div
+          className="flex h-9 w-5 items-start justify-center rounded-full border border-white/20 p-1"
+          animate={{}}
+        >
+          <motion.div
+            className="h-2 w-1 rounded-full bg-white/60"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
-

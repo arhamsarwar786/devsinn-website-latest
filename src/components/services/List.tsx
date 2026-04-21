@@ -2,128 +2,251 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer } from "@/lib/motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const services = [
   {
     id: "Creative-Design",
-    titleLines: ["Creative Design", "and animations"],
+    number: "01",
+    title: "Creative Design",
+    subtitle: "& Animations",
     description:
-      "Unleash visual storytelling with stunning designs and animations. We craft sleek graphics and dynamic visuals to captivate audiences, enhance marketing, and elevate your brand's digital presence. Tailored for websites, social media, and campaigns, our work leaves lasting impressions.",
-    buttonLabel: "More Design",
+      "Unleash visual storytelling with stunning designs and animations. We craft sleek graphics and dynamic visuals to captivate audiences, enhance marketing, and elevate your brand's digital presence.",
+    tags: ["UI / UX Design", "Brand Identity", "Motion Graphics", "Campaign Assets"],
+    buttonLabel: "Explore Design",
     image: "/list/list1.png",
     imageAlt: "Creative design and animations illustration",
+    color: "#38bdf8",
+    glow: "rgba(56,189,248,0.25)",
+    gradient: "from-[#0c1f35] to-[#081628]",
   },
   {
     id: "Web-Development-Solutions",
-    titleLines: ["Web", "Development"],
+    number: "02",
+    title: "Web Development",
+    subtitle: "Solutions",
     description:
-      "Devs'inn provides tailored web solutions to boost your business. From corporate websites to ecommerce platforms, we deliver user-friendly, visually appealing, high-performance designs. With cutting-edge technology, we build strong online presences that align with your vision and goals.",
-    buttonLabel: "More Web",
+      "From corporate websites to ecommerce platforms, we deliver user-friendly, visually appealing, high-performance web applications built with cutting-edge technology to grow your online presence.",
+    tags: ["Custom Web Apps", "Ecommerce", "Business Portals", "CMS Platforms"],
+    buttonLabel: "Explore Web",
     image: "/list/list2.png",
     imageAlt: "Web development illustration",
+    color: "#818cf8",
+    glow: "rgba(129,140,248,0.25)",
+    gradient: "from-[#0f0c2a] to-[#0a0820]",
   },
   {
     id: "App-Development-Solutions",
-    titleLines: ["App", "Development"],
+    number: "03",
+    title: "App Development",
+    subtitle: "Mobile & Native",
     description:
-      "Devs'inn delivers innovative app solutions to elevate your business. From corporate apps to feature-rich ecommerce platforms, we craft user-friendly, high-performance designs. Combining creativity and technology, we create seamless mobile experiences that engage audiences and drive business success.",
-    buttonLabel: "More App",
+      "We deliver innovative app solutions — from corporate apps to feature-rich ecommerce platforms, we craft user-friendly, high-performance mobile experiences that engage audiences and drive business success.",
+    tags: ["iOS & Android", "Flutter & React Native", "Enterprise Apps", "API Integration"],
+    buttonLabel: "Explore Apps",
     image: "/list/list3.png",
     imageAlt: "App development illustration",
+    color: "#c084fc",
+    glow: "rgba(192,132,252,0.25)",
+    gradient: "from-[#1a0c2e] to-[#130820]",
   },
   {
     id: "Game-Development",
-    titleLines: ["Game", "Development"],
+    number: "04",
+    title: "Game Development",
+    subtitle: "Immersive Experiences",
     description:
-      "Bring your ideas to life with our game development services. We create immersive games for mobile, PC, and consoles, blending creativity and technology. From concept to deployment, we deliver high-quality graphics, captivating stories, and seamless gameplay experiences players will love.",
-    buttonLabel: "More Game",
+      "Bring your ideas to life with immersive 2D/3D games, AR/VR experiences, and interactive platforms. From concept to deployment, we deliver high-quality graphics and captivating gameplay.",
+    tags: ["Unity / Unreal", "2D & 3D Games", "AR / VR", "WebGL Experiences"],
+    buttonLabel: "Explore Games",
     image: "/list/list4.png",
     imageAlt: "Game development illustration",
+    color: "#f472b6",
+    glow: "rgba(244,114,182,0.25)",
+    gradient: "from-[#2a0c1f] to-[#1a0812]",
   },
   {
     id: "Cloud-Computing-Services",
-    titleLines: ["Cloud Computing", "Services"],
+    number: "05",
+    title: "Cloud Computing",
+    subtitle: "Infrastructure & DevOps",
     description:
-      "Unlock scalability and efficiency with our tailored cloud computing services. From migration to management, we ensure seamless data access, enhanced security, and cost-effective operations. Whether public, private, or hybrid, our reliable solutions support your growth and innovation.",
-    buttonLabel: "More Cloud",
+      "Unlock scalability and efficiency with our cloud computing services. From migration to management, we ensure seamless data access, enhanced security, and cost-effective operations.",
+    tags: ["AWS / Azure / GCP", "Cloud Migration", "DevOps Pipelines", "Managed Infrastructure"],
+    buttonLabel: "Explore Cloud",
     image: "/list/list5.png",
     imageAlt: "Cloud computing services illustration",
+    color: "#34d399",
+    glow: "rgba(52,211,153,0.25)",
+    gradient: "from-[#041f18] to-[#02150f]",
   },
   {
     id: "Digital-Marketing",
-    titleLines: ["Digital Marketing"],
+    number: "06",
+    title: "Digital Marketing",
+    subtitle: "Growth & Strategy",
     description:
-      "Maximize online visibility and grow your business with our digital marketing services. We specialize in SEO, social media, content, ads, and email campaigns. Our data-driven strategies boost brand awareness, traffic, and conversions, delivering personalized solutions for your success.",
-    buttonLabel: "More Digital",
+      "Maximize online visibility with SEO, social media, content, paid ads, and email campaigns. Our data-driven strategies boost brand awareness, traffic, and conversions with personalized solutions.",
+    tags: ["SEO & SEM", "Social Media", "PPC Campaigns", "Content Strategy"],
+    buttonLabel: "Explore Marketing",
     image: "/list/list6.png",
     imageAlt: "Digital marketing illustration",
+    color: "#fb923c",
+    glow: "rgba(251,146,60,0.25)",
+    gradient: "from-[#1f1208] to-[#140c04]",
   },
 ];
 
-export default function List() {
+function ServiceCard({ service, index }: { service: (typeof services)[0]; index: number }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isEven = index % 2 === 0;
+
   return (
-    <section className="bg-white px-5 py-14 text-[#1f3769] sm:px-8 sm:py-16 lg:px-10 lg:py-20 xl:px-12 xl:py-[92px] overflow-hidden">
-      <motion.div 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={staggerContainer}
-        className="mx-auto flex w-full max-w-[1400px] flex-col gap-12 lg:gap-[54px]"
-      >
-        {services.map((service) => (
-          <motion.article
-            key={service.titleLines.join(" ")}
-            variants={fadeInUp}
-            className="grid items-center gap-6 md:gap-8 lg:grid-cols-[320px_minmax(340px,410px)_minmax(300px,390px)] lg:gap-[32px] xl:grid-cols-[360px_434px_392px] xl:gap-[42px]"
+    <motion.article
+      ref={ref}
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+      className="relative overflow-hidden rounded-[32px] border border-white/8 bg-[#0A0F1E]"
+      style={{ boxShadow: `0 0 80px ${service.glow.replace("0.25", "0.08")}` }}
+    >
+      {/* Top accent line */}
+      <div
+        className="absolute left-0 top-0 h-[2px] w-full"
+        style={{ background: `linear-gradient(90deg, transparent 0%, ${service.color} 50%, transparent 100%)` }}
+      />
+
+      <div className={`flex flex-col gap-0 lg:flex-row ${isEven ? "" : "lg:flex-row-reverse"}`}>
+        {/* Image side */}
+        <div className="relative min-h-[280px] overflow-hidden lg:min-h-0 lg:w-[45%]">
+          {/* Dark overlay */}
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background: isEven
+                ? `linear-gradient(90deg, rgba(10,15,30,0) 0%, rgba(10,15,30,0.9) 100%)`
+                : `linear-gradient(90deg, rgba(10,15,30,0.9) 0%, rgba(10,15,30,0) 100%)`,
+            }}
+          />
+          {/* Ambient glow */}
+          <div
+            className="absolute inset-0 z-10 opacity-30"
+            style={{ background: `radial-gradient(circle at center, ${service.color}30 0%, transparent 70%)` }}
+          />
+          <Image
+            src={service.image}
+            alt={service.imageAlt}
+            fill
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+
+          {/* Number watermark */}
+          <div
+            className="pointer-events-none absolute bottom-4 right-6 z-20 text-[6rem] font-black leading-none opacity-10 lg:text-[8rem]"
+            style={{ color: service.color }}
           >
-            <div className="order-1 max-w-[360px]">
-              <h2 className="text-[2.1rem] font-bold leading-[0.98] tracking-[-0.04em] text-[#1f3769] sm:text-[2.55rem] lg:text-[3.1rem] xl:text-[3.75rem]">
-                {service.titleLines.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h2>
-            </div>
+            {service.number}
+          </div>
+        </div>
 
-            <div className="order-2">
-              <motion.div 
-                whileHover={{ 
-                  rotateX: 3, 
-                  rotateY: -3, 
-                  scale: 1.01,
-                  transition: { duration: 0.4, ease: "easeOut" }
-                }}
-                className="relative mx-auto aspect-[434/382] w-full max-w-[434px] overflow-hidden rounded-[14px] bg-[#1f3769] shadow-[0_20px_40px_rgba(13,35,78,0.08)] transition-all duration-300 hover:shadow-[0_28px_56px_rgba(13,35,78,0.14)]"
+        {/* Content side */}
+        <div className="flex flex-1 flex-col justify-center p-8 lg:p-12 xl:p-16">
+          {/* Number badge */}
+          <div
+            className="mb-5 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-2"
+            style={{ background: `${service.color}12`, border: `1px solid ${service.color}25` }}
+          >
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: service.color }} />
+            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: service.color }}>
+              {service.number} — Service
+            </span>
+          </div>
+
+          {/* Title */}
+          <h2 className="text-[2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[2.5rem] lg:text-[3rem]">
+            {service.title}
+            <br />
+            <span className="font-light opacity-50">{service.subtitle}</span>
+          </h2>
+
+          {/* Description */}
+          <p className="mt-5 text-[0.98rem] leading-[1.75] text-white/55 lg:text-[1.04rem]">
+            {service.description}
+          </p>
+
+          {/* Tags */}
+          <div className="mt-7 flex flex-wrap gap-2.5">
+            {service.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full px-4 py-2 text-[12px] font-semibold"
+                style={{ background: `${service.color}10`, color: service.color, border: `1px solid ${service.color}20` }}
               >
-                <Image
-                  src={service.image}
-                  alt={service.imageAlt}
-                  fill
-                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 434px"
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </motion.div>
-            </div>
+                {tag}
+              </span>
+            ))}
+          </div>
 
-            <div className="order-3 max-w-[392px] justify-self-start pt-1">
-              <p className="text-[1.01rem] leading-[1.5] text-[#2e2e2e] sm:text-[1.06rem] xl:text-[1.04rem] xl:leading-[1.52]">
-                {service.description}
-              </p>
-
-              <Link
-                href={`/services/${service.id}`}
-                className="mt-8 inline-flex min-h-[54px] min-w-[176px] items-center justify-center rounded-full bg-[#1f3769] px-7 text-[1rem] font-medium text-white transition-transform duration-200 hover:scale-[1.02] sm:min-h-[56px] sm:min-w-[200px] sm:text-[1.06rem]"
+          {/* CTA */}
+          <div className="mt-10">
+            <Link
+              href={`/services/${service.id}`}
+              className="group inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-lg"
+              style={{
+                background: `linear-gradient(135deg, ${service.color} 0%, ${service.color}cc 100%)`,
+                boxShadow: `0 8px 24px ${service.glow}`,
+                color: "#050f24",
+              }}
+            >
+              {service.buttonLabel}
+              <svg
+                width="16" height="16"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:translate-x-1"
               >
-                {service.buttonLabel}
-              </Link>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
-    </section>
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
+export default function List() {
+  return (
+    <section className="bg-[#060C1A] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24 xl:px-16">
+      {/* Section heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="mx-auto mb-14 max-w-[1400px] text-center"
+      >
+        <p className="text-[12px] font-semibold uppercase tracking-[0.28em] text-white/40">
+          Everything we build
+        </p>
+        <h2 className="mt-3 text-[2rem] font-black tracking-[-0.04em] text-white sm:text-[2.5rem]">
+          Our{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#c084fc]">
+            full suite
+          </span>{" "}
+          of services
+        </h2>
+      </motion.div>
+
+      {/* Service cards */}
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 lg:gap-8">
+        {services.map((service, index) => (
+          <ServiceCard key={service.id} service={service} index={index} />
+        ))}
+      </div>
+    </section>
+  );
+}
