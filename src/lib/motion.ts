@@ -42,8 +42,6 @@ export const card3D: Variants = {
   visible: { opacity: 1, y: 0 },
   hover: {
     y: -12,
-    rotateX: 5,
-    rotateY: -5,
     scale: 1.03,
     transition: {
       duration: 0.4,

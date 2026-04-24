@@ -7,14 +7,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   projectTabs,
-  projectsByCategory,
+  allProjects,
   type ProjectCategoryKey,
 } from "@/lib/projects";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 export default function PortfolioList() {
   const [activeTab, setActiveTab] = useState<ProjectCategoryKey>("webDesign");
-  const activeProjects = projectsByCategory[activeTab];
+  const activeProjects = allProjects.filter(p => p.categoryKey === activeTab);
 
   return (
     <section className="relative bg-[#060C1A] px-5 py-[72px] sm:px-8 sm:py-[88px] lg:px-10 lg:py-[104px] xl:px-16 overflow-hidden">
@@ -58,27 +58,20 @@ export default function PortfolioList() {
           </motion.div>
         </div>
 
-        <motion.div 
-          layout
-          variants={staggerContainer}
-          className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
-        >
-          <AnimatePresence mode="popLayout">
+        <div key={activeTab} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {activeProjects.map((item, index) => (
               <motion.div
                 key={item.slug}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <Link
                   href={`/projects/${item.slug}`}
                   className="group block relative"
                 >
                   <motion.div 
-                    variants={card3D}
+                    whileHover="hover"
                     className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
                     style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                   >
@@ -122,8 +115,7 @@ export default function PortfolioList() {
                 </Link>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
-import { projectsByCategory, projectTabs, type ProjectCategoryKey } from "@/lib/projects";
+import { allProjects, projectTabs, type ProjectCategoryKey } from "@/lib/projects";
 import Link from "next/link";
 
 const colors = [
@@ -14,9 +14,9 @@ const colors = [
 ];
 
 export default function OurTechnology() {
-  const [activeTab, setActiveTab] = useState<ProjectCategoryKey>(projectTabs[1].key);
+  const [activeTab, setActiveTab] = useState<ProjectCategoryKey>(projectTabs[0].key);
 
-  const currentCards = projectsByCategory[activeTab] || [];
+  const currentCards = allProjects.filter(p => p.categoryKey === activeTab);
 
   return (
     <section className="bg-[#060C1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
@@ -66,27 +66,20 @@ export default function OurTechnology() {
           </motion.div>
         </div>
 
-        <motion.div
-          layout
-          variants={staggerContainer}
-          className="mx-auto w-full max-w-[1280px] grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-8"
-        >
-          <AnimatePresence mode="popLayout">
+        <div key={activeTab} className="mx-auto w-full max-w-[1280px] grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-8">
             {currentCards.map((item, index) => (
               <motion.div
                 key={item.slug}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <Link
                   href={`/projects/${item.slug}`}
                   className="group block relative"
                 >
                   <motion.div
-                    variants={card3D}
+                    whileHover="hover"
                     className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
                     style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                   >
@@ -130,8 +123,7 @@ export default function OurTechnology() {
                 </Link>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

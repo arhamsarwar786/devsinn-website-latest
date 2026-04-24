@@ -44,14 +44,15 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[radial-gradient(circle_at_70%_50%,rgba(56,189,248,0.15),transparent_50%)]"
       >
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-60 mix-blend-screen"
         >
           <source src="/video/vedio.mp4" type="video/mp4" />
