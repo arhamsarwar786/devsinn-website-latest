@@ -81,7 +81,7 @@ function StarIcon({ filled }: { filled: boolean }) {
 function QuoteIcon({ color }: { color: string }) {
   return (
     <svg width="42" height="32" viewBox="0 0 42 32" fill="none">
-      <path d="M0 32V19.2C0 14.4 1.2 10.3333 3.6 7C6 3.53333 9.46667 1.2 14 0L16.4 3.6C13.4667 4.66667 11.2667 6.33333 9.8 8.6C8.46667 10.7333 7.8 13.2 7.8 16H14V32H0ZM24 32V19.2C24 14.4 25.2 10.3333 27.6 7C30 3.53333 33.4667 1.2 38 0L40.4 3.6C37.4667 4.66667 35.2667 6.33333 33.8 8.6C32.4667 10.7333 31.8 13.2 31.8 16H38V32H24Z" fill={color} fillOpacity="0.25"/>
+      <path d="M0 32V19.2C0 14.4 1.2 10.3333 3.6 7C6 3.53333 9.46667 1.2 14 0L16.4 3.6C13.4667 4.66667 11.2667 6.33333 9.8 8.6C8.46667 10.7333 7.8 13.2 7.8 16H14V32H0ZM24 32V19.2C24 14.4 25.2 10.3333 27.6 7C30 3.53333 33.4667 1.2 38 0L40.4 3.6C37.4667 4.66667 35.2667 6.33333 33.8 8.6C32.4667 10.7333 31.8 13.2 31.8 16H38V32H24Z" fill={color} fillOpacity="0.25" />
     </svg>
   );
 }
@@ -198,7 +198,7 @@ export default function ClientReviews() {
                     <p className="text-[16px] font-bold text-[#0d1a2d]">{active.name}</p>
                     <div className="mt-0.5 flex items-center gap-1.5 text-[13.5px] text-[#5a6a82]">
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
                       </svg>
                       {active.designation}
                     </div>
@@ -227,7 +227,7 @@ export default function ClientReviews() {
                 aria-label="Previous"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4d8cff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M19 12H5M12 5l-7 7 7 7"/>
+                  <path d="M19 12H5M12 5l-7 7 7 7" />
                 </svg>
               </button>
               <button
@@ -236,7 +236,7 @@ export default function ClientReviews() {
                 aria-label="Next"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
 
@@ -306,7 +306,7 @@ export default function ClientReviews() {
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: "rgba(77,140,255,0.2)" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4d8cff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                   </svg>
                 </div>
                 <span className="text-[13px] font-semibold uppercase tracking-wider text-white/50">Client Satisfaction</span>

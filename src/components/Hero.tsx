@@ -40,37 +40,25 @@ export default function Hero() {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
-      {/* Premium Globe Image - background removed via mix-blend-mode */}
+      {/* Local Video Background */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0 flex items-center justify-end pointer-events-none"
+        className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
       >
-        {/* Ambient glow behind the globe */}
-        <motion.div
-          animate={{ scale: [1, 1.18, 1], opacity: [0.3, 0.6, 0.3] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[0%] top-1/2 -translate-y-1/2 h-[80vmin] w-[80vmin] rounded-full blur-[110px] bg-gradient-to-tr from-[#38bdf8]/40 to-[#c084fc]/35 pointer-events-none"
-        />
-        {/* Globe image — premium PNG, black bg removed via mix-blend-mode */}
-        <div
-          className="relative shrink-0 translate-x-[5%] lg:translate-x-0"
-          style={{
-            width: "clamp(350px, 60vmin, 850px)",
-            height: "clamp(350px, 60vmin, 850px)",
-            mixBlendMode: "screen",
-          }}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-60 mix-blend-screen"
         >
-          <Image
-            src="/globe-premium.png"
-            alt="Premium digital globe"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-contain drop-shadow-[0_0_100px_rgba(56,189,248,0.6)]"
-          />
-        </div>
+          <source src="/video/vedio.mp4" type="video/mp4" />
+        </video>
+
+        {/* Ambient glow to enhance the cinematic feel and blend the video */}
+        <div className="absolute right-[10%] top-1/2 -translate-y-1/2 h-[80vmin] w-[80vmin] rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8]/20 to-[#c084fc]/15 pointer-events-none" />
       </motion.div>
 
 

@@ -21,7 +21,7 @@ export default function WhoWeAre() {
         }}
       />
 
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -29,14 +29,14 @@ export default function WhoWeAre() {
         className="relative z-10 mx-auto grid w-full max-w-[1400px] items-center gap-12 lg:grid-cols-2 lg:gap-20"
       >
         {/* Left Picture Side */}
-        <motion.div 
+        <motion.div
           variants={card3D}
           whileHover="hover"
           className="relative aspect-[4/3] w-full overflow-visible xl:aspect-[16/11]"
         >
           {/* Picture frame glow */}
           <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[32px] bg-gradient-to-br from-[#38bdf8] to-[#818cf8] opacity-20 blur-xl transition-opacity duration-500 hover:opacity-40" />
-          
+
           <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-white/10 bg-[#0A0F1E] shadow-2xl backdrop-blur-md">
             <div className="relative h-full w-full overflow-hidden rounded-[32px]">
               <Image
@@ -50,13 +50,13 @@ export default function WhoWeAre() {
           </div>
 
           {/* Floating badge */}
-          <motion.div 
+          <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-6 -right-6 flex items-center gap-4 rounded-3xl border border-white/10 bg-[#0A0F1E]/90 p-4 pr-6 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)]">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
             </div>
             <div>
               <p className="text-[12px] font-bold uppercase tracking-widest text-[#38bdf8]">Trusted By</p>
@@ -66,7 +66,7 @@ export default function WhoWeAre() {
         </motion.div>
 
         {/* Right Content Side */}
-        <motion.div 
+        <motion.div
           variants={staggerContainer}
           className="flex w-full flex-col items-start"
         >
@@ -74,26 +74,26 @@ export default function WhoWeAre() {
             <span className="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#818cf8]">Who We Are</span>
           </motion.div>
 
-          <motion.h2 
+          <motion.h2
             variants={fadeInUp}
             className="mt-6 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]"
           >
-            Empower Your Teams <br className="hidden lg:block"/>
+            Empower Your Teams <br className="hidden lg:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#c084fc]">
               Streamline Operations
             </span>
           </motion.h2>
 
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
             className="mt-8 text-[1.1rem] leading-[1.75] text-white/70 sm:text-[1.15rem]"
           >
             Dev&apos;s Inn Technologies is your gateway to cutting-edge IT services for
             businesses and brands. We are your strategic partner in navigating the
-            ever-evolving digital landscape. 
+            ever-evolving digital landscape.
           </motion.p>
 
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
             className="mt-4 text-[1.1rem] leading-[1.75] text-white/70 sm:text-[1.15rem]"
           >

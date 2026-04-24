@@ -24,7 +24,7 @@ export default function OurTechnology() {
       <div className="pointer-events-none absolute left-0 top-[20%] h-[800px] w-[800px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-0 top-[60%] h-[800px] w-[800px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.05)_0%,transparent_70%)] blur-[100px]" />
 
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -33,13 +33,13 @@ export default function OurTechnology() {
       >
         <div className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row">
           <motion.div variants={fadeInUp} className="max-w-[500px]">
-             <h2 className="text-[2.2rem] font-black leading-[1.1] tracking-[-0.04em] sm:text-[3rem]">
-               Featured <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">Portfolio</span>
-             </h2>
+            <h2 className="text-[2.2rem] font-black leading-[1.1] tracking-[-0.04em] sm:text-[3rem]">
+              Featured <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">Portfolio</span>
+            </h2>
           </motion.div>
 
           {/* Animated Tabs */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="flex flex-wrap items-center justify-center gap-2 rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-2 shadow-2xl"
           >
@@ -49,9 +49,8 @@ export default function OurTechnology() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
-                  className={`relative flex h-[50px] sm:h-[60px] items-center justify-center rounded-[1.5rem] px-5 sm:px-8 text-[14px] sm:text-[15px] font-bold transition-colors duration-300 ${
-                    isActive ? "text-[#060C1A]" : "text-white/60 hover:text-white"
-                  }`}
+                  className={`relative flex h-[50px] sm:h-[60px] items-center justify-center rounded-[1.5rem] px-5 sm:px-8 text-[14px] sm:text-[15px] font-bold transition-colors duration-300 ${isActive ? "text-[#060C1A]" : "text-white/60 hover:text-white"
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -67,7 +66,7 @@ export default function OurTechnology() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           layout
           variants={staggerContainer}
           className="mx-auto w-full max-w-[1280px] grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-8"
@@ -86,14 +85,14 @@ export default function OurTechnology() {
                   href={`/projects/${item.slug}`}
                   className="group block relative"
                 >
-                  <motion.div 
+                  <motion.div
                     variants={card3D}
                     whileHover="hover"
                     className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20"
                   >
                     {/* Dark glow layer beneath image */}
                     <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/20 to-[#c084fc]/20 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
-                    
+
                     <div className="relative h-full w-full bg-[#060C1A]">
                       <Image
                         src={item.mainImage}
