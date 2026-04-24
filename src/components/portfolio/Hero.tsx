@@ -45,7 +45,7 @@ export default function Hero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[64%_78%] opacity-100 brightness-110 contrast-125 mix-blend-screen drop-shadow-[0_0_50px_rgba(56,189,248,0.6)] sm:object-[68%_70%] lg:object-[center_center]"
+            className="object-cover object-center opacity-100 brightness-110 contrast-125 mix-blend-screen drop-shadow-[0_0_50px_rgba(56,189,248,0.6)]"
           />
         </motion.div>
       </motion.div>

@@ -88,7 +88,7 @@ export default function BlogList() {
               fill
               priority
               sizes="(max-width: 1024px) 800px, 1200px"
-              className="object-contain opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)]"
+              className="object-cover opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)]"
             />
           </motion.div>
         </motion.div>

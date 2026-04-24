@@ -87,8 +87,8 @@ export default function OurTechnology() {
                 >
                   <motion.div
                     variants={card3D}
-                    whileHover="hover"
-                    className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20"
+                    className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
+                    style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                   >
                     {/* Dark glow layer beneath image */}
                     <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/20 to-[#c084fc]/20 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
@@ -99,7 +99,8 @@ export default function OurTechnology() {
                         alt={`${item.title} showcase`}
                         fill
                         sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                        className="object-cover object-top opacity-90 transition-[object-position,transform,opacity] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:scale-[1.03] group-hover:opacity-100"
+                        className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
+                        style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
                       />
 
                       {/* Floating overlay card at bottom */}

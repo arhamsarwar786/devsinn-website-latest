@@ -280,11 +280,11 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
               <motion.div
                 key={project.id}
                 variants={card3D}
-                whileHover="hover"
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group relative block aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20"
+                  className="group relative block aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
+                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 >
                   {/* Dark glow layer beneath image */}
                   <div 
@@ -293,13 +293,14 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                   />
                   
                   <div className="relative h-full w-full bg-[#060C1A]">
-                    <Image
-                      src={project.mainImage}
-                      alt={`${project.title} showcase`}
-                      fill
-                      sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                      className="object-cover object-top opacity-90 transition-[object-position,transform,opacity] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:scale-[1.03] group-hover:opacity-100"
-                    />
+                      <Image
+                        src={project.mainImage}
+                        alt={`${project.title} showcase`}
+                        fill
+                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
+                        className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
+                        style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
+                      />
 
                     {/* Floating overlay card at bottom */}
                     <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

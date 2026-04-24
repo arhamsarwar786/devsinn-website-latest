@@ -15,25 +15,33 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
     <main className="bg-[#060C1A] text-white overflow-hidden">
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-16 pt-[138px] text-white sm:px-8 sm:pb-20 sm:pt-[154px] lg:px-10 lg:pb-24 lg:pt-[168px] xl:px-16 min-h-[100svh] flex flex-col justify-end">
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={fadeIn}
           className="absolute inset-0"
         >
+          {/* Blurred background layer to fill gaps */}
+          <Image
+            src={project.heroImage}
+            alt=""
+            fill
+            className="object-cover opacity-20 blur-2xl"
+          />
+          {/* Main fitting image */}
           <Image
             src={project.heroImage}
             alt={project.title}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center opacity-40 mix-blend-screen"
+            className="object-contain object-center opacity-40 mix-blend-screen"
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#060C1A] via-[#060C1A]/80 to-[#060C1A]/20" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1),transparent_60%)]" />
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -54,24 +62,29 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               </motion.h1>
             </div>
 
-            <motion.div variants={fadeInUp} className="max-w-[540px] rounded-[2rem] border border-white/10 bg-[#0A0F1E]/60 p-8 backdrop-blur-xl shadow-2xl">
-              <p className="text-[1.1rem] leading-[1.7] text-white/70">
-                {project.about}
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="group relative overflow-hidden inline-flex min-h-[56px] items-center justify-center rounded-full bg-white px-8 text-[15px] font-bold text-[#060C1A]"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/20 to-[#38bdf8]/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="relative">Start a Similar Project</span>
-                </Link>
-                <Link
-                  href="/portfolio"
-                  className="group relative overflow-hidden inline-flex min-h-[56px] items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 text-[15px] font-bold text-white transition-all hover:bg-white/10 hover:border-[#38bdf8]/50"
-                >
-                   <span className="relative transition-colors group-hover:text-[#38bdf8]">Back to Portfolio</span>
-                </Link>
+            <motion.div variants={fadeInUp} className="max-w-[700px]">
+              <div className="relative rounded-[2rem] border border-white/10 bg-[#0A0F1E]/40 p-6 md:p-7 backdrop-blur-2xl">
+                <div className="relative z-10 flex flex-col gap-6">
+                  <p className="text-[1rem] leading-[1.6] text-white/80 font-medium tracking-tight">
+                    {project.about}
+                  </p>
+
+                  <div className="flex flex-wrap gap-4">
+                    <Link
+                      href="/contact"
+                      className="group relative overflow-hidden inline-flex h-[56px] items-center justify-center rounded-2xl bg-gradient-to-r from-[#38bdf8] to-[#818cf8] px-10 text-[15px] font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] active:scale-[0.98]"
+                    >
+                      <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <span className="relative">Start a Similar Project</span>
+                    </Link>
+                    <Link
+                      href="/portfolio"
+                      className="inline-flex h-[56px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-10 text-[15px] font-bold text-white transition-all hover:bg-white/10 hover:border-[#38bdf8]/50 hover:text-[#38bdf8]"
+                    >
+                      Back to Portfolio
+                    </Link>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -82,8 +95,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
         {/* Decorative Orbs */}
         <div className="pointer-events-none absolute left-[0%] top-[40%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[80px]" />
-        
-        <motion.div 
+
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -99,13 +112,13 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </h2>
           </motion.div>
 
-          <motion.div 
-            variants={staggerContainer} 
+          <motion.div
+            variants={staggerContainer}
             className="grid gap-6 sm:grid-cols-2"
           >
-            <motion.article 
-              variants={card3D} 
-              whileHover="hover" 
+            <motion.article
+              variants={card3D}
+              whileHover="hover"
               className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
             >
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#38bdf8]/0 to-[#38bdf8]/0 opacity-0 transition-opacity duration-500 group-hover:from-[#38bdf8]/10 group-hover:to-transparent group-hover:opacity-100" />
@@ -116,12 +129,12 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 Every section is designed to support clarity, trust, and a stronger user journey from first glance to final action.
               </p>
             </motion.article>
-            <motion.article 
-              variants={card3D} 
-              whileHover="hover" 
+            <motion.article
+              variants={card3D}
+              whileHover="hover"
               className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
             >
-               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#818cf8]/0 to-[#818cf8]/0 opacity-0 transition-opacity duration-500 group-hover:from-[#818cf8]/10 group-hover:to-transparent group-hover:opacity-100" />
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#818cf8]/0 to-[#818cf8]/0 opacity-0 transition-opacity duration-500 group-hover:from-[#818cf8]/10 group-hover:to-transparent group-hover:opacity-100" />
               <h3 className="relative z-10 text-[1.6rem] font-bold tracking-[-0.03em] text-white">
                 Brand-Aligned Design
               </h3>
@@ -138,7 +151,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         {/* Soft Ambient Gloq */}
         <div className="pointer-events-none absolute right-[10%] top-[40%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.08)_0%,transparent_70%)] blur-[100px]" />
 
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -154,8 +167,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </h2>
           </motion.div>
 
-          <motion.div 
-            variants={staggerContainer} 
+          <motion.div
+            variants={staggerContainer}
             className="grid gap-8 lg:grid-cols-3"
             style={{ perspective: "1200px" }}
           >
@@ -166,14 +179,33 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 whileHover="hover"
                 className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-500 hover:border-[#c084fc]/30 hover:shadow-[0_0_30px_rgba(192,132,252,0.2)]"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#060C1A]">
+                <div 
+                  className="relative w-full overflow-hidden rounded-[2rem] bg-[#060C1A]"
+                  style={{ aspectRatio: '16/9' }}
+                >
                   <Image
                     src={image}
                     alt={`${project.title} preview ${index + 1}`}
                     fill
                     sizes="(max-width: 1023px) 100vw, 33vw"
-                    className="object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-[1.05] group-hover:opacity-100"
+                    className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
+                    style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
                   />
+
+                  {/* Matching Floating overlay card at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="rounded-2xl border border-white/10 bg-[#0A0F1E]/80 p-4 backdrop-blur-xl">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <h4 className="text-[1.1rem] font-bold text-white">Preview {index + 1}</h4>
+                          <p className="text-[12px] font-bold uppercase tracking-wider text-[#c084fc]">{project.title}</p>
+                        </div>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#c084fc] text-white">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -183,7 +215,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
       {/* TECHNOLOGIES SECTION */}
       <section className="relative px-5 py-20 pb-40 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -199,8 +231,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </h2>
           </motion.div>
 
-          <motion.div 
-            variants={staggerContainer} 
+          <motion.div
+            variants={staggerContainer}
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
           >
             {project.technologies.map((technology) => (
