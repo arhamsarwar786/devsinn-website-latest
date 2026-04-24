@@ -14,7 +14,7 @@ const serviceNames = [
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-screen overflow-hidden bg-[#060C1A] text-white">
       {/* Animated gradient orbs */}
       <motion.div
         className="pointer-events-none absolute -left-[20%] -top-[10%] h-[700px] w-[700px] rounded-full"
@@ -47,7 +47,7 @@ export default function Hero() {
       {/* Noise texture */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center justify-center px-5 sm:px-8 lg:px-10 xl:px-16">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col items-center justify-center px-5 pt-16 sm:px-8 sm:pt-20 lg:px-10 xl:px-16">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -63,7 +63,7 @@ export default function Hero() {
           {/* Main heading */}
           <motion.h1
             variants={fadeInUp}
-            className="mt-8 max-w-[900px] text-[2.6rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[5rem] xl:text-[5.8rem]"
+            className="mt-6 max-w-[900px] text-[1.8rem] font-black leading-[1.0] tracking-[-0.04em] text-white xs:text-[2.2rem] sm:mt-8 sm:text-[2.8rem] lg:text-[4rem] xl:text-[4.5rem]"
           >
             End-to-End{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
@@ -74,7 +74,7 @@ export default function Hero() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-6 max-w-[600px] text-[1rem] leading-[1.8] text-white/60 sm:text-[1.1rem]"
+            className="mt-4 max-w-[600px] text-[0.95rem] leading-[1.8] text-white/60 sm:mt-6 sm:text-[1.1rem]"
           >
             From stunning interfaces to scalable cloud infrastructure — Devsinn delivers complete
             software solutions tailored to your business.
@@ -83,7 +83,7 @@ export default function Hero() {
           {/* Scrolling service tags */}
           <motion.div
             variants={fadeInUp}
-            className="relative mt-14 w-full overflow-hidden"
+            className="relative mt-8 w-full overflow-hidden sm:mt-10"
           >
             {/* Left fade */}
             <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#060C1A] to-transparent" />
@@ -110,7 +110,7 @@ export default function Hero() {
           {/* Scroll indicator */}
           <motion.div
             variants={fadeInUp}
-            className="mt-14 flex flex-col items-center gap-2"
+            className="mt-10 flex flex-col items-center gap-2"
           >
             <span className="text-[11px] uppercase tracking-[0.25em] text-white/30">Scroll to explore</span>
             <motion.div

@@ -15,7 +15,7 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
 
   return (
     <main className="bg-[#060C1A] text-white overflow-hidden">
-      <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-20 pt-[138px] text-white sm:px-8 sm:pb-24 sm:pt-[154px] lg:px-10 lg:pb-28 lg:pt-[168px] xl:px-16 min-h-[100svh] flex flex-col justify-end">
+      <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-20 pt-[138px] text-white sm:px-8 sm:pb-24 sm:pt-[154px] lg:px-10 lg:pb-28 lg:pt-[168px] xl:px-16 h-[100svh] flex flex-col justify-end">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -68,7 +68,7 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
 
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:items-end">
             <div className="max-w-[900px]">
-              <motion.h1 variants={fadeInUp} className="text-[2.5rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem]">
+              <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]">
                 {blog.title}
               </motion.h1>
             </div>

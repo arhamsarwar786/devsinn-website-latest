@@ -6,7 +6,7 @@ import { fadeInUp, fadeIn } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
       {/* Deep Space Background Glows */}
       <div className="absolute inset-0 bg-[#060C1A]" />
 
@@ -43,7 +43,7 @@ export default function Hero() {
           className="absolute inset-0"
         >
           <Image
-            src="/global.png"
+            src="/globe-premium.png"
             alt="Digital globe background"
             fill
             priority
@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A]/80" />
 
       {/* Main Content */}
-      <div className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-center px-5 pt-28 pb-20 sm:px-8 lg:px-10 xl:px-16">
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-20 pb-10 sm:px-8 lg:px-10 xl:px-16">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -73,7 +73,7 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="text-[3.5rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[4.5rem] md:text-[5rem] lg:text-[72px] xl:text-[80px]">
+          <h1 className="text-[2.2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
             Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">Touch</span>
           </h1>
           <p className="mt-8 max-w-[500px] text-[1.1rem] font-medium leading-[1.7] text-white/70 sm:text-[1.25rem]">

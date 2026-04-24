@@ -16,7 +16,7 @@ export default function Hero() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-screen flex-col overflow-hidden bg-[#060C1A] text-white">
       <CalendlyModal
         isOpen={isCalendlyOpen}
         onClose={() => setIsCalendlyOpen(false)}
@@ -40,34 +40,39 @@ export default function Hero() {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
-      {/* The Globe Background - Premium Animation */}
+      {/* Premium Globe Image - background removed via mix-blend-mode */}
       <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 flex items-center justify-end pointer-events-none"
       >
-        {/* Glow exactly under the globe */}
+        {/* Ambient glow behind the globe */}
         <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8] to-[#c084fc] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
+          animate={{ scale: [1, 1.18, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute right-[0%] top-1/2 -translate-y-1/2 h-[80vmin] w-[80vmin] rounded-full blur-[110px] bg-gradient-to-tr from-[#38bdf8]/40 to-[#c084fc]/35 pointer-events-none"
         />
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0"
+        {/* Globe image — premium PNG, black bg removed via mix-blend-mode */}
+        <div
+          className="relative shrink-0 translate-x-[5%] lg:translate-x-0"
+          style={{
+            width: "clamp(350px, 60vmin, 850px)",
+            height: "clamp(350px, 60vmin, 850px)",
+            mixBlendMode: "screen",
+          }}
         >
           <Image
-            src="/global.png"
-            alt="Digital globe background"
+            src="/globe-premium.png"
+            alt="Premium digital globe"
             fill
             priority
-            sizes="100vw"
-            className="object-cover object-[64%_78%] opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)] sm:object-[68%_70%] lg:object-[center_center]"
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-contain drop-shadow-[0_0_100px_rgba(56,189,248,0.6)]"
           />
-        </motion.div>
+        </div>
       </motion.div>
+
 
       {/* Cinematic Vignette Overlays */}
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#060C1A] via-[#060C1A]/80 to-transparent lg:via-[#060C1A]/60" />
@@ -85,23 +90,14 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-20 mx-auto w-full max-w-[1568px] flex-1 px-5 pt-28 pb-32 sm:px-8 lg:px-10 xl:px-16 flex flex-col justify-center"
+        className="relative z-20 mx-auto w-full max-w-[1568px] flex-1 px-5 pt-16 pb-6 sm:px-8 sm:pt-20 lg:px-10 xl:px-16 flex flex-col justify-center"
       >
         <div className="flex w-full max-w-[650px] flex-col justify-center xl:max-w-[700px]">
-          {/* Cyberpunk pill badge */}
-          <motion.div variants={fadeInUp} className="mb-8 inline-flex w-fit items-center gap-3 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-5 py-2.5 backdrop-blur-md">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#38bdf8] opacity-75"></span>
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#38bdf8]"></span>
-            </span>
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[#38bdf8]">
-              Next-Gen Tech Solutions
-            </span>
-          </motion.div>
+          {/* Pill badge removed as requested */}
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[2.8rem] font-black uppercase leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.8rem] md:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem]"
+            className="text-[1.5rem] font-black uppercase leading-[1.05] tracking-[-0.04em] text-white xs:text-[1.8rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.2rem] xl:text-[3.8rem]"
           >
             We Build &amp; <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
@@ -120,18 +116,18 @@ export default function Hero() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-8 max-w-[580px] text-[1.1rem] font-medium leading-[1.7] text-white/70 sm:text-[1.25rem] lg:text-[1.35rem]"
+            className="mt-3 max-w-[580px] text-[1rem] font-medium leading-[1.6] text-white/70 sm:mt-5 sm:text-[1.2rem] lg:text-[1.3rem]"
           >
             Realise your vision securely, collaborating effortlessly with anyone, anywhere, on any device.
           </motion.p>
 
           <motion.div
             variants={fadeInUp}
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+            className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center"
           >
             <div
               onClick={() => window.open("https://api.whatsapp.com/send?phone=923365918295", "_blank", "noopener,noreferrer")}
-              className="group relative cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
+              className="group relative cursor-pointer overflow-hidden rounded-full bg-white px-6 py-3.5 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/10 via-[#38bdf8]/30 to-[#38bdf8]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <span className="relative text-[15px] font-bold text-[#060C1A] transition-colors group-hover:text-[#060C1A]">
@@ -141,7 +137,7 @@ export default function Hero() {
 
             <div
               onClick={() => setIsCalendlyOpen(true)}
-              className="group relative cursor-pointer overflow-hidden rounded-full border border-white/20 bg-white/5 px-8 py-4 backdrop-blur-md transition-all hover:border-[#38bdf8]/50 hover:bg-white/10 sm:px-10"
+              className="group relative cursor-pointer overflow-hidden rounded-full border border-white/20 bg-white/5 px-6 py-3.5 backdrop-blur-md transition-all hover:border-[#38bdf8]/50 hover:bg-white/10 sm:px-10"
             >
               <span className="text-[15px] font-bold text-white transition-colors group-hover:text-[#38bdf8]">
                 Book A Call
@@ -152,23 +148,23 @@ export default function Hero() {
           {/* Moved Floating Glassmorphic Stats to the LEFT under the buttons */}
           <motion.div
             variants={staggerContainer}
-            className="mt-16 flex flex-wrap gap-4 sm:mt-20 lg:gap-6"
+            className="mt-5 flex flex-nowrap gap-2 sm:mt-6 sm:gap-3 lg:gap-4 w-full"
           >
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 variants={fadeInUp}
                 whileHover={{ y: -8, scale: 1.05 }}
-                className="relative flex-1 min-w-[140px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E]/80 p-6 backdrop-blur-xl shadow-2xl transition-colors hover:border-[#38bdf8]/40 xl:max-w-[200px]"
+                className="relative flex-1 overflow-hidden rounded-[1rem] border border-white/10 bg-[#0A0F1E]/80 p-3 backdrop-blur-xl shadow-2xl transition-colors hover:border-[#38bdf8]/40 sm:rounded-[1.5rem] sm:p-5 xl:max-w-[220px]"
               >
                 {/* Internal subtle glow on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#38bdf8]/0 to-[#c084fc]/0 opacity-0 transition-opacity duration-500 hover:from-[#38bdf8]/20 hover:to-[#c084fc]/20 hover:opacity-100" />
 
                 <div className="relative z-10 flex flex-col items-start gap-1 text-left">
-                  <span className="text-[2.5rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#38bdf8] to-[#818cf8] drop-shadow-[0_0_10px_rgba(56,189,248,0.5)] sm:text-[3rem]">
+                  <span className="text-[1.5rem] font-black leading-none text-transparent bg-clip-text bg-gradient-to-b from-[#38bdf8] to-[#818cf8] drop-shadow-[0_0_10px_rgba(56,189,248,0.5)] sm:text-[2.2rem] lg:text-[2.8rem]">
                     {stat.value}
                   </span>
-                  <span className="mt-2 text-[0.8rem] font-bold uppercase tracking-wider text-white">
+                  <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider text-white sm:mt-2 sm:text-[0.7rem] lg:text-[0.8rem]">
                     {stat.label}
                   </span>
                 </div>

@@ -77,7 +77,7 @@ export default function WhatWeDo() {
                 scale: 1.02,
                 transition: { duration: 0.4, ease: "easeOut" }
               }}
-              className="relative group"
+              className="relative group h-full"
             >
               {/* Card Outer Glow Glow */}
               <div 
@@ -85,7 +85,7 @@ export default function WhatWeDo() {
                 style={{ background: item.color }}
               />
 
-              <div className="relative flex min-h-[300px] lg:min-h-[320px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-10 lg:p-10">
+              <div className="relative flex h-full min-h-[200px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-5 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-6">
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex items-center justify-between mb-4">
                     <p className="text-[1.1rem] font-bold tracking-widest uppercase" style={{ color: item.color }}>
@@ -96,11 +96,11 @@ export default function WhatWeDo() {
                     </span>
                   </div>
 
-                  <h3 className="mt-2 text-[1.6rem] font-bold leading-[1.3] tracking-[-0.03em] text-white sm:text-[1.8rem]">
+                  <h3 className="mt-2 text-[1.4rem] font-bold leading-[1.2] tracking-[-0.03em] text-white sm:text-[1.5rem]">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-[1rem] leading-[1.6] text-white/60 lg:text-[1.05rem]">
+                  <p className="mt-3 text-[0.95rem] leading-[1.6] text-white/60">
                     {item.description}
                   </p>
                 </div>

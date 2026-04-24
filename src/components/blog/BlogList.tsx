@@ -48,7 +48,7 @@ export default function BlogList() {
 
   return (
     <main className="bg-[#060C1A] text-white overflow-hidden">
-      <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+      <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
         {/* Deep Space Background Glows */}
         <div className="absolute inset-0 bg-[#060C1A]" />
 
@@ -76,8 +76,6 @@ export default function BlogList() {
 
           {/* Rotating Globe Image */}
           <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
             className="absolute left-[64%] top-[78%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full overflow-hidden sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[1200px] lg:w-[1200px]"
             style={{
               maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 70%)',
@@ -85,7 +83,7 @@ export default function BlogList() {
             }}
           >
             <Image
-              src="/global.png"
+              src="/globe-premium.png"
               alt="Digital globe background"
               fill
               priority
@@ -100,7 +98,7 @@ export default function BlogList() {
         <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[#060C1A] lg:via-[#060C1A] lg:to-transparent lg:w-[65%]" />
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A] lg:bg-gradient-to-t lg:from-[#060C1A] lg:via-transparent lg:to-transparent" />
 
-        <div className="relative z-20 mx-auto flex min-h-[100svh] w-full max-w-[1568px] flex-col justify-center px-5 pb-14 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pb-18 lg:pt-[118px] xl:px-16 xl:pt-[138px]">
+        <div className="relative z-20 mx-auto flex h-full w-full max-w-[1568px] flex-col justify-center px-5 pb-32 pt-20 sm:px-8 lg:px-10 xl:px-16">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -112,7 +110,7 @@ export default function BlogList() {
                 Devsinn Insights
               </span>
             </motion.div>
-            <motion.h1 variants={fadeInUp} className="text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem]">
+            <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]">
               Insights, ideas, and real <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">product thinking</span> from the team.
             </motion.h1>
 
@@ -120,12 +118,12 @@ export default function BlogList() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-10 max-w-[760px] rounded-[2rem] border border-white/10 bg-[#0A0F1E]/60 p-2 shadow-2xl backdrop-blur-xl"
+              className="mt-10 max-w-[760px] rounded-full border border-white/10 bg-[#0A0F1E]/60 p-1.5 shadow-2xl backdrop-blur-xl"
             >
               <label className="relative block">
                 <Search
                   aria-hidden="true"
-                  size={20}
+                  size={18}
                   className="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 text-white/50"
                 />
                 <input
@@ -133,29 +131,13 @@ export default function BlogList() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Search articles, tags, or topics..."
-                  className="h-16 w-full rounded-[1.5rem] bg-transparent pl-14 pr-6 text-[1.1rem] text-white outline-none transition-all placeholder:text-white/40 focus:ring-1 focus:ring-[#38bdf8]/50"
+                  className="h-12 w-full rounded-full bg-transparent pl-14 pr-6 text-[1rem] text-white outline-none transition-all placeholder:text-white/40 focus:ring-1 focus:ring-[#38bdf8]/50"
                 />
               </label>
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 lg:bottom-12"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Scroll Down</span>
-            <motion.div
-              className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/20 p-1.5"
-            >
-              <motion.div
-                className="h-2 w-1.5 rounded-full bg-white/80"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </motion.div>
-          </motion.div>
+
         </div>
       </section>
 
@@ -174,8 +156,8 @@ export default function BlogList() {
               type="button"
               onClick={() => setActiveCategory(category)}
               className={`relative inline-flex min-h-[48px] items-center justify-center rounded-full px-6 text-[14px] font-bold transition-all duration-300 ${activeCategory === category
-                  ? "bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
-                  : "border border-white/10 bg-white/5 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/10"
+                ? "bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+                : "border border-white/10 bg-white/5 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/10"
                 }`}
             >
               {category}

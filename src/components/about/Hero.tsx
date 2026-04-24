@@ -17,7 +17,7 @@ export default function Hero() {
         className="absolute inset-0"
       >
         <Image
-          src="/global.png"
+          src="/globe-premium.png"
           alt="Digital globe background"
           fill
           priority
@@ -53,7 +53,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#060C1A_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col justify-center px-5 sm:px-8 lg:px-10 xl:px-16">
-        <motion.div 
+        <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -65,13 +65,13 @@ export default function Hero() {
             <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#818cf8]">The Company</span>
           </motion.div>
 
-          <motion.h1 variants={fadeInUp} className="text-[2.85rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem]">
+          <motion.h1 variants={fadeInUp} className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
             Discover Who <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
               We Are
             </span>
           </motion.h1>
-          
+
           <motion.p variants={fadeInUp} className="mt-6 max-w-[600px] text-[1.1rem] leading-[1.7] text-white/70 sm:text-[1.25rem]">
             We are innovators building the future of digital experiences for companies that refuse to settle for ordinary.
           </motion.p>

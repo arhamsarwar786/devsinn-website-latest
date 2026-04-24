@@ -42,7 +42,7 @@ function PageHero({
         className="absolute inset-0"
       >
         <Image
-          src="/global.png"
+          src="/globe-premium.png"
           alt="Digital globe background"
           fill
           priority

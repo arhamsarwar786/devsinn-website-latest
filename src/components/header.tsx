@@ -43,7 +43,7 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-[1568px] items-center justify-between px-5 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-4 xl:px-16">
+      <div className="mx-auto flex w-full max-w-[1568px] items-center justify-between px-5 py-2 sm:px-8 sm:py-2.5 lg:px-10 lg:py-2.5 xl:px-16">
         <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
           <Image
             src="/devsinnlogo.png"
@@ -51,7 +51,7 @@ export default function Header() {
             width={210}
             height={58}
             priority
-            className="h-auto w-[118px] sm:w-[138px] lg:w-[172px]"
+            className="h-auto w-[110px] sm:w-[130px] lg:w-[150px]"
           />
         </Link>
 
@@ -75,7 +75,7 @@ export default function Header() {
           <a
             href="/pdf/Devsinn-Technologies-Portfolio.pdf"
             download="Devsinn-Technologies-Portfolio.pdf"
-            className={`inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-6 text-[15px] font-medium transition-transform duration-200 hover:scale-[1.02] ${
+            className={`inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full px-5 text-[14px] font-medium transition-transform duration-200 hover:scale-[1.02] ${
               isScrolled
                 ? "border border-[#1b325d]/14 bg-[#1b325d]/6 text-[#1b325d]"
                 : "border border-white/28 bg-white/10 text-white backdrop-blur-sm"
@@ -90,7 +90,7 @@ export default function Header() {
             href="/contact"
             size="md"
             variant={isScrolled ? "primary" : "secondary"}
-            className={`transition-transform duration-200 hover:scale-[1.02] lg:min-h-[50px] lg:min-w-[180px] lg:px-8 lg:text-[15px] ${
+            className={`transition-transform duration-200 hover:scale-[1.02] lg:min-h-[44px] lg:min-w-[150px] lg:px-6 lg:text-[14px] ${
               isScrolled ? "" : "bg-white text-[#1b325d]"
             }`}
           >

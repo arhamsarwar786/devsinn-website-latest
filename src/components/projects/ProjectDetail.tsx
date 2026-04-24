@@ -49,7 +49,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end">
             <div className="max-w-[720px]">
-              <motion.h1 variants={fadeInUp} className="text-[3rem] font-black leading-[0.98] tracking-[-0.04em] text-white sm:text-[4.5rem] lg:text-[6rem]">
+              <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[3rem] lg:text-[4rem]">
                 {project.title}
               </motion.h1>
             </div>

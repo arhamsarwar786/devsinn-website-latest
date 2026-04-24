@@ -2,11 +2,13 @@
   {
     "id": "Creative-Design",
     "navLabel": "More Design",
-    "cardImage": "/list/list1.png",
+    "cardImage": "/list/list1_new.png",
     "heroEyebrow": "Creative Studio",
     "heroTitle": "Innovative Designs & Animations For A Lasting Impact",
     "heroDescription": "We shape visual experiences that feel premium, expressive, and memorable. From interface design to motion storytelling, our team builds creative systems that strengthen brand recall and elevate user trust.",
     "mainTitle": "Creative Design & Animations",
+    "title": "Creative Design",
+    "subtitle": "& Animations",
     "mainDescription": "Our creative design and animation services help businesses turn concepts into sharp visual communication. We design intuitive interfaces, memorable brand systems, campaign assets, and motion experiences that make products feel polished and alive. Whether you need a stronger digital identity or richer user engagement, we create visuals that support growth with clarity and consistency.",
     "highlightTitle": "What We Create",
     "highlights": [
@@ -33,11 +35,13 @@
   {
     "id": "Web-Development-Solutions",
     "navLabel": "More Web",
-    "cardImage": "/list/list2.png",
+    "cardImage": "/list/list2_new.png",
     "heroEyebrow": "Web Solutions",
     "heroTitle": "Smart & Scalable Web Solutions For Your Business",
     "heroDescription": "We build fast, reliable, and growth-ready web platforms tailored to your workflow, users, and goals. From MVPs to enterprise systems, every solution is designed for clarity, performance, and scale.",
     "mainTitle": "Web Development Solutions",
+    "title": "Web Development",
+    "subtitle": "Solutions",
     "mainDescription": "We help businesses launch strong digital products through custom web development. Our work covers business websites, dashboards, custom portals, ecommerce experiences, and high-performing frontend systems. Using modern technologies and practical architecture, we create solutions that are easier to manage, smoother to use, and built to support long-term growth.",
     "highlightTitle": "What We Build",
     "highlights": [
@@ -64,11 +68,13 @@
   {
     "id": "App-Development-Solutions",
     "navLabel": "More App",
-    "cardImage": "/list/list3.png",
+    "cardImage": "/list/list3_new.png",
     "heroEyebrow": "Mobile Products",
     "heroTitle": "Smart Solutions For Modern Apps",
     "heroDescription": "We create mobile experiences that are intuitive, scalable, and aligned with business outcomes. Every app is designed to feel smooth in the hand and reliable in real-world use.",
     "mainTitle": "App Development Solutions",
+    "title": "App Development",
+    "subtitle": "Mobile & Native",
     "mainDescription": "Our app development team delivers robust mobile products for startups, enterprises, and growing brands. We plan, design, and engineer apps that balance user experience with technical stability. Whether you need a customer-facing product or an internal business app, we focus on usability, performance, and long-term product value.",
     "highlightTitle": "What We Deliver",
     "highlights": [
@@ -95,11 +101,13 @@
   {
     "id": "Game-Development",
     "navLabel": "More Game",
-    "cardImage": "/list/list4.png",
+    "cardImage": "/list/list4_new.png",
     "heroEyebrow": "Interactive Worlds",
     "heroTitle": "Immersive & Scalable Gaming Solutions",
     "heroDescription": "We turn concepts into engaging gameplay experiences with strong design, polished visuals, and dependable performance across platforms.",
     "mainTitle": "Game Development",
+    "title": "Game Development",
+    "subtitle": "Immersive Experiences",
     "mainDescription": "From concept and mechanics to visuals and deployment, we help teams bring games to life with production-ready workflows. Our game development service focuses on user engagement, performance optimization, and visual clarity so the final product feels exciting, smooth, and worth returning to.",
     "highlightTitle": "What We Develop",
     "highlights": [
@@ -126,11 +134,13 @@
   {
     "id": "Cloud-Computing-Services",
     "navLabel": "More Cloud",
-    "cardImage": "/list/list5.png",
+    "cardImage": "/list/list5_new.png",
     "heroEyebrow": "Cloud Infrastructure",
     "heroTitle": "Empowering Business With Next-Gen Cloud Technology",
     "heroDescription": "We help teams move faster with secure, scalable cloud systems that support availability, efficiency, and business continuity.",
     "mainTitle": "Cloud Computing Services",
+    "title": "Cloud Computing",
+    "subtitle": "Infrastructure & DevOps",
     "mainDescription": "Our cloud services are built to improve agility, reliability, and operational efficiency. We support migration planning, infrastructure design, managed cloud environments, and cloud-native product delivery. Whether your team needs optimization, modernization, or a stronger technical foundation, we build systems that are easier to scale and safer to run.",
     "highlightTitle": "What We Support",
     "highlights": [
@@ -157,11 +167,13 @@
   {
     "id": "Digital-Marketing",
     "navLabel": "More Digital",
-    "cardImage": "/list/list6.png",
+    "cardImage": "/list/list6_new.png",
     "heroEyebrow": "Growth Marketing",
     "heroTitle": "Driving Growth With Data-Driven Digital Marketing",
     "heroDescription": "We help brands grow visibility, trust, and conversions through thoughtful campaigns built on audience insight and measurable performance.",
     "mainTitle": "Digital Marketing",
+    "title": "Digital Marketing",
+    "subtitle": "Growth & Strategy",
     "mainDescription": "Our digital marketing services combine strategy, creative execution, and performance optimization to help brands grow online. We work across search, paid campaigns, content, and social channels to improve reach and conversion quality. Each campaign is tailored to your market, your audience, and your brand voice so growth feels intentional and sustainable.",
     "highlightTitle": "What We Optimize",
     "highlights": [

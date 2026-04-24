@@ -15,7 +15,7 @@ const services = [
       "Unleash visual storytelling with stunning designs and animations. We craft sleek graphics and dynamic visuals to captivate audiences, enhance marketing, and elevate your brand's digital presence.",
     tags: ["UI / UX Design", "Brand Identity", "Motion Graphics", "Campaign Assets"],
     buttonLabel: "Explore Design",
-    image: "/list/list1.png",
+    image: "/list/list1_new.png",
     imageAlt: "Creative design and animations illustration",
     color: "#38bdf8",
     glow: "rgba(56,189,248,0.25)",
@@ -30,7 +30,7 @@ const services = [
       "From corporate websites to ecommerce platforms, we deliver user-friendly, visually appealing, high-performance web applications built with cutting-edge technology to grow your online presence.",
     tags: ["Custom Web Apps", "Ecommerce", "Business Portals", "CMS Platforms"],
     buttonLabel: "Explore Web",
-    image: "/list/list2.png",
+    image: "/list/list2_new.png",
     imageAlt: "Web development illustration",
     color: "#818cf8",
     glow: "rgba(129,140,248,0.25)",
@@ -45,7 +45,7 @@ const services = [
       "We deliver innovative app solutions — from corporate apps to feature-rich ecommerce platforms, we craft user-friendly, high-performance mobile experiences that engage audiences and drive business success.",
     tags: ["iOS & Android", "Flutter & React Native", "Enterprise Apps", "API Integration"],
     buttonLabel: "Explore Apps",
-    image: "/list/list3.png",
+    image: "/list/list3_new.png",
     imageAlt: "App development illustration",
     color: "#c084fc",
     glow: "rgba(192,132,252,0.25)",
@@ -60,7 +60,7 @@ const services = [
       "Bring your ideas to life with immersive 2D/3D games, AR/VR experiences, and interactive platforms. From concept to deployment, we deliver high-quality graphics and captivating gameplay.",
     tags: ["Unity / Unreal", "2D & 3D Games", "AR / VR", "WebGL Experiences"],
     buttonLabel: "Explore Games",
-    image: "/list/list4.png",
+    image: "/list/list4_new.png",
     imageAlt: "Game development illustration",
     color: "#f472b6",
     glow: "rgba(244,114,182,0.25)",
@@ -75,7 +75,7 @@ const services = [
       "Unlock scalability and efficiency with our cloud computing services. From migration to management, we ensure seamless data access, enhanced security, and cost-effective operations.",
     tags: ["AWS / Azure / GCP", "Cloud Migration", "DevOps Pipelines", "Managed Infrastructure"],
     buttonLabel: "Explore Cloud",
-    image: "/list/list5.png",
+    image: "/list/list5_new.png",
     imageAlt: "Cloud computing services illustration",
     color: "#34d399",
     glow: "rgba(52,211,153,0.25)",
@@ -90,7 +90,7 @@ const services = [
       "Maximize online visibility with SEO, social media, content, paid ads, and email campaigns. Our data-driven strategies boost brand awareness, traffic, and conversions with personalized solutions.",
     tags: ["SEO & SEM", "Social Media", "PPC Campaigns", "Content Strategy"],
     buttonLabel: "Explore Marketing",
-    image: "/list/list6.png",
+    image: "/list/list6_new.png",
     imageAlt: "Digital marketing illustration",
     color: "#fb923c",
     glow: "rgba(251,146,60,0.25)",
@@ -120,50 +120,29 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
       <div className={`flex flex-col gap-0 lg:flex-row ${isEven ? "" : "lg:flex-row-reverse"}`}>
         {/* Image side */}
-        <div className="relative min-h-[280px] overflow-hidden lg:min-h-0 lg:w-[45%]">
-          {/* Dark overlay */}
-          <div
-            className="absolute inset-0 z-10"
-            style={{
-              background: isEven
-                ? `linear-gradient(90deg, rgba(10,15,30,0) 0%, rgba(10,15,30,0.9) 100%)`
-                : `linear-gradient(90deg, rgba(10,15,30,0.9) 0%, rgba(10,15,30,0) 100%)`,
-            }}
-          />
-          {/* Ambient glow */}
-          <div
-            className="absolute inset-0 z-10 opacity-30"
-            style={{ background: `radial-gradient(circle at center, ${service.color}30 0%, transparent 70%)` }}
-          />
+        <div className="relative min-h-[320px] overflow-hidden lg:min-h-0 lg:w-[48%]">
           <Image
             src={service.image}
             alt={service.imageAlt}
             fill
+            priority
+            quality={100}
             sizes="(max-width: 1023px) 100vw, 45vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            style={{
+              maskImage: isEven
+                ? 'linear-gradient(to right, black 80%, transparent 100%)'
+                : 'linear-gradient(to left, black 80%, transparent 100%)',
+              WebkitMaskImage: isEven
+                ? 'linear-gradient(to right, black 80%, transparent 100%)'
+                : 'linear-gradient(to left, black 80%, transparent 100%)',
+            }}
           />
-
-          {/* Number watermark */}
-          <div
-            className="pointer-events-none absolute bottom-4 right-6 z-20 text-[6rem] font-black leading-none opacity-10 lg:text-[8rem]"
-            style={{ color: service.color }}
-          >
-            {service.number}
-          </div>
         </div>
 
         {/* Content side */}
         <div className="flex flex-1 flex-col justify-center p-8 lg:p-12 xl:p-16">
-          {/* Number badge */}
-          <div
-            className="mb-5 inline-flex w-fit items-center gap-2.5 rounded-full px-4 py-2"
-            style={{ background: `${service.color}12`, border: `1px solid ${service.color}25` }}
-          >
-            <span className="h-1.5 w-1.5 rounded-full" style={{ background: service.color }} />
-            <span className="text-[11px] font-bold uppercase tracking-[0.22em]" style={{ color: service.color }}>
-              {service.number} — Service
-            </span>
-          </div>
+
 
           {/* Title */}
           <h2 className="text-[2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[2.5rem] lg:text-[3rem]">

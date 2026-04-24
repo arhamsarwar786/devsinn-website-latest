@@ -38,14 +38,14 @@ export default function VisionMission() {
 
               <motion.h2 
                 variants={fadeInUp}
-                className="text-[2.5rem] font-black leading-none tracking-[-0.03em] sm:text-[3rem]"
+                className="text-[2rem] font-black leading-none tracking-[-0.03em] sm:text-[2.5rem]"
               >
                 Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">Vision</span>
               </motion.h2>
 
               <motion.p 
                 variants={fadeInUp}
-                className="mt-6 text-[1.15rem] leading-[1.8] text-white/60 lg:text-[1.25rem]"
+                className="mt-5 text-[1rem] leading-[1.7] text-white/60 lg:text-[1.1rem]"
               >
                 Our vision at Dev&apos;s Inn Technologies is to become a leading
                 company that is recognized for our expertise, innovation, and
@@ -64,14 +64,14 @@ export default function VisionMission() {
 
               <motion.h2 
                 variants={fadeInUp}
-                className="text-[2.5rem] font-black leading-none tracking-[-0.03em] sm:text-[3rem]"
+                className="text-[2rem] font-black leading-none tracking-[-0.03em] sm:text-[2.5rem]"
               >
                 Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#f472b6]">Mission</span>
               </motion.h2>
 
               <motion.p 
                 variants={fadeInUp}
-                className="mt-6 text-[1.15rem] leading-[1.8] text-white/60 lg:text-[1.25rem]"
+                className="mt-5 text-[1rem] leading-[1.7] text-white/60 lg:text-[1.1rem]"
               >
                 At Dev&apos;s Inn Technologies, our mission is to help businesses
                 of all sizes establish a strong and effective online presence
