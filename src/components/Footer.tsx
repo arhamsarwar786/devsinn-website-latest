@@ -228,41 +228,44 @@ export default function Footer() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-4 sm:flex-row shadow-[0_20px_40px_rgba(0,0,0,0.5)] rounded-full">
+            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:focus-within:border-[#38bdf8]/50 sm:focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] sm:hover:border-white/30">
               {subscribed ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex h-[64px] w-full items-center justify-center gap-3 rounded-full border border-[#34d399]/40 bg-[#34d399]/10 px-6 backdrop-blur-xl"
+                  className="flex h-[60px] sm:h-[52px] w-full items-center justify-center gap-3 rounded-full border border-[#34d399]/40 bg-[#34d399]/10 px-6 backdrop-blur-xl"
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#34d399] text-[#020814]">
+                  <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[#34d399] text-[#020814]">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                   </div>
-                  <span className="text-[16px] font-bold text-[#34d399]">Subscription Verified!</span>
+                  <span className="text-[15px] sm:text-[16px] font-bold text-[#34d399]">Subscription Verified!</span>
                 </motion.div>
               ) : (
-                <div className="relative flex w-full h-[64px] items-center rounded-full border border-white/20 bg-[#02050c]/80 p-1.5 backdrop-blur-xl transition-all duration-300 focus-within:border-[#38bdf8]/50 focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] hover:border-white/30">
-                  <div className="pl-5 text-white/30">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <>
+                  <div className="flex h-[60px] sm:h-[64px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none focus-within:border-[#38bdf8]/50 sm:focus-within:border-transparent transition-colors">
+                    <div className="pl-6 text-white/30">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter your email address..."
+                      required
+                      style={{ boxShadow: "none" }}
+                      className="w-full flex-1 rounded-full border-none bg-transparent px-4 py-2 mt-0.5 sm:mt-1 font-mono text-[14px] sm:text-[15px] tracking-tight text-white placeholder-white/30 outline-none ring-0 focus:border-none focus:outline-none focus:ring-0 leading-normal"
+                    />
                   </div>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter command (email_address)"
-                    required
-                    className="h-full flex-1 bg-transparent px-4 text-[15px] text-white placeholder-white/30 outline-none font-mono tracking-tight"
-                  />
                   <button
                     type="submit"
-                    className="group relative h-full shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02]"
+                    className="group relative h-[60px] sm:h-[52px] w-full sm:w-auto shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#f472b6] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center gap-2">
-                      Initialize <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                      Subscribe <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </span>
                   </button>
-                </div>
+                </>
               )}
             </form>
           </div>
@@ -285,7 +288,7 @@ export default function Footer() {
                 alt="Dev's Inn Technologies"
                 width={200}
                 height={56}
-                className="h-auto w-[160px] sm:w-[190px] brightness-0 invert drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10 transition-transform duration-500 group-hover:scale-105"
+                className="h-auto w-[160px] sm:w-[190px] drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10 transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-[#38bdf8] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20" />
             </Link>
@@ -332,7 +335,7 @@ export default function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0a1122] shadow-inner">
                 <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#f472b6] shadow-[0_0_10px_#f472b6]" />
               </div>
-              <span className="text-[13px] font-mono tracking-wider text-white/60">LHE-PK // NOT-UK</span>
+              <span className="text-[13px] font-mono tracking-wider text-white/60">Lahore, PK • Nottingham, UK</span>
             </div>
           </motion.div>
 
@@ -384,8 +387,8 @@ export default function Footer() {
       </div>
       
       {/* Background Watermark Text Giant */}
-      <div className="pointer-events-none absolute bottom-[-10%] left-1/2 -translate-x-1/2 whitespace-nowrap opacity-[0.015] select-none">
-        <h1 className="text-[18vw] font-black tracking-tighter text-white">DEVSINN</h1>
+      <div className="pointer-events-none absolute bottom-[-5%] left-1/2 w-full -translate-x-1/2 text-center whitespace-nowrap opacity-[0.06] select-none mix-blend-screen">
+        <h1 className="text-[20vw] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-t from-[#ffffff] to-transparent">DEVSINN</h1>
       </div>
     </footer>
   );
