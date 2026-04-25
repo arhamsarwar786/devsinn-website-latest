@@ -207,6 +207,8 @@ export default function OurServices() {
         className="pointer-events-none absolute"
         style={{ right: -20, top: "50%", transform: "translateY(-50%)", width: 600, height: 600, zIndex: 1 }}
       >
+        {/* Responsive scale wrapper — anchored to right edge */}
+        <div className="relative h-full w-full origin-right scale-[0.35] sm:scale-[0.55] md:scale-[0.70] lg:scale-100">
         {/* Ambient center glow */}
         <div
           className="absolute rounded-full"
@@ -338,6 +340,7 @@ export default function OurServices() {
           borderColor: `${active.color}09`,
           transition: "border-color 0.5s ease",
         }} />
+        </div>{/* end responsive scale wrapper */}
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
@@ -430,7 +433,7 @@ export default function OurServices() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="relative shrink-0"
+          className="relative shrink-0 origin-center scale-[0.62] -my-[93px] sm:scale-[0.78] sm:-my-[54px] lg:scale-100 lg:my-0"
           style={{ width: SIZE, height: SIZE }}
         >
           {/* Neon rotating outer ring */}

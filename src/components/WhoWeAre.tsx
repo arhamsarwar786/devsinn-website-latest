@@ -9,8 +9,8 @@ export default function WhoWeAre() {
   return (
     <section className="relative flex min-h-[100svh] items-center bg-[#060C1A] px-5 py-20 sm:px-8 lg:px-10 lg:py-28 xl:px-16 overflow-hidden">
       {/* Background flourishes */}
-      <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/3 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.15)_0%,transparent_70%)] blur-[80px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/3 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] blur-[80px]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.15)_0%,transparent_70%)] blur-[80px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] blur-[80px]" />
 
       {/* Grid pattern overlay */}
       <div
@@ -32,7 +32,7 @@ export default function WhoWeAre() {
         <motion.div
           variants={card3D}
           whileHover="hover"
-          className="relative aspect-[4/3] w-full overflow-visible xl:aspect-[16/11]"
+          className="relative aspect-[4/3] w-full overflow-hidden xl:aspect-[16/11]"
         >
           {/* Picture frame glow */}
           <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[32px] bg-gradient-to-br from-[#38bdf8] to-[#818cf8] opacity-20 blur-xl transition-opacity duration-500 hover:opacity-40" />
@@ -53,7 +53,7 @@ export default function WhoWeAre() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 -right-6 flex items-center gap-4 rounded-3xl border border-white/10 bg-[#0A0F1E]/90 p-4 pr-6 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+            className="absolute -bottom-6 right-0 lg:-right-6 flex items-center gap-4 rounded-3xl border border-white/10 bg-[#0A0F1E]/90 p-4 pr-6 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_20px_rgba(56,189,248,0.4)]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>

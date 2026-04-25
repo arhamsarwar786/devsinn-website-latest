@@ -39,7 +39,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ScrollChrome />
         <Header />
-        {children}
+        <main className="flex-1 w-full overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   );

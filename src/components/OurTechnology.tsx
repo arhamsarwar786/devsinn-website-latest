@@ -19,10 +19,10 @@ export default function OurTechnology() {
   const currentCards = allProjects.filter(p => p.categoryKey === activeTab);
 
   return (
-    <section className="bg-[#060C1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+    <section className="relative overflow-hidden bg-[#060C1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-32 xl:px-16">
       {/* Soft Glow Backgrounds */}
-      <div className="pointer-events-none absolute left-0 top-[20%] h-[800px] w-[800px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05)_0%,transparent_70%)] blur-[100px]" />
-      <div className="pointer-events-none absolute right-0 top-[60%] h-[800px] w-[800px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.05)_0%,transparent_70%)] blur-[100px]" />
+      <div className="pointer-events-none absolute left-0 top-[20%] h-[600px] w-[600px] -translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05)_0%,transparent_70%)] blur-[100px]" />
+      <div className="pointer-events-none absolute right-0 top-[60%] h-[600px] w-[600px] translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.05)_0%,transparent_70%)] blur-[100px]" />
 
       <motion.div
         initial="hidden"
