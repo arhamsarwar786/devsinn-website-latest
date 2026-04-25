@@ -228,7 +228,7 @@ export default function Footer() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:focus-within:border-[#38bdf8]/50 sm:focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] sm:hover:border-white/30">
+            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:focus-within:border-[#38bdf8]/50 sm:focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] sm:hover:border-white/30">
               {subscribed ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -242,8 +242,8 @@ export default function Footer() {
                 </motion.div>
               ) : (
                 <>
-                  <div className="flex h-[60px] sm:h-[64px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none focus-within:border-[#38bdf8]/50 sm:focus-within:border-transparent transition-colors">
-                    <div className="pl-6 text-white/30">
+                  <div className="flex h-[60px] sm:h-[52px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none focus-within:border-[#38bdf8]/50 sm:focus-within:border-transparent transition-colors">
+                    <div className="pl-6 text-white/30 flex items-center justify-center">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
                     <input
@@ -261,7 +261,7 @@ export default function Footer() {
                     className="group relative h-[60px] sm:h-[52px] w-full sm:w-auto shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#f472b6] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+                    <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2 h-full">
                       Subscribe <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </span>
                   </button>
