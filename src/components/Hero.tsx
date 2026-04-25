@@ -163,23 +163,38 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll indicator - Moved to bottom right corner slightly so it doesn't overlap the new cards position */}
+      {/* Premium Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-6 right-8 hidden md:flex flex-col items-center gap-2 lg:bottom-10 lg:right-12"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4 group cursor-pointer"
       >
-        <motion.div
-          className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/20 p-1.5"
-          animate={{}}
-        >
-          <motion.div
-            className="h-2 w-1.5 rounded-full bg-white/80"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
+        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 transition-colors duration-300 group-hover:text-[#38bdf8]">
+          Scroll to explore
+        </span>
+        
+        <div className="relative h-[50px] w-[26px]">
+          {/* Mouse Outer Shell */}
+          <div className="absolute inset-0 rounded-full border border-white/10 bg-white/5 backdrop-blur-md transition-colors duration-500 group-hover:border-[#38bdf8]/40" />
+          
+          {/* Scrolling Dot Animation */}
+          <div className="absolute inset-0 flex justify-center pt-2">
+            <motion.div
+              animate={{ 
+                y: [0, 20, 0],
+                opacity: [0, 1, 0],
+                scaleY: [1, 1.5, 1]
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              className="h-2 w-[2px] rounded-full bg-gradient-to-b from-[#38bdf8] to-[#818cf8]"
+            />
+          </div>
+        </div>
       </motion.div>
     </section>
   );
