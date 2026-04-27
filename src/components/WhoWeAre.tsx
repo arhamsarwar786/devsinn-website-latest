@@ -7,38 +7,32 @@ import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
 
 export default function WhoWeAre() {
   return (
-    <section className="relative flex min-h-[100svh] items-center bg-[#060C1A] px-5 py-20 sm:px-8 lg:px-10 lg:py-28 xl:px-16 overflow-hidden">
+    <section className="relative bg-[#060C1A] px-5 py-16 sm:px-8 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
       {/* Background flourishes */}
-      <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.15)_0%,transparent_70%)] blur-[80px]" />
-      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.15)_0%,transparent_70%)] blur-[80px]" />
+      <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/3 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[80px]" />
+      <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/3 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.08)_0%,transparent_70%)] blur-[80px]" />
 
-      {/* Grid pattern overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
 
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="relative z-10 mx-auto grid w-full max-w-[1400px] items-center gap-12 lg:grid-cols-2 lg:gap-20"
+        className="relative z-10 mx-auto grid w-full max-w-[1400px] items-center gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16"
       >
         {/* Left Picture Side */}
         <motion.div
           variants={card3D}
           whileHover="hover"
-          className="relative aspect-[4/3] w-full overflow-hidden xl:aspect-[16/11]"
+          className="relative w-full max-w-[95%] mx-auto lg:max-w-full overflow-visible"
+          style={{ aspectRatio: "16/10" }}
         >
           {/* Picture frame glow */}
           <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[32px] bg-gradient-to-br from-[#38bdf8] to-[#818cf8] opacity-20 blur-xl transition-opacity duration-500 hover:opacity-40" />
 
-          <div className="relative h-full w-full overflow-hidden rounded-[32px] border border-white/10 bg-[#0A0F1E] shadow-2xl backdrop-blur-md">
-            <div className="relative h-full w-full overflow-hidden rounded-[32px]">
+          {/* Using absolute inset-0 to prevent height collapse */}
+          <div className="absolute inset-0 overflow-hidden rounded-[32px] border border-white/10 bg-[#0A0F1E] shadow-2xl backdrop-blur-md">
+            <div className="absolute inset-0 overflow-hidden rounded-[32px]">
               <Image
                 src="/pic.png"
                 alt="Team meeting"
@@ -76,7 +70,7 @@ export default function WhoWeAre() {
 
           <motion.h2
             variants={fadeInUp}
-            className="mt-6 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]"
+            className="mt-4 text-[2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem]"
           >
             Empower Your Teams <br className="hidden lg:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#c084fc]">
@@ -86,7 +80,7 @@ export default function WhoWeAre() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-8 text-[1.1rem] leading-[1.75] text-white/70 sm:text-[1.15rem]"
+            className="mt-5 text-[1rem] leading-[1.65] text-white/70 sm:text-[1.1rem]"
           >
             Dev&apos;s Inn Technologies is your gateway to cutting-edge IT services for
             businesses and brands. We are your strategic partner in navigating the
@@ -95,12 +89,12 @@ export default function WhoWeAre() {
 
           <motion.p
             variants={fadeInUp}
-            className="mt-4 text-[1.1rem] leading-[1.75] text-white/70 sm:text-[1.15rem]"
+            className="mt-3 text-[1rem] leading-[1.65] text-white/70 sm:text-[1.1rem]"
           >
             With a relentless commitment to innovation and excellence, we provide tailored IT solutions that empower your organization to thrive in the modern world.
           </motion.p>
 
-          <motion.div variants={fadeInUp} className="mt-10">
+          <motion.div variants={fadeInUp} className="mt-6">
             <Link
               href="/services"
               className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white px-10 text-[15px] font-bold text-[#060C1A] shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-transform hover:scale-[1.02] active:scale-[0.98]"

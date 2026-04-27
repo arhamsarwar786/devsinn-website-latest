@@ -196,7 +196,7 @@ export default function OurServices() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#050f24] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16"
+      className="relative overflow-hidden bg-[#060C1A] px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-16 xl:px-16"
     >
       {/* Background ambient left orb */}
       <div className="pointer-events-none absolute left-[-15%] top-[-10%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(77,140,255,0.10),transparent_65%)] blur-[80px]" />
@@ -443,7 +443,7 @@ export default function OurServices() {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             style={{
               border: "2px solid transparent",
-              backgroundImage: "linear-gradient(#050f24,#050f24), conic-gradient(from 0deg, #64dff2, #4d8cff, #a78bfa, #f472b6, #34d399, #fb923c, #64dff2)",
+              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 0deg, #64dff2, #4d8cff, #a78bfa, #f472b6, #34d399, #fb923c, #64dff2)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}
@@ -455,7 +455,7 @@ export default function OurServices() {
             transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
             style={{
               border: "1.5px dashed transparent",
-              backgroundImage: "linear-gradient(#050f24,#050f24), conic-gradient(from 180deg, #4d8cff88, #64dff288, #a78bfa88, #4d8cff88)",
+              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 180deg, #4d8cff88, #64dff288, #a78bfa88, #4d8cff88)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}
@@ -467,7 +467,7 @@ export default function OurServices() {
             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
             style={{
               border: "1px solid transparent",
-              backgroundImage: "linear-gradient(#050f24,#050f24), conic-gradient(from 90deg, #f472b644, #34d39944, #fb923c44, #f472b644)",
+              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 90deg, #f472b644, #34d39944, #fb923c44, #f472b644)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}
