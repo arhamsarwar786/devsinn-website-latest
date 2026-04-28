@@ -16,7 +16,7 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
 
   return (
     <main className="bg-[#060C1A] text-white overflow-hidden">
-      <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-20 pt-[138px] text-white sm:px-8 sm:pb-24 sm:pt-[154px] lg:px-10 lg:pb-28 lg:pt-[168px] xl:px-16 h-[100svh] flex flex-col justify-end">
+      <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-16 pt-[120px] text-white sm:px-8 sm:pb-20 sm:pt-[140px] lg:px-10 lg:pb-24 lg:pt-[160px] xl:px-16 min-h-[100svh] flex flex-col justify-center">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -44,15 +44,15 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
           <motion.div variants={fadeInUp}>
             <Link
               href="/blog"
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8] backdrop-blur-md transition duration-300 hover:border-[#38bdf8]/40 hover:bg-white/10"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#38bdf8] backdrop-blur-md transition duration-300 hover:border-[#38bdf8]/40 hover:bg-white/10"
             >
               <ArrowLeft size={16} />
               Back to Blog
             </Link>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4 text-[12px] font-bold uppercase tracking-[0.16em] text-white/50 sm:gap-6">
-            <span className="rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-2 text-[#38bdf8] backdrop-blur-sm">{blog.category}</span>
+          <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] text-white/50 sm:gap-4">
+            <span className="rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-3 py-1.5 text-[#38bdf8] backdrop-blur-sm">{blog.category}</span>
             <span className="inline-flex items-center gap-2">
               <Calendar size={15} />
               {formatBlogDate(blog.publishedAt)}
@@ -69,7 +69,7 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
 
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:items-end">
             <div className="max-w-[900px]">
-              <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]">
+              <motion.h1 variants={fadeInUp} className="text-[1.8rem] font-black leading-[1.1] tracking-[-0.03em] text-white sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.2rem] xl:text-[3.6rem]">
                 {blog.title}
               </motion.h1>
             </div>
