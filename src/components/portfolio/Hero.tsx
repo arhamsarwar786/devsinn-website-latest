@@ -92,7 +92,7 @@ export default function Hero() {
             <a
               href="/pdf/Devsinn-Technologies-Portfolio.pdf"
               download="Devsinn-Technologies-Portfolio.pdf"
-              className="group relative cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
+              className="group relative w-full max-w-[248px] sm:w-auto sm:max-w-none cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/10 via-[#38bdf8]/30 to-[#38bdf8]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <span className="relative text-[15px] font-bold text-[#060C1A] transition-colors group-hover:text-[#060C1A]">

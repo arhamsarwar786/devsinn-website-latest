@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const aboutLinks = [
   { label: "Company", href: "/company" },
@@ -28,7 +29,7 @@ const serviceLinks = [
 const socials = [
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/devsinntechnology?mibextid=ZbWKwL",
     color: "#1877F2",
     glow: "rgba(24,119,242,0.6)",
     icon: (
@@ -39,7 +40,7 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/devsinntechnologies?igshid=MzRlODBiNWFlZA%3D%3D",
     color: "#E1306C",
     glow: "rgba(225,48,108,0.6)",
     icon: (
@@ -52,7 +53,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/company/devsinn-technologies/",
     color: "#0A66C2",
     glow: "rgba(10,102,194,0.6)",
     icon: (
@@ -74,9 +75,9 @@ function FooterLink({ label, href }: { label: string; href: string }) {
           <span className="absolute h-1 w-1 rounded-full bg-white/20 transition-all duration-300 group-hover:h-full group-hover:w-full group-hover:bg-[#38bdf8]" />
         </span>
         <span className="relative z-10">{label}</span>
-        
+
         {/* Glow underline sweep */}
-        <motion.div 
+        <motion.div
           className="absolute -bottom-1 left-5 right-0 h-[1px] bg-gradient-to-r from-[#38bdf8] to-[#f472b6] opacity-0"
           variants={{
             initial: { width: 0, opacity: 0 },
@@ -92,7 +93,7 @@ function FooterLink({ label, href }: { label: string; href: string }) {
 // Sparkle Particle Component
 function Sparkles() {
   const [particles, setParticles] = useState<{ id: number; x: number; y: number; size: number; delay: number }[]>([]);
-  
+
   useEffect(() => {
     const newParticles = Array.from({ length: 40 }).map((_, i) => ({
       id: i,
@@ -110,21 +111,21 @@ function Sparkles() {
         <motion.div
           key={p.id}
           className="absolute rounded-full bg-white"
-          style={{ 
-            left: `${p.x}%`, 
-            top: `${p.y}%`, 
-            width: p.size, 
+          style={{
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
             height: p.size,
             boxShadow: `0 0 ${p.size * 2}px rgba(255,255,255,0.8)`
           }}
-          animate={{ 
-            y: [0, -100], 
+          animate={{
+            y: [0, -100],
             opacity: [0, 1, 0],
             scale: [0, 1, 0]
           }}
-          transition={{ 
-            duration: Math.random() * 5 + 5, 
-            repeat: Infinity, 
+          transition={{
+            duration: Math.random() * 5 + 5,
+            repeat: Infinity,
             delay: p.delay,
             ease: "linear"
           }}
@@ -147,10 +148,10 @@ export default function Footer() {
 
   return (
     <footer ref={containerRef} className="relative overflow-hidden bg-[#010308] text-white pt-24 sm:pt-32">
-      
+
       {/* ── AMBIENT CYBER ENVIRONMENT ── */}
       {/* Hex Grid Overlay */}
-      <div 
+      <div
         className="pointer-events-none absolute inset-0 opacity-[0.02] mix-blend-screen"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' stroke-width='1' stroke='%23ffffff' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E")`,
@@ -160,18 +161,13 @@ export default function Footer() {
 
       {/* Massive Glowing Core */}
       <div className="pointer-events-none absolute left-1/2 bottom-0 h-[800px] w-[1000px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.15)_0%,rgba(167,139,250,0.05)_40%,transparent_70%)] blur-[120px]" />
-      
+
       {/* Sparkle Particles Ascending */}
       <Sparkles />
 
       {/* Top Scanner Line */}
-      <div className="absolute top-0 left-0 right-0 h-px">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#38bdf8]/40 to-transparent" />
-        <motion.div 
-          className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white to-transparent blur-[2px]"
-          animate={{ left: ['-100%', '200%'] }}
-          transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
-        />
+      <div className="absolute top-0 left-0 right-0">
+        <SectionDivider />
       </div>
 
       <div className="relative z-10 mx-auto px-5 sm:px-8 lg:px-10 xl:px-16 w-full max-w-[1400px]">
@@ -184,7 +180,7 @@ export default function Footer() {
           className="group relative mx-auto mb-20 max-w-[1200px] overflow-hidden rounded-[2.5rem] p-[1px] md:mb-32"
         >
           {/* Animated Gradient Border */}
-          <motion.div 
+          <motion.div
             className="absolute inset-[-100%] rounded-full opacity-50"
             style={{ background: 'conic-gradient(from 0deg, transparent 0%, #38bdf8 30%, #a78bfa 50%, #f472b6 70%, transparent 100%)' }}
             animate={{ rotate: 360 }}
@@ -193,10 +189,10 @@ export default function Footer() {
 
           {/* Internal Glassmorphism Body */}
           <div className="relative flex flex-col items-center justify-between gap-10 overflow-hidden rounded-[2.5rem] bg-[#050C1B]/80 backdrop-blur-3xl px-8 py-12 lg:flex-row lg:gap-16 lg:px-16 lg:py-16 shadow-[0_0_80px_rgba(56,189,248,0.1)]">
-            
+
             {/* Ambient inner sweep */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none" />
-            
+
             {/* Tech Decoration */}
             <svg className="absolute left-0 top-0 h-full w-full opacity-20 pointer-events-none" viewBox="0 0 1000 300" preserveAspectRatio="none">
               <path d="M 0 150 Q 250 50 500 150 T 1000 150" stroke="url(#wave-grad)" fill="none" strokeWidth="2" />
@@ -230,7 +226,7 @@ export default function Footer() {
             {/* Form */}
             <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:focus-within:border-[#38bdf8]/50 sm:focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] sm:hover:border-white/30">
               {subscribed ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex h-[60px] sm:h-[52px] w-full items-center justify-center gap-3 rounded-full border border-[#34d399]/40 bg-[#34d399]/10 px-6 backdrop-blur-xl"
@@ -244,7 +240,7 @@ export default function Footer() {
                 <>
                   <div className="flex h-[60px] sm:h-[52px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none focus-within:border-[#38bdf8]/50 sm:focus-within:border-transparent transition-colors">
                     <div className="pl-6 text-white/30 flex items-center justify-center">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                     </div>
                     <input
                       type="email"
@@ -273,7 +269,7 @@ export default function Footer() {
 
         {/* ── MAIN FOOTER COLUMNS ── */}
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] lg:gap-8 pb-16">
-          
+
           {/* Brand Col */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -303,6 +299,8 @@ export default function Footer() {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -319,9 +317,9 @@ export default function Footer() {
                     (e.currentTarget as HTMLElement).style.background = "#0a1122";
                   }}
                 >
-                  <div 
-                    className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 blur-md group-hover:opacity-100" 
-                    style={{ background: social.color }} 
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 blur-md group-hover:opacity-100"
+                    style={{ background: social.color }}
                   />
                   <span className="relative z-10 text-white/60 transition-colors duration-300 group-hover:text-white">
                     {social.icon}
@@ -366,16 +364,16 @@ export default function Footer() {
         </div>
 
         {/* ── BOTTOM COPYRIGHT BAR ── */}
-        <div className="relative mt-8 flex flex-col items-center justify-between gap-6 border-t border-white/10 py-8 lg:flex-row">
-          
+        <div className="relative mt-8 flex flex-col items-center justify-between gap-6 py-8 lg:flex-row">
+
           <p className="text-[14px] text-white/40 font-mono">
             &copy; {new Date().getFullYear()} DEVSINN TECHNOLOGIES. ALL SYSTEMS OPERATIONAL.
           </p>
 
           <div className="flex items-center gap-2 text-[14px] text-white/40">
             <span>Engineered with</span>
-            <motion.div 
-              animate={{ scale: [1, 1.3, 1] }} 
+            <motion.div
+              animate={{ scale: [1, 1.3, 1] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#f472b6" className="drop-shadow-[0_0_8px_#f472b6]"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
@@ -385,7 +383,7 @@ export default function Footer() {
 
         </div>
       </div>
-      
+
       {/* Background Watermark Text Giant */}
       <div className="pointer-events-none absolute bottom-[-5%] left-1/2 w-full -translate-x-1/2 text-center whitespace-nowrap opacity-[0.06] select-none mix-blend-screen">
         <h1 className="text-[20vw] font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-t from-[#ffffff] to-transparent">DEVSINN</h1>

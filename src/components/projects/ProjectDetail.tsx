@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
 import { fadeInUp, staggerContainer, fadeIn, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 type ProjectDetailProps = {
   project: Project;
@@ -91,6 +92,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       {/* STRATEGY & DESIGN SECTION */}
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
         {/* Decorative Orbs */}
@@ -145,6 +148,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </motion.div>
         </motion.div>
       </section>
+
+      <SectionDivider />
 
       {/* SNEAK PEEK SECTION */}
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
@@ -212,6 +217,8 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </motion.div>
         </motion.div>
       </section>
+
+      <SectionDivider />
 
       {/* TECHNOLOGIES SECTION */}
       <section className="relative px-5 py-20 pb-40 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">

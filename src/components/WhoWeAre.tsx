@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function WhoWeAre() {
   return (
     <section className="relative bg-[#060C1A] px-5 py-16 sm:px-8 lg:px-10 lg:py-20 xl:px-16 overflow-hidden">
+      <SectionDivider />
       {/* Background flourishes */}
       <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/2 translate-x-1/3 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[80px]" />
       <div className="pointer-events-none absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/3 translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.08)_0%,transparent_70%)] blur-[80px]" />

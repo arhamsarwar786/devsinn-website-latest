@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const tabs = [
   { id: "arts", label: "Arts & Illustration" },
@@ -16,6 +17,7 @@ export default function CoreTechnology() {
 
   return (
     <section className="relative overflow-hidden bg-[#060C1A] px-5 py-12 text-white sm:px-8 lg:px-10 lg:py-16 xl:px-16">
+      <SectionDivider />
       {/* Decorative gradients */}
       <div className="pointer-events-none absolute left-0 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-0 top-0 h-[600px] w-[600px] translate-x-1/4 -translate-y-1/3 rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.08)_0%,transparent_70%)] blur-[80px]" />

@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function VisionMission() {
   return (
-    <section className="bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+    <section className="relative bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+      <SectionDivider />
       <div className="mx-auto w-full max-w-[1400px]">
         <div className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-[#0A0F1E] shadow-2xl lg:min-h-[450px]">
           {/* Animated glowing background */}

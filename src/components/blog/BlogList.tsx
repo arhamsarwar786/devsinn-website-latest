@@ -7,6 +7,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogCategories, blogs, formatBlogDate } from "@/lib/blogs";
 import { fadeInUp, staggerContainer, fadeIn, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function BlogList() {
   const [query, setQuery] = useState("");
@@ -140,7 +141,7 @@ export default function BlogList() {
 
         </div>
       </section>
-
+      <SectionDivider />
       <section className="sticky top-0 z-40 border-b border-white/10 bg-[#060C1A]/80 px-5 py-5 backdrop-blur-xl sm:px-8 lg:px-10 xl:px-16">
         <motion.div
           initial="hidden"
@@ -165,9 +166,10 @@ export default function BlogList() {
           ))}
         </motion.div>
       </section>
-
       {featuredBlog ? (
-        <section className="relative px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16">
+        <>
+          <SectionDivider />
+          <section className="relative px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16">
           {/* Ambient Glow */}
           <div className="pointer-events-none absolute left-[10%] top-[40%] h-[700px] w-[700px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] blur-[100px]" />
 
@@ -247,8 +249,9 @@ export default function BlogList() {
             </motion.div>
           </motion.div>
         </section>
+      </>
       ) : null}
-
+      <SectionDivider />
       <section className="relative px-5 pb-20 sm:px-8 sm:pb-32 lg:px-10 lg:pb-40 xl:px-16 overflow-hidden">
         {/* Glow */}
         <div className="pointer-events-none absolute right-[10%] top-[40%] h-[700px] w-[700px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.06)_0%,transparent_70%)] blur-[100px]" />

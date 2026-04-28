@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, AnimatePresence, useInView, useAnimationFrame } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const services = [
   {
@@ -198,6 +199,7 @@ export default function OurServices() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[#060C1A] px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-16 xl:px-16"
     >
+      <SectionDivider />
       {/* Background ambient left orb */}
       <div className="pointer-events-none absolute left-[-15%] top-[-10%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(77,140,255,0.10),transparent_65%)] blur-[80px]" />
 
@@ -209,137 +211,137 @@ export default function OurServices() {
       >
         {/* Responsive scale wrapper — anchored to right edge */}
         <div className="relative h-full w-full origin-right scale-[0.35] sm:scale-[0.55] md:scale-[0.70] lg:scale-100">
-        {/* Ambient center glow */}
-        <div
-          className="absolute rounded-full"
-          style={{
-            width: 220, height: 220,
-            top: "50%", left: "50%",
-            transform: "translate(-50%, -50%)",
-            background: `radial-gradient(circle, ${active.color}25, transparent 70%)`,
-            filter: "blur(55px)",
-            transition: "background 0.6s ease",
-          }}
-        />
-
-        {/* ── RING 1: r=90px | 3 bubbles | 6s clockwise ── */}
-        {[
-          { deg: 0, size: 14, dur: 6, alpha: 1.0 },
-          { deg: 120, size: 9, dur: 6, alpha: 0.75 },
-          { deg: 240, size: 11, dur: 6, alpha: 0.85 },
-        ].map(({ deg, size, dur, alpha }) => (
-          <motion.div
-            key={`r1-${deg}`}
-            className="absolute"
+          {/* Ambient center glow */}
+          <div
+            className="absolute rounded-full"
             style={{
-              width: 90, height: 2,
-              left: "50%", top: "50%",
-              marginTop: -1,
-              transformOrigin: "0% 50%",
+              width: 220, height: 220,
+              top: "50%", left: "50%",
+              transform: "translate(-50%, -50%)",
+              background: `radial-gradient(circle, ${active.color}25, transparent 70%)`,
+              filter: "blur(55px)",
+              transition: "background 0.6s ease",
             }}
-            animate={{ rotate: [deg, deg + 360] }}
-            transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
-          >
-            {/* Bubble at the tip of the arm */}
-            <div
-              className="absolute rounded-full"
-              style={{
-                width: size, height: size,
-                right: -(size / 2), top: -(size / 2),
-                background: active.color,
-                boxShadow: `0 0 ${size * 2}px ${active.color}, 0 0 ${size * 4}px ${active.color}70`,
-                opacity: alpha,
-                transition: "background 0.5s ease, box-shadow 0.5s ease",
-              }}
-            />
-          </motion.div>
-        ))}
-        {/* Ring 1 track */}
-        <div className="absolute rounded-full border" style={{
-          width: 180, height: 180, left: "50%", top: "50%",
-          marginLeft: -90, marginTop: -90,
-          borderColor: `${active.color}20`,
-          transition: "border-color 0.5s ease",
-        }} />
+          />
 
-        {/* ── RING 2: r=170px | 2 bubbles | 11s counter-clockwise ── */}
-        {[
-          { deg: 40, size: 18, dur: 11, alpha: 0.95 },
-          { deg: 220, size: 12, dur: 11, alpha: 0.7 },
-        ].map(({ deg, size, dur, alpha }) => (
-          <motion.div
-            key={`r2-${deg}`}
-            className="absolute"
-            style={{
-              width: 170, height: 2,
-              left: "50%", top: "50%",
-              marginTop: -1,
-              transformOrigin: "0% 50%",
-            }}
-            animate={{ rotate: [deg, deg - 360] }}
-            transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
-          >
-            <div
-              className="absolute rounded-full"
+          {/* ── RING 1: r=90px | 3 bubbles | 6s clockwise ── */}
+          {[
+            { deg: 0, size: 14, dur: 6, alpha: 1.0 },
+            { deg: 120, size: 9, dur: 6, alpha: 0.75 },
+            { deg: 240, size: 11, dur: 6, alpha: 0.85 },
+          ].map(({ deg, size, dur, alpha }) => (
+            <motion.div
+              key={`r1-${deg}`}
+              className="absolute"
               style={{
-                width: size, height: size,
-                right: -(size / 2), top: -(size / 2),
-                background: active.color,
-                boxShadow: `0 0 ${size * 2}px ${active.color}, 0 0 ${size * 5}px ${active.color}65`,
-                opacity: alpha,
-                transition: "background 0.5s ease, box-shadow 0.5s ease",
+                width: 90, height: 2,
+                left: "50%", top: "50%",
+                marginTop: -1,
+                transformOrigin: "0% 50%",
               }}
-            />
-          </motion.div>
-        ))}
-        {/* Ring 2 track */}
-        <div className="absolute rounded-full border" style={{
-          width: 340, height: 340, left: "50%", top: "50%",
-          marginLeft: -170, marginTop: -170,
-          borderColor: `${active.color}14`,
-          borderStyle: "dashed",
-          transition: "border-color 0.5s ease",
-        }} />
+              animate={{ rotate: [deg, deg + 360] }}
+              transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
+            >
+              {/* Bubble at the tip of the arm */}
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: size, height: size,
+                  right: -(size / 2), top: -(size / 2),
+                  background: active.color,
+                  boxShadow: `0 0 ${size * 2}px ${active.color}, 0 0 ${size * 4}px ${active.color}70`,
+                  opacity: alpha,
+                  transition: "background 0.5s ease, box-shadow 0.5s ease",
+                }}
+              />
+            </motion.div>
+          ))}
+          {/* Ring 1 track */}
+          <div className="absolute rounded-full border" style={{
+            width: 180, height: 180, left: "50%", top: "50%",
+            marginLeft: -90, marginTop: -90,
+            borderColor: `${active.color}20`,
+            transition: "border-color 0.5s ease",
+          }} />
 
-        {/* ── RING 3: r=270px | 4 bubbles | 18s clockwise ── */}
-        {[
-          { deg: 0, size: 22, dur: 18, alpha: 0.95 },
-          { deg: 90, size: 10, dur: 18, alpha: 0.65 },
-          { deg: 180, size: 16, dur: 18, alpha: 0.85 },
-          { deg: 270, size: 8, dur: 18, alpha: 0.6 },
-        ].map(({ deg, size, dur, alpha }) => (
-          <motion.div
-            key={`r3-${deg}`}
-            className="absolute"
-            style={{
-              width: 270, height: 2,
-              left: "50%", top: "50%",
-              marginTop: -1,
-              transformOrigin: "0% 50%",
-            }}
-            animate={{ rotate: [deg, deg + 360] }}
-            transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
-          >
-            <div
-              className="absolute rounded-full"
+          {/* ── RING 2: r=170px | 2 bubbles | 11s counter-clockwise ── */}
+          {[
+            { deg: 40, size: 18, dur: 11, alpha: 0.95 },
+            { deg: 220, size: 12, dur: 11, alpha: 0.7 },
+          ].map(({ deg, size, dur, alpha }) => (
+            <motion.div
+              key={`r2-${deg}`}
+              className="absolute"
               style={{
-                width: size, height: size,
-                right: -(size / 2), top: -(size / 2),
-                background: active.color,
-                boxShadow: `0 0 ${size * 3}px ${active.color}, 0 0 ${size * 6}px ${active.color}55`,
-                opacity: alpha,
-                transition: "background 0.5s ease, box-shadow 0.5s ease",
+                width: 170, height: 2,
+                left: "50%", top: "50%",
+                marginTop: -1,
+                transformOrigin: "0% 50%",
               }}
-            />
-          </motion.div>
-        ))}
-        {/* Ring 3 track */}
-        <div className="absolute rounded-full border" style={{
-          width: 540, height: 540, left: "50%", top: "50%",
-          marginLeft: -270, marginTop: -270,
-          borderColor: `${active.color}09`,
-          transition: "border-color 0.5s ease",
-        }} />
+              animate={{ rotate: [deg, deg - 360] }}
+              transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
+            >
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: size, height: size,
+                  right: -(size / 2), top: -(size / 2),
+                  background: active.color,
+                  boxShadow: `0 0 ${size * 2}px ${active.color}, 0 0 ${size * 5}px ${active.color}65`,
+                  opacity: alpha,
+                  transition: "background 0.5s ease, box-shadow 0.5s ease",
+                }}
+              />
+            </motion.div>
+          ))}
+          {/* Ring 2 track */}
+          <div className="absolute rounded-full border" style={{
+            width: 340, height: 340, left: "50%", top: "50%",
+            marginLeft: -170, marginTop: -170,
+            borderColor: `${active.color}14`,
+            borderStyle: "dashed",
+            transition: "border-color 0.5s ease",
+          }} />
+
+          {/* ── RING 3: r=270px | 4 bubbles | 18s clockwise ── */}
+          {[
+            { deg: 0, size: 22, dur: 18, alpha: 0.95 },
+            { deg: 90, size: 10, dur: 18, alpha: 0.65 },
+            { deg: 180, size: 16, dur: 18, alpha: 0.85 },
+            { deg: 270, size: 8, dur: 18, alpha: 0.6 },
+          ].map(({ deg, size, dur, alpha }) => (
+            <motion.div
+              key={`r3-${deg}`}
+              className="absolute"
+              style={{
+                width: 270, height: 2,
+                left: "50%", top: "50%",
+                marginTop: -1,
+                transformOrigin: "0% 50%",
+              }}
+              animate={{ rotate: [deg, deg + 360] }}
+              transition={{ duration: dur, repeat: Infinity, ease: "linear" }}
+            >
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: size, height: size,
+                  right: -(size / 2), top: -(size / 2),
+                  background: active.color,
+                  boxShadow: `0 0 ${size * 3}px ${active.color}, 0 0 ${size * 6}px ${active.color}55`,
+                  opacity: alpha,
+                  transition: "background 0.5s ease, box-shadow 0.5s ease",
+                }}
+              />
+            </motion.div>
+          ))}
+          {/* Ring 3 track */}
+          <div className="absolute rounded-full border" style={{
+            width: 540, height: 540, left: "50%", top: "50%",
+            marginLeft: -270, marginTop: -270,
+            borderColor: `${active.color}09`,
+            transition: "border-color 0.5s ease",
+          }} />
         </div>{/* end responsive scale wrapper */}
       </div>
 

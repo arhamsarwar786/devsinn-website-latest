@@ -9,6 +9,7 @@ import { formatBlogDate, getRelatedBlogs } from "@/lib/blogs";
 import BlogMarkdown from "./BlogMarkdown";
 import BlogShareButton from "./BlogShareButton";
 import { fadeInUp, staggerContainer, scaleIn, fadeIn, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function BlogDetail({ blog }: { blog: Blog }) {
   const relatedBlogs = getRelatedBlogs(blog);
@@ -85,6 +86,8 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       <section className="-mt-12 px-5 pb-16 sm:px-8 sm:pb-20 lg:px-10 lg:pb-24 xl:px-16 relative z-20">
         <div className="mx-auto w-full max-w-[1280px]">
           <motion.div 
@@ -106,6 +109,8 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
           </motion.div>
         </div>
       </section>
+
+      <SectionDivider />
 
       <section className="px-5 pb-20 sm:px-8 sm:pb-32 lg:px-10 lg:pb-40 xl:px-16 overflow-hidden relative">
         <div className="pointer-events-none absolute left-[0%] top-[20%] h-[700px] w-[700px] -translate-x-[20%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05)_0%,transparent_70%)] blur-[100px]" />
@@ -170,7 +175,9 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
       </section>
 
       {relatedBlogs.length > 0 ? (
-        <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 lg:py-40 xl:px-16 overflow-hidden">
+        <>
+          <SectionDivider />
+          <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 lg:py-40 xl:px-16 overflow-hidden">
           <div className="pointer-events-none absolute right-[10%] top-[40%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.06)_0%,transparent_70%)] blur-[100px]" />
 
           <motion.div 
@@ -230,6 +237,7 @@ export default function BlogDetail({ blog }: { blog: Blog }) {
             </motion.div>
           </motion.div>
         </section>
+      </>
       ) : null}
     </main>
   );

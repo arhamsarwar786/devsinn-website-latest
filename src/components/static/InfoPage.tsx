@@ -11,6 +11,7 @@ import {
   whyChooseUsContent,
 } from "@/data/company-pages";
 import { fadeIn, fadeInUp, staggerContainer } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 type BasePageProps = {
   title: string;
@@ -81,7 +82,7 @@ export function InfoPage({
   return (
     <>
       <PageHero title={title} eyebrow={eyebrow} />
-
+      <SectionDivider />
       <section className="relative overflow-hidden bg-[#060C1A] px-5 py-16 sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16">
         {/* Soft glowing orbs matching dark theme */}
         <div className="absolute left-[-10%] top-[0%] h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05),transparent_50%)] blur-[80px]" />

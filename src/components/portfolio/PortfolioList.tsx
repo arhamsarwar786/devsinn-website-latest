@@ -11,6 +11,7 @@ import {
   type ProjectCategoryKey,
 } from "@/lib/projects";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function PortfolioList() {
   const [activeTab, setActiveTab] = useState<ProjectCategoryKey>("webDesign");
@@ -18,6 +19,7 @@ export default function PortfolioList() {
 
   return (
     <section className="relative bg-[#060C1A] px-5 py-[72px] sm:px-8 sm:py-[88px] lg:px-10 lg:py-[104px] xl:px-16 overflow-hidden">
+      <SectionDivider />
       {/* Dark Ambient Glows */}
       <div className="pointer-events-none absolute left-[10%] top-[20%] h-[700px] w-[700px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-[10%] bottom-[30%] h-[700px] w-[700px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.06)_0%,transparent_70%)] blur-[100px]" />

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp, staggerContainer, card3D } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 import { allProjects, projectTabs, type ProjectCategoryKey } from "@/lib/projects";
 import Link from "next/link";
@@ -20,6 +21,7 @@ export default function OurTechnology() {
 
   return (
     <section className="relative overflow-hidden bg-[#060C1A] px-5 py-20 text-white sm:px-8 lg:px-10 lg:py-32 xl:px-16">
+      <SectionDivider />
       {/* Soft Glow Backgrounds */}
       <div className="pointer-events-none absolute left-0 top-[20%] h-[600px] w-[600px] -translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.05)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-0 top-[60%] h-[600px] w-[600px] translate-x-1/4 rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.05)_0%,transparent_70%)] blur-[100px]" />

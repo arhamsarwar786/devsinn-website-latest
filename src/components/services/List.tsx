@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const services = [
   {
@@ -199,7 +200,8 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
 export default function List() {
   return (
-    <section className="bg-[#060C1A] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24 xl:px-16">
+    <section className="relative bg-[#060C1A] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24 xl:px-16">
+      <SectionDivider />
       {/* Section heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}

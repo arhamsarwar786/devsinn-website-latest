@@ -6,6 +6,7 @@ import { Send } from "lucide-react";
 import { fadeInUp, staggerContainer, fadeIn, card3D } from "@/lib/motion";
 import { projectsByCategory } from "@/lib/projects";
 import Link from "next/link";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 type Highlight = {
   title: string;
@@ -121,6 +122,8 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       {/* Main Overview Section */}
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
         {/* Soft Background Glow */}
@@ -187,6 +190,8 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       {/* Highlights Section */}
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
         {/* Soft Background Glow */}
@@ -250,6 +255,8 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
           </div>
         </motion.div>
       </section>
+
+      <SectionDivider />
 
       {/* Selected Work */}
       <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">

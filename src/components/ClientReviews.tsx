@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const testimonials = [
   {
@@ -116,6 +117,7 @@ export default function ClientReviews() {
 
   return (
     <section className="relative overflow-hidden bg-[#f8faff] px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28 xl:px-16">
+      <SectionDivider />
       {/* Soft background blobs */}
       <div className="pointer-events-none absolute left-[-10%] top-[-5%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(77,140,255,0.08),transparent_70%)] blur-[60px]" />
       <div className="pointer-events-none absolute bottom-[-5%] right-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(100,223,242,0.07),transparent_70%)] blur-[60px]" />

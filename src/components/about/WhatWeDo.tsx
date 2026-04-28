@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 const items = [
   {
@@ -30,6 +31,7 @@ const items = [
 export default function WhatWeDo() {
   return (
     <section className="relative bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+      <SectionDivider />
       {/* Decorative Orbs & Soft Glow globally */}
       <div className="pointer-events-none absolute left-[5%] top-[20%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.12)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-[5%] bottom-[10%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.12)_0%,transparent_70%)] blur-[100px]" />
