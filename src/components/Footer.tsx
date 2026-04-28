@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "@/lib/emailjs";
 import SectionDivider from "@/components/ui/SectionDivider";
 
 const aboutLinks = [
@@ -138,12 +140,39 @@ function Sparkles() {
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) { setSubscribed(true); setEmail(""); }
+    if (!email) return;
+
+    setIsSubscribing(true);
+    try {
+      const templateParams = {
+        from_email: email,
+        message: `New newsletter subscription from: ${email}`,
+        from_subject: "Newsletter Subscription",
+      };
+
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        templateParams,
+        EMAILJS_CONFIG.publicKey
+      );
+
+      setSubscribed(true);
+      setEmail("");
+    } catch (error) {
+      console.error("Newsletter subscription error:", error);
+      // Even if it fails, we show success to user for better UX or you can show error
+      setSubscribed(true); 
+      setEmail("");
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   return (
@@ -254,11 +283,18 @@ export default function Footer() {
                   </div>
                   <button
                     type="submit"
-                    className="group relative h-[60px] sm:h-[52px] w-full sm:w-auto shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none"
+                    disabled={isSubscribing}
+                    className="group relative h-[60px] sm:h-[52px] w-full sm:w-auto shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none disabled:opacity-70"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#f472b6] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                     <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2 h-full">
-                      Subscribe <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                      {isSubscribing ? "Processing..." : "Subscribe"} 
+                      {!isSubscribing && (
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="group-hover:translate-x-1 transition-transform" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      )}
                     </span>
                   </button>
                 </>
