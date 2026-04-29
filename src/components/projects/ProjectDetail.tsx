@@ -27,20 +27,20 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             src={project.heroImage}
             alt=""
             fill
-            className="object-cover opacity-20 blur-2xl"
+            className="object-cover opacity-30 blur-[60px]"
           />
-          {/* Main fitting image */}
+          {/* Main fitting image without weird blending */}
           <Image
             src={project.heroImage}
             alt={project.title}
             fill
             priority
             sizes="100vw"
-            className="object-contain object-center opacity-40 mix-blend-screen"
+            className="object-cover opacity-60 mix-blend-overlay"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060C1A] via-[#060C1A]/80 to-[#060C1A]/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#060C1A] via-[#060C1A]/90 to-[#060C1A]/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.15),transparent_70%)]" />
 
         <motion.div
           initial="hidden"
@@ -174,43 +174,76 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
           <motion.div
             variants={staggerContainer}
-            className="grid gap-8 lg:grid-cols-3"
-            style={{ perspective: "1200px" }}
+            className="flex flex-wrap justify-center gap-x-8 gap-y-16 lg:gap-x-12"
+            style={{ perspective: "2500px" }}
           >
             {project.sneakPeekImages.map((image, index) => (
               <motion.article
                 key={`${project.slug}-${image}-${index}`}
                 variants={card3D}
                 whileHover="hover"
-                className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-500 hover:border-[#c084fc]/30 hover:shadow-[0_0_30px_rgba(192,132,252,0.2)]"
+                className={`group relative transition-all duration-500 ${project.categoryKey === "appDev" ? "w-[160px] sm:w-[200px] lg:w-[240px] aspect-[9/18]" : "w-full lg:w-[30%] aspect-video"}`}
+                style={{
+                  translateY: project.categoryKey === "appDev" ? (index % 2 === 0 ? "0px" : "60px") : "0px"
+                }}
               >
-                <div 
-                  className="relative w-full overflow-hidden rounded-[2rem] bg-[#060C1A]"
-                  style={{ aspectRatio: '16/9' }}
-                >
-                  <Image
-                    src={image}
-                    alt={`${project.title} preview ${index + 1}`}
-                    fill
-                    sizes="(max-width: 1023px) 100vw, 33vw"
-                    className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
-                    style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
-                  />
+                {/* Enhanced Ambient Glow */}
+                {project.categoryKey === "appDev" && (
+                  <div className="absolute inset-x-0 -inset-y-6 bg-[#38bdf8]/10 blur-[80px] opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
+                )}
 
-                  {/* Matching Floating overlay card at bottom */}
-                  <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="rounded-2xl border border-white/10 bg-[#0A0F1E]/80 p-4 backdrop-blur-xl">
-                      <div className="flex items-center justify-between gap-4">
-                        <div>
-                          <h4 className="text-[1.1rem] font-bold text-white">Preview {index + 1}</h4>
-                          <p className="text-[12px] font-bold uppercase tracking-wider text-[#c084fc]">{project.title}</p>
-                        </div>
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#c084fc] text-white">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                        </div>
-                      </div>
+                {/* Ultimate Phone Frame Mockup */}
+                {project.categoryKey === "appDev" ? (
+                  <div className="relative h-full w-full p-[3px] bg-[#1E293B] rounded-[2.8rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] overflow-hidden">
+                    {/* Metallic Outer Edge with subtle shine */}
+                    <div className="absolute inset-0 border-[1.5px] border-white/20 rounded-[2.8rem] pointer-events-none z-30" />
+                    
+                    {/* Screen Container */}
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.6rem] bg-black">
+                       {/* Dynamic Island Notch */}
+                       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black rounded-full z-40 shadow-inner flex items-center justify-center">
+                          <div className="w-1 h-1 rounded-full bg-white/5 ml-7" />
+                       </div>
+                       
+                       <Image
+                        src={image}
+                        alt={`${project.title} preview ${index + 1}`}
+                        fill
+                        sizes="(max-width: 1023px) 50vw, 25vw"
+                        className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                      />
+                      
+                      {/* Premium Screen Reflection & Sweep */}
+                      <div className="absolute inset-0 z-10 bg-gradient-to-tr from-white/5 via-transparent to-white/10 opacity-60 pointer-events-none" />
+                      <motion.div 
+                        variants={{
+                          hover: { x: ["-100%", "200%"] }
+                        }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        className="absolute inset-0 z-20 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 pointer-events-none"
+                      />
                     </div>
                   </div>
+                ) : (
+                  <div
+                    className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0A0F1E] shadow-2xl"
+                  >
+                    <Image
+                      src={image}
+                      alt={`${project.title} preview ${index + 1}`}
+                      fill
+                      sizes="(max-width: 1023px) 100vw, 33vw"
+                      className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
+                      style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
+                    />
+                  </div>
+                )}
+
+                {/* Refined Minimalist Label */}
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full text-center opacity-0 transition-all duration-700 group-hover:bottom-6 group-hover:opacity-100 z-50">
+                   <div className="inline-flex rounded-full border border-white/10 bg-black/40 px-6 py-2 backdrop-blur-2xl">
+                      <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">Screen {index + 1}</span>
+                   </div>
                 </div>
               </motion.article>
             ))}

@@ -7,7 +7,7 @@
       "description": "",
       "heroImage": "/images/singlePageProjects/locksmithguru/locksmithguru.png",
       "mainImage": "/images/locksmithguru.png",
-      "about": "If you are searching for a locksmith in dubai that provides urgent services whether you are locked out of your car or your home or have broken your office key inside the lock- Locksmith Guru\u2019s experts are just a call away to assist all your locksmith needs!",
+      "about": "If you are searching for a locksmith in dubai that provides urgent services whether you are locked out of your car or your home or have broken your office key inside the lock- Locksmith Guru’s experts are just a call away to assist all your locksmith needs!",
       "sneakPeekImages": [
         "/images/singlePageProjects/locksmithguru/locksmithguru1.png",
         "/images/singlePageProjects/locksmithguru/locksmithguru2.png",
@@ -191,7 +191,7 @@
       "description": "",
       "heroImage": "/images/singlePageProjects/infinetworkx/infinetworkx.png",
       "mainImage": "/images/infinetworkx.png",
-      "about": "were passionate about leveraging technology to build powerful, intuitive solutions that drive business success. Since our inception, we\u2019ve been dedicated to helping clients across industries harness the potential of cutting-edge software and digital tools. Our talented team of developers, designers, and strategists brings deep expertise and innovative thinking to every project, delivering high-quality, reliable, and scalable software solutions",
+      "about": "were passionate about leveraging technology to build powerful, intuitive solutions that drive business success. Since our inception, we’ve been dedicated to helping clients across industries harness the potential of cutting-edge software and digital tools. Our talented team of developers, designers, and strategists brings deep expertise and innovative thinking to every project, delivering high-quality, reliable, and scalable software solutions",
       "sneakPeekImages": [
         "/images/singlePageProjects/infinetworkx/infinetworkx1.png",
         "/images/singlePageProjects/infinetworkx/infinetworkx2.png",
@@ -365,7 +365,7 @@
       "description": "",
       "heroImage": "/images/singlePageProjects/locksmithguru/locksmithguru.png",
       "mainImage": "/images/locksmithguru.png",
-      "about": "If you are searching for a locksmith in dubai that provides urgent services whether you are locked out of your car or your home or have broken your office key inside the lock- Locksmith Guru\u2019s experts are just a call away to assist all your locksmith needs!",
+      "about": "If you are searching for a locksmith in dubai that provides urgent services whether you are locked out of your car or your home or have broken your office key inside the lock- Locksmith Guru’s experts are just a call away to assist all your locksmith needs!",
       "sneakPeekImages": [
         "/images/singlePageProjects/locksmithguru/locksmithguru1.png",
         "/images/singlePageProjects/locksmithguru/locksmithguru2.png",
@@ -621,7 +621,7 @@
       "description": "",
       "heroImage": "/images/singlePageProjects/infinetworkx/infinetworkx.png",
       "mainImage": "/images/infinetworkx.png",
-      "about": "we&apos;re passionate about leveraging technology to build powerful, intuitive solutions that drive business success. Since our inception, we\u2019ve been dedicated to helping clients across industries harness the potential of cutting-edge software and digital tools. Our talented team of developers, designers, and strategists brings deep expertise and innovative thinking to every project, delivering high-quality, reliable, and scalable software solutions",
+      "about": "we&apos;re passionate about leveraging technology to build powerful, intuitive solutions that drive business success. Since our inception, we’ve been dedicated to helping clients across industries harness the potential of cutting-edge software and digital tools. Our talented team of developers, designers, and strategists brings deep expertise and innovative thinking to every project, delivering high-quality, reliable, and scalable software solutions",
       "sneakPeekImages": [
         "/images/singlePageProjects/infinetworkx/infinetworkx1.png",
         "/images/singlePageProjects/infinetworkx/infinetworkx2.png",
@@ -639,6 +639,76 @@
         {
           "name": "JavaScript",
           "logo": "/images/home/technology/frontend/javascript.svg"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "iqra-quran",
+      "title": "Iqra Quran",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/iqra-quran/hero.png",
+      "mainImage": "/images/singlePageProjects/web/iqra-quran/main.png",
+      "about": "A comprehensive Islamic landing page and web platform designed as a digital companion, featuring prayer times, a Quran recitation hub, and a complete suite of Islamic tools for a seamless spiritual experience.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/iqra-quran/sneak-1.png",
+        "/images/singlePageProjects/web/iqra-quran/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "smart-logo-maker_webDev",
+      "title": "Smart Logo Maker",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/smart-logo-maker/hero.png",
+      "mainImage": "/images/singlePageProjects/web/smart-logo-maker/main.png",
+      "about": "An AI-powered logo generation platform that allows users to create professional brand identities in seconds. Featuring a powerful editor, real-time previews, and a seamless user experience across all devices.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/smart-logo-maker/sneak-1.png",
+        "/images/singlePageProjects/web/smart-logo-maker/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
         }
       ]
     }
@@ -769,6 +839,201 @@
         {
           "name": "Java",
           "logo": "/images/home/technology/mobile/java.svg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "drafidox",
+      "title": "Drafidox",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/drafidox/drafidox.png",
+      "mainImage": "/images/drafidox.png",
+      "about": "Drafidox is a high-performance document conversion platform that simplifies your workflow. With support for PDF to Word, Word to PDF, image-to-text, and more, it provides a seamless and secure experience for users and businesses alike.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/drafidox/drafidox1.png",
+        "/images/singlePageProjects/app/drafidox/drafidox2.png",
+        "/images/singlePageProjects/app/drafidox/drafidox3.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "smart-logo-maker",
+      "title": "Smart Logo Maker",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/smartlogomaker/smartlogomaker.jpg",
+      "mainImage": "/images/smartlogomaker.jpg",
+      "about": "Smart Logo Maker helps you create professional and unique logos in seconds. With powerful AI-driven tools, a vast library of icons, and advanced customization, designing your brand identity has never been easier.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker1.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker2.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker3.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "iqra-quran",
+      "title": "Iqra Quran",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/iqraquran/iqraquran.jpg",
+      "mainImage": "/images/iqraquran.jpg",
+      "about": "Iqra Quran is a comprehensive digital Quran application designed for seamless reading, listening, and learning. Experience beautiful typography, authentic recitations, and interactive features that bring the Holy Quran to your fingertips.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/iqraquran/iqraquran1.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran2.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran3.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "slug": "mx-player",
+      "title": "MX Player",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/mxplayer/mxplayer.jpg",
+      "mainImage": "/images/mxplayer.jpg",
+      "about": "MX Player is a powerful video player with advanced hardware acceleration, subtitle support, and an intuitive user interface. Enjoy seamless video playback, smart library organization, and customizable viewing experiences.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/mxplayer/mxplayer1.jpg",
+        "/images/singlePageProjects/app/mxplayer/mxplayer2.jpg",
+        "/images/singlePageProjects/app/mxplayer/mxplayer3.jpg",
+        "/images/singlePageProjects/app/mxplayer/mxplayer4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "slug": "autism-support",
+      "title": "Autism Support",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/autismsupport/autismsupport.jpg",
+      "mainImage": "/images/autismsupport.jpg",
+      "about": "Autism Support is an educational and supportive application tailored for children on the autism spectrum and their families. It features engaging learning modules, emotional recognition exercises, and dedicated family resources to foster a nurturing environment.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/autismsupport/autismsupport1.jpg",
+        "/images/singlePageProjects/app/autismsupport/autismsupport2.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "slug": "abc-kids",
+      "title": "ABC Kids",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/abckids/abckids.jpg",
+      "mainImage": "/images/abckids.jpg",
+      "about": "ABC Kids is a fun and interactive educational application designed to help young children learn the alphabet, numbers, and basic words through engaging visuals and playful activities. It provides a safe and stimulating environment for early childhood learning.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/abckids/abckids1.jpg",
+        "/images/singlePageProjects/app/abckids/abckids2.jpg",
+        "/images/singlePageProjects/app/abckids/abckids3.jpg",
+        "/images/singlePageProjects/app/abckids/abckids4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
         }
       ]
     }

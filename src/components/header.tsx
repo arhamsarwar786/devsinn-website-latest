@@ -39,7 +39,7 @@ export default function Header() {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
       className={`fixed inset-x-0 top-0 z-50 [font-family:var(--font-poppins)] transition-colors duration-300 ${
         isScrolled
-          ? "bg-white/70 shadow-sm backdrop-blur-xl"
+          ? "bg-black/80 shadow-lg backdrop-blur-xl border-b border-white/5"
           : "bg-transparent"
       }`}
     >
@@ -55,11 +55,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav
-          className={`hidden items-center gap-8 text-[15px] font-medium md:flex lg:gap-[56px] ${
-            isScrolled ? "text-[#1b325d]" : "text-white"
-          }`}
-        >
+        <nav className="hidden items-center gap-8 text-[15px] font-medium text-white md:flex lg:gap-[56px]">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -75,11 +71,7 @@ export default function Header() {
           <a
             href="/pdf/Devsinn-Technologies-Portfolio.pdf"
             download="Devsinn-Technologies-Portfolio.pdf"
-            className={`inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full px-5 text-[14px] font-medium transition-transform duration-200 hover:scale-[1.02] ${
-              isScrolled
-                ? "border border-[#1b325d]/14 bg-[#1b325d]/6 text-[#1b325d]"
-                : "border border-white/28 bg-white/10 text-white backdrop-blur-sm"
-            }`}
+            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 text-[14px] font-medium text-white backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-white/15"
             title="Download company portfolio"
           >
             <Download size={16} />
@@ -89,10 +81,8 @@ export default function Header() {
           <Button
             href="/contact"
             size="md"
-            variant={isScrolled ? "primary" : "secondary"}
-            className={`transition-transform duration-200 hover:scale-[1.02] lg:min-h-[44px] lg:min-w-[150px] lg:px-6 lg:text-[14px] ${
-              isScrolled ? "" : "bg-white text-[#1b325d]"
-            }`}
+            variant="secondary"
+            className="transition-transform duration-200 hover:scale-[1.02] lg:min-h-[44px] lg:min-w-[150px] lg:px-6 lg:text-[14px]"
           >
             Contact us
           </Button>
@@ -103,11 +93,7 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={isOpen}
           onClick={() => setIsOpen((current) => !current)}
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-full border md:hidden ${
-            isScrolled
-              ? "border-[#1b325d]/20 bg-[#1b325d]/5 text-[#1b325d]"
-              : "border-white/30 bg-white/10 text-white"
-          }`}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white md:hidden"
         >
           <span className="space-y-1.5">
             <span className="block h-0.5 w-5 bg-current" />

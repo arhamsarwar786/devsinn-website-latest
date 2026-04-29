@@ -24,7 +24,7 @@ export default function PortfolioList() {
       <div className="pointer-events-none absolute left-[10%] top-[20%] h-[700px] w-[700px] -translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.06)_0%,transparent_70%)] blur-[100px]" />
       <div className="pointer-events-none absolute right-[10%] bottom-[30%] h-[700px] w-[700px] translate-x-[40%] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.06)_0%,transparent_70%)] blur-[100px]" />
 
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -32,7 +32,7 @@ export default function PortfolioList() {
         className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-[60px]"
       >
         <div className="flex w-full justify-center">
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="flex flex-wrap items-center justify-center gap-2 rounded-[2rem] border border-white/10 bg-[#0A0F1E]/80 backdrop-blur-md p-2 shadow-2xl"
           >
@@ -42,9 +42,8 @@ export default function PortfolioList() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key as ProjectCategoryKey)}
-                  className={`relative flex h-[50px] sm:h-[60px] items-center justify-center rounded-[1.5rem] px-5 sm:px-8 text-[14px] sm:text-[15px] font-bold transition-colors duration-300 ${
-                    isActive ? "text-[#060C1A]" : "text-white/60 hover:text-white"
-                  }`}
+                  className={`relative flex h-[50px] sm:h-[60px] items-center justify-center rounded-[1.5rem] px-5 sm:px-8 text-[14px] sm:text-[15px] font-bold transition-colors duration-300 ${isActive ? "text-[#060C1A]" : "text-white/60 hover:text-white"
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -61,62 +60,144 @@ export default function PortfolioList() {
         </div>
 
         <div key={activeTab} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {activeProjects.map((item, index) => (
-              <motion.div
-                key={item.slug}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
+          {activeProjects.map((item, index) => (
+            <motion.div
+              key={item.slug}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+            >
+              <Link
+                href={`/projects/${item.slug}`}
+                className="group block relative"
               >
-                <Link
-                  href={`/projects/${item.slug}`}
-                  className="group block relative"
+                <motion.div
+                  initial="initial"
+                  whileHover="hover"
+                  className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-colors duration-500 hover:border-white/20 isolate z-0"
+                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden', willChange: 'transform' }}
                 >
-                  <motion.div 
-                    whileHover="hover"
-                    className="relative aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
-                    style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
-                  >
-                    {/* Dark glow layer beneath image */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/20 to-[#c084fc]/20 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
-                    
-                    <div className="relative h-full w-full bg-[#060C1A]">
-                      <Image
-                        src={item.mainImage}
-                        alt={`${item.title} showcase`}
-                        fill
-                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                        className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
-                        style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
-                      />
+                  {/* Dark glow layer beneath image */}
+                  <div className="absolute -inset-2 bg-gradient-to-br from-[#38bdf8]/20 to-[#c084fc]/20 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100" />
 
-                      {/* Floating overlay card at bottom */}
-                      <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                        <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-[#060C1A]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300 group-hover:border-[#38bdf8]/40">
-                          <div className="min-w-0 pr-4">
-                            <p className="truncate text-[22px] font-black leading-none tracking-[-0.03em] text-white">
-                              {item.title}
-                            </p>
-                            <p className="mt-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">
-                              {item.categoryLabel}
-                            </p>
-                          </div>
+                  <div className="relative h-full w-full bg-[#060C1A]">
+                    {item.categoryKey === "appDev" ? (
+                      <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[#020617]">
+                        {/* Ultimate Premium Background: Animated Mesh & Glows */}
+                        <div className="absolute inset-0 bg-[#020617]" />
+                        <motion.div
+                          animate={{
+                            scale: [1, 1.1, 1],
+                            opacity: [0.3, 0.4, 0.3],
+                          }}
+                          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                          className="absolute -top-[20%] -left-[20%] h-[100%] w-[100%] rounded-full bg-[#38bdf8]/10 blur-[120px]"
+                        />
 
-                          <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_15px_rgba(56,189,248,0.4)] transition duration-300 group-hover:scale-110">
-                            <Send
-                              aria-hidden="true"
-                              size={18}
-                              strokeWidth={2.5}
-                              className="rotate-[-45deg] ml-0.5 mt-0.5"
-                            />
-                          </span>
+                        {/* Mockup Group with Advanced 3D Parallax */}
+                        <div className="relative flex w-full items-center justify-center gap-0 perspective-2000 -translate-y-6 will-change-transform">
+                          {/* Left Phone (Metallic Pro Frame) */}
+                          <motion.div
+                            variants={{
+                              hover: { x: -35, y: 0, rotateY: 25, rotateZ: -5, scale: 1, z: -20 }
+                            }}
+                            transition={{ type: "spring", stiffness: 100, damping: 25 }}
+                            className="relative h-[160px] w-[80px] translate-x-12 translate-y-8 -rotate-[12deg] overflow-hidden rounded-[1.2rem] border-[1px] border-white/30 bg-[#0F172A] shadow-2xl sm:h-[220px] sm:w-[110px] lg:h-[260px] lg:w-[130px] will-change-transform"
+                          >
+                            {/* Screen Reflection Overlay */}
+                            <div className="absolute inset-0 z-20 bg-gradient-to-tr from-white/5 via-transparent to-white/10 pointer-events-none" />
+                            {/* Inner Bezel */}
+                            <div className="absolute inset-[2px] rounded-[1.1rem] overflow-hidden bg-black z-0">
+                              <Image
+                                src={item.sneakPeekImages[0] || item.mainImage}
+                                alt=""
+                                fill
+                                className="object-cover opacity-70 transition-opacity duration-700 group-hover:opacity-100"
+                              />
+                            </div>
+                          </motion.div>
+
+                          {/* Center Phone (The Spotlight) */}
+                          <motion.div
+                            variants={{
+                              hover: { y: -20, scale: 1.05, rotateY: 0, z: 100 }
+                            }}
+                            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                            className="relative z-30 h-[210px] w-[105px] -translate-y-4 overflow-hidden rounded-[1.6rem] border-[2px] border-white/40 bg-[#0F172A] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7),0_0_20px_rgba(56,189,248,0.2)] sm:h-[270px] sm:w-[135px] lg:h-[310px] lg:w-[155px] will-change-transform"
+                          >
+                            {/* Metallic Highlight Edge */}
+                            <div className="absolute inset-0 z-40 border-[1px] border-white/10 rounded-[1.6rem] pointer-events-none" />
+                            {/* Dynamic Island Notch */}
+                            <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-3 bg-black rounded-full z-50 shadow-inner flex items-center justify-center">
+                              <div className="w-1 h-1 rounded-full bg-white/10 ml-5" />
+                            </div>
+                            {/* Main Screen */}
+                            <div className="absolute inset-[3px] rounded-[1.5rem] overflow-hidden bg-black z-0">
+                              <Image
+                                src={item.mainImage}
+                                alt=""
+                                fill
+                                className="object-cover"
+                              />
+                              <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/5 via-transparent to-black/30 pointer-events-none" />
+                            </div>
+                          </motion.div>
+
+                          {/* Right Phone (Metallic Pro Frame) */}
+                          <motion.div
+                            variants={{
+                              hover: { x: 35, y: 0, rotateY: -25, rotateZ: 5, scale: 1, z: -20 }
+                            }}
+                            transition={{ type: "spring", stiffness: 100, damping: 25 }}
+                            className="relative h-[160px] w-[80px] -translate-x-12 translate-y-8 rotate-[12deg] overflow-hidden rounded-[1.2rem] border-[1px] border-white/30 bg-[#0F172A] shadow-2xl sm:h-[220px] sm:w-[110px] lg:h-[260px] lg:w-[130px] will-change-transform"
+                          >
+                            <div className="absolute inset-0 z-20 bg-gradient-to-tl from-white/5 via-transparent to-white/10 pointer-events-none" />
+                            <div className="absolute inset-[2px] rounded-[1.1rem] overflow-hidden bg-black z-0">
+                              <Image
+                                src={item.sneakPeekImages[1] || (item.sneakPeekImages[0] || item.mainImage)}
+                                alt=""
+                                fill
+                                className="object-cover opacity-70 transition-opacity duration-700 group-hover:opacity-100"
+                              />
+                            </div>
+                          </motion.div>
                         </div>
                       </div>
+                      ) : (
+                        <img
+                          src={`${item.mainImage}?v=3`}
+                          alt={`${item.title} showcase`}
+                          className="absolute inset-0 h-full w-full object-cover object-top opacity-90 transition-[object-position,opacity] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
+                        />
+                      )}
+
+                    {/* Floating overlay card at bottom */}
+                    <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 z-50">
+                      <div className="flex items-center justify-between rounded-3xl border border-white/10 bg-[#060C1A]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300 group-hover:border-[#38bdf8]/40">
+                        <div className="min-w-0 pr-4">
+                          <p className="truncate text-[22px] font-black leading-none tracking-[-0.03em] text-white">
+                            {item.title}
+                          </p>
+                          <p className="mt-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">
+                            {item.categoryLabel}
+                          </p>
+                        </div>
+
+                        <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_15px_rgba(56,189,248,0.4)] transition duration-300 group-hover:scale-110">
+                          <Send
+                            aria-hidden="true"
+                            size={18}
+                            strokeWidth={2.5}
+                            className="rotate-[-45deg] ml-0.5 mt-0.5"
+                          />
+                        </span>
+                      </div>
                     </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>
