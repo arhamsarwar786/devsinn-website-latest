@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
@@ -14,7 +14,7 @@ const serviceNames = [
 
 export default function Hero() {
   return (
-    <section className="relative flex h-screen overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-screen overflow-hidden bg-[var(--surface-0)] text-white">
       {/* Animated gradient orbs */}
       <motion.div
         className="pointer-events-none absolute -left-[20%] -top-[10%] h-[700px] w-[700px] rounded-full"
@@ -55,9 +55,9 @@ export default function Hero() {
           className="flex w-full flex-col items-center text-center"
         >
           {/* Pill badge */}
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 rounded-full border border-[#38bdf8]/25 bg-[#38bdf8]/8 px-5 py-2.5">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[#38bdf8]" />
-            <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#38bdf8]">What We Do</span>
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/25 bg-[var(--primary)]/8 px-5 py-2.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--primary)]" />
+            <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[var(--primary)]">What We Do</span>
           </motion.div>
 
           {/* Main heading */}
@@ -66,7 +66,7 @@ export default function Hero() {
             className="mt-6 max-w-[900px] text-[1.8rem] font-black leading-[1.0] tracking-[-0.04em] text-white xs:text-[2.2rem] sm:mt-8 sm:text-[2.8rem] lg:text-[4rem] xl:text-[4.5rem]"
           >
             End-to-End{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent)]">
               Digital
             </span>{" "}
             Services
@@ -86,9 +86,9 @@ export default function Hero() {
             className="relative mt-8 w-full overflow-hidden sm:mt-10"
           >
             {/* Left fade */}
-            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#060C1A] to-transparent" />
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[var(--surface-0)] to-transparent" />
             {/* Right fade */}
-            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#060C1A] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[var(--surface-0)] to-transparent" />
 
             <motion.div
               className="flex gap-4 whitespace-nowrap"
@@ -100,7 +100,7 @@ export default function Hero() {
                   key={i}
                   className="inline-flex shrink-0 items-center gap-3 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-[14px] font-semibold text-white/80 backdrop-blur-sm"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#38bdf8]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
                   {name}
                 </span>
               ))}

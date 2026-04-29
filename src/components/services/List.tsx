@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,7 @@ const services = [
     buttonLabel: "Explore Design",
     image: "/list/list1_new.png",
     imageAlt: "Creative design and animations illustration",
-    color: "#38bdf8",
+    color: "var(--primary)",
     glow: "rgba(56,189,248,0.25)",
     gradient: "from-[#0c1f35] to-[#081628]",
   },
@@ -33,7 +33,7 @@ const services = [
     buttonLabel: "Explore Web",
     image: "/list/list2_new.png",
     imageAlt: "Web development illustration",
-    color: "#818cf8",
+    color: "var(--accent)",
     glow: "rgba(129,140,248,0.25)",
     gradient: "from-[#0f0c2a] to-[#0a0820]",
   },
@@ -48,7 +48,7 @@ const services = [
     buttonLabel: "Explore Apps",
     image: "/list/list3_new.png",
     imageAlt: "App development illustration",
-    color: "#c084fc",
+    color: "var(--accent)",
     glow: "rgba(192,132,252,0.25)",
     gradient: "from-[#1a0c2e] to-[#130820]",
   },
@@ -110,7 +110,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className="relative overflow-hidden rounded-[32px] border border-white/8 bg-[#0A0F1E]"
+      className="relative overflow-hidden rounded-[32px] border border-white/8 bg-[var(--surface-1)]"
       style={{ boxShadow: `0 0 80px ${service.glow.replace("0.25", "0.08")}` }}
     >
       {/* Top accent line */}
@@ -200,7 +200,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
 
 export default function List() {
   return (
-    <section className="relative bg-[#060C1A] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24 xl:px-16">
+    <section className="relative bg-[var(--surface-0)] px-5 py-16 text-white sm:px-8 sm:py-20 lg:px-10 lg:py-24 xl:px-16">
       <SectionDivider />
       {/* Section heading */}
       <motion.div
@@ -215,7 +215,7 @@ export default function List() {
         </p>
         <h2 className="mt-3 text-[2rem] font-black tracking-[-0.04em] text-white sm:text-[2.5rem]">
           Our{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#c084fc]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">
             full suite
           </span>{" "}
           of services

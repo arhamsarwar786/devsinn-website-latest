@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -31,9 +31,9 @@ type ServiceData = {
 };
 
 const themeMap: Record<string, { color1: string; color2: string }> = {
-  "Creative-Design": { color1: "#38bdf8", color2: "#818cf8" }, // blue/cyan
-  "Web-Development-Solutions": { color1: "#818cf8", color2: "#c084fc" }, // indigo
-  "App-Development-Solutions": { color1: "#c084fc", color2: "#f472b6" }, // purple
+  "Creative-Design": { color1: "var(--primary)", color2: "var(--accent)" }, // blue/cyan
+  "Web-Development-Solutions": { color1: "var(--accent)", color2: "var(--accent)" }, // indigo
+  "App-Development-Solutions": { color1: "var(--accent)", color2: "#f472b6" }, // purple
   "Game-Development": { color1: "#ec4899", color2: "#f472b6" }, // pink
   "Cloud-Computing-Services": { color1: "#34d399", color2: "#2dd4bf" }, // emerald
   "Digital-Marketing": { color1: "#fb923c", color2: "#f59e0b" }, // orange
@@ -55,7 +55,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
   const realProjects = categoryKey ? projectsByCategory[categoryKey] : [];
 
   return (
-    <main className="bg-[#060C1A] text-white overflow-hidden">
+    <main className="bg-[var(--surface-0)] text-white overflow-hidden">
       <style dangerouslySetInnerHTML={{ __html: `
         .theme-hover-tech:hover {
           border-color: ${theme.color1}80 !important;
@@ -66,7 +66,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
         }
       `}} />
 
-      <section className="relative h-screen overflow-hidden bg-[#0A0F1E] text-white">
+      <section className="relative h-screen overflow-hidden bg-[var(--surface-1)] text-white">
         <motion.div 
           initial="hidden"
           animate="visible"
@@ -159,7 +159,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-10">
+          <motion.div variants={fadeInUp} className="group relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-8 shadow-2xl transition-all duration-500 hover:border-white/20 sm:p-10">
             {/* Tech Stack Glow Container */}
             <div 
               className="absolute -inset-1 rounded-[2.2rem] opacity-30 blur-2xl transition duration-500 group-hover:opacity-60"
@@ -179,7 +179,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                     key={technology}
                     variants={fadeInUp}
                     whileHover={{ y: -3, scale: 1.05 }}
-                    className="theme-hover-tech inline-flex rounded-full border border-white/10 bg-[#060C1A] px-5 py-2.5 text-[0.95rem] font-semibold text-white/90 shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-colors"
+                    className="theme-hover-tech inline-flex rounded-full border border-white/10 bg-[var(--surface-0)] px-5 py-2.5 text-[0.95rem] font-semibold text-white/90 shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-colors"
                   >
                     {technology}
                   </motion.span>
@@ -225,7 +225,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                 key={item.title}
                 variants={fadeInUp}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="group relative rounded-[2rem] border border-white/5 bg-[#0A0F1E] p-8 shadow-[0_20px_48px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/20 sm:p-10"
+                className="group relative rounded-[2rem] border border-white/5 bg-[var(--surface-1)] p-8 shadow-[0_20px_48px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-white/20 sm:p-10"
               >
                 {/* Internal Glow */}
                 <div 
@@ -290,7 +290,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group relative block aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
+                  className="group relative block aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
                   style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
                 >
                   {/* Dark glow layer beneath image */}
@@ -299,7 +299,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                     style={{ backgroundImage: `linear-gradient(to bottom right, ${theme.color1}33, ${theme.color2}33)` }}
                   />
                   
-                  <div className="relative h-full w-full bg-[#060C1A]">
+                  <div className="relative h-full w-full bg-[var(--surface-0)]">
                       <Image
                         src={project.mainImage}
                         alt={`${project.title} showcase`}
@@ -312,7 +312,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                     {/* Floating overlay card at bottom */}
                     <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                       <div 
-                        className="theme-hover-card flex items-center justify-between rounded-3xl border border-white/10 bg-[#060C1A]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300"
+                        className="theme-hover-card flex items-center justify-between rounded-3xl border border-white/10 bg-[var(--surface-0)]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300"
                       >
                         <div className="min-w-0 pr-4">
                           <p className="truncate text-[22px] font-black leading-none tracking-[-0.03em] text-white">
@@ -327,7 +327,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
                         </div>
 
                         <span 
-                          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[#060C1A] transition duration-300 group-hover:scale-110"
+                          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[var(--surface-0)] transition duration-300 group-hover:scale-110"
                           style={{
                             backgroundImage: `linear-gradient(to right, ${theme.color1}, ${theme.color2})`,
                             boxShadow: `0 0 15px ${theme.color1}66`

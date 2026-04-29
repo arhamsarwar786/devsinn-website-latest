@@ -711,6 +711,183 @@
           "logo": "/images/home/technology/frontend/react.svg"
         }
       ]
+    },
+    {
+      "id": 12,
+      "slug": "drm",
+      "title": "DRM",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/drm/main.png",
+      "mainImage": "/images/singlePageProjects/web/drm/main.png",
+      "about": "Digital Restaurant Management (DRM) is an all-in-one solution for restaurant owners to manage their operations, from orders and menus to staff and analytics. It's designed to streamline the dining experience and optimize business efficiency.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/drm/sneak-1.png",
+        "/images/singlePageProjects/web/drm/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "chatsupplies",
+      "title": "ChatSupplies",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/chatsupplies/main.png",
+      "mainImage": "/images/singlePageProjects/web/chatsupplies/main.png",
+      "about": "ChatSupplies is a smart chat solution platform that empowers businesses with intelligent, real-time chat tools and supply management. It delivers a seamless communication experience built for scale.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/chatsupplies/sneak-1.png",
+        "/images/singlePageProjects/web/chatsupplies/sneak-2.png",
+        "/images/singlePageProjects/web/chatsupplies/sneak-3.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "weteachs",
+      "title": "WeTeachs",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/weteachs/main.png",
+      "mainImage": "/images/singlePageProjects/web/weteachs/main.png",
+      "about": "WeTeachs is an online education platform connecting real experts with learners around the globe. It enables anyone to teach, learn, or earn by sharing their knowledge through live sessions and courses.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/weteachs/sneak-1.png",
+        "/images/singlePageProjects/web/weteachs/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "aureaoctave",
+      "title": "Aurea Octave",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/aureaoctave/main.png",
+      "mainImage": "/images/singlePageProjects/web/aureaoctave/main.png",
+      "about": "Aurea Octave is a premium music and arts platform offering an elegant digital experience for music lovers and creators. It features a stunning design, showcasing events, artists, and musical journeys.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/aureaoctave/sneak-1.png",
+        "/images/singlePageProjects/web/aureaoctave/sneak-2.png",
+        "/images/singlePageProjects/web/aureaoctave/sneak-3.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "drafidox",
+      "title": "Drafidox",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/drafidox/main.png",
+      "mainImage": "/images/singlePageProjects/web/drafidox/main.png",
+      "about": "Drafidox offers powerful AI tools for document, image, and text processing. It simplifies complex tasks with intuitive features, empowering users to work smarter and faster.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/drafidox/sneak-1.png",
+        "/images/singlePageProjects/web/drafidox/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
     }
   ],
   "appDev": [

@@ -6,7 +6,7 @@ export default function SectionDivider() {
   return (
     <div className="absolute top-0 left-0 right-0 h-px z-50 pointer-events-none">
       {/* Base subtle gradient line */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#38bdf8]/40 to-transparent" />
+      <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(90deg, transparent, var(--primary), transparent)', opacity: 0.4 }} />
       
       {/* Moving scanner glow */}
       <motion.div 

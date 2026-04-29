@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { ChangeEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -153,22 +153,22 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="relative bg-[#060C1A] px-5 py-10 sm:px-8 sm:py-16 lg:px-10 xl:px-16 overflow-hidden">
+    <section className="relative bg-[var(--surface-0)] px-5 py-10 sm:px-8 sm:py-16 lg:px-10 xl:px-16 overflow-hidden">
       <SectionDivider />
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="mx-auto w-full max-w-[1400px] rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-3 lg:p-4 shadow-[0_0_50px_rgba(56,189,248,0.05)]"
+        className="mx-auto w-full max-w-[1400px] rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-3 lg:p-4 shadow-[0_0_50px_rgba(56,189,248,0.05)]"
       >
-        <div className="grid overflow-hidden rounded-[1.5rem] bg-[#060C1A] lg:grid-cols-[380px_minmax(0,1fr)] xl:grid-cols-[460px_minmax(0,1fr)]">
+        <div className="grid overflow-hidden rounded-[1.5rem] bg-[var(--surface-0)] lg:grid-cols-[380px_minmax(0,1fr)] xl:grid-cols-[460px_minmax(0,1fr)]">
           {/* LEFT SIDE (Brand Intro) */}
-          <aside className="relative overflow-hidden border-b border-r-0 lg:border-b-0 lg:border-r border-white/10 bg-[#0A0F1E] px-5 py-6 text-white sm:px-8 sm:py-8 lg:px-10">
+          <aside className="relative overflow-hidden border-b border-r-0 lg:border-b-0 lg:border-r border-white/10 bg-[var(--surface-1)] px-5 py-6 text-white sm:px-8 sm:py-8 lg:px-10">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.15),transparent_40%)]" />
             
             <div className="relative z-10">
-              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">
+              <motion.p variants={fadeInUp} className="inline-flex rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-4 py-2 text-[12px] font-bold uppercase tracking-[0.2em] text-[var(--primary)]">
                 Let's Build Something Great
               </motion.p>
               <motion.h2 variants={fadeInUp} className="mt-3 text-[1.3rem] font-black leading-[1.1] tracking-[-0.03em] sm:text-[1.8rem] lg:text-[2.2rem]">
@@ -185,7 +185,7 @@ export default function ContactUs() {
             >
               {trustHighlights.map((item) => (
                 <motion.div key={item.label} variants={fadeInUp} className="rounded-xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
-                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#38bdf8] mb-1">
+                  <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[var(--primary)] mb-1">
                     {item.label}
                   </p>
                   <p className="text-[0.85rem] font-bold text-white">{item.value}</p>
@@ -194,13 +194,13 @@ export default function ContactUs() {
             </motion.div>
 
             <motion.div variants={fadeInUp} className="relative z-10 mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm hidden lg:block">
-              <p className="text-[12px] font-bold uppercase tracking-wider text-[#c084fc] mb-5">
+              <p className="text-[12px] font-bold uppercase tracking-wider text-[var(--accent)] mb-5">
                 Why clients love this step
               </p>
               <div className="flex flex-col gap-3">
                 {experiencePillars.map((item) => (
                   <div key={item} className="flex items-center gap-3 text-[0.85rem] text-white/80">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#c084fc]/20 text-[#c084fc]">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/20 text-[var(--accent)]">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     </span>
                     <span>{item}</span>
@@ -212,7 +212,7 @@ export default function ContactUs() {
             <motion.div variants={staggerContainer} className="relative z-10 mt-6 space-y-3">
               {contactDetails.map((item) => (
                 <motion.a key={item.title} variants={fadeInUp} href={item.href} target={item.title === "Address" ? "_blank" : undefined} rel={item.title === "Address" ? "noreferrer" : undefined} className="group flex items-center gap-3 rounded-xl border border-white/5 bg-transparent px-2 py-2 transition-colors hover:bg-white/5">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 text-[#38bdf8] transition-colors group-hover:bg-[#38bdf8] group-hover:text-[#060C1A]">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 text-[var(--primary)] transition-colors group-hover:bg-[var(--primary)] group-hover:text-[var(--surface-0)]">
                     {item.icon}
                   </span>
                   <div className="flex-1 min-w-0">
@@ -229,7 +229,7 @@ export default function ContactUs() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.05),transparent_60%)]" />
 
             <div className="relative z-10">
-              <motion.p variants={fadeInUp} className="text-[12px] font-bold uppercase tracking-wider text-[#818cf8]">
+              <motion.p variants={fadeInUp} className="text-[12px] font-bold uppercase tracking-wider text-[var(--accent)]">
                 Write To Us
               </motion.p>
               <motion.h3 variants={fadeInUp} className="mt-2 max-w-[620px] text-[1.5rem] font-bold leading-[1.15] tracking-[-0.03em] text-white sm:text-[1.8rem]">
@@ -244,22 +244,22 @@ export default function ContactUs() {
               <div className="grid gap-6 md:grid-cols-2">
                 <label className="block">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">First Name</span>
-                  <input type="text" name="fname" value={formData.fname} onChange={handleInputChange} placeholder="John" className="h-11 w-full rounded-xl border border-white/10 bg-[#0A0F1E] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                  <input type="text" name="fname" value={formData.fname} onChange={handleInputChange} placeholder="John" className="h-11 w-full rounded-xl border border-white/10 bg-[var(--surface-1)] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]" />
                 </label>
 
                 <label className="block">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Last Name</span>
-                  <input type="text" name="lname" value={formData.lname} onChange={handleInputChange} placeholder="Doe" className="h-11 w-full rounded-xl border border-white/10 bg-[#0A0F1E] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                  <input type="text" name="lname" value={formData.lname} onChange={handleInputChange} placeholder="Doe" className="h-11 w-full rounded-xl border border-white/10 bg-[var(--surface-1)] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]" />
                 </label>
 
                 <label className="block">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Email</span>
-                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="john@example.com" className="h-11 w-full rounded-xl border border-white/10 bg-[#0A0F1E] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="john@example.com" className="h-11 w-full rounded-xl border border-white/10 bg-[var(--surface-1)] px-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]" />
                 </label>
 
                 <label className="block">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Phone Number</span>
-                  <div className="flex h-11 overflow-hidden rounded-xl border border-white/10 bg-[#0A0F1E] transition-all focus-within:border-[#38bdf8] focus-within:ring-1 focus-within:ring-[#38bdf8]">
+                  <div className="flex h-11 overflow-hidden rounded-xl border border-white/10 bg-[var(--surface-1)] transition-all focus-within:border-[var(--primary)] focus-within:ring-1 focus-within:ring-[var(--primary)]">
                     <span className="flex items-center justify-center border-r border-white/10 px-4 text-[0.9rem] text-white/50">+92</span>
                     <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="336 5918295" className="h-full w-full bg-transparent px-3 text-[0.9rem] text-white outline-none placeholder:text-white/20" />
                   </div>
@@ -267,23 +267,23 @@ export default function ContactUs() {
 
                 <label className="block md:col-span-2">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Subject</span>
-                  <select name="subject" value={formData.subject} onChange={handleInputChange} className="h-11 w-full rounded-xl border border-white/10 bg-[#0A0F1E] px-4 text-[0.9rem] text-white outline-none transition-all focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8] appearance-none" style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}>
-                    <option value="" className="bg-[#0A0F1E]">Choose subject</option>
-                    <option className="bg-[#0A0F1E]">Web Development</option>
-                    <option className="bg-[#0A0F1E]">App Development</option>
-                    <option className="bg-[#0A0F1E]">Design Consultation</option>
-                    <option className="bg-[#0A0F1E]">General Inquiry</option>
+                  <select name="subject" value={formData.subject} onChange={handleInputChange} className="h-11 w-full rounded-xl border border-white/10 bg-[var(--surface-1)] px-4 text-[0.9rem] text-white outline-none transition-all focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] appearance-none" style={{ backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}>
+                    <option value="" className="bg-[var(--surface-1)]">Choose subject</option>
+                    <option className="bg-[var(--surface-1)]">Web Development</option>
+                    <option className="bg-[var(--surface-1)]">App Development</option>
+                    <option className="bg-[var(--surface-1)]">Design Consultation</option>
+                    <option className="bg-[var(--surface-1)]">General Inquiry</option>
                   </select>
                 </label>
 
                 <label className="block md:col-span-2">
                   <span className="mb-2 block text-[13px] font-bold uppercase tracking-wider text-white/50">Message</span>
-                  <textarea rows={4} name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us a little about your project, goals, or timeline." className="w-full rounded-xl border border-white/10 bg-[#0A0F1E] p-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[#38bdf8] focus:ring-1 focus:ring-[#38bdf8]" />
+                  <textarea rows={4} name="message" value={formData.message} onChange={handleInputChange} placeholder="Tell us a little about your project, goals, or timeline." className="w-full rounded-xl border border-white/10 bg-[var(--surface-1)] p-4 text-[0.9rem] text-white outline-none transition-all placeholder:text-white/20 focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)]" />
                 </label>
               </div>
 
               <div className="mt-6 flex justify-end">
-                <Button type="submit" loading={isSending} loadingLabel="Sending..." className="w-full sm:w-auto min-w-[200px] h-[56px] rounded-full bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] text-[16px] font-bold border-none transition-transform hover:scale-105">
+                <Button type="submit" loading={isSending} loadingLabel="Sending..." className="w-full sm:w-auto min-w-[200px] h-[56px] rounded-full bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-[var(--surface-0)] text-[16px] font-bold border-none transition-transform hover:scale-105">
                   Send Message
                 </Button>
               </div>

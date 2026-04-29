@@ -1,21 +1,58 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DEV'S INN TECHNOLOGIES — Brand Theme Variables
+   Extracted directly from the logo:
+   • Primary   → Blue  (#4B8EF1)  – "DEV'S INN" text colour
+   • Secondary → Teal  (#00C9A7)  – "TECHNOLOGIES" + circuit colour
+   • Accent    → Purple (#6B4CF5) – logo gradient start
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Background / Foreground --- */
+  --background: #060C1A;
+  --foreground: #ffffff;
+
+  /* --- Brand Primary (Logo Blue) --- */
+  --primary:          #4B8EF1;
+  --primary-light:    #7CB3F7;
+  --primary-dark:     #2E6DD4;
+  --primary-glow:     rgba(75, 142, 241, 0.35);
+  --primary-subtle:   rgba(75, 142, 241, 0.10);
+
+  /* --- Brand Secondary (Logo Teal / Cyan) --- */
+  --secondary:        #00C9A7;
+  --secondary-light:  #33D9BC;
+  --secondary-dark:   #009E84;
+  --secondary-glow:   rgba(0, 201, 167, 0.35);
+  --secondary-subtle: rgba(0, 201, 167, 0.10);
+
+  /* --- Brand Accent (Logo Gradient Purple) --- */
+  --accent:           #6B4CF5;
+  --accent-light:     #8E75F8;
+  --accent-dark:      #4D31D4;
+  --accent-glow:      rgba(107, 76, 245, 0.35);
+  --accent-subtle:    rgba(107, 76, 245, 0.10);
+
+  /* --- Logo Gradient (used for text & borders) --- */
+  --grad-logo:        linear-gradient(135deg, #6B4CF5 0%, #4B8EF1 50%, #00C9A7 100%);
+  --grad-primary:     linear-gradient(135deg, #4B8EF1 0%, #00C9A7 100%);
+  --grad-accent:      linear-gradient(135deg, #6B4CF5 0%, #4B8EF1 100%);
+
+  /* --- Surface / Card colours (dark bg) --- */
+  --surface-0:  #060C1A;
+  --surface-1:  #0A1020;
+  --surface-2:  #0E1630;
+
+  /* --- Text hierarchy --- */
+  --text-primary:   #ffffff;
+  --text-secondary: rgba(255,255,255,0.65);
+  --text-muted:     rgba(255,255,255,0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-montserrat);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

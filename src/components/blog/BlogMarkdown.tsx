@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import type { ReactNode } from "react";
 
 type MarkdownBlock =
@@ -97,7 +97,7 @@ function renderInline(text: string): ReactNode[] {
 
     if (strongMatch) {
       return (
-        <strong key={`${segment}-${index}`} className="font-bold text-[#38bdf8]">
+        <strong key={`${segment}-${index}`} className="font-bold text-[var(--primary)]">
           {strongMatch[1]}
         </strong>
       );
@@ -143,7 +143,7 @@ export default function BlogMarkdown({ content }: { content: string }) {
             >
               {block.items.map((item, itemIndex) => (
                 <li key={`${item}-${itemIndex}`} className="flex gap-4">
-                  <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#38bdf8] shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
+                  <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[var(--primary)] shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
                   <span>{renderInline(item)}</span>
                 </li>
               ))}
@@ -155,7 +155,7 @@ export default function BlogMarkdown({ content }: { content: string }) {
           return (
             <div
               key={`${block.src}-${index}`}
-              className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#060C1A] shadow-2xl my-10"
+              className="overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--surface-0)] shadow-2xl my-10"
             >
               <div className="relative aspect-[16/9] w-full">
                 <Image

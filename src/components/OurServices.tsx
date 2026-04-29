@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion, AnimatePresence, useInView, useAnimationFrame } from "framer-motion";
@@ -197,7 +197,7 @@ export default function OurServices() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#060C1A] px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-16 xl:px-16"
+      className="relative overflow-hidden bg-[var(--surface-0)] px-5 py-12 text-white sm:px-8 sm:py-16 lg:px-10 lg:py-16 xl:px-16"
     >
       <SectionDivider />
       {/* Background ambient left orb */}
@@ -445,7 +445,7 @@ export default function OurServices() {
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             style={{
               border: "2px solid transparent",
-              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 0deg, #64dff2, #4d8cff, #a78bfa, #f472b6, #34d399, #fb923c, #64dff2)",
+              backgroundImage: "linear-gradient(var(--surface-0),var(--surface-0)), conic-gradient(from 0deg, #64dff2, #4d8cff, #a78bfa, #f472b6, #34d399, #fb923c, #64dff2)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}
@@ -457,7 +457,7 @@ export default function OurServices() {
             transition={{ duration: 32, repeat: Infinity, ease: "linear" }}
             style={{
               border: "1.5px dashed transparent",
-              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 180deg, #4d8cff88, #64dff288, #a78bfa88, #4d8cff88)",
+              backgroundImage: "linear-gradient(var(--surface-0),var(--surface-0)), conic-gradient(from 180deg, #4d8cff88, #64dff288, #a78bfa88, #4d8cff88)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}
@@ -469,7 +469,7 @@ export default function OurServices() {
             transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
             style={{
               border: "1px solid transparent",
-              backgroundImage: "linear-gradient(#060C1A,#060C1A), conic-gradient(from 90deg, #f472b644, #34d39944, #fb923c44, #f472b644)",
+              backgroundImage: "linear-gradient(var(--surface-0),var(--surface-0)), conic-gradient(from 90deg, #f472b644, #34d39944, #fb923c44, #f472b644)",
               backgroundOrigin: "border-box",
               backgroundClip: "padding-box, border-box",
             }}

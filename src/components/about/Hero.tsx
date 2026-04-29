@@ -6,7 +6,7 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-[100svh] overflow-hidden bg-[var(--surface-0)] text-white">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -29,13 +29,13 @@ export default function Hero() {
       {/* Animated gradient orbs */}
       <motion.div
         className="pointer-events-none absolute -left-[20%] -top-[10%] h-[700px] w-[700px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, var(--primary-glow) 0%, transparent 70%)" }}
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className="pointer-events-none absolute -right-[10%] top-[20%] h-[600px] w-[600px] rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 70%)" }}
         animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
@@ -50,7 +50,7 @@ export default function Hero() {
       />
 
       {/* Dark vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#060C1A_100%)]" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at center, transparent 0%, var(--surface-0) 100%)' }} />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col justify-center px-5 sm:px-8 lg:px-10 xl:px-16">
         <motion.div
@@ -60,14 +60,14 @@ export default function Hero() {
           className="w-full max-w-[800px]"
         >
           {/* Pill badge */}
-          <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#818cf8]/25 bg-[#818cf8]/8 px-5 py-2.5">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[#818cf8]" />
-            <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#818cf8]">The Company</span>
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-2 rounded-full border px-5 py-2.5" style={{ borderColor: 'var(--accent)', backgroundColor: 'var(--accent-subtle)' }}>
+            <span className="h-2 w-2 animate-pulse rounded-full" style={{ backgroundColor: 'var(--accent)' }} />
+            <span className="text-[12px] font-semibold uppercase tracking-[0.22em]" style={{ color: 'var(--accent)' }}>The Company</span>
           </motion.div>
 
           <motion.h1 variants={fadeInUp} className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
             Discover Who <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
+            <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--grad-logo)' }}>
               We Are
             </span>
           </motion.h1>

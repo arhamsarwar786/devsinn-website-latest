@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -7,9 +7,9 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[var(--surface-0)] text-white">
       {/* Deep Space Background Glows */}
-      <div className="absolute inset-0 bg-[#060C1A]" />
+      <div className="absolute inset-0 bg-[var(--surface-0)]" />
 
       {/* Animated Glowing Orbs */}
       <motion.div
@@ -30,7 +30,7 @@ export default function Hero() {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8] to-[#c084fc] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
+          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
         />
         <motion.div
           animate={{ scale: [1, 1.05, 1] }}
@@ -51,9 +51,9 @@ export default function Hero() {
       </motion.div>
 
       {/* Cinematic Vignette Overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#060C1A] via-[#060C1A]/80 to-transparent lg:via-[#060C1A]/60" />
-      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[#060C1A] lg:via-[#060C1A] lg:to-transparent lg:w-[55%]" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A]/80" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[var(--surface-0)] via-[var(--surface-0)]/80 to-transparent lg:via-[var(--surface-0)]/60" />
+      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[var(--surface-0)] lg:via-[var(--surface-0)] lg:to-transparent lg:w-[55%]" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface-0)] via-transparent to-[var(--surface-0)]/80" />
 
       {/* Main Content */}
       <div className="relative z-20 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-20 pb-10 sm:px-8 lg:px-10 xl:px-16">
@@ -64,8 +64,8 @@ export default function Hero() {
           variants={staggerContainer}
           className="max-w-[820px]"
         >
-          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-5 py-2.5 backdrop-blur-md">
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[#38bdf8]">
+          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-5 py-2.5 backdrop-blur-md">
+            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[var(--primary)]">
               Our Selected Work
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ export default function Hero() {
             className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]"
           >
             Showcasing <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent)]">
               Excellence Through
             </span> <br />
             Our Work
@@ -94,8 +94,8 @@ export default function Hero() {
               download="Devsinn-Technologies-Portfolio.pdf"
               className="group relative w-full max-w-[248px] sm:w-auto sm:max-w-none cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8]/10 via-[#38bdf8]/30 to-[#38bdf8]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <span className="relative text-[15px] font-bold text-[#060C1A] transition-colors group-hover:text-[#060C1A]">
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/10 via-[var(--primary)]/30 to-[var(--primary)]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <span className="relative text-[15px] font-bold text-[var(--surface-0)] transition-colors group-hover:text-[var(--surface-0)]">
                 Download Portfolio
               </span>
             </a>

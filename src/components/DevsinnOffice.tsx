@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
@@ -17,7 +17,7 @@ const offices = [
     // Coordinates tailored for the map graphic
     top: "65%",
     left: "80%",
-    color: "#38bdf8",
+    color: "var(--primary)",
     glow: "rgba(56,189,248,0.5)",
   },
   {
@@ -95,7 +95,7 @@ function WorldMapBackground() {
           <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#f472b6" stopOpacity="0.9" />
             <stop offset="50%" stopColor="#a78bfa" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.9" />
           </linearGradient>
         </defs>
       </svg>
@@ -149,7 +149,7 @@ export default function DevsinnOffice() {
             <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-white/80">Global Network</span>
           </div>
           <h2 className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] sm:text-[3rem] lg:text-[3.8rem]">
-            Boundless <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#f472b6]">Innovation</span>
+            Boundless <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[#f472b6]">Innovation</span>
           </h2>
           <p className="mt-4 max-w-[500px] mx-auto text-[1rem] leading-[1.8] text-white/45">
             Operating from strategic tech hubs across the world to deliver unparalleled digital excellence.

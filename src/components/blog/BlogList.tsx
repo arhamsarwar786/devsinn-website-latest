@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Calendar, Clock, Search, Tag, TrendingUp } from "lucide-react";
 import Image from "next/image";
@@ -48,10 +48,10 @@ export default function BlogList() {
     : filteredBlogs;
 
   return (
-    <main className="bg-[#060C1A] text-white overflow-hidden">
-      <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[#060C1A] text-white">
+    <main className="bg-[var(--surface-0)] text-white overflow-hidden">
+      <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[var(--surface-0)] text-white">
         {/* Deep Space Background Glows */}
-        <div className="absolute inset-0 bg-[#060C1A]" />
+        <div className="absolute inset-0 bg-[var(--surface-0)]" />
 
         {/* Animated Glowing Orbs */}
         <motion.div
@@ -72,7 +72,7 @@ export default function BlogList() {
           <motion.div
             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[#38bdf8] to-[#c084fc] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
+            className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
           />
 
           {/* Rotating Globe Image */}
@@ -95,9 +95,9 @@ export default function BlogList() {
         </motion.div>
 
         {/* Cinematic Vignette Overlays */}
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#060C1A] via-[#060C1A]/80 to-transparent lg:via-[#060C1A]/60" />
-        <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[#060C1A] lg:via-[#060C1A] lg:to-transparent lg:w-[65%]" />
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#060C1A] via-transparent to-[#060C1A] lg:bg-gradient-to-t lg:from-[#060C1A] lg:via-transparent lg:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[var(--surface-0)] via-[var(--surface-0)]/80 to-transparent lg:via-[var(--surface-0)]/60" />
+        <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[var(--surface-0)] lg:via-[var(--surface-0)] lg:to-transparent lg:w-[65%]" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface-0)] via-transparent to-[var(--surface-0)] lg:bg-gradient-to-t lg:from-[var(--surface-0)] lg:via-transparent lg:to-transparent" />
 
         <div className="relative z-20 mx-auto flex h-full w-full max-w-[1568px] flex-col justify-center px-5 pb-32 pt-20 sm:px-8 lg:px-10 xl:px-16">
           <motion.div
@@ -106,20 +106,20 @@ export default function BlogList() {
             variants={staggerContainer}
             className="max-w-[860px]"
           >
-            <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-5 py-2.5 backdrop-blur-md">
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#38bdf8]">
+            <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-5 py-2.5 backdrop-blur-md">
+              <span className="text-[12px] font-extrabold uppercase tracking-[0.2em] text-[var(--primary)]">
                 Devsinn Insights
               </span>
             </motion.div>
             <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.1] tracking-[-0.04em] text-white sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem]">
-              Insights, ideas, and real <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#818cf8] to-[#c084fc]">product thinking</span> from the team.
+              Insights, ideas, and real <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent)]">product thinking</span> from the team.
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-10 max-w-[760px] rounded-full border border-white/10 bg-[#0A0F1E]/60 p-1.5 shadow-2xl backdrop-blur-xl"
+              className="mt-10 max-w-[760px] rounded-full border border-white/10 bg-[var(--surface-1)]/60 p-1.5 shadow-2xl backdrop-blur-xl"
             >
               <label className="relative block">
                 <Search
@@ -132,7 +132,7 @@ export default function BlogList() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Search articles, tags, or topics..."
-                  className="h-12 w-full rounded-full bg-transparent pl-14 pr-6 text-[1rem] text-white outline-none transition-all placeholder:text-white/40 focus:ring-1 focus:ring-[#38bdf8]/50"
+                  className="h-12 w-full rounded-full bg-transparent pl-14 pr-6 text-[1rem] text-white outline-none transition-all placeholder:text-white/40 focus:ring-1 focus:ring-[var(--primary)]/50"
                 />
               </label>
             </motion.div>
@@ -142,7 +142,7 @@ export default function BlogList() {
         </div>
       </section>
       <SectionDivider />
-      <section className="sticky top-0 z-40 border-b border-white/10 bg-[#060C1A]/80 px-5 py-5 backdrop-blur-xl sm:px-8 lg:px-10 xl:px-16">
+      <section className="sticky top-0 z-40 border-b border-white/10 bg-[var(--surface-0)]/80 px-5 py-5 backdrop-blur-xl sm:px-8 lg:px-10 xl:px-16">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -157,7 +157,7 @@ export default function BlogList() {
               type="button"
               onClick={() => setActiveCategory(category)}
               className={`relative inline-flex min-h-[48px] items-center justify-center rounded-full px-6 text-[14px] font-bold transition-all duration-300 ${activeCategory === category
-                ? "bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-[#060C1A] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
+                ? "bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] text-[var(--surface-0)] shadow-[0_0_20px_rgba(56,189,248,0.3)]"
                 : "border border-white/10 bg-white/5 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/10"
                 }`}
             >
@@ -181,7 +181,7 @@ export default function BlogList() {
             className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-8"
           >
             <motion.div variants={fadeInUp} className="flex items-center gap-3">
-              <TrendingUp className="text-[#38bdf8]" size={24} />
+              <TrendingUp className="text-[var(--primary)]" size={24} />
               <h2 className="text-[28px] font-bold tracking-[-0.03em] text-white sm:text-[34px]">
                 Featured Article
               </h2>
@@ -194,10 +194,10 @@ export default function BlogList() {
                 <motion.div
                   variants={card3D}
                   whileHover="hover"
-                  className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-500 hover:border-[#38bdf8]/40"
+                  className="overflow-hidden rounded-[2.5rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl transition-all duration-500 hover:border-[var(--primary)]/40"
                 >
                   <div className="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-                    <div className="relative min-h-[320px] lg:min-h-[500px] overflow-hidden bg-[#060C1A]">
+                    <div className="relative min-h-[320px] lg:min-h-[500px] overflow-hidden bg-[var(--surface-0)]">
                       <Image
                         src={featuredBlog.image}
                         alt={featuredBlog.title}
@@ -205,13 +205,13 @@ export default function BlogList() {
                         sizes="(max-width: 1023px) 100vw, 60vw"
                         className="object-cover opacity-90 mix-blend-screen transition-transform duration-700 group-hover:scale-[1.04] group-hover:opacity-100"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0A0F1E] hidden lg:block" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent lg:hidden" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[var(--surface-1)] hidden lg:block" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface-1)] to-transparent lg:hidden" />
                     </div>
 
                     <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-12 relative z-10 lg:-ml-10">
                       <div className="flex flex-wrap items-center gap-4 text-[12px] font-bold uppercase tracking-[0.2em] text-white/50">
-                        <span className="rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20 px-4 py-2 text-[#38bdf8]">
+                        <span className="rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 px-4 py-2 text-[var(--primary)]">
                           {featuredBlog.category}
                         </span>
                         <span className="inline-flex items-center gap-2">
@@ -265,7 +265,7 @@ export default function BlogList() {
         >
           <div className="flex flex-wrap items-end justify-between gap-4">
             <motion.div variants={fadeInUp}>
-              <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[#c084fc]">
+              <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
                 Blog Library
               </p>
               <h2 className="mt-4 text-[2.5rem] font-black leading-[1.04] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
@@ -283,7 +283,7 @@ export default function BlogList() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="rounded-[2rem] border border-white/10 bg-[#0A0F1E] px-6 py-20 text-center shadow-2xl"
+                className="rounded-[2rem] border border-white/10 bg-[var(--surface-1)] px-6 py-20 text-center shadow-2xl"
               >
                 <h3 className="text-[2rem] font-bold tracking-[-0.03em] text-white">
                   No articles found
@@ -305,9 +305,9 @@ export default function BlogList() {
                   >
                     <Link
                       href={`/blog/${blog.slug}`}
-                      className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0F1E] shadow-2xl transition-all duration-300 hover:border-[#38bdf8]/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
+                      className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl transition-all duration-300 hover:border-[var(--primary)]/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)]"
                     >
-                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#060C1A]">
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--surface-0)]">
                         <Image
                           src={blog.image}
                           alt={blog.title}
@@ -315,9 +315,9 @@ export default function BlogList() {
                           sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
                           className="object-cover opacity-90 mix-blend-screen transition-transform duration-700 group-hover:scale-[1.05] group-hover:opacity-100"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1E] to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface-1)] to-transparent" />
                         <div className="absolute left-6 top-6">
-                          <span className="rounded-full bg-[#38bdf8]/10 border border-[#38bdf8]/20 backdrop-blur-md px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#38bdf8] shadow-2xl">
+                          <span className="rounded-full bg-[var(--primary)]/10 border border-[var(--primary)]/20 backdrop-blur-md px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--primary)] shadow-2xl">
                             {blog.category}
                           </span>
                         </div>

@@ -74,13 +74,13 @@ function FooterLink({ label, href }: { label: string; href: string }) {
         className="group relative flex items-center gap-3 text-[15px] font-medium leading-[1.6] text-white/50 transition-colors duration-300 hover:text-white"
       >
         <span className="relative flex h-2 w-2 items-center justify-center">
-          <span className="absolute h-1 w-1 rounded-full bg-white/20 transition-all duration-300 group-hover:h-full group-hover:w-full group-hover:bg-[#38bdf8]" />
+          <span className="absolute h-1 w-1 rounded-full bg-white/20 transition-all duration-300 group-hover:h-full group-hover:w-full" style={{ '--hover-bg': 'var(--primary)' } as React.CSSProperties} onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.backgroundColor = 'var(--primary)'; }} onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.backgroundColor = 'rgba(255,255,255,0.2)'; }} />
         </span>
         <span className="relative z-10">{label}</span>
 
         {/* Glow underline sweep */}
         <motion.div
-          className="absolute -bottom-1 left-5 right-0 h-[1px] bg-gradient-to-r from-[#38bdf8] to-[#f472b6] opacity-0"
+          className="absolute -bottom-1 left-5 right-0 h-[1px] opacity-0" style={{ backgroundImage: 'linear-gradient(90deg, var(--primary), var(--secondary))' }}
           variants={{
             initial: { width: 0, opacity: 0 },
             hover: { width: "100%", opacity: 1 }
@@ -189,7 +189,7 @@ export default function Footer() {
       />
 
       {/* Massive Glowing Core */}
-      <div className="pointer-events-none absolute left-1/2 bottom-0 h-[800px] w-[1000px] -translate-x-1/2 translate-y-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.15)_0%,rgba(167,139,250,0.05)_40%,transparent_70%)] blur-[120px]" />
+      <div className="pointer-events-none absolute left-1/2 bottom-0 h-[800px] w-[1000px] -translate-x-1/2 translate-y-1/2 rounded-full blur-[120px]" style={{ background: 'radial-gradient(ellipse at center, var(--primary-glow) 0%, var(--accent-subtle) 40%, transparent 70%)' }} />
 
       {/* Sparkle Particles Ascending */}
       <Sparkles />
@@ -211,7 +211,7 @@ export default function Footer() {
           {/* Animated Gradient Border */}
           <motion.div
             className="absolute inset-[-100%] rounded-full opacity-50"
-            style={{ background: 'conic-gradient(from 0deg, transparent 0%, #38bdf8 30%, #a78bfa 50%, #f472b6 70%, transparent 100%)' }}
+            style={{ background: 'conic-gradient(from 0deg, transparent 0%, var(--primary) 30%, var(--accent) 50%, var(--secondary) 70%, transparent 100%)' }}
             animate={{ rotate: 360 }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           />
@@ -228,9 +228,9 @@ export default function Footer() {
               <path d="M 0 160 Q 250 60 500 160 T 1000 160" stroke="url(#wave-grad)" fill="none" strokeWidth="0.5" opacity="0.5" />
               <defs>
                 <linearGradient id="wave-grad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#38bdf8" />
-                  <stop offset="50%" stopColor="#818cf8" />
-                  <stop offset="100%" stopColor="#f472b6" />
+                  <stop offset="0%" stopColor="var(--primary)" />
+                  <stop offset="50%" stopColor="var(--accent)" />
+                  <stop offset="100%" stopColor="var(--secondary)" />
                 </linearGradient>
               </defs>
             </svg>
@@ -239,13 +239,13 @@ export default function Footer() {
             <div className="relative z-10 text-center lg:text-left">
               <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-[#0a1122]/50 px-4 py-2 mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(56,189,248,0.2)]">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38bdf8]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: 'var(--primary)' }}></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: 'var(--primary)' }}></span>
                 </span>
                 <span className="text-[12px] font-black uppercase tracking-[0.25em] text-white/80">Incoming Transmission</span>
               </div>
               <h3 className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3rem] items-center">
-                Get <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#f472b6]">Tech Insights</span>
+                Get <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--grad-logo)' }}>Tech Insights</span>
               </h3>
               <p className="mt-4 text-[16px] text-white/50 max-w-[450px]">
                 Join 2,000+ top-tier professionals receiving our exclusive digital intelligence. Zero spam.
@@ -253,7 +253,7 @@ export default function Footer() {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:focus-within:border-[#38bdf8]/50 sm:focus-within:shadow-[0_0_30px_rgba(56,189,248,0.2)] sm:hover:border-white/30">
+            <form onSubmit={handleSubscribe} className="relative z-10 flex w-full max-w-[500px] flex-col gap-3 sm:flex-row sm:items-center sm:gap-0 sm:rounded-full sm:border sm:border-white/20 sm:bg-[#02050c]/80 sm:p-1.5 sm:shadow-[0_20px_40px_rgba(0,0,0,0.5)] sm:backdrop-blur-xl transition-all duration-300 sm:hover:border-white/30" onFocus={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.boxShadow = '0 0 30px var(--primary-subtle)'; }} onBlur={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.5)'; }}>
               {subscribed ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -267,7 +267,7 @@ export default function Footer() {
                 </motion.div>
               ) : (
                 <>
-                  <div className="flex h-[60px] sm:h-[52px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none focus-within:border-[#38bdf8]/50 sm:focus-within:border-transparent transition-colors">
+                  <div className="flex h-[60px] sm:h-[52px] w-full flex-1 items-center rounded-full border border-white/20 bg-[#02050c]/80 sm:border-transparent sm:bg-transparent shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none sm:focus-within:border-transparent transition-colors" onFocus={e => (e.currentTarget.style.borderColor = 'var(--primary)')} onBlur={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)')}>
                     <div className="pl-6 text-white/30 flex items-center justify-center">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
                     </div>
@@ -286,7 +286,7 @@ export default function Footer() {
                     disabled={isSubscribing}
                     className="group relative h-[60px] sm:h-[52px] w-full sm:w-auto shrink-0 overflow-hidden rounded-full bg-white px-8 transition-transform duration-300 hover:scale-[1.02] shadow-[0_10px_20px_rgba(0,0,0,0.3)] sm:shadow-none disabled:opacity-70"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#f472b6] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ backgroundImage: 'var(--grad-logo)' }} />
                     <span className="relative z-10 text-[15px] font-bold text-[#050C1B] group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2 h-full">
                       {isSubscribing ? "Processing..." : "Subscribe"} 
                       {!isSubscribing && (
@@ -322,7 +322,7 @@ export default function Footer() {
                 height={56}
                 className="h-auto w-[160px] sm:w-[190px] drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] relative z-10 transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-[#38bdf8] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20" />
+              <div className="absolute inset-0 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20" style={{ backgroundColor: 'var(--primary)' }} />
             </Link>
 
             <p className="text-[16px] leading-[1.8] text-white/50 max-w-[340px]">

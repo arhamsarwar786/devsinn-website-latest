@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -13,9 +13,9 @@ type ProjectDetailProps = {
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
-    <main className="bg-[#060C1A] text-white overflow-hidden">
+    <main className="bg-[var(--surface-0)] text-white overflow-hidden">
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-[#0A0F1E] px-5 pb-16 pt-[138px] text-white sm:px-8 sm:pb-20 sm:pt-[154px] lg:px-10 lg:pb-24 lg:pt-[168px] xl:px-16 min-h-[100svh] flex flex-col justify-end">
+      <section className="relative overflow-hidden bg-[var(--surface-1)] px-5 pb-16 pt-[138px] text-white sm:px-8 sm:pb-20 sm:pt-[154px] lg:px-10 lg:pb-24 lg:pt-[168px] xl:px-16 min-h-[100svh] flex flex-col justify-end">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -39,7 +39,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             className="object-cover opacity-60 mix-blend-overlay"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#060C1A] via-[#060C1A]/90 to-[#060C1A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface-0)] via-[var(--surface-0)]/90 to-[var(--surface-0)]/40" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.15),transparent_70%)]" />
 
         <motion.div
@@ -48,10 +48,10 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           variants={staggerContainer}
           className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-8 lg:gap-12"
         >
-          <motion.div variants={fadeInUp} className="inline-flex w-fit items-center gap-3 rounded-full border border-[#38bdf8]/30 bg-[#38bdf8]/10 px-5 py-2 text-[12px] font-extrabold uppercase tracking-[0.2em] text-[#38bdf8] backdrop-blur-md">
+          <motion.div variants={fadeInUp} className="inline-flex w-fit items-center gap-3 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-5 py-2 text-[12px] font-extrabold uppercase tracking-[0.2em] text-[var(--primary)] backdrop-blur-md">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#38bdf8] opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#38bdf8]"></span>
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary)] opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--primary)]"></span>
             </span>
             {project.categoryLabel}
           </motion.div>
@@ -64,7 +64,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             </div>
 
             <motion.div variants={fadeInUp} className="max-w-[700px]">
-              <div className="relative rounded-[2rem] border border-white/10 bg-[#0A0F1E]/40 p-6 md:p-7 backdrop-blur-2xl">
+              <div className="relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)]/40 p-6 md:p-7 backdrop-blur-2xl">
                 <div className="relative z-10 flex flex-col gap-6">
                   <p className="text-[1rem] leading-[1.6] text-white/80 font-medium tracking-tight">
                     {project.about}
@@ -73,14 +73,14 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   <div className="flex flex-wrap gap-4">
                     <Link
                       href="/contact"
-                      className="group relative overflow-hidden inline-flex h-[56px] items-center justify-center rounded-2xl bg-gradient-to-r from-[#38bdf8] to-[#818cf8] px-10 text-[15px] font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] active:scale-[0.98]"
+                      className="group relative overflow-hidden inline-flex h-[56px] items-center justify-center rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] px-10 text-[15px] font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] active:scale-[0.98]"
                     >
                       <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                       <span className="relative">Start a Similar Project</span>
                     </Link>
                     <Link
                       href="/portfolio"
-                      className="inline-flex h-[56px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-10 text-[15px] font-bold text-white transition-all hover:bg-white/10 hover:border-[#38bdf8]/50 hover:text-[#38bdf8]"
+                      className="inline-flex h-[56px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-10 text-[15px] font-bold text-white transition-all hover:bg-white/10 hover:border-[var(--primary)]/50 hover:text-[var(--primary)]"
                     >
                       Back to Portfolio
                     </Link>
@@ -107,11 +107,11 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-20"
         >
           <motion.div variants={fadeInUp}>
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[#818cf8]">
+            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
               About Project
             </p>
             <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
-              Crafted to feel polished, fast, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">conversion-focused.</span>
+              Crafted to feel polished, fast, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">conversion-focused.</span>
             </h2>
           </motion.div>
 
@@ -122,9 +122,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             <motion.article
               variants={card3D}
               whileHover="hover"
-              className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
+              className="group relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#38bdf8]/0 to-[#38bdf8]/0 opacity-0 transition-opacity duration-500 group-hover:from-[#38bdf8]/10 group-hover:to-transparent group-hover:opacity-100" />
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[var(--primary)]/0 to-[var(--primary)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--primary)]/10 group-hover:to-transparent group-hover:opacity-100" />
               <h3 className="relative z-10 text-[1.6rem] font-bold tracking-[-0.03em] text-white">
                 Strategic Experience
               </h3>
@@ -135,9 +135,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             <motion.article
               variants={card3D}
               whileHover="hover"
-              className="group relative rounded-[2rem] border border-white/10 bg-[#0A0F1E] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
+              className="group relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[#818cf8]/0 to-[#818cf8]/0 opacity-0 transition-opacity duration-500 group-hover:from-[#818cf8]/10 group-hover:to-transparent group-hover:opacity-100" />
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[var(--accent)]/0 to-[var(--accent)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--accent)]/10 group-hover:to-transparent group-hover:opacity-100" />
               <h3 className="relative z-10 text-[1.6rem] font-bold tracking-[-0.03em] text-white">
                 Brand-Aligned Design
               </h3>
@@ -164,7 +164,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16"
         >
           <motion.div variants={fadeInUp} className="max-w-[720px]">
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[#c084fc]">
+            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
               A Sneak Peek
             </p>
             <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
@@ -189,7 +189,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
               >
                 {/* Enhanced Ambient Glow */}
                 {project.categoryKey === "appDev" && (
-                  <div className="absolute inset-x-0 -inset-y-6 bg-[#38bdf8]/10 blur-[80px] opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 -inset-y-6 bg-[var(--primary)]/10 blur-[80px] opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
                 )}
 
                 {/* Ultimate Phone Frame Mockup */}
@@ -226,7 +226,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                   </div>
                 ) : (
                   <div
-                    className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0A0F1E] shadow-2xl"
+                    className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl"
                   >
                     <Image
                       src={image}
@@ -263,7 +263,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16"
         >
           <motion.div variants={fadeInUp} className="max-w-[720px] text-center mx-auto">
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[#38bdf8]">
+            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--primary)]">
               Technologies
             </p>
             <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
@@ -280,9 +280,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 key={`${project.slug}-${technology.name}`}
                 variants={card3D}
                 whileHover="hover"
-                className="group relative flex min-h-[164px] flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-[#0A0F1E] px-6 py-8 text-center transition-all duration-300 hover:border-[#38bdf8]/50 shadow-2xl"
+                className="group relative flex min-h-[164px] flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-[var(--surface-1)] px-6 py-8 text-center transition-all duration-300 hover:border-[var(--primary)]/50 shadow-2xl"
               >
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-[#38bdf8]/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:from-[#38bdf8]/10 group-hover:opacity-100" />
+                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-[var(--primary)]/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:from-[var(--primary)]/10 group-hover:opacity-100" />
                 <div className="relative z-10 flex h-[60px] w-[60px] items-center justify-center opacity-80 transition-opacity group-hover:opacity-100 filter brightness-200 contrast-[1.2]">
                   <Image
                     src={technology.logo}
@@ -292,7 +292,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                     className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
                   />
                 </div>
-                <p className="relative z-10 mt-5 text-[1.1rem] font-bold text-white group-hover:text-[#38bdf8] transition-colors duration-300">
+                <p className="relative z-10 mt-5 text-[1.1rem] font-bold text-white group-hover:text-[var(--primary)] transition-colors duration-300">
                   {technology.name}
                 </p>
               </motion.article>

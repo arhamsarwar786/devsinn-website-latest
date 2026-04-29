@@ -7,12 +7,12 @@ import SectionDivider from "@/components/ui/SectionDivider";
 
 export default function VisionMission() {
   return (
-    <section className="relative bg-[#060C1A] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
+    <section className="relative bg-[var(--surface-0)] px-5 py-20 text-white sm:px-8 sm:py-24 lg:px-10 lg:py-32 xl:px-16 overflow-hidden">
       <SectionDivider />
       <div className="mx-auto w-full max-w-[1400px]">
-        <div className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-[#0A0F1E] shadow-2xl lg:min-h-[450px]">
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl lg:min-h-[450px]">
           {/* Animated glowing background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#38bdf8]/10 via-transparent to-[#c084fc]/10 opacity-30" />
+          <div className="absolute inset-0 opacity-30" style={{ background: 'linear-gradient(135deg, var(--primary-subtle), transparent, var(--secondary-subtle))' }} />
           
           <Image
             src="/about/vision1.png"
@@ -23,7 +23,7 @@ export default function VisionMission() {
             priority={false}
           />
 
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#0A0F1E_0%,rgba(10,15,30,0.4)_100%)]" />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, var(--surface-1) 0%, rgba(10,15,30,0.4) 100%)' }} />
 
           <motion.div 
             initial="hidden"
@@ -34,7 +34,7 @@ export default function VisionMission() {
           >
             {/* Vision */}
             <div className="max-w-[600px] group">
-              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#38bdf8] to-[#818cf8] text-white shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-transform duration-500 group-hover:scale-110">
+              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl text-white transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: 'var(--grad-primary)', boxShadow: '0 0 30px var(--primary-glow)' }}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
               </motion.div>
 
@@ -42,7 +42,7 @@ export default function VisionMission() {
                 variants={fadeInUp}
                 className="text-[2rem] font-black leading-none tracking-[-0.03em] sm:text-[2.5rem]"
               >
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38bdf8] to-[#818cf8]">Vision</span>
+                Our <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--grad-primary)' }}>Vision</span>
               </motion.h2>
 
               <motion.p 
@@ -60,7 +60,7 @@ export default function VisionMission() {
 
             {/* Mission */}
             <div className="max-w-[640px] group">
-              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#c084fc] to-[#f472b6] text-white shadow-[0_0_30px_rgba(192,132,252,0.3)] transition-transform duration-500 group-hover:scale-110">
+              <motion.div variants={fadeInUp} className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl text-white transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: 'linear-gradient(135deg, var(--secondary), var(--accent))', boxShadow: '0 0 30px var(--secondary-glow)' }}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20"/><path d="m4.93 10.93 14.14 14.14"/><path d="m2 22 20-20"/><path d="m4.93 19.07 14.14-14.14"/></svg>
               </motion.div>
 
@@ -68,7 +68,7 @@ export default function VisionMission() {
                 variants={fadeInUp}
                 className="text-[2rem] font-black leading-none tracking-[-0.03em] sm:text-[2.5rem]"
               >
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c084fc] to-[#f472b6]">Mission</span>
+                Our <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, var(--secondary), var(--accent))' }}>Mission</span>
               </motion.h2>
 
               <motion.p 
