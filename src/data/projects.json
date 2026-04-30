@@ -1298,12 +1298,13 @@
       "slug": "drafidox",
       "title": "Drafidox",
       "description": "",
-      "heroImage": "/images/singlePageProjects/app/drafidox/drafidox.png",
-      "mainImage": "/images/drafidox.png",
+      "heroImage": "/images/singlePageProjects/app/drafidox/hero.png",
+      "mainImage": "/images/drafidox_mobile_main.png",
       "about": "Drafidox is a high-performance document conversion platform that simplifies your workflow. With support for PDF to Word, Word to PDF, image-to-text, and more, it provides a seamless and secure experience for users and businesses alike.",
       "sneakPeekImages": [
         "/images/singlePageProjects/app/drafidox/drafidox1.png",
         "/images/singlePageProjects/app/drafidox/drafidox2.png",
+        "/images/singlePageProjects/app/drafidox/drafidox.png",
         "/images/singlePageProjects/app/drafidox/drafidox3.png"
       ],
       "technologies": [

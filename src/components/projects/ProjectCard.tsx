@@ -43,7 +43,7 @@ export default function ProjectCard({ item, index }: ProjectCardProps) {
                 />
 
                 {/* Mockup Group with Advanced 3D Parallax */}
-                <div className="relative flex w-full items-center justify-center gap-0 perspective-2000 -translate-y-6 will-change-transform">
+                <div className="relative flex w-full items-center justify-center gap-0 perspective-2000 will-change-transform">
                   {/* Left Phone (Metallic Pro Frame) */}
                   <motion.div
                     variants={{
@@ -60,7 +60,7 @@ export default function ProjectCard({ item, index }: ProjectCardProps) {
                         src={item.sneakPeekImages[0] || item.mainImage}
                         alt=""
                         fill
-                        className="object-cover opacity-70 transition-opacity duration-700 group-hover:opacity-100"
+                        className="object-cover opacity-100 transition-opacity duration-700"
                       />
                     </div>
                   </motion.div>
@@ -71,7 +71,7 @@ export default function ProjectCard({ item, index }: ProjectCardProps) {
                       hover: { y: -20, scale: 1.05, rotateY: 0, z: 100 }
                     }}
                     transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                    className="relative z-30 h-[210px] w-[105px] -translate-y-4 overflow-hidden rounded-[1.6rem] border-[2px] border-white/40 bg-[#0F172A] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7),0_0_20px_rgba(56,189,248,0.2)] sm:h-[270px] sm:w-[135px] lg:h-[310px] lg:w-[155px] will-change-transform"
+                    className="relative z-30 h-[210px] w-[105px] overflow-hidden rounded-[1.6rem] border-[2px] border-white/40 bg-[#0F172A] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7),0_0_20px_rgba(56,189,248,0.2)] sm:h-[270px] sm:w-[135px] lg:h-[310px] lg:w-[155px] will-change-transform"
                   >
                     {/* Metallic Highlight Edge */}
                     <div className="absolute inset-0 z-40 border-[1px] border-white/10 rounded-[1.6rem] pointer-events-none" />
@@ -105,7 +105,7 @@ export default function ProjectCard({ item, index }: ProjectCardProps) {
                         src={item.sneakPeekImages[1] || (item.sneakPeekImages[0] || item.mainImage)}
                         alt=""
                         fill
-                        className="object-cover opacity-70 transition-opacity duration-700 group-hover:opacity-100"
+                        className="object-cover opacity-100 transition-opacity duration-700"
                       />
                     </div>
                   </motion.div>
