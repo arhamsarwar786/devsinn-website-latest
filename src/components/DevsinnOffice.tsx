@@ -15,8 +15,8 @@ const offices = [
     pinLabel: "LAHORE",
     country: "PAKISTAN",
     // Coordinates tailored for the map graphic
-    top: "65%",
-    left: "80%",
+    top: "54%",
+    left: "71%",
     color: "var(--primary)",
     glow: "rgba(56,189,248,0.5)",
   },
@@ -30,8 +30,8 @@ const offices = [
     pinLabel: "NOTTINGHAM",
     country: "UNITED KINGDOM",
     // Coordinates tailored for the map graphic
-    top: "35%",
-    left: "22%",
+    top: "32%",
+    left: "48%",
     color: "#f472b6",
     glow: "rgba(244,114,182,0.5)",
   },
@@ -80,9 +80,9 @@ function WorldMapBackground() {
         <path d="M 0 50 H 100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.2" strokeDasharray="1 1" />
         <path d="M 50 0 V 100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.2" strokeDasharray="1 1" />
 
-        {/* Global Connection Arc from UK (x:22, y:35) to PAK (x:80, y:65) */}
+        {/* Global Connection Arc from UK (x:48, y:32) to PAK (x:71, y:54) */}
         <path
-          d="M 22 35 Q 51 15 80 65"
+          d="M 48 32 Q 59.5 12 71 54"
           stroke="url(#arc-grad)"
           strokeWidth="0.3"
           strokeDasharray="1 1"
@@ -270,45 +270,68 @@ export default function DevsinnOffice() {
                   >
                     {/* Radar Pulse Rings on Active Pin */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      {active && (
-                        <>
-                          {/* Inner fast pulse */}
+                      <AnimatePresence>
+                        {active && (
                           <motion.div
-                            className="absolute rounded-full border border-dashed"
-                            style={{ borderColor: `${office.color}50`, width: 100, height: 100 }}
-                            animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                          />
-                          {/* Outer radar pulse expanding radially */}
-                          <motion.div
-                            className="absolute rounded-full bg-transparent"
-                            style={{ border: `1px solid ${office.color}`, width: 30, height: 30 }}
-                            animate={{ scale: [1, 8], opacity: [0.8, 0] }}
-                            transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
-                          />
-                          <motion.div
-                            className="absolute rounded-full bg-transparent"
-                            style={{ border: `1px solid ${office.color}`, width: 30, height: 30 }}
-                            animate={{ scale: [1, 8], opacity: [0.8, 0] }}
-                            transition={{ duration: 2.5, delay: 1.25, repeat: Infinity, ease: "easeOut" }}
-                          />
-                        </>
-                      )}
+                            key={`ripples-${office.id}`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="absolute inset-0 flex items-center justify-center"
+                          >
+                            {/* Staggered smooth ripples */}
+                            {[0, 1, 2].map((i) => (
+                              <motion.div
+                                key={i}
+                                className="absolute rounded-full bg-transparent"
+                                style={{ border: `1.5px solid ${office.color}`, width: 30, height: 30 }}
+                                initial={{ scale: 1, opacity: 0 }}
+                                animate={{ 
+                                  scale: [1, 6], 
+                                  opacity: [0, 0.5, 0] 
+                                }}
+                                transition={{ 
+                                  duration: 3, 
+                                  repeat: Infinity, 
+                                  delay: i * 1,
+                                  ease: [0.215, 0.61, 0.355, 1]
+                                }}
+                              />
+                            ))}
+                            {/* Central Pulse */}
+                            <motion.div
+                              className="absolute rounded-full bg-transparent"
+                              style={{ border: `1px dashed ${office.color}`, width: 120, height: 120, opacity: 0.3 }}
+                              animate={{ rotate: 360, scale: [0.95, 1.05, 0.95] }}
+                              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                            />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
 
                     {/* HUD Label hovering above Pin */}
-                    <div
-                      className={`absolute bottom-[35px] flex flex-col items-center transition-all duration-500 ${active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 group-hover/pin:opacity-100 group-hover/pin:translate-y-0"}`}
-                    >
-                      <div className="flex items-center gap-1.5 whitespace-nowrap rounded-md border border-white/20 bg-[#020610]/95 px-2.5 py-1.5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] sm:gap-3 sm:px-4 sm:py-2">
-                        <span className="h-1 w-1 rounded-full animate-pulse shadow-[0_0_8px_currentColor]" style={{ background: office.color, color: office.color }} />
-                        <span className="text-[9px] font-black uppercase tracking-[0.15em] sm:text-[11px]" style={{ color: office.color }}>
-                          {office.pinLabel}
-                        </span>
-                        <span className="text-[8px] font-mono text-white/40 border-l border-white/20 pl-2 ml-1">{office.country}</span>
-                      </div>
-                      <div className="h-4 sm:h-8 w-[1.5px]" style={{ background: `linear-gradient(to bottom, ${office.color}, transparent)` }} />
-                    </div>
+                    <AnimatePresence>
+                      {active && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                          className="absolute bottom-[35px] flex flex-col items-center z-30"
+                        >
+                          <div className="flex items-center gap-1.5 whitespace-nowrap rounded-md border border-white/20 bg-[#020610]/95 px-2.5 py-1.5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] sm:gap-3 sm:px-4 sm:py-2">
+                            <span className="h-1 w-1 rounded-full animate-pulse shadow-[0_0_8px_currentColor]" style={{ background: office.color, color: office.color }} />
+                            <span className="text-[9px] font-black uppercase tracking-[0.15em] sm:text-[11px]" style={{ color: office.color }}>
+                              {office.pinLabel}
+                            </span>
+                            <span className="text-[8px] font-mono text-white/40 border-l border-white/20 pl-2 ml-1">{office.country}</span>
+                          </div>
+                          <div className="h-4 sm:h-8 w-[1.5px]" style={{ background: `linear-gradient(to bottom, ${office.color}, transparent)` }} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
 
                     {/* Core Point / Pin */}
                     <div

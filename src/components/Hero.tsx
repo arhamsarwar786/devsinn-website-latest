@@ -9,7 +9,7 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 const stats = [
   { value: "100+", label: "Satisfied Clients" },
   { value: "150+", label: "Projects Completed" },
-  { value: "14+", label: "Years Experience" },
+  { value: "7+", label: "Years Experience" },
 ];
 
 export default function Hero() {

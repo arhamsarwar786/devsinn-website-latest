@@ -1,12 +1,12 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
-import { fadeInUp, staggerContainer, fadeIn, card3D } from "@/lib/motion";
+import { fadeInUp, staggerContainer, fadeIn } from "@/lib/motion";
 import { projectsByCategory } from "@/lib/projects";
 import Link from "next/link";
 import SectionDivider from "@/components/ui/SectionDivider";
+import ProjectCard from "@/components/projects/ProjectCard";
 
 type Highlight = {
   title: string;
@@ -284,67 +284,7 @@ export default function ServiceDetail({ service }: { service: ServiceData }) {
             style={{ perspective: "1200px" }}
           >
             {realProjects.length > 0 ? realProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                variants={card3D}
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group relative block aspect-[413/518] w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl transition-all duration-300 hover:border-white/20 isolate z-0"
-                  style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
-                >
-                  {/* Dark glow layer beneath image */}
-                  <div 
-                    className="absolute -inset-2 opacity-0 blur-xl transition-opacity duration-700 group-hover:opacity-100"
-                    style={{ backgroundImage: `linear-gradient(to bottom right, ${theme.color1}33, ${theme.color2}33)` }}
-                  />
-                  
-                  <div className="relative h-full w-full bg-[var(--surface-0)]">
-                      <Image
-                        src={project.mainImage}
-                        alt={`${project.title} showcase`}
-                        fill
-                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 413px"
-                        className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
-                        style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
-                      />
-
-                    {/* Floating overlay card at bottom */}
-                    <div className="absolute inset-x-0 bottom-0 translate-y-6 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                      <div 
-                        className="theme-hover-card flex items-center justify-between rounded-3xl border border-white/10 bg-[var(--surface-0)]/80 px-6 py-5 text-white shadow-2xl backdrop-blur-xl transition duration-300"
-                      >
-                        <div className="min-w-0 pr-4">
-                          <p className="truncate text-[22px] font-black leading-none tracking-[-0.03em] text-white">
-                            {project.title}
-                          </p>
-                          <p 
-                            className="mt-2 text-[12px] font-bold uppercase tracking-[0.2em]"
-                            style={{ color: theme.color1 }}
-                          >
-                            {project.categoryLabel}
-                          </p>
-                        </div>
-
-                        <span 
-                          className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[var(--surface-0)] transition duration-300 group-hover:scale-110"
-                          style={{
-                            backgroundImage: `linear-gradient(to right, ${theme.color1}, ${theme.color2})`,
-                            boxShadow: `0 0 15px ${theme.color1}66`
-                          }}
-                        >
-                          <Send
-                            aria-hidden="true"
-                            size={18}
-                            strokeWidth={2.5}
-                            className="rotate-[-45deg] ml-0.5 mt-0.5"
-                          />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+              <ProjectCard key={project.id} item={project} index={index} />
             )) : null}
           </div>
         </motion.div>

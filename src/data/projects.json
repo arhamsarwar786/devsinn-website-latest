@@ -323,6 +323,396 @@
   ],
   "webDev": [
     {
+      "id": 10,
+      "slug": "iqra-quran",
+      "title": "Iqra Quran",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/iqra-quran/hero.png",
+      "mainImage": "/images/singlePageProjects/web/iqra-quran/main.png",
+      "about": "A comprehensive Islamic landing page and web platform designed as a digital companion, featuring prayer times, a Quran recitation hub, and a complete suite of Islamic tools for a seamless spiritual experience.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/iqra-quran/sneak-1.png",
+        "/images/singlePageProjects/web/iqra-quran/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "smart-logo-maker_webDev",
+      "title": "Smart Logo Maker",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/smart-logo-maker/hero.png",
+      "mainImage": "/images/singlePageProjects/web/smart-logo-maker/main.png",
+      "about": "An AI-powered logo generation platform that allows users to create professional brand identities in seconds. Featuring a powerful editor, real-time previews, and a seamless user experience across all devices.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/smart-logo-maker/sneak-1.png",
+        "/images/singlePageProjects/web/smart-logo-maker/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "drm",
+      "title": "DRM",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/drm/main.png",
+      "mainImage": "/images/singlePageProjects/web/drm/main.png",
+      "about": "Digital Restaurant Management (DRM) is an all-in-one solution for restaurant owners to manage their operations, from orders and menus to staff and analytics. It's designed to streamline the dining experience and optimize business efficiency.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/drm/sneak-1.png",
+        "/images/singlePageProjects/web/drm/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "slug": "rx101",
+      "title": "RX101",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/rx101/hero.png",
+      "mainImage": "/images/singlePageProjects/web/rx101/main.png",
+      "about": "A healthcare and pharmacy platform dedicated to improving medication accessibility and patient care experiences.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/rx101/sneak-1.png",
+        "/images/singlePageProjects/web/rx101/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "slug": "weteachs",
+      "title": "WeTeachs",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/weteachs/main.png",
+      "mainImage": "/images/singlePageProjects/web/weteachs/main.png",
+      "about": "WeTeachs is an online education platform connecting real experts with learners around the globe. It enables anyone to teach, learn, or earn by sharing their knowledge through live sessions and courses.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/weteachs/sneak-1.png",
+        "/images/singlePageProjects/web/weteachs/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "chatsupplies",
+      "title": "ChatSupplies",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/chatsupplies/main.png",
+      "mainImage": "/images/singlePageProjects/web/chatsupplies/main.png",
+      "about": "ChatSupplies is a smart chat solution platform that empowers businesses with intelligent, real-time chat tools and supply management. It delivers a seamless communication experience built for scale.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/chatsupplies/sneak-1.png",
+        "/images/singlePageProjects/web/chatsupplies/sneak-2.png",
+        "/images/singlePageProjects/web/chatsupplies/sneak-3.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "slug": "drafidox",
+      "title": "Drafidox",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/drafidox/main.png",
+      "mainImage": "/images/singlePageProjects/web/drafidox/main.png",
+      "about": "Drafidox offers powerful AI tools for document, image, and text processing. It simplifies complex tasks with intuitive features, empowering users to work smarter and faster.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/drafidox/sneak-1.png",
+        "/images/singlePageProjects/web/drafidox/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "slug": "certainli",
+      "title": "Certainli",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/certainli/hero.png",
+      "mainImage": "/images/singlePageProjects/web/certainli/main.png",
+      "about": "A compliance and certification platform designed to simplify complex regulatory processes for businesses.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/certainli/sneak-1.png",
+        "/images/singlePageProjects/web/certainli/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "slug": "alttext_ai",
+      "title": "AltText AI",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/alttext_ai/hero.png",
+      "mainImage": "/images/singlePageProjects/web/alttext_ai/main.png",
+      "about": "An intelligent AI solution that automatically generates accurate and descriptive alt text for images to enhance web accessibility.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/alttext_ai/sneak-1.png",
+        "/images/singlePageProjects/web/alttext_ai/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        },
+        {
+          "name": "Chat GPT",
+          "logo": "/images/home/technology/Ai/chatgpt-6.svg"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "slug": "hpappen",
+      "title": "HP Appen",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/hpappen/hero.png",
+      "mainImage": "/images/singlePageProjects/web/hpappen/main.png",
+      "about": "A comprehensive digital application streamlining real estate, property management, and housing solutions.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/hpappen/sneak-1.png",
+        "/images/singlePageProjects/web/hpappen/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "slug": "jiffy_new",
+      "title": "Jiffy Quick Commerce",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/jiffy_new/hero.png",
+      "mainImage": "/images/jiffy_new/main.png",
+      "about": "A fast and reliable delivery platform providing authenticated same-day service to streamline your daily operations.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/jiffy_new/sneak-1.png",
+        "/images/singlePageProjects/web/jiffy_new/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "aureaoctave",
+      "title": "Aurea Octave",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/web/aureaoctave/main.png",
+      "mainImage": "/images/singlePageProjects/web/aureaoctave/main.png",
+      "about": "Aurea Octave is a premium music and arts platform offering an elegant digital experience for music lovers and creators. It features a stunning design, showcasing events, artists, and musical journeys.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/web/aureaoctave/sneak-1.png",
+        "/images/singlePageProjects/web/aureaoctave/sneak-2.png",
+        "/images/singlePageProjects/web/aureaoctave/sneak-3.png"
+      ],
+      "technologies": [
+        {
+          "name": "HTML5",
+          "logo": "/images/home/technology/frontend/html5.svg"
+        },
+        {
+          "name": "CSS3",
+          "logo": "/images/home/technology/frontend/css3.svg"
+        },
+        {
+          "name": "JavaScript",
+          "logo": "/images/home/technology/frontend/javascript.svg"
+        },
+        {
+          "name": "NEXT JS",
+          "logo": "/images/home/technology/frontend/nextjs.png"
+        },
+        {
+          "name": "React",
+          "logo": "/images/home/technology/frontend/react.svg"
+        }
+      ]
+    },
+    {
       "id": 9,
       "slug": "RubnGub_webDev",
       "title": "RubnGub",
@@ -641,268 +1031,20 @@
           "logo": "/images/home/technology/frontend/javascript.svg"
         }
       ]
-    },
-    {
-      "id": 10,
-      "slug": "iqra-quran",
-      "title": "Iqra Quran",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/iqra-quran/hero.png",
-      "mainImage": "/images/singlePageProjects/web/iqra-quran/main.png",
-      "about": "A comprehensive Islamic landing page and web platform designed as a digital companion, featuring prayer times, a Quran recitation hub, and a complete suite of Islamic tools for a seamless spiritual experience.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/iqra-quran/sneak-1.png",
-        "/images/singlePageProjects/web/iqra-quran/sneak-2.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "slug": "smart-logo-maker_webDev",
-      "title": "Smart Logo Maker",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/smart-logo-maker/hero.png",
-      "mainImage": "/images/singlePageProjects/web/smart-logo-maker/main.png",
-      "about": "An AI-powered logo generation platform that allows users to create professional brand identities in seconds. Featuring a powerful editor, real-time previews, and a seamless user experience across all devices.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/smart-logo-maker/sneak-1.png",
-        "/images/singlePageProjects/web/smart-logo-maker/sneak-2.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "slug": "drm",
-      "title": "DRM",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/drm/main.png",
-      "mainImage": "/images/singlePageProjects/web/drm/main.png",
-      "about": "Digital Restaurant Management (DRM) is an all-in-one solution for restaurant owners to manage their operations, from orders and menus to staff and analytics. It's designed to streamline the dining experience and optimize business efficiency.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/drm/sneak-1.png",
-        "/images/singlePageProjects/web/drm/sneak-2.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "slug": "chatsupplies",
-      "title": "ChatSupplies",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/chatsupplies/main.png",
-      "mainImage": "/images/singlePageProjects/web/chatsupplies/main.png",
-      "about": "ChatSupplies is a smart chat solution platform that empowers businesses with intelligent, real-time chat tools and supply management. It delivers a seamless communication experience built for scale.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/chatsupplies/sneak-1.png",
-        "/images/singlePageProjects/web/chatsupplies/sneak-2.png",
-        "/images/singlePageProjects/web/chatsupplies/sneak-3.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
+    }
+  ],
+  "appDev": [
     {
       "id": 14,
       "slug": "weteachs",
       "title": "WeTeachs",
       "description": "",
-      "heroImage": "/images/singlePageProjects/web/weteachs/main.png",
-      "mainImage": "/images/singlePageProjects/web/weteachs/main.png",
-      "about": "WeTeachs is an online education platform connecting real experts with learners around the globe. It enables anyone to teach, learn, or earn by sharing their knowledge through live sessions and courses.",
+      "heroImage": "/images/singlePageProjects/app/weteachs/hero.png",
+      "mainImage": "/images/weteachs.png",
+      "about": "WeTeachs is an innovative educational platform designed to bridge the gap between experts and learners. Through its intuitive mobile interface, users can access live sessions, interactive courses, and a wealth of knowledge across various domains, making learning accessible anytime, anywhere.",
       "sneakPeekImages": [
-        "/images/singlePageProjects/web/weteachs/sneak-1.png",
-        "/images/singlePageProjects/web/weteachs/sneak-2.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "slug": "aureaoctave",
-      "title": "Aurea Octave",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/aureaoctave/main.png",
-      "mainImage": "/images/singlePageProjects/web/aureaoctave/main.png",
-      "about": "Aurea Octave is a premium music and arts platform offering an elegant digital experience for music lovers and creators. It features a stunning design, showcasing events, artists, and musical journeys.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/aureaoctave/sneak-1.png",
-        "/images/singlePageProjects/web/aureaoctave/sneak-2.png",
-        "/images/singlePageProjects/web/aureaoctave/sneak-3.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "slug": "drafidox",
-      "title": "Drafidox",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/web/drafidox/main.png",
-      "mainImage": "/images/singlePageProjects/web/drafidox/main.png",
-      "about": "Drafidox offers powerful AI tools for document, image, and text processing. It simplifies complex tasks with intuitive features, empowering users to work smarter and faster.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/web/drafidox/sneak-1.png",
-        "/images/singlePageProjects/web/drafidox/sneak-2.png"
-      ],
-      "technologies": [
-        {
-          "name": "HTML5",
-          "logo": "/images/home/technology/frontend/html5.svg"
-        },
-        {
-          "name": "CSS3",
-          "logo": "/images/home/technology/frontend/css3.svg"
-        },
-        {
-          "name": "JavaScript",
-          "logo": "/images/home/technology/frontend/javascript.svg"
-        },
-        {
-          "name": "NEXT JS",
-          "logo": "/images/home/technology/frontend/nextjs.png"
-        },
-        {
-          "name": "React",
-          "logo": "/images/home/technology/frontend/react.svg"
-        }
-      ]
-    }
-  ],
-  "appDev": [
-    {
-      "id": 1,
-      "slug": "InstaCalm",
-      "title": "InstaCalm",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/app/instacalm/instacalm.png",
-      "mainImage": "/images/instacalm.png",
-      "about": "The InstaCalm Anxiety Treatment app is a comprehensive therapy tool to help you completely alleviate your anxiety symptoms. It's created by one of the top anxiety hypnotherapists in the United States.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/app/instacalm/instacalm1.png",
-        "/images/singlePageProjects/app/instacalm/instacalm2.png",
-        "/images/singlePageProjects/app/instacalm/instacalm3.png"
+        "/images/singlePageProjects/app/weteachs/sneak-1.png",
+        "/images/singlePageProjects/app/weteachs/sneak-2.png"
       ],
       "technologies": [
         {
@@ -918,8 +1060,268 @@
           "logo": "/images/home/technology/mobile/ios.svg"
         },
         {
-          "name": "Java",
-          "logo": "/images/home/technology/mobile/java.svg"
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "slug": "InstaCalm",
+      "title": "InstaCalm",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/instacalm/hero.png",
+      "mainImage": "/images/instacalm.png",
+      "about": "InstaCalm is a professional anxiety treatment and stress relief application. Developed by certified hypnotherapists, it offers specialized hypnotic treatments, CBT-based therapy relief, and progress tracking to help users overcome fears, stress-triggered habits, and anxiety symptoms effectively.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/instacalm/sneak-1.png",
+        "/images/singlePageProjects/app/instacalm/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "slug": "circleup",
+      "title": "CircleUp",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/circleup/hero.png",
+      "mainImage": "/images/circleup.png",
+      "about": "CircleUp is a dynamic social networking and event-discovery platform designed to help users find their community and make lasting memories. Whether it's joining a local social circle, participating in a pub crawl, or attending cultural events, CircleUp makes connecting with others seamless and engaging.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/circleup/sneak-1.png",
+        "/images/singlePageProjects/app/circleup/sneak-2.png",
+        "/images/singlePageProjects/app/circleup/sneak-3.png",
+        "/images/singlePageProjects/app/circleup/sneak-4.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Firebase",
+          "logo": "/images/home/technology/backend/firebase.svg"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "slug": "fams",
+      "title": "FAMS",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/fams/hero.png",
+      "mainImage": "/images/fams.png",
+      "about": "FAMS by Falkenherz is a cutting-edge fleet management and IoT solution. It provides real-time tracking, advanced diagnostics, and smart urban mobility features, ensuring seamless connectivity and efficiency for modern city transportation.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/fams/sneak-1.png",
+        "/images/singlePageProjects/app/fams/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "slug": "mood-social",
+      "title": "Mood Social",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/moodsocial/hero.png",
+      "mainImage": "/images/moodsocial.png",
+      "about": "Mood Social is a vibrant event-discovery and social networking platform. It helps users experience the best events in their city together, fostering community engagement and providing a seamless way to connect and share experiences.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/moodsocial/sneak-1.png",
+        "/images/singlePageProjects/app/moodsocial/sneak-2.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Firebase",
+          "logo": "/images/home/technology/backend/firebase.svg"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "slug": "salamly",
+      "title": "Salamly",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/salamly/hero.png",
+      "mainImage": "/images/salamly_center.png",
+      "about": "Salamly is an all-in-one Halal utility and social application designed for the Muslim community. With the tagline 'Social media and Muslim utility support all in one app', it integrates essential spiritual tools like accurate prayer times and Qibla direction with a vibrant community platform for sharing spiritual journeys and Halal choices.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/salamly/sneak-1.png",
+        "/images/singlePageProjects/app/salamly/sneak-2.png",
+        "/images/singlePageProjects/app/salamly/sneak-3.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        },
+        {
+          "name": "Firebase",
+          "logo": "/images/home/technology/backend/firebase.svg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "slug": "iqra-quran",
+      "title": "Iqra Quran",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/iqraquran/iqraquran.jpg",
+      "mainImage": "/images/iqraquran.jpg",
+      "about": "Iqra Quran is a comprehensive digital Quran application designed for seamless reading, listening, and learning. Experience beautiful typography, authentic recitations, and interactive features that bring the Holy Quran to your fingertips.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/iqraquran/iqraquran1.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran2.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran3.jpg",
+        "/images/singlePageProjects/app/iqraquran/iqraquran4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "smart-logo-maker",
+      "title": "Smart Logo Maker",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/smartlogomaker/smartlogomaker.jpg",
+      "mainImage": "/images/smartlogomaker.jpg",
+      "about": "Smart Logo Maker helps you create professional and unique logos in seconds. With powerful AI-driven tools, a vast library of icons, and advanced customization, designing your brand identity has never been easier.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker1.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker2.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker3.jpg",
+        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker4.jpg"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "drafidox",
+      "title": "Drafidox",
+      "description": "",
+      "heroImage": "/images/singlePageProjects/app/drafidox/drafidox.png",
+      "mainImage": "/images/drafidox.png",
+      "about": "Drafidox is a high-performance document conversion platform that simplifies your workflow. With support for PDF to Word, Word to PDF, image-to-text, and more, it provides a seamless and secure experience for users and businesses alike.",
+      "sneakPeekImages": [
+        "/images/singlePageProjects/app/drafidox/drafidox1.png",
+        "/images/singlePageProjects/app/drafidox/drafidox2.png",
+        "/images/singlePageProjects/app/drafidox/drafidox3.png"
+      ],
+      "technologies": [
+        {
+          "name": "Flutter",
+          "logo": "/images/home/technology/mobile/flutter.svg"
+        },
+        {
+          "name": "Android",
+          "logo": "/images/home/technology/mobile/android.svg"
+        },
+        {
+          "name": "iOS",
+          "logo": "/images/home/technology/mobile/ios.svg"
+        },
+        {
+          "name": "Node JS",
+          "logo": "/images/home/technology/backend/nodejs.svg"
         }
       ]
     },
@@ -1020,104 +1422,6 @@
       ]
     },
     {
-      "id": 5,
-      "slug": "drafidox",
-      "title": "Drafidox",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/app/drafidox/drafidox.png",
-      "mainImage": "/images/drafidox.png",
-      "about": "Drafidox is a high-performance document conversion platform that simplifies your workflow. With support for PDF to Word, Word to PDF, image-to-text, and more, it provides a seamless and secure experience for users and businesses alike.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/app/drafidox/drafidox1.png",
-        "/images/singlePageProjects/app/drafidox/drafidox2.png",
-        "/images/singlePageProjects/app/drafidox/drafidox3.png"
-      ],
-      "technologies": [
-        {
-          "name": "Flutter",
-          "logo": "/images/home/technology/mobile/flutter.svg"
-        },
-        {
-          "name": "Android",
-          "logo": "/images/home/technology/mobile/android.svg"
-        },
-        {
-          "name": "iOS",
-          "logo": "/images/home/technology/mobile/ios.svg"
-        },
-        {
-          "name": "Node JS",
-          "logo": "/images/home/technology/backend/nodejs.svg"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "slug": "smart-logo-maker",
-      "title": "Smart Logo Maker",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/app/smartlogomaker/smartlogomaker.jpg",
-      "mainImage": "/images/smartlogomaker.jpg",
-      "about": "Smart Logo Maker helps you create professional and unique logos in seconds. With powerful AI-driven tools, a vast library of icons, and advanced customization, designing your brand identity has never been easier.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker1.jpg",
-        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker2.jpg",
-        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker3.jpg",
-        "/images/singlePageProjects/app/smartlogomaker/smartlogomaker4.jpg"
-      ],
-      "technologies": [
-        {
-          "name": "Flutter",
-          "logo": "/images/home/technology/mobile/flutter.svg"
-        },
-        {
-          "name": "Android",
-          "logo": "/images/home/technology/mobile/android.svg"
-        },
-        {
-          "name": "iOS",
-          "logo": "/images/home/technology/mobile/ios.svg"
-        },
-        {
-          "name": "Node JS",
-          "logo": "/images/home/technology/backend/nodejs.svg"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "slug": "iqra-quran",
-      "title": "Iqra Quran",
-      "description": "",
-      "heroImage": "/images/singlePageProjects/app/iqraquran/iqraquran.jpg",
-      "mainImage": "/images/iqraquran.jpg",
-      "about": "Iqra Quran is a comprehensive digital Quran application designed for seamless reading, listening, and learning. Experience beautiful typography, authentic recitations, and interactive features that bring the Holy Quran to your fingertips.",
-      "sneakPeekImages": [
-        "/images/singlePageProjects/app/iqraquran/iqraquran1.jpg",
-        "/images/singlePageProjects/app/iqraquran/iqraquran2.jpg",
-        "/images/singlePageProjects/app/iqraquran/iqraquran3.jpg",
-        "/images/singlePageProjects/app/iqraquran/iqraquran4.jpg"
-      ],
-      "technologies": [
-        {
-          "name": "Flutter",
-          "logo": "/images/home/technology/mobile/flutter.svg"
-        },
-        {
-          "name": "Android",
-          "logo": "/images/home/technology/mobile/android.svg"
-        },
-        {
-          "name": "iOS",
-          "logo": "/images/home/technology/mobile/ios.svg"
-        },
-        {
-          "name": "Node JS",
-          "logo": "/images/home/technology/backend/nodejs.svg"
-        }
-      ]
-    },
-    {
       "id": 8,
       "slug": "mx-player",
       "title": "MX Player",
@@ -1193,7 +1497,7 @@
         "/images/singlePageProjects/app/abckids/abckids1.jpg",
         "/images/singlePageProjects/app/abckids/abckids2.jpg",
         "/images/singlePageProjects/app/abckids/abckids3.jpg",
-        "/images/singlePageProjects/app/abckids/abckids4.jpg"
+        "/images/singlePageKids/app/abckids/abckids4.jpg"
       ],
       "technologies": [
         {
