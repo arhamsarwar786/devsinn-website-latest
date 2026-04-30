@@ -14,7 +14,7 @@ const basePath = path.join(__dirname, '../public/images/singlePageProjects/web')
 async function run() {
   // Use a tall viewport to capture a long, beautiful screenshot without fullPage bugs
   const browser = await puppeteer.launch({ headless: 'new', defaultViewport: { width: 1920, height: 3500 } });
-  
+
   for (const site of sites) {
     console.log(`Processing ${site.slug}...`);
     const dir = path.join(basePath, site.folder);
@@ -23,7 +23,7 @@ async function run() {
     const page = await browser.newPage();
     try {
       await page.goto(site.url, { waitUntil: 'networkidle2', timeout: 60000 });
-      
+
       // Scroll to trigger lazy loading
       await page.evaluate(async () => {
         await new Promise((resolve) => {
@@ -42,17 +42,17 @@ async function run() {
         });
         window.scrollTo(0, 0);
       });
-      
+
       // Wait for images to render
       await new Promise(r => setTimeout(r, 4000));
-      
+
       // Capture the 1920x3500 viewport
       const filePath = path.join(dir, 'main.png');
       await page.screenshot({ path: filePath });
       fs.copyFileSync(filePath, path.join(dir, 'hero.png'));
       fs.copyFileSync(filePath, path.join(dir, 'sneak-1.png'));
       fs.copyFileSync(filePath, path.join(dir, 'sneak-2.png'));
-      
+
       console.log(`- Saved screenshots for ${site.slug}`);
     } catch (e) {
       console.error(`Error processing ${site.slug}:`, e);
@@ -60,7 +60,7 @@ async function run() {
       await page.close();
     }
   }
-  
+
   await browser.close();
   console.log('Done screenshots.');
 }
