@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
+
       <BlogList />
       <DevsinnOffice />
       <Footer />
