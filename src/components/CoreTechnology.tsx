@@ -56,10 +56,11 @@ export default function CoreTechnology() {
 
         <div className="flex w-full flex-col items-center gap-12">
           {/* Custom Animated Tabs */}
-          <motion.div
-            variants={fadeInUp}
-            className="relative flex flex-wrap items-center justify-center gap-2 rounded-[2rem] border border-white/5 bg-[var(--surface-1)] p-2 sm:gap-3"
-          >
+          <div className="w-full overflow-x-auto scrollbar-hide px-4">
+            <motion.div
+              variants={fadeInUp}
+              className="relative mx-auto flex w-fit min-w-max items-center justify-center gap-2 rounded-[2rem] border border-white/5 bg-[var(--surface-1)] p-2 sm:gap-3"
+            >
             {tabs.map((tab) => {
               const isActive = activeTab === tab.id;
               return (
@@ -84,7 +85,8 @@ export default function CoreTechnology() {
                 </button>
               );
             })}
-          </motion.div>
+            </motion.div>
+          </div>
 
           <motion.div
             variants={card3D}
