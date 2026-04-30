@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { ChangeEvent, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -25,8 +25,8 @@ const contactDetails = [
   },
   {
     title: "Email",
-    value: "info@devsinntechnologies.com",
-    href: "mailto:info@devsinntechnologies.com",
+    value: "devsinntechnologies@gmail.com",
+    href: "mailto:devsinntechnologies@gmail.com",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M4 6H20C21.1 6 22 6.9 22 8V16C22 17.1 21.1 18 20 18H4C2.9 18 2 17.1 2 16V8C2 6.9 2.9 6 4 6Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />

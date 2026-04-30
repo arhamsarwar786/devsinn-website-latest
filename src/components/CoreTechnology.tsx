@@ -141,12 +141,26 @@ export default function CoreTechnology() {
                     )}
                     {activeTab === "ai" && (
                       <>
+                        <TechItem name="OpenAI" icon="openai" />
+                        <TechItem name="Google Gemini" icon="googlegemini" />
+                        <TechItem name="Claude" icon="claude" />
+                        <TechItem name="Anthropic" icon="anthropic" />
                         <TechItem name="TensorFlow" icon="tensorflow" />
                         <TechItem name="PyTorch" icon="pytorch" />
-                        <TechItem name="OpenAI" icon="openai" />
-                        <TechItem name="Keras" icon="keras" />
+                        <TechItem name="LangChain" icon="langchain" />
                         <TechItem name="Hugging Face" icon="huggingface" />
+                        <TechItem name="Mistral AI" icon="mistralai" />
+                        <TechItem name="Meta" icon="meta" />
+                        <TechItem name="NVIDIA" icon="nvidia" />
+                        <TechItem name="Google Cloud" icon="googlecloud" />
+                        <TechItem name="Azure" icon="microsoftazure" />
+                        <TechItem name="Databricks" icon="databricks" />
+                        <TechItem name="Keras" icon="keras" />
                         <TechItem name="Scikit-Learn" icon="scikitlearn" />
+                        <TechItem name="Pandas" icon="pandas" />
+                        <TechItem name="NumPy" icon="numpy" />
+                        <TechItem name="Jupyter" icon="jupyter" />
+                        <TechItem name="Perplexity" icon="perplexity" />
                       </>
                     )}
                   </motion.div>
