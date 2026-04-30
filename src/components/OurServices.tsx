@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion, AnimatePresence, useInView, useAnimationFrame } from "framer-motion";
@@ -424,9 +424,7 @@ export default function OurServices() {
               Explore {active.label}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </Link>
-            <Link href="#" className="text-[13.5px] font-medium text-[#b4d0eb] underline-offset-4 hover:text-white hover:underline transition-colors">
-              All Services ↗
-            </Link>
+
           </div>
         </motion.div>
 
