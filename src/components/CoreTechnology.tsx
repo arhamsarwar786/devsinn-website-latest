@@ -162,6 +162,10 @@ export default function CoreTechnology() {
                         <TechItem name="Jupyter" icon="jupyter" />
                         <TechItem name="Perplexity" icon="perplexity" />
                       </>
+
+
+
+
                     )}
                   </motion.div>
                 </AnimatePresence>
