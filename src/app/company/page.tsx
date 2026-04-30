@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 export default function CompanyPage() {
   return (
     <>
+      
       <InfoPage {...companyPageContent} />
       <DevsinnOffice />
       <Footer />
