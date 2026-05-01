@@ -10,6 +10,7 @@ const tabs = [
   { id: "arts", label: "Arts & Illustration" },
   { id: "software", label: "Software Development" },
   { id: "ai", label: "AI Technologies" },
+  { id: "cloud", label: "Cloud & DevOps" },
 ];
 
 export default function CoreTechnology() {
@@ -119,6 +120,15 @@ export default function CoreTechnology() {
                         <TechItem name="Figma" icon="figma" />
                         <TechItem name="Photoshop" icon="adobephotoshop" />
                         <TechItem name="Illustrator" icon="adobeillustrator" />
+                        <TechItem name="CorelDRAW" icon="coreldraw" />
+                        <TechItem name="Canva" icon="canva" />
+                        <TechItem name="Zeplin" icon="https://api.iconify.design/logos:zeplin.svg" />
+                        <TechItem name="Framer" icon="framer" />
+                        <TechItem name="LottieFiles" icon="lottiefiles" />
+                        <TechItem name="Rive" icon="rive" />
+                        <TechItem name="Blender" icon="blender" />
+                        <TechItem name="Figma Maker" icon="figma" />
+                        <TechItem name="Replit" icon="replit" />
                         <TechItem name="Adobe XD" icon="adobexd" />
                         <TechItem name="Sketch" icon="sketch" />
                         <TechItem name="InVision" icon="invision" />
@@ -139,6 +149,7 @@ export default function CoreTechnology() {
                         <TechItem name="Apple" icon="apple" />
                         <TechItem name=".NET Core" icon="dotnet" />
                         <TechItem name="Kafka" icon="apachekafka" />
+                        <TechItem name="Replit" icon="replit" />
                       </>
                     )}
                     {activeTab === "ai" && (
@@ -147,27 +158,38 @@ export default function CoreTechnology() {
                         <TechItem name="Google Gemini" icon="googlegemini" />
                         <TechItem name="Claude" icon="claude" />
                         <TechItem name="Anthropic" icon="anthropic" />
-                        <TechItem name="TensorFlow" icon="tensorflow" />
-                        <TechItem name="PyTorch" icon="pytorch" />
-                        <TechItem name="LangChain" icon="langchain" />
-                        <TechItem name="Hugging Face" icon="huggingface" />
                         <TechItem name="Mistral AI" icon="mistralai" />
-                        <TechItem name="Meta" icon="meta" />
-                        <TechItem name="NVIDIA" icon="nvidia" />
-                        <TechItem name="Google Cloud" icon="googlecloud" />
-                        <TechItem name="Azure" icon="microsoftazure" />
-                        <TechItem name="Databricks" icon="databricks" />
-                        <TechItem name="Keras" icon="keras" />
-                        <TechItem name="Scikit-Learn" icon="scikitlearn" />
-                        <TechItem name="Pandas" icon="pandas" />
-                        <TechItem name="NumPy" icon="numpy" />
-                        <TechItem name="Jupyter" icon="jupyter" />
-                        <TechItem name="Perplexity" icon="perplexity" />
+                        <TechItem name="Meta AI" icon="meta" />
+                        <TechItem name="Perplexity AI" icon="perplexity" />
+                        <TechItem name="xAI" icon="https://api.iconify.design/simple-icons:x.svg" />
+                        <TechItem name="Cohere" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/cohere.svg" />
+                        <TechItem name="DeepSeek AI" icon="deepseek" />
+                        <TechItem name="Grok AI" icon="https://api.iconify.design/simple-icons:x.svg" />
+                        <TechItem name="Stability AI" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/stability.svg" />
+                        <TechItem name="Midjourney" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/midjourney.svg" />
+                        <TechItem name="Runway AI" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/runway.svg" />
+                        <TechItem name="ElevenLabs" icon="elevenlabs" />
                       </>
 
 
 
 
+                    )}
+                    {activeTab === "cloud" && (
+                      <>
+                        <TechItem name="AWS" icon="amazonwebservices" />
+                        <TechItem name="Azure" icon="microsoftazure" />
+                        <TechItem name="Google Cloud" icon="googlecloud" />
+                        <TechItem name="DigitalOcean" icon="digitalocean" />
+                        <TechItem name="Docker" icon="docker" />
+                        <TechItem name="Kubernetes" icon="kubernetes" />
+                        <TechItem name="Terraform" icon="terraform" />
+                        <TechItem name="Vercel" icon="vercel" />
+                        <TechItem name="Netlify" icon="netlify" />
+                        <TechItem name="Cloudflare" icon="cloudflare" />
+                        <TechItem name="Heroku" icon="heroku" />
+                        <TechItem name="GitHub Actions" icon="githubactions" />
+                      </>
                     )}
                   </motion.div>
                 </AnimatePresence>
@@ -203,7 +225,7 @@ function TechItem({ name, icon }: { name: string; icon: string }) {
 
         {/* Using jsDelivr for high reliability and speed */}
         <img
-          src={`https://cdn.jsdelivr.net/npm/simple-icons/icons/${icon}.svg`}
+          src={icon.startsWith('http') ? icon : `https://cdn.jsdelivr.net/npm/simple-icons/icons/${icon}.svg`}
           alt={`${name} icon`}
           className="relative z-10 h-8 w-8 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-110 brightness-0 invert"
           loading="lazy"

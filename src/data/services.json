@@ -25,7 +25,7 @@
         "description": "Logos, typography, color systems, and creative guidelines that give your business a clear visual voice."
       }
     ],
-    "technologies": ["Figma", "Adobe Illustrator", "Photoshop", "After Effects", "Blender", "Premiere Pro"],
+    "technologies": ["Figma", "Figma Maker", "Adobe Illustrator", "Photoshop", "CorelDRAW", "Canva", "Zeplin", "Framer", "LottieFiles", "Rive", "Blender", "After Effects", "Premiere Pro", "Replit"],
     "projects": [
       "/portfolio/portfolio7.png",
       "/portfolio/portfolio8.png",
@@ -58,7 +58,7 @@
         "description": "Secure dashboards and internal systems that simplify processes, visibility, and team efficiency."
       }
     ],
-    "technologies": ["React", "Next.js", "Node.js", "Express", "Laravel", "WordPress", "PHP", ".NET"],
+    "technologies": ["React", "Next.js", "Node.js", "Express", "Laravel", "WordPress", "PHP", ".NET", "Replit"],
     "projects": [
       "/portfolio/portfolio1.png",
       "/portfolio/portfolio2.png",
@@ -157,7 +157,7 @@
         "description": "Future-ready applications with stronger accessibility, data sync, and infrastructure flexibility."
       }
     ],
-    "technologies": ["AWS", "Azure", "Google Cloud", "DigitalOcean", "DevOps", "Cloud Security"],
+    "technologies": ["AWS", "Azure", "Google Cloud", "DigitalOcean", "Docker", "Kubernetes", "Terraform", "Vercel", "Netlify", "Cloudflare", "GitHub Actions", "Cloud Security"],
     "projects": [
       "/portfolio/portfolio3.png",
       "/portfolio/portfolio5.png",
