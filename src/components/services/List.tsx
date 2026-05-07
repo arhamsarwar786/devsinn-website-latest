@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -176,9 +176,9 @@ function ServiceCard({ service, index }: { service: (typeof services)[0]; index:
               href={`/services/${service.id}`}
               className="group inline-flex items-center gap-3 rounded-full px-7 py-3.5 text-[14px] font-bold text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-lg"
               style={{
-                background: `linear-gradient(135deg, ${service.color} 0%, ${service.color}cc 100%)`,
+                background: `linear-gradient(135deg, ${service.color} 0%, ${service.color} 100%)`,
                 boxShadow: `0 8px 24px ${service.glow}`,
-                color: "#050f24",
+                color: "#ffffff",
               }}
             >
               {service.buttonLabel}

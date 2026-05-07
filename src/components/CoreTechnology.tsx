@@ -99,11 +99,7 @@ export default function CoreTechnology() {
               style={{ background: 'linear-gradient(135deg, var(--primary-subtle), transparent, var(--accent-subtle))' }} />
 
             <div className="relative flex h-full w-full items-center justify-center overflow-hidden px-6 py-10 sm:px-10 sm:py-12 lg:px-14 lg:py-14">
-              {/* Subtle inner grid */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-[0.03]"
-                style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: "30px 30px" }}
-              />
+
 
               <div className="relative w-full max-w-[1000px]">
                 <AnimatePresence mode="wait">
@@ -122,7 +118,7 @@ export default function CoreTechnology() {
                         <TechItem name="Illustrator" icon="adobeillustrator" />
                         <TechItem name="CorelDRAW" icon="coreldraw" />
                         <TechItem name="Canva" icon="canva" />
-                        <TechItem name="Zeplin" icon="https://api.iconify.design/logos:zeplin.svg" />
+                        <TechItem name="Zeplin" icon="zeplin" />
                         <TechItem name="Framer" icon="framer" />
                         <TechItem name="LottieFiles" icon="lottiefiles" />
                         <TechItem name="Rive" icon="rive" />
@@ -161,19 +157,15 @@ export default function CoreTechnology() {
                         <TechItem name="Mistral AI" icon="mistralai" />
                         <TechItem name="Meta AI" icon="meta" />
                         <TechItem name="Perplexity AI" icon="perplexity" />
-                        <TechItem name="xAI" icon="https://api.iconify.design/simple-icons:x.svg" />
-                        <TechItem name="Cohere" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/cohere.svg" />
+                        <TechItem name="xAI" icon="x" />
+                        <TechItem name="Cohere" icon="cohere" />
                         <TechItem name="DeepSeek AI" icon="deepseek" />
-                        <TechItem name="Grok AI" icon="https://api.iconify.design/simple-icons:x.svg" />
-                        <TechItem name="Stability AI" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/stability.svg" />
-                        <TechItem name="Midjourney" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/midjourney.svg" />
-                        <TechItem name="Runway AI" icon="https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-svg/icons/runway.svg" />
+                        <TechItem name="Grok AI" icon="x" />
+                        <TechItem name="Stability AI" icon="stability" />
+                        <TechItem name="Midjourney" icon="midjourney" />
+                        <TechItem name="Runway AI" icon="runway" />
                         <TechItem name="ElevenLabs" icon="elevenlabs" />
                       </>
-
-
-
-
                     )}
                     {activeTab === "cloud" && (
                       <>
@@ -207,9 +199,6 @@ function TechItem({ name, icon }: { name: string; icon: string }) {
     <div className="group flex flex-col items-center justify-center gap-3 transition-transform duration-300 hover:-translate-y-2">
       <div
         className="relative flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-[var(--surface-1)] shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300"
-        style={{
-          ['--hover-border' as string]: 'var(--primary)',
-        }}
         onMouseEnter={e => {
           (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--primary)';
           (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 30px var(--primary-glow)';
@@ -223,9 +212,8 @@ function TechItem({ name, icon }: { name: string; icon: string }) {
         <div className="absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
           style={{ background: 'linear-gradient(135deg, var(--primary-subtle), var(--secondary-subtle))' }} />
 
-        {/* Using jsDelivr for high reliability and speed */}
         <img
-          src={icon.startsWith('http') ? icon : `https://cdn.jsdelivr.net/npm/simple-icons/icons/${icon}.svg`}
+          src={`/images/tech/${icon}.svg`}
           alt={`${name} icon`}
           className="relative z-10 h-8 w-8 object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-110 brightness-0 invert"
           loading="lazy"

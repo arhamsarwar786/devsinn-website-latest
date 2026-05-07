@@ -51,15 +51,7 @@ function WorldMapBackground() {
           background: "conic-gradient(from 0deg, transparent 60%, rgba(56,189,248,0.05) 80%, rgba(56,189,248,0.3) 100%)",
         }}
       />
-      {/* Core Grid Floor */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
-          backgroundSize: "30px 30px",
-          backgroundPosition: "center center"
-        }}
-      />
+
 
       {/* REALISTIC HIGH-RES MAP (Using original image) */}
       <div className="absolute inset-0 opacity-70 mix-blend-screen px-8 py-8 pointer-events-none">
@@ -76,9 +68,7 @@ function WorldMapBackground() {
       {/* Connection Arc & Grid Overlay Vector */}
       <svg className="absolute inset-0 h-full w-full opacity-[0.85] mix-blend-screen drop-shadow-[0_0_15px_rgba(56,189,248,0.2)] pointer-events-none" viewBox="0 0 100 100" fill="none" preserveAspectRatio="none">
 
-        {/* Decorative Grid Lines within Map */}
-        <path d="M 0 50 H 100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.2" strokeDasharray="1 1" />
-        <path d="M 50 0 V 100" stroke="rgba(255,255,255,0.05)" strokeWidth="0.2" strokeDasharray="1 1" />
+
 
         {/* Global Connection Arc from UK (x:48, y:32) to PAK (x:71, y:54) */}
         <path

@@ -22,7 +22,7 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-30"
+          className="object-cover object-center opacity-15"
         />
       </motion.div>
 
@@ -40,14 +40,7 @@ export default function Hero() {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
-      {/* Grid pattern overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
+
 
       {/* Dark vignette */}
       <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at center, transparent 0%, var(--surface-0) 100%)' }} />
