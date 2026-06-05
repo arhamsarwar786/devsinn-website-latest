@@ -1,128 +1,249 @@
 @import "tailwindcss";
 
-/* ============================================================
-   DEV'S INN TECHNOLOGIES — Brand Theme Variables
-   Extracted directly from the logo:
-   • Primary   → Blue  (#4B8EF1)  – "DEV'S INN" text colour
-   • Secondary → Teal  (#00C9A7)  – "TECHNOLOGIES" + circuit colour
-   • Accent    → Purple (#6B4CF5) – logo gradient start
-   ============================================================ */
 :root {
-  /* --- Background / Foreground --- */
-  --background: #060C1A;
-  --foreground: #ffffff;
+  /* --- Strict 60/30/10 Color System --- */
+  --background: #F8F8F6;
+  /* 60% dominant page background */
+  --foreground: #1A1A18;
+  /* 30% dominant ink color */
 
-  /* --- Brand Primary (Logo Blue) --- */
-  --primary:          #4B8EF1;
-  --primary-light:    #7CB3F7;
-  --primary-dark:     #2E6DD4;
-  --primary-glow:     rgba(75, 142, 241, 0.35);
-  --primary-subtle:   rgba(75, 142, 241, 0.10);
-
-  /* --- Brand Secondary (Logo Teal / Cyan) --- */
-  --secondary:        #00C9A7;
-  --secondary-light:  #33D9BC;
-  --secondary-dark:   #009E84;
-  --secondary-glow:   rgba(0, 201, 167, 0.35);
-  --secondary-subtle: rgba(0, 201, 167, 0.10);
-
-  /* --- Brand Accent (Logo Gradient Purple) --- */
-  --accent:           #6B4CF5;
-  --accent-light:     #8E75F8;
-  --accent-dark:      #4D31D4;
-  --accent-glow:      rgba(107, 76, 245, 0.35);
-  --accent-subtle:    rgba(107, 76, 245, 0.10);
-
-  /* --- Logo Gradient (used for text & borders) --- */
-  --grad-logo:        linear-gradient(135deg, #6B4CF5 0%, #4B8EF1 50%, #00C9A7 100%);
-  --grad-primary:     linear-gradient(135deg, #4B8EF1 0%, #00C9A7 100%);
-  --grad-accent:      linear-gradient(135deg, #6B4CF5 0%, #4B8EF1 100%);
-
-  /* --- Surface / Card colours (dark bg) --- */
-  --surface-0:  #060C1A;
-  --surface-1:  #0A1020;
-  --surface-2:  #0E1630;
-
-  /* --- Text hierarchy --- */
-  --text-primary:   #ffffff;
-  --text-secondary: rgba(255,255,255,0.65);
-  --text-muted:     rgba(255,255,255,0.35);
+  --color-offwhite: #F8F8F6;
+  /* 60% dominant */
+  --color-nearblack: #1A1A18;
+  /* 30% dominant */
+  --color-teal: #3AB9BC;
+  /* 10% CTA / active */
+  --color-stone: #E8E6E0;
+  /* Surface separator */
+  --color-gray: #6B6B66;
+  /* Secondary body / captions */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-montserrat);
+  --color-offwhite: var(--color-offwhite);
+  --color-nearblack: var(--color-nearblack);
+  --color-teal: var(--color-teal);
+  --color-stone: var(--color-stone);
+  --color-gray: var(--color-gray);
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  background-color: var(--color-offwhite);
+  color: var(--color-nearblack);
+  font-family: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
 html,
 body {
   width: 100%;
   max-width: 100vw;
-  overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 h1,
-h2,
+h2 {
+  font-family: var(--font-syne), sans-serif;
+  color: var(--color-nearblack);
+}
+
 h3,
 h4,
 h5,
 h6,
 button,
 a {
-  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-:where(a, button, [role="button"], input, select, textarea):focus-visible {
-  outline: none;
-  box-shadow:
-    0 0 0 2px rgba(10, 24, 54, 0.92),
-    0 0 0 5px rgba(126, 223, 255, 0.4);
+/* Typography Constraints */
+.h1-hero {
+  font-family: var(--font-syne), sans-serif;
+  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-nearblack);
 }
 
-.hero-dot {
-  animation: heroPulse 4.6s ease-in-out infinite;
+.h2-section {
+  font-family: var(--font-syne), sans-serif;
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-nearblack);
 }
 
-
-@keyframes heroPulse {
-  0%,
-  100% {
-    transform: scale(0.8);
-    opacity: 0.35;
-  }
-  50% {
-    transform: scale(1.22);
-    opacity: 1;
-  }
+.h3-card {
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 600;
+  color: var(--color-nearblack);
 }
 
-@keyframes heroFloat {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(-12px, 8px, 0) rotate(6deg);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
+.body-text {
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-gray);
 }
 
+.caption-text {
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-gray);
+}
+
+.teal-tag {
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-teal);
+}
+
+/* Custom Cursor lerp styling */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 1.5px solid var(--color-nearblack);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cursor-ring.cursor-hover {
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+}
+
+/* Scrollbar styling */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Text reveal helper */
+.reveal-wrapper {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.reveal-word {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+/* CTA Sweep Interactions */
+.btn-sweep {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn-sweep::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+
+.btn-sweep.sweep-primary::before {
+  background-color: var(--color-teal);
+}
+
+.btn-sweep.sweep-secondary::before {
+  background-color: var(--color-nearblack);
+}
+
+.btn-sweep.sweep-outline::before {
+  background-color: var(--color-nearblack);
+}
+
+.btn-sweep:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+
+.btn-sweep:hover {
+  transform: scale(1.02);
+}
+
+.btn-sweep:active {
+  transform: scale(0.98);
+}
+
+.btn-sweep.sweep-outline:hover {
+  color: var(--color-offwhite);
+  border-color: var(--color-nearblack);
+}
+
+/* --- Project Card Screenshot Hover Scroll --- */
+.project-image-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: var(--color-stone);
+}
+
+.project-image-scroll {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(0);
+  transition: transform 4s ease-in-out;
+}
+
+.project-card:hover .project-image-scroll {
+  transform: translateY(calc(-100% + 320px));
+}
+
+@media (min-width: 768px) {
+  .project-image-container {
+    height: 360px;
+  }
+
+  .project-card:hover .project-image-scroll {
+    transform: translateY(calc(-100% + 360px));
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

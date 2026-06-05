@@ -1,201 +1,354 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CalendlyModal from "@/components/ui/CalendlyModal";
-import { fadeInUp, staggerContainer } from "@/lib/motion";
+import Button from "@/components/ui/Button";
 
-const stats = [
-  { value: "100+", label: "Satisfied Clients" },
-  { value: "150+", label: "Projects Completed" },
-  { value: "7+", label: "Years Experience" },
+gsap.registerPlugin(ScrollTrigger);
+
+const trustItems = [
+  "Web Apps",
+  "Mobile Apps",
+  "SaaS MVPs",
+  "AI Automation",
+  "Dedicated Teams",
 ];
 
 export default function Hero() {
   const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<SVGSVGElement>(null);
+  const mockupRef = useRef<HTMLDivElement>(null);
+
+  // Elements for word split animations
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const trustRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Check prefers-reduced-motion
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      // Force elements to their final states instantly
+      gsap.set(".reveal-word", { y: "0%", opacity: 1 });
+      gsap.set([subRef.current, ctaRef.current, trustRef.current, ".floating-card", mockupRef.current], { opacity: 1, y: 0 });
+      return;
+    }
+
+    const runAnimations = () => {
+      // 1. Text Reveal Effect
+      const revealTimeline = gsap.timeline();
+      revealTimeline.to(".hero-heading .reveal-word", {
+        y: "0%",
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.06,
+        ease: "power3.out",
+      });
+
+      // 2. Entrance for supporting details
+      revealTimeline.fromTo(
+        [subRef.current, ctaRef.current, trustRef.current],
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: "power2.out" },
+        "-=0.4"
+      );
+
+      // 3. Scroll-linked Background Logo/Ring Rotation (0 -> 360deg over 100vh)
+      if (ringRef.current && heroRef.current) {
+        gsap.to(ringRef.current, {
+          rotation: 360,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+      }
+
+      // 4. Scroll Media Component translation
+      if (mockupRef.current && heroRef.current) {
+        gsap.to(mockupRef.current, {
+          y: -60,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      // 5. Floating cards looping oscillation (translateY ±8px)
+      gsap.to(".float-card-1", {
+        y: 8,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+
+      gsap.to(".float-card-2", {
+        y: -8,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        delay: 1.2,
+      });
+
+      gsap.to(".float-card-3", {
+        y: 6,
+        duration: 3.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+        delay: 0.6,
+      });
+    };
+
+    // If an intro curtain is present in DOM, wait for the slide-up completion trigger
+    const hasCurtain = document.querySelector(".intro-curtain") || document.querySelector(".consent-overlay");
+    if (hasCurtain) {
+      window.addEventListener("introComplete", runAnimations);
+    } else {
+      runAnimations();
+    }
+
+    return () => {
+      window.removeEventListener("introComplete", runAnimations);
+    };
+  }, []);
+
+  // Split title: "AI-Powered Software Engineering for Startups & Growing Businesses"
+  const titleWords = "AI-Powered Software Engineering for Startups & Growing Businesses".split(" ");
 
   return (
-    <section className="relative flex h-screen flex-col overflow-hidden bg-[var(--surface-0)] text-white">
+    <section
+      ref={heroRef}
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-offwhite py-24 md:py-32"
+    >
       <CalendlyModal
         isOpen={isCalendlyOpen}
         onClose={() => setIsCalendlyOpen(false)}
         url="https://calendly.com/devsinntechnologies/30min?hide_gdpr_banner=1"
       />
 
-      {/* Deep Space Background Glows */}
-      <div className="absolute inset-0 bg-[var(--surface-0)]" />
-
-      {/* Animated Glowing Orbs */}
-      <motion.div
-        className="pointer-events-none absolute left-[60%] top-[40%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, var(--primary-glow) 0%, transparent 60%)" }}
-        animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute right-[-10%] top-[20%] h-[600px] w-[600px] rounded-full"
-        style={{ background: "radial-gradient(circle, var(--accent-glow) 0%, transparent 60%)" }}
-        animate={{ x: [0, -40, 0], y: [0, 40, 0], scale: [1, 1.2, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
-
-      {/* Local Video Background */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="absolute inset-0 z-0 overflow-hidden pointer-events-none" style={{ background: 'radial-gradient(circle at 70% 50%, var(--primary-subtle), transparent 50%)' } as React.CSSProperties}
-      >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute left-1/2 top-1/2 min-h-full min-w-full -translate-x-1/2 -translate-y-1/2 object-cover opacity-60 mix-blend-screen"
+      {/* Decorative Rotating Ring / Logo Mark in Background */}
+      <div className="pointer-events-none absolute right-[-5%] top-[10%] z-0 h-[600px] w-[600px] opacity-[0.4] sm:right-[5%] md:top-[15%] md:h-[700px] md:w-[700px] lg:h-[800px] lg:w-[800px]">
+        <svg
+          ref={ringRef}
+          className="h-full w-full text-stone"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <source src="/video/vedio.mp4" type="video/mp4" />
-        </video>
+          <circle cx="50" cy="50" r="45" strokeDasharray="4 4" />
+          <circle cx="50" cy="50" r="35" />
+          <circle cx="50" cy="50" r="25" strokeDasharray="10 6" />
+          {/* Logo accent mark elements */}
+          <path d="M50 5 L50 15 M50 85 L50 95 M5 50 L15 50 M85 50 L95 50" strokeWidth="1" />
+          <circle cx="50" cy="10" r="2" fill="var(--color-teal)" stroke="none" />
+          <circle cx="50" cy="90" r="2" fill="var(--color-teal)" stroke="none" />
+          <circle cx="10" cy="50" r="2" fill="var(--color-teal)" stroke="none" />
+          <circle cx="90" cy="50" r="2" fill="var(--color-teal)" stroke="none" />
+        </svg>
+      </div>
 
-        {/* Ambient glow to enhance the cinematic feel and blend the video */}
-        <div className="absolute right-[10%] top-1/2 -translate-y-1/2 h-[80vmin] w-[80vmin] rounded-full blur-[120px] pointer-events-none" style={{ background: 'linear-gradient(135deg, var(--primary-subtle), var(--accent-subtle))' }} />
-      </motion.div>
+      <div className="relative z-10 mx-auto w-full max-w-[1568px] px-5 sm:px-8 lg:px-10 xl:px-16">
+        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8 xl:gap-16">
 
+          {/* Left Column - Copy & Call to Actions */}
+          <div className="flex flex-col justify-center lg:col-span-7 xl:col-span-6">
 
-      {/* Cinematic Vignette Overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[var(--surface-0)] via-[var(--surface-0)]/80 to-transparent lg:via-[var(--surface-0)]/60" />
-      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[var(--surface-0)] lg:via-[var(--surface-0)] lg:to-transparent lg:w-[45%]" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface-0)] via-transparent to-[var(--surface-0)]/50" />
-
-      {/* Floating Space Particles Overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 z-10 opacity-[0.03]"
-        style={{ backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`, backgroundSize: "40px 40px" }}
-      />
-
-      {/* Main Content */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="relative z-20 mx-auto w-full max-w-[1568px] flex-1 px-5 pt-16 pb-6 sm:px-8 sm:pt-20 lg:px-10 xl:px-16 flex flex-col justify-center"
-      >
-        <div className="flex w-full max-w-[650px] flex-col justify-center xl:max-w-[700px]">
-          {/* Pill badge removed as requested */}
-
-          <motion.h1
-            variants={fadeInUp}
-            className="text-[1.5rem] font-black uppercase leading-[1.05] tracking-[-0.04em] text-white xs:text-[1.8rem] sm:text-[2.2rem] md:text-[2.8rem] lg:text-[3.2rem] xl:text-[3.8rem]"
-          >
-            We Build &amp; <br />
-            <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'var(--grad-logo)' }}>
-              Refine Smart
-            </span> <br />
-            <span className="relative inline-block">
-              Web Solutions
-              <motion.span
-                className="absolute -bottom-2 left-0 h-1.5 w-[80%] to-transparent lg:w-[150%]" style={{ backgroundImage: 'linear-gradient(90deg, var(--primary), transparent)' }}
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-              />
-            </span>
-          </motion.h1>
-
-          <motion.p
-            variants={fadeInUp}
-            className="mt-3 max-w-[580px] text-[1rem] font-medium leading-[1.6] text-white/70 sm:mt-5 sm:text-[1.2rem] lg:text-[1.3rem]"
-          >
-            Realise your vision securely, collaborating effortlessly with anyone, anywhere, on any device.
-          </motion.p>
-
-          <motion.div
-            variants={fadeInUp}
-            className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center"
-          >
-            <div
-              onClick={() => window.open("https://api.whatsapp.com/send?phone=923365918295", "_blank", "noopener,noreferrer")}
-              className="group relative cursor-pointer overflow-hidden rounded-full bg-white px-6 py-3.5 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
-            >
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'linear-gradient(90deg, var(--primary-subtle), var(--primary-subtle)/0.3, var(--primary-subtle))' }} />
-              <span className="relative text-[15px] font-bold text-[var(--surface-0)] transition-colors group-hover:text-[var(--surface-0)]">
-                Chat With Us
+            {/* Eyebrow badge */}
+            <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-teal" />
+              </span>
+              <span className="text-[12px] font-semibold uppercase tracking-wider text-nearblack">
+                B2B Software Engineering Partner
               </span>
             </div>
 
-            <div
-              onClick={() => setIsCalendlyOpen(true)}
-              className="group relative cursor-pointer overflow-hidden rounded-full border border-white/20 bg-white/5 px-6 py-3.5 backdrop-blur-md transition-all hover:bg-white/10 sm:px-10" style={{ '--hover-border': 'var(--primary)' } as React.CSSProperties} onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--primary)')} onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)')}
+            {/* Headline with text-reveal split words */}
+            <h1
+              ref={headingRef}
+              className=" text-3xl md:text-6xl leading-[1.05] tracking-tight"
             >
-              <span className="text-[15px] font-bold text-white transition-colors" style={{ '--hover-color': 'var(--primary)' } as React.CSSProperties} onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')} onMouseLeave={e => (e.currentTarget.style.color = 'white')}>
-                Book A Call
-              </span>
-            </div>
-          </motion.div>
+              {titleWords.map((word, i) => (
+                <span key={i} className="reveal-wrapper mr-[0.25em]">
+                  <span className="">{word}</span>
+                </span>
+              ))}
+            </h1>
 
-          {/* Moved Floating Glassmorphic Stats to the LEFT under the buttons */}
-          <motion.div
-            variants={staggerContainer}
-            className="mt-5 flex flex-nowrap gap-2 sm:mt-6 sm:gap-3 lg:gap-4 w-full"
-          >
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeInUp}
-                whileHover={{ y: -8, scale: 1.05 }}
-                className="relative flex-1 overflow-hidden rounded-[1rem] border border-white/10 bg-[var(--surface-1)]/80 p-3 backdrop-blur-xl shadow-2xl transition-colors sm:rounded-[1.5rem] sm:p-5 xl:max-w-[220px]" onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--primary)')} onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)')}
+            {/* Subheadline */}
+            <p
+              ref={subRef}
+              className="body-text mt-6 max-w-[580px] text-gray"
+            >
+              We build scalable web apps, mobile apps, SaaS platforms, AI agents, and automation systems that help businesses reduce manual work, improve operations, and launch faster.
+            </p>
+
+            {/* Interactive CTAs */}
+            <div
+              ref={ctaRef}
+              className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+            >
+              <Button
+                id="hero-cta-consultation"
+                variant="primary"
+                onClick={() => setIsCalendlyOpen(true)}
               >
-                {/* Internal subtle glow on hover */}
-                <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: 'linear-gradient(135deg, var(--primary-subtle), var(--accent-subtle))' }} />
+                Book a Free Consultation
+              </Button>
 
-                <div className="relative z-10 flex flex-col items-start gap-1 text-left">
-                  <span className="text-[1.5rem] font-black leading-none text-transparent bg-clip-text sm:text-[2.2rem] lg:text-[2.8rem]" style={{ backgroundImage: 'var(--grad-primary)', filter: 'drop-shadow(0 0 10px var(--primary-glow))' }}>
-                    {stat.value}
-                  </span>
-                  <span className="mt-1 text-[0.6rem] font-bold uppercase tracking-wider text-white sm:mt-2 sm:text-[0.7rem] lg:text-[0.8rem]">
-                    {stat.label}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+              <Button
+                id="hero-cta-audit"
+                variant="outline"
+                href="/contact?type=product-audit"
+              >
+                Request Product Audit
+              </Button>
+            </div>
 
-      {/* Premium Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-4 group cursor-pointer"
-      >
-        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 transition-colors duration-300" style={{ '--hover-color': 'var(--primary)' } as React.CSSProperties} onMouseEnter={e => (e.currentTarget.style.color = 'var(--primary)')} onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.4)')}>
-          Scroll to explore
-        </span>
-        
-        <div className="relative h-[50px] w-[26px]">
-          {/* Mouse Outer Shell */}
-          <div className="absolute inset-0 rounded-full border border-white/10 bg-white/5 backdrop-blur-md transition-colors duration-500" />
-          
-          {/* Scrolling Dot Animation */}
-          <div className="absolute inset-0 flex justify-center pt-2">
-            <motion.div
-              animate={{ 
-                y: [0, 20, 0],
-                opacity: [0, 1, 0],
-                scaleY: [1, 1.5, 1]
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-              className="h-2 w-[2px] rounded-full" style={{ backgroundImage: 'var(--grad-primary)' }}
-            />
+            {/* Trust items */}
+            <div
+              ref={trustRef}
+              className="mt-10 flex flex-wrap items-center gap-2 border-t border-stone pt-6"
+            >
+              {trustItems.map((item, i) => (
+                <span key={item} className="flex items-center">
+                  <span className="caption-text rounded-full border border-stone bg-offwhite px-3 py-1 text-nearblack">
+                    {item}
+                  </span>
+                  {i < trustItems.length - 1 && (
+                    <span className="mx-2 text-stone">•</span>
+                  )}
+                </span>
+              ))}
+            </div>
           </div>
+
+          {/* Right Column - Product mockups */}
+          <div className="relative flex justify-center lg:col-span-5 xl:col-span-6">
+
+            {/* Large Product UI Mockup (scroll translates) */}
+            <div
+              ref={mockupRef}
+              className="relative w-full max-w-[500px] rounded-2xl border border-stone bg-offwhite p-3 shadow-md xl:max-w-[540px]"
+              style={{ willChange: "transform" }}
+            >
+              {/* Fake Application Window Chrome */}
+              <div className="mb-3 flex items-center justify-between border-b border-stone pb-2">
+                <div className="flex gap-1.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                </div>
+                <div className="text-[10px] text-gray">devsinn.saas/dashboard</div>
+                <div className="w-8" />
+              </div>
+
+              {/* Fake Application Dashboard content */}
+              <div className="grid grid-cols-3 gap-3">
+                <div className="col-span-2 rounded-lg border border-stone bg-offwhite p-4">
+                  <div className="h-3 w-20 rounded bg-stone" />
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-2xl font-bold text-nearblack">$148,250</span>
+                    <span className="text-[10px] text-teal">+18%</span>
+                  </div>
+                  <div className="mt-4 h-[90px] w-full rounded bg-stone/40 p-2 flex items-end justify-between gap-1">
+                    <div className="h-[20%] w-[12%] rounded-sm bg-teal" />
+                    <div className="h-[45%] w-[12%] rounded-sm bg-stone" />
+                    <div className="h-[30%] w-[12%] rounded-sm bg-stone" />
+                    <div className="h-[60%] w-[12%] rounded-sm bg-stone" />
+                    <div className="h-[55%] w-[12%] rounded-sm bg-stone" />
+                    <div className="h-[80%] w-[12%] rounded-sm bg-teal" />
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-stone bg-offwhite p-3 flex flex-col justify-between">
+                  <div>
+                    <div className="h-2 w-12 rounded bg-stone" />
+                    <div className="mt-3 text-lg font-bold text-nearblack">98.4%</div>
+                  </div>
+                  <div className="h-10 w-full rounded-full border-2 border-stone border-t-teal flex items-center justify-center text-[9px] text-teal font-semibold">
+                    Uptime
+                  </div>
+                </div>
+
+                <div className="col-span-3 rounded-lg border border-stone bg-offwhite p-4">
+                  <div className="h-2.5 w-32 rounded bg-stone" />
+                  <div className="mt-4 space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <div className="h-2.5 w-20 rounded bg-stone" />
+                      <div className="h-2.5 w-8 rounded bg-teal/20 text-[9px] text-teal font-bold flex items-center justify-center">Active</div>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div className="h-2.5 w-24 rounded bg-stone" />
+                      <div className="h-2.5 w-8 rounded bg-stone flex items-center justify-center" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Mockup Card 1: Lead Chat Bot */}
+            <div className="float-card-1 absolute left-[-20px] top-[15%] z-20 w-[170px] rounded-xl border border-stone bg-offwhite p-3 shadow-md sm:left-[-10px] md:left-[-40px]">
+              <div className="flex items-center gap-1.5 border-b border-stone pb-1.5 mb-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+                <span className="text-[9px] font-bold text-nearblack uppercase tracking-wider">AI Agent Active</span>
+              </div>
+              <div className="space-y-1.5">
+                <div className="rounded bg-stone/40 p-1.5 text-[8px] text-nearblack">
+                  "Found a matches matching your MVP budget."
+                </div>
+                <div className="rounded bg-teal text-offwhite p-1.5 text-[8px] text-right self-end ml-4">
+                  "Book consultation"
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Mockup Card 2: Active Integrations */}
+            <div className="float-card-2 absolute right-[-20px] bottom-[25%] z-20 w-[160px] rounded-xl border border-stone bg-offwhite p-3 shadow-md sm:right-[-10px] md:right-[-30px]">
+              <div className="h-2 w-16 rounded bg-stone mb-3" />
+              <div className="flex items-center justify-between">
+                <span className="caption-text text-[10px] font-bold text-nearblack">Webhook Sync</span>
+                <span className="text-[10px] text-teal font-bold">100%</span>
+              </div>
+              <div className="mt-2 h-1.5 w-full rounded-full bg-stone overflow-hidden">
+                <div className="h-full w-[95%] bg-teal" />
+              </div>
+            </div>
+
+            {/* Floating Mockup Card 3: Metrics summary */}
+            <div className="float-card-3 absolute left-[15%] bottom-[-30px] z-20 w-[180px] rounded-xl border border-stone bg-offwhite p-3.5 shadow-md flex items-center gap-3">
+              <div className="h-7 w-7 rounded-full bg-teal/10 flex items-center justify-center text-teal">
+                ✓
+              </div>
+              <div>
+                <div className="text-[8px] text-gray uppercase font-semibold">Security Check</div>
+                <div className="text-[11px] font-bold text-nearblack">Fully Compliant</div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

@@ -7,6 +7,7 @@ type ButtonVariant = "primary" | "secondary" | "outline";
 type ButtonSize = "md" | "lg" | "xl";
 
 type SharedProps = {
+  id?: string;
   children: ReactNode;
   className?: string;
   fullWidth?: boolean;
@@ -34,14 +35,14 @@ type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 function getVariantClasses(variant: ButtonVariant) {
   if (variant === "secondary") {
-    return "bg-white text-[#17305f] hover:bg-white/90";
+    return "bg-teal text-offwhite border border-teal btn-sweep sweep-secondary";
   }
 
   if (variant === "outline") {
-    return "border border-white/80 bg-transparent text-white hover:bg-white/10";
+    return "bg-transparent text-nearblack border border-nearblack btn-sweep sweep-outline";
   }
 
-  return "bg-[#1b325d] text-white hover:bg-[#24406f]";
+  return "bg-nearblack text-offwhite border border-nearblack btn-sweep sweep-primary";
 }
 
 function getSizeClasses(size: ButtonSize) {
@@ -67,6 +68,7 @@ function Spinner() {
 
 export default function Button(props: ButtonProps) {
   const {
+    id,
     children,
     className = "",
     fullWidth = false,
@@ -80,7 +82,7 @@ export default function Button(props: ButtonProps) {
   const isDisabled = disabled || loading;
   const classes = [
     "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-none",
-    "focus-visible:ring-4 focus-visible:ring-[#7edfff]/35 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
+    "focus-visible:ring-4 focus-visible:ring-teal/35 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent",
     "disabled:pointer-events-none disabled:opacity-70",
     fullWidth ? "w-full" : "",
     getVariantClasses(variant),
@@ -91,15 +93,16 @@ export default function Button(props: ButtonProps) {
     .join(" ");
 
   const content = (
-    <>
+    <span className="relative z-10 flex items-center justify-center gap-2">
       {loading ? <Spinner /> : null}
       <span>{loading ? loadingLabel : children}</span>
-    </>
+    </span>
   );
 
   if ("href" in props && props.href) {
     return (
       <Link
+        id={id}
         href={props.href}
         onClick={props.onClick}
         aria-busy={loading}
@@ -113,6 +116,7 @@ export default function Button(props: ButtonProps) {
 
   return (
     <button
+      id={id}
       type={props.type ?? "button"}
       onClick={props.onClick}
       disabled={isDisabled}

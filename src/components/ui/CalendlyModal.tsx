@@ -39,7 +39,7 @@ export default function CalendlyModal({
 
   return (
     <div
-      className="fixed inset-0 z-[80] bg-[#020815]/78 px-4 py-6 backdrop-blur-sm sm:px-6 sm:py-8"
+      className="fixed inset-0 z-[80] bg-nearblack/75 px-4 py-6 backdrop-blur-sm sm:px-6 sm:py-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -52,13 +52,13 @@ export default function CalendlyModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-1 top-1 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white text-[#10264f] shadow-[0_14px_30px_rgba(0,0,0,0.18)] transition-transform duration-200 hover:scale-105"
+          className="absolute right-3 top-3 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone bg-offwhite text-nearblack shadow-md transition-transform duration-200 hover:scale-105 hover:bg-teal hover:text-offwhite cursor-pointer"
           aria-label="Close booking modal"
         >
           <span className="text-[22px] leading-none">×</span>
         </button>
 
-        <div className="h-[82vh] w-full overflow-hidden rounded-[28px] border border-white/14 bg-white shadow-[0_30px_120px_rgba(0,0,0,0.3)]">
+        <div className="h-[82vh] w-full overflow-hidden rounded-[28px] border border-stone bg-offwhite shadow-lg">
           <iframe
             src={url}
             title="Calendly booking"

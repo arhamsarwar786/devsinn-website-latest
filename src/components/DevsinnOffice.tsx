@@ -78,14 +78,14 @@ function WorldMapBackground() {
           strokeDasharray="1 1"
           fill="none"
           className="animate-[dash_30s_linear_infinite]"
-          style={{ filter: 'drop-shadow(0 0 2px rgba(167, 139, 250, 0.8))' }}
+          style={{ filter: 'drop-shadow(0 0 2px rgba(5, 102, 158, 0.8))' }}
         />
 
         <defs>
           <linearGradient id="arc-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#f472b6" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#a78bfa" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.9" />
+            <stop offset="0%" stopColor="#3AB9BC" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#3AB9BC" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#3AB9BC" stopOpacity="0.9" />
           </linearGradient>
         </defs>
       </svg>
@@ -138,8 +138,8 @@ export default function DevsinnOffice() {
             <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ backgroundColor: activeOffice.color }} />
             <span className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-white/80">Global Network</span>
           </div>
-          <h2 className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] sm:text-[3rem] lg:text-[3.8rem]">
-            Boundless <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[#f472b6]">Innovation</span>
+          <h2 className="text-[2.2rem] font-extrabold text-white sm:text-[3rem] lg:text-[3.8rem]">
+            Boundless <span className=" text-teal">Innovation</span>
           </h2>
           <p className="mt-4 max-w-[500px] mx-auto text-[1rem] leading-[1.8] text-white/45">
             Operating from strategic tech hubs across the world to deliver unparalleled digital excellence.
@@ -210,7 +210,7 @@ export default function DevsinnOffice() {
                   >
                     <div className="flex flex-col gap-6 pt-2">
                       <div>
-                        <span className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-3 block w-fit">
+                        <span className="inline-block rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-white/50 mb-3 block w-fit">
                           {office.title}
                         </span>
                         <p className="text-[14px] leading-[1.8] text-white/60">
@@ -235,7 +235,7 @@ export default function DevsinnOffice() {
             })}
           </motion.div>
 
-      {/* RIGHT PANEL - FUTURISTIC MAP */}
+          {/* RIGHT PANEL - FUTURISTIC MAP */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -277,13 +277,13 @@ export default function DevsinnOffice() {
                                 className="absolute rounded-full bg-transparent"
                                 style={{ border: `1.5px solid ${office.color}`, width: 30, height: 30 }}
                                 initial={{ scale: 1, opacity: 0 }}
-                                animate={{ 
-                                  scale: [1, 6], 
-                                  opacity: [0, 0.5, 0] 
+                                animate={{
+                                  scale: [1, 6],
+                                  opacity: [0, 0.5, 0]
                                 }}
-                                transition={{ 
-                                  duration: 3, 
-                                  repeat: Infinity, 
+                                transition={{
+                                  duration: 3,
+                                  repeat: Infinity,
                                   delay: i * 1,
                                   ease: [0.215, 0.61, 0.355, 1]
                                 }}

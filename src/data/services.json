@@ -1,64 +1,40 @@
 [
   {
-    "id": "Creative-Design",
-    "navLabel": "More Design",
+    "id": "ai-automation",
+    "slug": "ai-automation",
+    "label": "AI Automation & Agents",
+    "shortLabel": "AI Agent",
+    "color": "#00C9A7",
+    "glow": "rgba(0,201,167,0.35)",
+    "navLabel": "AI Automation",
     "cardImage": "/list/list1_new.png",
-    "heroEyebrow": "Creative Studio",
-    "heroTitle": "Innovative Designs & Animations For A Lasting Impact",
-    "heroDescription": "We shape visual experiences that feel premium, expressive, and memorable. From interface design to motion storytelling, our team builds creative systems that strengthen brand recall and elevate user trust.",
-    "mainTitle": "Creative Design & Animations",
-    "title": "Creative Design",
-    "subtitle": "& Animations",
-    "mainDescription": "Our creative design and animation services help businesses turn concepts into sharp visual communication. We design intuitive interfaces, memorable brand systems, campaign assets, and motion experiences that make products feel polished and alive. Whether you need a stronger digital identity or richer user engagement, we create visuals that support growth with clarity and consistency.",
-    "highlightTitle": "What We Create",
+    "heroEyebrow": "AI Automation",
+    "heroTitle": "Automate Your Business Operations With AI Agents & Smart Workflows",
+    "heroDescription": "We build intelligent automation systems that reduce manual work, qualify leads automatically, and connect your tools — so your team can focus on what matters.",
+    "mainTitle": "AI Automation & Agents",
+    "title": "AI Automation",
+    "subtitle": "& Agents",
+    "mainDescription": "We design and build AI automation systems that replace repetitive manual processes with intelligent workflows. From lead qualification chatbots to CRM integrations, internal knowledge assistants, and WhatsApp/email automation — we connect your tools and let AI handle the routine so your team can focus on high-value work.",
+    "highlightTitle": "What We Automate",
     "highlights": [
       {
-        "title": "UI / UX Design",
-        "description": "Thoughtful interfaces, modern layouts, and conversion-focused user journeys for web and mobile products."
+        "title": "AI Chatbots & Lead Qualification",
+        "description": "Chatbots that answer queries, qualify leads, and hand off to your team — on your website, WhatsApp, or Slack."
       },
       {
-        "title": "Motion Graphics",
-        "description": "Animations and transitions that make your product, campaigns, and presentations feel dynamic and premium."
+        "title": "CRM & Email Automation",
+        "description": "Automated pipelines connecting your CRM, email platform, and communication tools using n8n, Make, or Zapier."
       },
       {
-        "title": "Brand Identity",
-        "description": "Logos, typography, color systems, and creative guidelines that give your business a clear visual voice."
+        "title": "RAG & Knowledge Assistants",
+        "description": "Internal AI assistants trained on your documents, SOPs, and data — so your team gets instant answers."
+      },
+      {
+        "title": "Reporting & Workflow Automation",
+        "description": "Auto-generated reports, scheduled summaries, and cross-tool data sync that replace hours of manual work."
       }
     ],
-    "technologies": ["Figma", "Figma Maker", "Adobe Illustrator", "Photoshop", "CorelDRAW", "Canva", "Zeplin", "Framer", "LottieFiles", "Rive", "Blender", "After Effects", "Premiere Pro", "Replit"],
-    "projects": [
-      "/portfolio/portfolio7.png",
-      "/portfolio/portfolio8.png",
-      "/portfolio/portfolio9.png"
-    ]
-  },
-  {
-    "id": "Web-Development-Solutions",
-    "navLabel": "More Web",
-    "cardImage": "/list/list2_new.png",
-    "heroEyebrow": "Web Solutions",
-    "heroTitle": "Smart & Scalable Web Solutions For Your Business",
-    "heroDescription": "We build fast, reliable, and growth-ready web platforms tailored to your workflow, users, and goals. From MVPs to enterprise systems, every solution is designed for clarity, performance, and scale.",
-    "mainTitle": "Web Development Solutions",
-    "title": "Web Development",
-    "subtitle": "Solutions",
-    "mainDescription": "We help businesses launch strong digital products through custom web development. Our work covers business websites, dashboards, custom portals, ecommerce experiences, and high-performing frontend systems. Using modern technologies and practical architecture, we create solutions that are easier to manage, smoother to use, and built to support long-term growth.",
-    "highlightTitle": "What We Build",
-    "highlights": [
-      {
-        "title": "Custom Web Development",
-        "description": "Tailored websites and web apps built around your business model, users, and operational needs."
-      },
-      {
-        "title": "Ecommerce Platforms",
-        "description": "Conversion-focused storefronts with clean product flows, strong performance, and scalable management."
-      },
-      {
-        "title": "Business Portals",
-        "description": "Secure dashboards and internal systems that simplify processes, visibility, and team efficiency."
-      }
-    ],
-    "technologies": ["React", "Next.js", "Node.js", "Express", "Laravel", "WordPress", "PHP", ".NET", "Replit"],
+    "technologies": ["OpenAI", "LangChain", "n8n", "Make", "Zapier", "Supabase", "FastAPI", "WhatsApp API", "Slack API", "RAG", "Pinecone", "PostgreSQL"],
     "projects": [
       "/portfolio/portfolio1.png",
       "/portfolio/portfolio2.png",
@@ -66,32 +42,41 @@
     ]
   },
   {
-    "id": "App-Development-Solutions",
-    "navLabel": "More App",
-    "cardImage": "/list/list3_new.png",
-    "heroEyebrow": "Mobile Products",
-    "heroTitle": "Smart Solutions For Modern Apps",
-    "heroDescription": "We create mobile experiences that are intuitive, scalable, and aligned with business outcomes. Every app is designed to feel smooth in the hand and reliable in real-world use.",
-    "mainTitle": "App Development Solutions",
-    "title": "App Development",
-    "subtitle": "Mobile & Native",
-    "mainDescription": "Our app development team delivers robust mobile products for startups, enterprises, and growing brands. We plan, design, and engineer apps that balance user experience with technical stability. Whether you need a customer-facing product or an internal business app, we focus on usability, performance, and long-term product value.",
-    "highlightTitle": "What We Deliver",
+    "id": "saas-mvp",
+    "slug": "saas-mvp",
+    "label": "SaaS MVP Development",
+    "shortLabel": "SaaS MVP",
+    "color": "#4B8EF1",
+    "glow": "rgba(75,142,241,0.35)",
+    "navLabel": "SaaS MVP",
+    "cardImage": "/list/list2_new.png",
+    "heroEyebrow": "SaaS Development",
+    "heroTitle": "Build Your SaaS Product From POC to Scalable Platform",
+    "heroDescription": "We plan, design, and build subscription-based SaaS products — from early prototypes to multi-tenant platforms with billing, admin panels, and user dashboards.",
+    "mainTitle": "SaaS MVP Development",
+    "title": "SaaS MVP",
+    "subtitle": "Development",
+    "mainDescription": "We help founders and product teams move from idea to working SaaS product. Our process covers technical planning, UI/UX design, multi-tenant architecture, subscription billing, admin panels, analytics, and deployment — everything needed to launch and start acquiring real users.",
+    "highlightTitle": "What We Build",
     "highlights": [
       {
-        "title": "Custom App Development",
-        "description": "Purpose-built mobile apps shaped around your product goals, market, and user expectations."
+        "title": "Multi-Tenant SaaS Platforms",
+        "description": "Scalable architecture supporting multiple clients with isolated data, custom roles, and subscription management."
       },
       {
-        "title": "Cross-Platform Apps",
-        "description": "Efficient builds for Android and iOS with consistent experiences and faster delivery cycles."
+        "title": "Subscription Billing & Admin",
+        "description": "Stripe or Paddle integration with usage-based billing, plan management, invoices, and a full admin dashboard."
       },
       {
-        "title": "Enterprise Mobility",
-        "description": "Secure, scalable app systems that improve workflows, operations, and business visibility."
+        "title": "AI-Powered SaaS Products",
+        "description": "SaaS products with built-in AI features — smart recommendations, automated analysis, or GPT-powered tools."
+      },
+      {
+        "title": "POC → Prototype → MVP → Scale",
+        "description": "Structured delivery phases from technical validation to investor-ready prototype to production-grade SaaS."
       }
     ],
-    "technologies": ["Flutter", "React Native", "Swift", "Kotlin", "Java", "iOS", "Android"],
+    "technologies": ["Next.js", "React", "NestJS", "FastAPI", "PostgreSQL", "Supabase", "Stripe", "Docker", "AWS", "Tailwind CSS", "Prisma"],
     "projects": [
       "/portfolio/portfolio4.png",
       "/portfolio/portfolio5.png",
@@ -99,101 +84,212 @@
     ]
   },
   {
-    "id": "Game-Development",
-    "navLabel": "More Game",
-    "cardImage": "/list/list4_new.png",
-    "heroEyebrow": "Interactive Worlds",
-    "heroTitle": "Immersive & Scalable Gaming Solutions",
-    "heroDescription": "We turn concepts into engaging gameplay experiences with strong design, polished visuals, and dependable performance across platforms.",
-    "mainTitle": "Game Development",
-    "title": "Game Development",
-    "subtitle": "Immersive Experiences",
-    "mainDescription": "From concept and mechanics to visuals and deployment, we help teams bring games to life with production-ready workflows. Our game development service focuses on user engagement, performance optimization, and visual clarity so the final product feels exciting, smooth, and worth returning to.",
-    "highlightTitle": "What We Develop",
+    "id": "web-app-development",
+    "slug": "web-app-development",
+    "label": "Custom Web App Development",
+    "shortLabel": "Web App",
+    "color": "#6B4CF5",
+    "glow": "rgba(107,76,245,0.35)",
+    "navLabel": "Web Apps",
+    "cardImage": "/list/list3_new.png",
+    "heroEyebrow": "Web App Development",
+    "heroTitle": "Custom Web Applications Built Around Your Business Operations",
+    "heroDescription": "From internal dashboards and CRMs to booking systems and client portals — we build web applications that make your operations faster, cleaner, and more manageable.",
+    "mainTitle": "Custom Web App Development",
+    "title": "Custom Web Apps",
+    "subtitle": "Dashboards & Portals",
+    "mainDescription": "We build purpose-built web applications for businesses that have outgrown generic tools. Our team designs and engineers dashboards, CRMs, admin panels, booking systems, role-based portals, and internal tools — all tailored to how your team actually works.",
+    "highlightTitle": "What We Build",
     "highlights": [
       {
-        "title": "Custom Game Development",
-        "description": "Original games designed around unique mechanics, immersive narratives, and platform goals."
+        "title": "Dashboards & Internal Tools",
+        "description": "Data-rich dashboards, team management tools, and internal apps that improve visibility and operational efficiency."
       },
       {
-        "title": "2D & 3D Design",
-        "description": "Stylized or realistic environments, assets, and motion built to strengthen player experience."
+        "title": "CRMs & Client Portals",
+        "description": "Custom CRM systems and client-facing portals with role-based access, activity tracking, and document management."
       },
       {
-        "title": "AR / VR Experiences",
-        "description": "Interactive immersive products designed for deeper engagement and next-generation play."
+        "title": "Booking & Scheduling Systems",
+        "description": "Reservation, scheduling, and appointment systems for service businesses, clinics, and hospitality."
+      },
+      {
+        "title": "Role-Based Access & Workflows",
+        "description": "Multi-role systems with granular permissions, approval workflows, and audit trails for complex operations."
       }
     ],
-    "technologies": ["Unity", "WebGL", "Three.js", "Blender", "ZBrush", "AR / VR"],
+    "technologies": ["Next.js", "React", "TypeScript", "NestJS", "Node.js", "PostgreSQL", "MySQL", "Prisma", "Tailwind CSS", "Docker", "Vercel"],
     "projects": [
       "/portfolio/portfolio7.png",
-      "/portfolio/portfolio2.png",
+      "/portfolio/portfolio8.png",
       "/portfolio/portfolio9.png"
     ]
   },
   {
-    "id": "Cloud-Computing-Services",
-    "navLabel": "More Cloud",
-    "cardImage": "/list/list5_new.png",
-    "heroEyebrow": "Cloud Infrastructure",
-    "heroTitle": "Empowering Business With Next-Gen Cloud Technology",
-    "heroDescription": "We help teams move faster with secure, scalable cloud systems that support availability, efficiency, and business continuity.",
-    "mainTitle": "Cloud Computing Services",
-    "title": "Cloud Computing",
-    "subtitle": "Infrastructure & DevOps",
-    "mainDescription": "Our cloud services are built to improve agility, reliability, and operational efficiency. We support migration planning, infrastructure design, managed cloud environments, and cloud-native product delivery. Whether your team needs optimization, modernization, or a stronger technical foundation, we build systems that are easier to scale and safer to run.",
-    "highlightTitle": "What We Support",
+    "id": "flutter-mobile-apps",
+    "slug": "flutter-mobile-apps",
+    "label": "Flutter Mobile App Development",
+    "shortLabel": "Flutter",
+    "color": "#00C9A7",
+    "glow": "rgba(0,201,167,0.35)",
+    "navLabel": "Mobile Apps",
+    "cardImage": "/list/list4_new.png",
+    "heroEyebrow": "Flutter Development",
+    "heroTitle": "Cross-Platform Mobile Apps Built With Flutter for Android & iOS",
+    "heroDescription": "We build production-ready Flutter apps for service businesses, startups, and enterprises — from booking and delivery apps to healthcare and ecommerce platforms.",
+    "mainTitle": "Flutter Mobile App Development",
+    "title": "Flutter Mobile",
+    "subtitle": "Android & iOS",
+    "mainDescription": "We specialize in Flutter for cross-platform mobile development, delivering apps that feel native on both Android and iOS. Our mobile work covers booking apps, delivery platforms, service marketplaces, healthcare apps, ecommerce, and app rescue for existing products in need of stabilization or rebuild.",
+    "highlightTitle": "What We Build",
     "highlights": [
       {
-        "title": "Cloud Infrastructure",
-        "description": "Architecture planning and deployment for scalable, stable, and high-availability cloud environments."
+        "title": "Booking & Delivery Apps",
+        "description": "Customer-facing apps for service bookings, on-demand delivery, scheduling, and ride or logistics services."
       },
       {
-        "title": "Migration Services",
-        "description": "Smooth transitions from legacy systems to modern cloud environments with lower operational friction."
+        "title": "eCommerce & Marketplace Apps",
+        "description": "Buyer and seller mobile apps with product listings, cart, payments, and order tracking."
       },
       {
-        "title": "Cloud-Based Products",
-        "description": "Future-ready applications with stronger accessibility, data sync, and infrastructure flexibility."
+        "title": "Healthcare & Service Apps",
+        "description": "Patient apps, clinic management, appointment booking, and field service apps with real-time updates."
+      },
+      {
+        "title": "App Rescue & Rebuild",
+        "description": "We take over struggling Flutter apps — fixing performance issues, cleaning architecture, and improving stability."
       }
     ],
-    "technologies": ["AWS", "Azure", "Google Cloud", "DigitalOcean", "Docker", "Kubernetes", "Terraform", "Vercel", "Netlify", "Cloudflare", "GitHub Actions", "Cloud Security"],
+    "technologies": ["Flutter", "Dart", "Firebase", "Supabase", "REST APIs", "GraphQL", "Google Maps", "Stripe", "Push Notifications", "BLoC", "Riverpod"],
     "projects": [
+      "/portfolio/portfolio1.png",
       "/portfolio/portfolio3.png",
-      "/portfolio/portfolio5.png",
-      "/portfolio/portfolio8.png"
+      "/portfolio/portfolio5.png"
     ]
   },
   {
-    "id": "Digital-Marketing",
-    "navLabel": "More Digital",
-    "cardImage": "/list/list6_new.png",
-    "heroEyebrow": "Growth Marketing",
-    "heroTitle": "Driving Growth With Data-Driven Digital Marketing",
-    "heroDescription": "We help brands grow visibility, trust, and conversions through thoughtful campaigns built on audience insight and measurable performance.",
-    "mainTitle": "Digital Marketing",
-    "title": "Digital Marketing",
-    "subtitle": "Growth & Strategy",
-    "mainDescription": "Our digital marketing services combine strategy, creative execution, and performance optimization to help brands grow online. We work across search, paid campaigns, content, and social channels to improve reach and conversion quality. Each campaign is tailored to your market, your audience, and your brand voice so growth feels intentional and sustainable.",
-    "highlightTitle": "What We Optimize",
+    "id": "backend-api-cloud",
+    "slug": "backend-api-cloud",
+    "label": "Backend, APIs & Cloud Systems",
+    "shortLabel": "Backend",
+    "color": "#4B8EF1",
+    "glow": "rgba(75,142,241,0.35)",
+    "navLabel": "Backend & Cloud",
+    "cardImage": "/list/list5_new.png",
+    "heroEyebrow": "Backend & Cloud",
+    "heroTitle": "Scalable Backend Systems, APIs & Cloud Infrastructure for Growing Products",
+    "heroDescription": "We design and build reliable backend systems, REST and GraphQL APIs, and cloud deployments that support real product growth — from early MVP to production scale.",
+    "mainTitle": "Backend, APIs & Cloud Systems",
+    "title": "Backend & Cloud",
+    "subtitle": "APIs & Infrastructure",
+    "mainDescription": "Strong backend architecture is what keeps products reliable, fast, and scalable. We build REST and GraphQL APIs, database systems, authentication and authorization layers, background job queues, and cloud infrastructure using modern DevOps practices — including Docker, CI/CD pipelines, VPS, and AWS.",
+    "highlightTitle": "What We Build",
     "highlights": [
       {
-        "title": "SEO & Search Visibility",
-        "description": "Stronger rankings, cleaner content structure, and better discoverability across search platforms."
+        "title": "REST & GraphQL APIs",
+        "description": "Well-structured, documented APIs built with NestJS or FastAPI — ready for web, mobile, and third-party integration."
       },
       {
-        "title": "Social Media Marketing",
-        "description": "Creative campaigns and platform strategies that build community, trust, and attention."
+        "title": "Database Design & Optimization",
+        "description": "PostgreSQL and MySQL schema design, query optimization, indexing, and migration management."
       },
       {
-        "title": "PPC & Paid Growth",
-        "description": "Performance campaigns that reach the right audience and convert traffic into outcomes."
+        "title": "Cloud & DevOps Setup",
+        "description": "Docker containerization, CI/CD pipelines, VPS deployment, AWS setup, environment management, and monitoring."
+      },
+      {
+        "title": "Authentication & Security",
+        "description": "JWT, OAuth2, role-based access control, API rate limiting, and secure data handling best practices."
       }
     ],
-    "technologies": ["Google Ads", "Analytics", "Meta", "LinkedIn", "Mailchimp", "Content Strategy"],
+    "technologies": ["NestJS", "FastAPI", "Node.js", "Python", "PostgreSQL", "MySQL", "Redis", "Docker", "AWS", "VPS", "GitHub Actions", "Nginx", "PM2"],
     "projects": [
-      "/portfolio/portfolio6.png",
+      "/portfolio/portfolio2.png",
+      "/portfolio/portfolio4.png",
+      "/portfolio/portfolio6.png"
+    ]
+  },
+  {
+    "id": "app-rescue-maintenance",
+    "slug": "app-rescue-maintenance",
+    "label": "App Rescue, Bug Fixing & Maintenance",
+    "shortLabel": "Rescue",
+    "color": "#f59e0b",
+    "glow": "rgba(245,158,11,0.35)",
+    "navLabel": "App Rescue",
+    "cardImage": "/list/list6_new.png",
+    "heroEyebrow": "App Rescue",
+    "heroTitle": "We Fix, Stabilize & Improve Broken or Struggling Applications",
+    "heroDescription": "Whether your app has critical bugs, performance problems, or needs a technical audit — we run focused rescue sprints to get it working, stable, and ready for users.",
+    "mainTitle": "App Rescue, Bug Fixing & Maintenance",
+    "title": "App Rescue",
+    "subtitle": "Bug Fixing & Support",
+    "mainDescription": "We take over applications that are broken, slow, or poorly maintained. Our rescue sprints cover technical audits, critical bug fixing, performance improvements, deployment stabilization, and ongoing monthly maintenance retainers for teams that need reliable support without hiring in-house.",
+    "highlightTitle": "What We Fix",
+    "highlights": [
+      {
+        "title": "Technical Audits & Reviews",
+        "description": "Full codebase, API, UI, and infrastructure review — delivered as a prioritized improvement report."
+      },
+      {
+        "title": "Bug Fix Sprints",
+        "description": "Focused 1-week sprints to identify, fix, and deploy critical bugs in your web or mobile application."
+      },
+      {
+        "title": "Performance & Deployment Fixes",
+        "description": "Slow page loads, API bottlenecks, server misconfigurations, and broken CI/CD pipelines resolved and documented."
+      },
+      {
+        "title": "Monthly Maintenance Retainers",
+        "description": "Ongoing support covering bug fixes, minor updates, monitoring, and monthly status reports."
+      }
+    ],
+    "technologies": ["React", "Next.js", "Flutter", "NestJS", "Node.js", "PostgreSQL", "Docker", "AWS", "Sentry", "Datadog", "GitHub Actions"],
+    "projects": [
+      "/portfolio/portfolio7.png",
       "/portfolio/portfolio8.png",
+      "/portfolio/portfolio9.png"
+    ]
+  },
+  {
+    "id": "dedicated-teams",
+    "slug": "dedicated-teams",
+    "label": "Dedicated Development Teams",
+    "shortLabel": "Teams",
+    "color": "#6B4CF5",
+    "glow": "rgba(107,76,245,0.35)",
+    "navLabel": "Dedicated Teams",
+    "cardImage": "/list/list1_new.png",
+    "heroEyebrow": "Dedicated Teams",
+    "heroTitle": "Extend Your Team With Dedicated Remote Developers & Specialists",
+    "heroDescription": "Hire Flutter, web, backend, AI, or QA specialists on a monthly basis — with technical PM support, weekly reporting, and full integration into your workflow.",
+    "mainTitle": "Dedicated Development Teams",
+    "title": "Dedicated Teams",
+    "subtitle": "Remote Specialists",
+    "mainDescription": "We provide dedicated remote developers who work as an extension of your in-house team. Each developer is allocated full-time or part-time to your project, with a technical PM overseeing delivery, weekly reporting, and clear communication. This model works for product companies, digital agencies, and startups that need reliable technical execution without the overhead of hiring.",
+    "highlightTitle": "Team Compositions",
+    "highlights": [
+      {
+        "title": "Flutter & Mobile Developers",
+        "description": "Dedicated Flutter developers for Android/iOS apps, with Firebase, Supabase, and API integration expertise."
+      },
+      {
+        "title": "Full-Stack Web Developers",
+        "description": "Next.js, React, Node.js, and NestJS developers who can own features end-to-end."
+      },
+      {
+        "title": "AI & Automation Engineers",
+        "description": "Specialists in LangChain, n8n, OpenAI integrations, and workflow automation for product teams."
+      },
+      {
+        "title": "QA, UI/UX & Technical PM",
+        "description": "Quality assurance engineers, Figma designers, and technical project managers available as team add-ons."
+      }
+    ],
+    "technologies": ["Flutter", "Next.js", "React", "NestJS", "FastAPI", "PostgreSQL", "Figma", "n8n", "OpenAI", "Docker", "AWS", "Jira", "Notion"],
+    "projects": [
+      "/portfolio/portfolio3.png",
+      "/portfolio/portfolio6.png",
       "/portfolio/portfolio9.png"
     ]
   }

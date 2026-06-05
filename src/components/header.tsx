@@ -3,150 +3,190 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Download } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import CalendlyModal from "@/components/ui/CalendlyModal";
 import Button from "@/components/ui/Button";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Packages", href: "/#packages" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCalendlyOpen, setIsCalendlyOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
     };
-
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-      className={`fixed inset-x-0 top-0 z-50 [font-family:var(--font-poppins)] transition-colors duration-300 ${
-        isScrolled
-          ? "bg-black/80 shadow-lg backdrop-blur-xl border-b border-white/5"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex w-full max-w-[1568px] items-center justify-between px-5 py-2 sm:px-8 sm:py-2.5 lg:px-10 lg:py-2.5 xl:px-16">
-        <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
-          <Image
-            src="/devsinnlogo.png"
-            alt="Devsinn Technologies"
-            width={210}
-            height={58}
-            priority
-            className="h-auto w-[110px] sm:w-[130px] lg:w-[150px]"
-          />
-        </Link>
+    <>
+      <CalendlyModal
+        isOpen={isCalendlyOpen}
+        onClose={() => setIsCalendlyOpen(false)}
+        url="https://calendly.com/devsinntechnologies/30min?hide_gdpr_banner=1"
+      />
 
-        <nav className="hidden items-center gap-8 text-[15px] font-medium text-white md:flex lg:gap-[56px]">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="transition-opacity duration-200 hover:opacity-80"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${isScrolled
+          ? "bg-gray-200 shadow-sm border-b border-stone backdrop-blur-md py-3"
+          : "bg-transparent py-5"
+          }`}
+      >
+        <div className="mx-auto flex w-full max-w-[1568px] items-center justify-between px-5 sm:px-8 lg:px-10 xl:px-16">
+          {/* Logo */}
+          <Link href="/" className="shrink-0" onClick={() => setIsOpen(false)}>
+            <div className="relative h-10 w-36 sm:w-44">
+              {/* Ensure it falls back gracefully or uses standard image */}
+              <Image
+                src="/devsinnlogo.png"
+                alt="Dev'sinn Technologies Logo"
+                fill
+                priority
+                className="object-contain filter contrast-125"
+              />
+            </div>
+          </Link>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href="/pdf/Devsinn-Technologies-Portfolio.pdf"
-            download="Devsinn-Technologies-Portfolio.pdf"
-            className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 text-[14px] font-medium text-white backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02] hover:bg-white/15"
-            title="Download company portfolio"
-          >
-            <Download size={16} />
-            <span>Portfolio</span>
-          </a>
+          {/* Desktop Nav Links */}
+          <nav className="hidden items-center gap-8 text-[15px] font-semibold text-nearblack md:flex lg:gap-10">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="relative transition-colors duration-200 text-gray hover:text-teal"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-          <Button
-            href="/contact"
-            size="md"
-            variant="secondary"
-            className="transition-transform duration-200 hover:scale-[1.02] lg:min-h-[44px] lg:min-w-[150px] lg:px-6 lg:text-[14px]"
-          >
-            Contact us
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white md:hidden"
-        >
-          <span className="space-y-1.5">
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-          </span>
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-5 rounded-[28px] border border-white/10 bg-[#0b1b3f]/95 p-5 text-white shadow-2xl backdrop-blur md:hidden"
-          >
-            <nav className="flex flex-col gap-4 text-[15px] font-medium">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="rounded-2xl px-3 py-2 transition-colors duration-200 hover:bg-white/10"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-
-            <Button
-              href="/contact"
-              variant="secondary"
-              fullWidth
-              onClick={() => setIsOpen(false)}
-              className="mt-5 text-[15px] text-[#1b325d]"
-            >
-              Contact us
-            </Button>
-
+          {/* Desktop CTAs */}
+          <div className="hidden items-center gap-4 md:flex">
             <a
               href="/pdf/Devsinn-Technologies-Portfolio.pdf"
               download="Devsinn-Technologies-Portfolio.pdf"
-              onClick={() => setIsOpen(false)}
-              className="mt-3 inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-white/14"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-stone bg-offwhite px-5 text-[13px] font-semibold text-nearblack transition-colors hover:border-teal hover:text-teal"
+              title="Download company portfolio"
             >
-              <Download size={16} />
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Portfolio</span>
+            </a>
+
+            <Button
+              id="header-cta-consultation"
+              onClick={() => setIsCalendlyOpen(true)}
+              size="md"
+              variant="primary"
+            >
+              Book a Call
+            </Button>
+          </div>
+
+          {/* Mobile hamburger button */}
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((current) => !current)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-stone bg-offwhite text-nearblack md:hidden cursor-pointer"
+          >
+            <span className="space-y-1.5">
+              <span className={`block h-0.5 w-5 bg-current transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-current transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-current transition-transform duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </span>
+          </button>
+        </div>
+
+        {/* Mobile menu container (CSS collapse transition) */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 mx-5 ${isOpen
+            ? "max-h-[500px] opacity-100 mt-4 border border-stone bg-offwhite p-6 rounded-2xl shadow-md"
+            : "max-h-0 opacity-0"
+            }`}
+        >
+          <nav className="flex flex-col gap-2 text-[15px] font-semibold" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="rounded-xl px-4 py-2.5 text-gray transition-colors duration-200 hover:bg-stone hover:text-nearblack"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-6 flex flex-col gap-3">
+            <Button
+              id="mobile-header-cta"
+              onClick={() => {
+                setIsCalendlyOpen(true);
+                setIsOpen(false);
+              }}
+              variant="secondary"
+              fullWidth
+            >
+              Book a Free Consultation
+            </Button>
+
+            <Link
+              href="/contact?type=product-audit"
+              onClick={() => setIsOpen(false)}
+              className="flex min-h-[48px] w-full items-center justify-center rounded-full border border-stone bg-offwhite text-[15px] font-semibold text-nearblack hover:border-teal hover:text-teal transition-colors"
+            >
+              Request a Product Audit
+            </Link>
+
+            <a
+              href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+              download
+              onClick={() => setIsOpen(false)}
+              className="flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-stone bg-offwhite text-[14px] font-semibold text-nearblack hover:border-teal hover:text-teal transition-colors"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
               <span>Download Portfolio</span>
             </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

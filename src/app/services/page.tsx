@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import DevsinnOffice from "@/components/DevsinnOffice";
-import Footer from "@/components/Footer";
-import Hero from "@/components/services/Hero";
-import List from "@/components/services/List";
+import ServicesPageClient from "./ServicesClient";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: "Explore the services offered by Devsinn Technologies.",
+  title: "Services — AI Automation, SaaS MVP, Web Apps, Mobile & More",
+  description:
+    "Dev'sinn Technologies offers 7 focused B2B software engineering services: AI Automation, SaaS MVP Development, Custom Web Apps, Flutter Mobile, Backend & Cloud, App Rescue, and Dedicated Teams.",
+  alternates: {
+    canonical: "https://devsinntechnologies.com/services",
+  },
 };
 
 export default function ServicesPage() {
-  return (
-    <>
-      <Hero />
-      <List />
-      <DevsinnOffice />
-      <Footer />
-    </>
-  );
+  return <ServicesPageClient />;
 }

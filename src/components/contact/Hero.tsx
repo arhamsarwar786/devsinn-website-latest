@@ -1,105 +1,82 @@
-﻿"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { fadeInUp, fadeIn } from "@/lib/motion";
+"use client";
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[var(--surface-0)] text-white">
-      {/* Deep Space Background Glows */}
-      <div className="absolute inset-0 bg-[var(--surface-0)]" />
-
-      {/* Animated Glowing Orbs */}
-      <motion.div
-        className="pointer-events-none absolute left-[50%] top-[30%] h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 60%)" }}
-        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="pointer-events-none absolute left-[60%] top-[40%] h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 60%)" }}
-        animate={{ x: [0, 50, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* The Globe Background - Premium Animation */}
-      <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
-      >
-        {/* Glow exactly under the globe */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute inset-0"
+    <section className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden bg-offwhite px-5 pt-36 pb-20 sm:px-8 lg:px-10 lg:pt-44 lg:pb-28 xl:px-16 text-center">
+      {/* Background Decorative Rings (Strict warm stone/off-white colors only) */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-30 sm:h-[800px] sm:w-[800px]">
+        <svg
+          className="h-full w-full text-stone"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.1"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <Image
-            src="/globe-premium.png"
-            alt="Digital globe background"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-90 mix-blend-screen drop-shadow-[0_0_30px_rgba(56,189,248,0.5)]"
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Cinematic Vignette Overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[var(--surface-0)] via-[var(--surface-0)]/80 to-transparent lg:via-[var(--surface-0)]/40" />
-      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[var(--surface-0)] lg:via-[var(--surface-0)] lg:to-transparent lg:w-[45%]" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface-0)] via-transparent to-[var(--surface-0)]/80" />
-
-      {/* Main Content */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-20 pb-10 sm:px-8 lg:px-10 xl:px-16">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="w-full max-w-[650px]"
-        >
-          {/* Badge */}
-          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-5 py-2.5 backdrop-blur-md">
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[var(--accent)]">
-              Let's Connect
-            </span>
-          </motion.div>
-
-          <h1 className="text-[2.2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent)]">Touch</span>
-          </h1>
-          <p className="mt-8 max-w-[500px] text-[1.1rem] font-medium leading-[1.7] text-white/70 sm:text-[1.25rem]">
-            Get in touch with Devsinn Technologies to discuss your next breakthrough digital product.
-          </p>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 lg:bottom-12"
-        >
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Scroll Down</span>
-          <motion.div
-            className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-white/20 p-1.5"
-          >
-            <motion.div
-              className="h-2 w-1.5 rounded-full bg-white/80"
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </motion.div>
-        </motion.div>
+          <circle cx="50" cy="50" r="40" />
+          <circle cx="50" cy="50" r="30" strokeDasharray="3 3" />
+          <circle cx="50" cy="50" r="20" />
+        </svg>
       </div>
+
+      {/* Main Content Container */}
+      <div className="relative z-10 mx-auto flex w-full max-w-[850px] flex-col items-center">
+        
+        {/* Availability / Eyebrow Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2">
+          <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+          <span className="text-[12px] font-semibold uppercase tracking-wider text-nearblack">
+            Let's Connect
+          </span>
+        </div>
+
+        {/* H1 Title */}
+        <h1
+          className="font-display text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[5rem]"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both",
+          }}
+        >
+          Get in <span className="text-teal">Touch</span>.
+        </h1>
+
+        {/* Subtitle */}
+        <p
+          className="body-text text-gray text-base mt-8 max-w-[600px] leading-relaxed"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both",
+          }}
+        >
+          Get in touch with Dev'sinn Technologies to discuss your next breakthrough digital product. Fill out the form below and we will respond within 1 business day.
+        </p>
+
+        {/* Scroll indicator (strictly themed) */}
+        <div
+          className="mt-12 flex flex-col items-center gap-2"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both",
+          }}
+        >
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray">Scroll Down</span>
+          <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-stone p-1.5">
+            <div
+              className="h-2 w-1.5 rounded-full bg-teal"
+              style={{
+                animation: "bounceDown 1.5s infinite ease-in-out",
+              }}
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes bounceDown {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(12px); }
+        }
+      `}} />
     </section>
   );
 }

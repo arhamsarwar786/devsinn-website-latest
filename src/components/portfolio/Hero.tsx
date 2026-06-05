@@ -1,115 +1,99 @@
-﻿"use client";
+"use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import { fadeInUp, staggerContainer } from "@/lib/motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] flex-col overflow-hidden bg-[var(--surface-0)] text-white">
-      {/* Deep Space Background Glows */}
-      <div className="absolute inset-0 bg-[var(--surface-0)]" />
+    <section className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden bg-offwhite px-5 pt-36 pb-20 sm:px-8 lg:px-10 lg:pt-44 lg:pb-28 xl:px-16 text-center">
+      {/* Background Decorative Rings (Strict warm stone/off-white colors only) */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-30 sm:h-[800px] sm:w-[800px]">
+        <svg
+          className="h-full w-full text-stone"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.1"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="50" cy="50" r="40" />
+          <circle cx="50" cy="50" r="30" strokeDasharray="3 3" />
+          <circle cx="50" cy="50" r="20" />
+        </svg>
+      </div>
 
-      {/* Animated Glowing Orbs */}
-      <motion.div
-        className="pointer-events-none absolute left-[50%] top-[30%] h-[1000px] w-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 60%)" }}
-        animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Main Content Container */}
+      <div className="relative z-10 mx-auto flex w-full max-w-[850px] flex-col items-center">
+        
+        {/* Availability / Eyebrow Badge */}
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2">
+          <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+          <span className="text-[12px] font-semibold uppercase tracking-wider text-nearblack">
+            Our Selected Work
+          </span>
+        </div>
 
-      {/* The Globe Background - Premium Animation */}
-      <motion.div
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
-      >
-        {/* Glow exactly under the globe */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[64%] top-[78%] h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px] bg-gradient-to-tr from-[var(--primary)] to-[var(--accent)] sm:left-[68%] sm:top-[70%] lg:left-[65%] lg:top-[50%] lg:h-[800px] lg:w-[800px]"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{
-            duration: 20, repeat: Infinity, ease: "easeInOut"
+        {/* H1 Title */}
+        <h1
+          className="font-display text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] xl:text-[5rem]"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) both",
           }}
-          className="absolute inset-0"
         >
-          <Image
-            src="/globe-premium.png"
-            alt="Digital globe background"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-100 brightness-110 contrast-125 mix-blend-screen drop-shadow-[0_0_50px_rgba(56,189,248,0.6)]"
-          />
-        </motion.div>
-      </motion.div>
+          Showcasing Excellence <br />
+          Through <span className="text-teal">Our Work</span>.
+        </h1>
 
-      {/* Cinematic Vignette Overlays */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[var(--surface-0)] via-[var(--surface-0)]/80 to-transparent lg:via-[var(--surface-0)]/60" />
-      <div className="pointer-events-none absolute inset-0 z-10 lg:bg-gradient-to-r lg:from-[var(--surface-0)] lg:via-[var(--surface-0)] lg:to-transparent lg:w-[55%]" />
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[var(--surface-0)] via-transparent to-[var(--surface-0)]/80" />
-
-      {/* Main Content */}
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-center px-5 pt-20 pb-10 sm:px-8 lg:px-10 xl:px-16">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={staggerContainer}
-          className="max-w-[820px]"
+        {/* Subtitle */}
+        <p
+          className="body-text text-gray text-base mt-8 max-w-[600px] leading-relaxed"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.15s both",
+          }}
         >
-          <motion.div variants={fadeInUp} className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-5 py-2.5 backdrop-blur-md">
-            <span className="text-[12px] font-extrabold uppercase tracking-[0.25em] text-[var(--primary)]">
-              Our Selected Work
+          We craft elegant, engaging, and responsive web and mobile applications engineered for high operations uptime and seamless user growth.
+        </p>
+
+        {/* Action Buttons */}
+        <div
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center justify-center w-full max-w-[480px]"
+          style={{
+            animation: "fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s both",
+          }}
+        >
+          <a
+            href="/pdf/Devsinn-Technologies-Portfolio.pdf"
+            download="Devsinn-Technologies-Portfolio.pdf"
+            className="btn-sweep sweep-primary bg-nearblack text-offwhite border border-nearblack font-semibold text-sm px-8 py-4 rounded-full w-full sm:w-auto text-center shrink-0 cursor-pointer shadow-sm"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Portfolio
             </span>
-          </motion.div>
+          </a>
 
-          <motion.h1
-            variants={fadeInUp}
-            className="text-[2.2rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.5rem]"
+          <Button
+            href="/contact"
+            variant="outline"
+            fullWidth
+            size="lg"
           >
-            Showcasing <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] via-[var(--accent)] to-[var(--accent)]">
-              Excellence Through
-            </span> <br />
-            Our Work
-          </motion.h1>
+            Get in Touch
+          </Button>
+        </div>
 
-          <motion.p
-            variants={fadeInUp}
-            className="mt-8 max-w-[600px] text-[1.1rem] leading-[1.7] text-white/70 sm:text-[1.25rem]"
-          >
-            We craft elegant, engaging, and responsive web and mobile applications engineered for the modern digital era.
-          </motion.p>
-
-          <motion.div variants={fadeInUp} className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href="/pdf/Devsinn-Technologies-Portfolio.pdf"
-              download="Devsinn-Technologies-Portfolio.pdf"
-              className="group relative w-full max-w-[248px] sm:w-auto sm:max-w-none cursor-pointer overflow-hidden rounded-full bg-white px-8 py-4 sm:px-10 shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary)]/10 via-[var(--primary)]/30 to-[var(--primary)]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <span className="relative text-[15px] font-bold text-[var(--surface-0)] transition-colors group-hover:text-[var(--surface-0)]">
-                Download Portfolio
-              </span>
-            </a>
-
-            <Button
-              href="/contact"
-              variant="outline"
-              fullWidth
-              className="max-w-[248px] hover:scale-[1.02] sm:max-w-[260px] lg:h-[56px] lg:rounded-full"
-            >
-              Get in Touch
-            </Button>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

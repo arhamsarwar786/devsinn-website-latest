@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -12,294 +12,259 @@ type ProjectDetailProps = {
 };
 
 export default function ProjectDetail({ project }: ProjectDetailProps) {
+  const isApp = project.categoryKey === "appDev";
+
   return (
-    <main className="bg-[var(--surface-0)] text-white overflow-hidden">
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-[var(--surface-1)] px-5 pb-16 pt-[138px] text-white sm:px-8 sm:pb-20 sm:pt-[154px] lg:px-10 lg:pb-24 lg:pt-[168px] xl:px-16 min-h-[100svh] flex flex-col justify-end">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="absolute inset-0"
-        >
-          {/* Blurred background layer to fill gaps */}
-          <Image
-            src={project.heroImage}
-            alt=""
-            fill
-            className="object-cover opacity-30 blur-[60px]"
-          />
-          {/* Main fitting image without weird blending */}
-          <Image
-            src={project.heroImage}
-            alt={project.title}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-60 mix-blend-overlay"
-          />
-        </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface-0)] via-[var(--surface-0)]/90 to-[var(--surface-0)]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.15),transparent_70%)]" />
+    <main className="bg-offwhite text-nearblack overflow-hidden">
+      
+      {/* ── 1. HERO SECTION (SPLIT EDITORIAL LAYOUT) ── */}
+      <section className="relative px-5 pt-36 pb-20 sm:px-8 sm:pt-40 sm:pb-24 lg:px-10 lg:pt-48 lg:pb-28 xl:px-16 bg-white border-b border-stone">
+        <div className="mx-auto w-full max-w-[1400px]">
+          
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center xl:gap-16">
+            
+            {/* Left Column: Summary and Copy */}
+            <div className="flex flex-col justify-center text-left lg:col-span-6 xl:col-span-5">
+              
+              {/* Category Badge */}
+              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-stone bg-offwhite px-4 py-2 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-teal animate-pulse" />
+                <span className="text-[12px] font-semibold uppercase tracking-wider text-nearblack">
+                  {project.categoryLabel}
+                </span>
+              </div>
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-8 lg:gap-12"
-        >
-          <motion.div variants={fadeInUp} className="inline-flex w-fit items-center gap-3 rounded-full border border-[var(--primary)]/30 bg-[var(--primary)]/10 px-5 py-2 text-[12px] font-extrabold uppercase tracking-[0.2em] text-[var(--primary)] backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--primary)] opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--primary)]"></span>
-            </span>
-            {project.categoryLabel}
-          </motion.div>
-
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end">
-            <div className="max-w-[720px]">
-              <motion.h1 variants={fadeInUp} className="text-[2rem] font-black leading-[1.0] tracking-[-0.04em] text-white sm:text-[3rem] lg:text-[4rem]">
+              {/* Title */}
+              <h1 className="font-display text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem] md:text-[4rem] lg:text-[4.5rem]">
                 {project.title}
-              </motion.h1>
-            </div>
+              </h1>
 
-            <motion.div variants={fadeInUp} className="max-w-[700px]">
-              <div className="relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)]/40 p-6 md:p-7 backdrop-blur-2xl">
-                <div className="relative z-10 flex flex-col gap-6">
-                  <p className="text-[1rem] leading-[1.6] text-white/80 font-medium tracking-tight">
-                    {project.about}
-                  </p>
+              {/* Description */}
+              <p className="body-text text-gray text-base mt-6 max-w-[500px] leading-relaxed">
+                {project.about}
+              </p>
 
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      href="/contact"
-                      className="group relative overflow-hidden inline-flex h-[56px] items-center justify-center rounded-2xl bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] px-10 text-[15px] font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] active:scale-[0.98]"
-                    >
-                      <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                      <span className="relative">Start a Similar Project</span>
-                    </Link>
-                    <Link
-                      href="/portfolio"
-                      className="inline-flex h-[56px] items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-10 text-[15px] font-bold text-white transition-all hover:bg-white/10 hover:border-[var(--primary)]/50 hover:text-[var(--primary)]"
-                    >
-                      Back to Portfolio
-                    </Link>
-                  </div>
+              {/* Metadata Panel */}
+              <div className="mt-8 grid grid-cols-2 gap-6 border-t border-stone pt-6 max-w-[420px]">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray">Deliverables</span>
+                  <p className="text-sm font-semibold text-nearblack mt-1">UX/UI, Engineering</p>
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray">Availability</span>
+                  <p className="text-sm font-semibold text-teal mt-1">Live Product</p>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
 
-      <SectionDivider />
+              {/* Action Buttons */}
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/contact"
+                  className="btn-sweep sweep-primary bg-nearblack text-offwhite border border-nearblack font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm"
+                >
+                  <span className="relative z-10">Start a Similar Project</span>
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="btn-sweep sweep-outline bg-transparent border border-nearblack text-nearblack font-semibold text-sm px-8 py-4 rounded-full transition-all hover:scale-[1.02] hover:bg-nearblack hover:text-offwhite cursor-pointer"
+                >
+                  <span className="relative z-10">Back to Portfolio</span>
+                </Link>
+              </div>
 
-      {/* STRATEGY & DESIGN SECTION */}
-      <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
-        {/* Decorative Orbs */}
-        <div className="pointer-events-none absolute left-[0%] top-[40%] h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.08)_0%,transparent_70%)] blur-[80px]" />
+            </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-20"
-        >
-          <motion.div variants={fadeInUp}>
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
-              About Project
-            </p>
-            <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
-              Crafted to feel polished, fast, and <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary)] to-[var(--accent)]">conversion-focused.</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            className="grid gap-6 sm:grid-cols-2"
-          >
-            <motion.article
-              variants={card3D}
-              whileHover="hover"
-              className="group relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
-            >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[var(--primary)]/0 to-[var(--primary)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--primary)]/10 group-hover:to-transparent group-hover:opacity-100" />
-              <h3 className="relative z-10 text-[1.6rem] font-bold tracking-[-0.03em] text-white">
-                Strategic Experience
-              </h3>
-              <p className="relative z-10 mt-4 text-[1.05rem] leading-[1.7] text-white/60">
-                Every section is designed to support clarity, trust, and a stronger user journey from first glance to final action.
-              </p>
-            </motion.article>
-            <motion.article
-              variants={card3D}
-              whileHover="hover"
-              className="group relative rounded-[2rem] border border-white/10 bg-[var(--surface-1)] p-8 transition-all duration-500 hover:border-white/20 shadow-xl"
-            >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-[var(--accent)]/0 to-[var(--accent)]/0 opacity-0 transition-opacity duration-500 group-hover:from-[var(--accent)]/10 group-hover:to-transparent group-hover:opacity-100" />
-              <h3 className="relative z-10 text-[1.6rem] font-bold tracking-[-0.03em] text-white">
-                Brand-Aligned Design
-              </h3>
-              <p className="relative z-10 mt-4 text-[1.05rem] leading-[1.7] text-white/60">
-                The visuals, messaging, and interface patterns are shaped to match the product identity while staying clean and easy to use.
-              </p>
-            </motion.article>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      <SectionDivider />
-
-      {/* SNEAK PEEK SECTION */}
-      <section className="relative px-5 py-20 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
-        {/* Soft Ambient Gloq */}
-        <div className="pointer-events-none absolute right-[10%] top-[40%] h-[700px] w-[700px] rounded-full bg-[radial-gradient(circle,rgba(192,132,252,0.08)_0%,transparent_70%)] blur-[100px]" />
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16"
-        >
-          <motion.div variants={fadeInUp} className="max-w-[720px]">
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--accent)]">
-              A Sneak Peek
-            </p>
-            <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
-              A closer look at the screens and moments that shape the product.
-            </h2>
-          </motion.div>
-
-          <motion.div
-            variants={staggerContainer}
-            className="flex flex-wrap justify-center gap-x-8 gap-y-16 lg:gap-x-12"
-            style={{ perspective: "2500px" }}
-          >
-            {project.sneakPeekImages.map((image, index) => (
-              <motion.article
-                key={`${project.slug}-${image}-${index}`}
-                variants={card3D}
-                whileHover="hover"
-                className={`group relative transition-all duration-500 ${project.categoryKey === "appDev" ? "w-[160px] sm:w-[200px] lg:w-[240px] aspect-[9/18]" : "w-full lg:w-[30%] aspect-video"}`}
-                style={{
-                  translateY: project.categoryKey === "appDev" ? (index % 2 === 0 ? "0px" : "60px") : "0px"
-                }}
-              >
-                {/* Enhanced Ambient Glow */}
-                {project.categoryKey === "appDev" && (
-                  <div className="absolute inset-x-0 -inset-y-6 bg-[var(--primary)]/10 blur-[80px] opacity-0 transition-opacity duration-1000 group-hover:opacity-100" />
-                )}
-
-                {/* Ultimate Phone Frame Mockup */}
-                {project.categoryKey === "appDev" ? (
-                  <div className="relative h-full w-full p-[3px] bg-[#1E293B] rounded-[2.8rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] overflow-hidden">
-                    {/* Metallic Outer Edge with subtle shine */}
-                    <div className="absolute inset-0 border-[1.5px] border-white/20 rounded-[2.8rem] pointer-events-none z-30" />
-                    
-                    {/* Screen Container */}
-                    <div className="relative h-full w-full overflow-hidden rounded-[2.6rem] bg-black">
-                       {/* Dynamic Island Notch */}
-                       <div className="absolute top-4 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-black rounded-full z-40 shadow-inner flex items-center justify-center">
-                          <div className="w-1 h-1 rounded-full bg-white/5 ml-7" />
-                       </div>
-                       
-                       <Image
-                        src={image}
-                        alt={`${project.title} preview ${index + 1}`}
+            {/* Right Column: High-fidelity Showcase Mockup */}
+            <div className="lg:col-span-6 xl:col-span-7 flex justify-center w-full">
+              {isApp ? (
+                /* App Mockup Layout */
+                <div className="relative flex justify-center items-center w-full max-w-[420px] aspect-[4/3] bg-stone/20 rounded-[2rem] p-8">
+                  <div className="absolute h-64 w-64 rounded-full bg-teal/5 blur-3xl pointer-events-none" />
+                  <div className="relative z-10 w-[200px] sm:w-[220px] aspect-[9/18] p-[3px] bg-nearblack rounded-[2.8rem] shadow-xl overflow-hidden border border-stone">
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.6rem] bg-nearblack">
+                      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-12 h-3 bg-black rounded-full z-40" />
+                      <Image
+                        src={project.mainImage}
+                        alt={project.title}
                         fill
-                        sizes="(max-width: 1023px) 50vw, 25vw"
-                        className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                        priority
+                        className="object-cover"
                       />
-                      
-                      {/* Premium Screen Reflection & Sweep */}
-                      <div className="absolute inset-0 z-10 bg-gradient-to-tr from-white/5 via-transparent to-white/10 opacity-60 pointer-events-none" />
-                      <motion.div 
-                        variants={{
-                          hover: { x: ["-100%", "200%"] }
-                        }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className="absolute inset-0 z-20 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 pointer-events-none"
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* Browser Mockup Layout */
+                <div className="relative w-full rounded-2xl border border-stone bg-white shadow-md overflow-hidden aspect-[4/3] group max-w-[620px]">
+                  {/* Browser top chrome */}
+                  <div className="h-8 border-b border-stone bg-offwhite flex items-center px-4 gap-1.5 shrink-0 select-none">
+                    <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-stone" />
+                  </div>
+                  {/* Scrolling screenshot frame */}
+                  <div className="relative w-full h-[calc(100%-2rem)] overflow-hidden bg-offwhite">
+                    <img
+                      src={`${project.mainImage}?v=9`}
+                      alt={`${project.title} screenshot`}
+                      className="absolute top-0 left-0 w-full h-auto transition-transform duration-[6000ms] ease-in-out group-hover:-translate-y-[58%]"
+                      style={{
+                        imageRendering: 'auto',
+                        transform: 'translate3d(0, 0, 0)',
+                        willChange: 'transform'
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 2. STRATEGY & EXPERIENCE SECTION ── */}
+      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden bg-white">
+        <SectionDivider />
+        <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-12 lg:gap-20">
+          
+          <div className="lg:col-span-5 text-left">
+            <p className="text-[12px] font-bold uppercase tracking-wider text-teal">
+              Core Focus
+            </p>
+            <h2 className="mt-4 text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem]">
+              Crafted for conversion, speed, and scale.
+            </h2>
+            <p className="body-text text-gray text-base mt-6 leading-relaxed">
+              Every detail is engineered with operations transparency and target business performance indicators in mind.
+            </p>
+          </div>
+
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            <article className="group rounded-[2rem] border border-stone bg-offwhite p-8 transition-all duration-300 hover:border-teal/50 text-left">
+              <h3 className="text-[1.4rem] font-bold tracking-tight text-nearblack">
+                Strategic UX Architecture
+              </h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-gray">
+                We layout and prototype clear navigation paths that build trust immediately and convert first-time users into active buyers.
+              </p>
+            </article>
+
+            <article className="group rounded-[2rem] border border-stone bg-offwhite p-8 transition-all duration-300 hover:border-teal/50 text-left">
+              <h3 className="text-[1.4rem] font-bold tracking-tight text-nearblack">
+                High Performance Engineering
+              </h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-gray">
+                Engineered with modular, clean code that loads immediately, operates without latency, and scales alongside your active audience.
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 3. SNEAK PEEK / WORKTHROUGH ── */}
+      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden bg-offwhite border-t border-b border-stone">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16">
+          
+          <div className="max-w-[720px] text-left">
+            <p className="text-[12px] font-bold uppercase tracking-wider text-teal">
+              Interface Walkthrough
+            </p>
+            <h2 className="mt-4 text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem]">
+              A closer look at the key screens.
+            </h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+            {project.sneakPeekImages.map((image, index) => (
+              <div
+                key={`${project.slug}-peek-${index}`}
+                className="w-full flex flex-col items-center"
+              >
+                {isApp ? (
+                  /* App Mockup Screens */
+                  <div className="relative w-[200px] aspect-[9/18] p-[3px] bg-nearblack rounded-[2.8rem] shadow-md border border-stone overflow-hidden group">
+                    <div className="relative h-full w-full overflow-hidden rounded-[2.6rem] bg-nearblack">
+                      <Image
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        fill
+                        sizes="200px"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     </div>
                   </div>
                 ) : (
-                  <div
-                    className="relative h-full w-full overflow-hidden rounded-[2.5rem] border border-white/10 bg-[var(--surface-1)] shadow-2xl"
-                  >
-                    <Image
-                      src={image}
-                      alt={`${project.title} preview ${index + 1}`}
-                      fill
-                      sizes="(max-width: 1023px) 100vw, 33vw"
-                      className="object-cover object-top opacity-90 transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom group-hover:opacity-100"
-                      style={{ transition: 'object-position 7s ease-in-out, opacity 0.5s ease-out' }}
-                    />
+                  /* Web/SaaS Screens */
+                  <div className="relative w-full aspect-[4/3] rounded-2xl border border-stone bg-white shadow-sm overflow-hidden group">
+                    <div className="h-8 border-b border-stone bg-offwhite flex items-center px-4 gap-1.5 shrink-0 select-none">
+                      <span className="h-2 w-2 rounded-full bg-stone" />
+                      <span className="h-2 w-2 rounded-full bg-stone" />
+                      <span className="h-2 w-2 rounded-full bg-stone" />
+                    </div>
+                    <div className="relative w-full h-[calc(100%-2rem)] overflow-hidden bg-offwhite">
+                      <Image
+                        src={image}
+                        alt={`${project.title} screenshot ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover object-top transition-[object-position] duration-[7000ms] ease-in-out group-hover:object-bottom"
+                      />
+                    </div>
                   </div>
                 )}
-
-                {/* Refined Minimalist Label */}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full text-center opacity-0 transition-all duration-700 group-hover:bottom-6 group-hover:opacity-100 z-50">
-                   <div className="inline-flex rounded-full border border-white/10 bg-black/40 px-6 py-2 backdrop-blur-2xl">
-                      <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/90">Screen {index + 1}</span>
-                   </div>
-                </div>
-              </motion.article>
+                
+                <span className="text-[11px] font-bold uppercase tracking-wider text-gray mt-4">
+                  Screen {index + 1}
+                </span>
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+
+        </div>
       </section>
 
-      <SectionDivider />
-
-      {/* TECHNOLOGIES SECTION */}
-      <section className="relative px-5 py-20 pb-40 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16"
-        >
-          <motion.div variants={fadeInUp} className="max-w-[720px] text-center mx-auto">
-            <p className="text-[12px] font-bold uppercase tracking-[0.24em] text-[var(--primary)]">
+      {/* ── 4. TECHNOLOGIES GRID ── */}
+      <section className="relative px-5 py-24 sm:px-8 sm:py-32 lg:px-10 xl:px-16 overflow-hidden bg-white">
+        <SectionDivider />
+        <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-16">
+          
+          <div className="max-w-[720px] text-center mx-auto">
+            <p className="text-[12px] font-bold uppercase tracking-wider text-teal">
               Technologies
             </p>
-            <h2 className="mt-4 text-[2.5rem] font-black leading-[1.05] tracking-[-0.04em] text-white sm:text-[3.5rem] lg:text-[4rem]">
+            <h2 className="mt-4 text-[2.5rem] font-bold leading-[1.1] tracking-tight text-nearblack sm:text-[3.5rem]">
               Tools behind the build.
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-          >
-            {project.technologies.map((technology) => (
-              <motion.article
-                key={`${project.slug}-${technology.name}`}
-                variants={card3D}
-                whileHover="hover"
-                className="group relative flex min-h-[164px] flex-col items-center justify-center rounded-[2rem] border border-white/10 bg-[var(--surface-1)] px-6 py-8 text-center transition-all duration-300 hover:border-[var(--primary)]/50 shadow-2xl"
+          <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 justify-items-center">
+            {project.technologies.map((tech) => (
+              <div
+                key={`${project.slug}-tech-${tech.name}`}
+                className="group flex flex-col items-center justify-center h-40 w-full rounded-2xl border border-stone bg-white p-6 shadow-sm transition-all duration-300 hover:border-teal/50 hover:shadow-md"
               >
-                <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-[var(--primary)]/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:from-[var(--primary)]/10 group-hover:opacity-100" />
-                <div className="relative z-10 flex h-[60px] w-[60px] items-center justify-center opacity-80 transition-opacity group-hover:opacity-100 filter brightness-200 contrast-[1.2]">
+                <div className="relative h-12 w-12 flex items-center justify-center">
                   <Image
-                    src={technology.logo}
-                    alt={technology.name}
+                    src={tech.logo}
+                    alt={tech.name}
                     fill
-                    sizes="60px"
-                    className="object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+                    sizes="48px"
+                    className="object-contain"
                   />
                 </div>
-                <p className="relative z-10 mt-5 text-[1.1rem] font-bold text-white group-hover:text-[var(--primary)] transition-colors duration-300">
-                  {technology.name}
+                <p className="mt-4 text-xs font-bold text-nearblack tracking-tight group-hover:text-teal transition-colors">
+                  {tech.name}
                 </p>
-              </motion.article>
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+
+        </div>
       </section>
+
     </main>
   );
 }
